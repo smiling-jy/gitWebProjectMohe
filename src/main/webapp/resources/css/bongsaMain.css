@@ -1,0 +1,118 @@
+/* 봉사 메인페이지 */
+
+/* 폰트설정 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.newFont{
+	font-family: 'GmarketSansMedium';
+}
+
+
+.centersetting{
+	text-align: center;
+}
+
+/* 지역 카테고리 정렬*/
+.bs-regeion{
+	position:relative;
+	padding-bottom: 50px;
+}
+
+.bs-regeion li{
+	position:relative;
+	display:inline-block;
+	line-height:30px;
+	margin-left:24px;
+	font-size:25px;
+	font-weight:300;
+}
+
+ .bs-regeion li:before{
+	content:'/';
+	position:absolute;
+	right:-24px;
+	width: 24px;
+	top:0px;
+	text-align:center;
+	line-height:30px;
+}
+
+.bs-regeion li:first-child{
+	margin-left:0px;	
+}
+
+.bs-regeion li:last-child:before{
+	display:none;	
+}
+
+.bs-regeion li a{
+	color:#000000;
+	transition:all 0.3s ease;
+	-moz-transition:all 0.3s ease;
+	-webkit-transition:all 0.3s ease;
+	-ms-transition:all 0.3s ease;
+	-o-transition:all 0.3s ease;
+}
+
+/* 지역 카테코리 줄넘김 방지 */
+/* .bs-regeion{
+	width: max-content;
+} */
+
+/* 지역별 카테고리 클릭 및 선택시 */
+.bs-regeion> li> a:hover{
+	color: #3cc88f;
+}
+
+/* 봉사 메인페이지 썸네일 정보 띄어쓰기 */
+
+/* 썸네일 모집자, 썸네일 모집인원, 모집성공 인원 */
+.bs-name, .bs-goal-cnt, .bs-success-cnt{
+	margin-left: 10px;
+}
+
+/* 썸네일 봉사 제목 */
+.bs-title{
+	font-weight: bold;
+
+}
+
+#bs-regeion-container{
+	text-align: center;
+}
+
+.bs-more{
+	text-align: center;
+	padding-bottom: 120px;
+}
+
+.bs-more-btn{
+	width: 150px;
+	height: 70px;
+	/* border-top-left-radius: 30%; */
+	font-size: 20px;
+	text-align: center;
+	background-color: rgb(254,74,43);
+	color: aliceblue;
+	border-radius: 25px;
+	
+
+
+	
+}
+
+.btn-style-one .btn-title{
+    background-color: rgb(254,74,43) !important; 
+}
+
+
+.btn-style-one .btn-title:before {
+    background-color: rgb(112,191,187) !important;
+}
+
+

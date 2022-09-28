@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="BoardDAO">
+  	<select id="getBoardList" parameterType="hashmap" resultType="board"> 
+  		select * 
+  		from board 
+  		<where>
+  			<!--
+  				${}와 #{}
+				*공통점 : mapper로 넘겨받은 데이터를 출력하는 방법(표현식)
+				데이터를 자동화 처리 한다는 것이 차이점
+				#{} : 문자 > '문자' / 숫자 > 숫자 : 알아서 처리를 해줍니다.
+				${} : 문자 > 문자 / 숫자 > 숫자로 표현
+				      ${} > ''싱글쿼터로 감싸야합니다.
+				      #{} > 문자면 싱글쿼터로 감싸서 표현됩니다.
+  			 -->
+  			<if test="searchKeyword != null">
+  				${searchCondition} like '%${searchKeyword}%'
+  			</if>
+  		</where>
+  		order by seq desc
+  	</select>
+  	
+  	<select id="getBoard" parameterType="board" resultType="board">
+  		select * from board where seq=#{seq}
+  	</select>
+  	
+  	<insert id="insertBoard" parameterType="board">
+  		insert into board(seq,title,writer,content,regdate,cnt) 
+  		values(board_seq.nextval,#{title},#{writer},#{content},sysdate,0)
+  	</insert>
+  	
+  	<delete id="deleteBoard" parameterType="board">
+  		delete from board where seq=#{seq}
+  	</delete>
+  	
+  	<update id="updateBoard" parameterType="board" >
+  		update board set title=#{title},content=#{content}, cnt = cnt - 1
+  		where seq=#{seq}
+  	</update>
+  	
+  	<update id="incReadCount" parameterType="board">
+  		update board set cnt= cnt + 1
+  		where seq=#{seq}
+  	</update>
+  	
+  </mapper>

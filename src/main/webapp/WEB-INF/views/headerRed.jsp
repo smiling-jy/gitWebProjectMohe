@@ -20,7 +20,7 @@
                 <div class="inner-container clearfix">
                     <!--Logo-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html" title="모해공지상세"><img style="top:20px;" src="images/mohe_logo/main_logo.png" LoveUs - Charity and Fundraising HTML Template" title="LoveUs - Charity and Fundraising HTML Template"></a></div>
+                        <div class="logo"><a href="index.html" title="모해공지상세"><img style="top:20px;" src="resources/images/mohe_logo/main_logo.png" LoveUs - Charity and Fundraising HTML Template" title="LoveUs - Charity and Fundraising HTML Template"></a></div>
                     </div>
                     
 
@@ -64,7 +64,7 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="mainPage.html" title=""><img src="images/mohe_logo/logo_garo_color_small.png" alt="" title=""></a>
+                    <a href="mainPage.html" title=""><img src="resources/images/mohe_logo/logo_garo_color_small.png" alt="" title=""></a>
                 </div>
                 <!--Right Col-->
                 <div class="pull-right">
@@ -82,7 +82,7 @@
             <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
             
             <nav class="menu-box">
-                <div class="nav-logo"><a href="mainPage.html"><img src="images/mohe_logo/main_logo.png" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="mainPage.html"><img src="resources/images/mohe_logo/main_logo.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
 				<!--Social Links-->
 				<div class="social-links">
@@ -128,6 +128,7 @@
             
         </div>
     </div>
+    <div style="height:50px"></div>
 </div>
 <!--End pagewrapper-->
 </body>

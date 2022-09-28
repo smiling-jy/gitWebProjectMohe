@@ -1,0 +1,59 @@
+/* 폰트설정 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.newFont{
+	font-family: 'GmarketSansMedium';
+}
+.centersetting{
+	text-align: center;
+}
+
+/* 사용자 프로필 사진 */
+.my_picture{
+	text-align: center;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.my-lazy-image{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #1a202f;
+}
+
+.supportormaker{
+	text-align: center;
+}
+.supporter {
+	width: 50%;
+	padding: 10px;
+	border-radius: 20%;
+
+}
+.maker{
+
+	width: 50%;
+	padding: 10px;
+	border-radius: 20%;
+	background-color: cadetblue;
+}
+
+/* 유저 네임 글씨체 */
+
+.userName{
+	font-family: 'GmarketSansMedium';
+}
+
+
+
+
+
+#recruiting-list, #recruited-list{
+	font-size: x-large;
+}
