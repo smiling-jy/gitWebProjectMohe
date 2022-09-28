@@ -1,0 +1,9 @@
+ /* header 배경색 수정 */
+ .main-header .header-upper .logo-box .logo:before{
+    background: #ffffff;
+}
+
+.main-header .header-upper .logo-box .logo{
+    background:#ffffff;
+}
+/* 배경색 수정 끝 */

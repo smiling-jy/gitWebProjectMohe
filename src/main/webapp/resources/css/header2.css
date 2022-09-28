@@ -1,0 +1,12 @@
+ /* header 배경색 수정 */
+ .main-header .header-upper .logo-box .logo:before{
+    background: rgb(254,74,43);
+}
+
+.main-header .header-upper .logo-box .logo{
+    background: rgb(254,74,43);
+}
+.img-fix2{
+    top:40px;
+}
+/* 배경색 수정 끝 */

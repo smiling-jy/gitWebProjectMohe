@@ -1,0 +1,4 @@
+rgb(254,74,43)    : RED
+rgb(112,191,187)    : MINT
+rgb(37,40,58) : naybi   #25283a
+#ffcbcb :분홍
