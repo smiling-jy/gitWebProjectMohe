@@ -1,0 +1,74 @@
+/* 봉사 활동 상세페이지  */
+
+/* 폰트설정 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.newFont{
+	font-family: 'GmarketSansMedium';
+}
+
+/* 카테고리 폰트변경 */
+.dropdown{
+	font-family: 'GmarketSansMedium';
+}
+
+.bs-detail-name{
+	padding-top: 90px;
+	/* padding-bottom: 50px; */
+	
+}
+
+.bs-detail-name> h1{
+	text-align: center;
+}
+
+#new-side{
+	top: 0;
+	
+}
+
+li> span{
+	color: #000000;
+}
+
+
+/* 배너사이즈 변경 */
+.page-banner{
+    padding-top: 70px;
+	padding-bottom: 70px;
+	text-align: center;
+
+}
+/* 봉사세부 배너 색상 변경 */
+#page-banner{
+    background-color: #6c757d;
+}
+/* 세부내용 10px 띄어쓰기 */
+.bs-name, .bs-work-start, .bs-place, .bs-supply, .bs-phone, .bs-email {
+	margin-left: 10px;
+}
+
+/* 사이드바 고정 */
+/* .sidebar-side{
+	position:fixed; 
+    width:400px;
+    display:inline-block;
+	top: 52%;
+	right: 15%;
+}  */
+
+
+
+.btn-style-one .btn-title {
+    background-color: rgb(254,74,43) !important; 
+}
+
+
+.btn-style-one .btn-title:before {
+    background-color: rgb(112,191,187) !important;
+}

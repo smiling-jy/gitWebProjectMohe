@@ -1,0 +1,37 @@
+/*봉사활동 참가자 리스트*/
+
+/* 폰트설정 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.newFont{
+	font-family: 'GmarketSansMedium';
+}
+.centersetting{
+	text-align: center;
+}
+
+
+
+/* 글자색 변경 */
+.manage-bser-name, .manage-bser-phone, .manage-bser-email{
+	color: black;
+}
+/* 봉사활동 참가자리스트 패딩 넣기 */
+.cart-header>tr>th>h3{
+	padding: 30px;
+}
+
+
+/* #list-banner{
+    height: 70px;
+    padding: 0;
+} */
+
+
+
+

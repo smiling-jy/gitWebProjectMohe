@@ -1,0 +1,50 @@
+/* 봉사활동 참여하기 */
+/* 폰트설정 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.newFont{
+	font-family: 'GmarketSansMedium';
+}
+.centersetting{
+	text-align: center;
+}
+.page-banner{
+	height: 100px;
+}
+
+
+/* 폼 가운데 정렬 */
+.open-pj-form{
+	margin: auto;
+}
+/* 모집하기 버튼 가운데 정렬 */
+.form-group{
+	text-align: center;
+}
+
+
+/* 모집하기 헤더 */
+.recuruit-header{
+	padding-bottom: 80px;
+
+}
+
+/* 모집하기 버튼 폭 변경 */
+#recruite-btn{
+	width: 100%;
+}
+
+
+.btn-style-one .btn-title{
+    background-color: rgb(254,74,43) !important; 
+}
+
+
+.btn-style-one .btn-title:before {
+    background-color: rgb(112,191,187) !important;
+}

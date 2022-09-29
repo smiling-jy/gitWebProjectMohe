@@ -1,0 +1,16 @@
+ /* header 배경색 수정 */
+ .main-header .header-upper .logo-box .logo:before{
+    background: rgb(112,191,187) ;
+}
+
+.main-header .header-upper .logo-box .logo{
+    background: rgb(112,191,187) ;
+}
+.btn-style-one .btn-title{
+	background-color: rgb(112,191,187);
+}
+
+.btn-style-one .btn-title:before{
+	background-color: #25283a;	
+}
+/* 배경색 수정 끝 */
