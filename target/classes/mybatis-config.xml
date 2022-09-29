@@ -7,4 +7,5 @@
 	<typeAliases>
 		<typeAlias type="com.project.mohe.domain.BoardVO" alias="board"/>
 	</typeAliases>
+	
 </configuration>
