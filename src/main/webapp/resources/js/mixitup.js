@@ -71,13 +71,13 @@
 			},
 
 			layout: {
-				display: 'inline-block',
+				display: 'block',
 				containerClass: '',
 				containerClassFail: 'fail'
 			},
 			
 			load: {
-				filter: 'all',
+				filter: '.mix-1',
 				sort: false
 			},
 			

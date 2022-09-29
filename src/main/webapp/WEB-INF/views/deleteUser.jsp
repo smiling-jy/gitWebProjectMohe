@@ -44,11 +44,7 @@
 		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
-					<h1 class="text text-large">로그인</h1>
-					<p class="text text-normal">
-						처음 오셨나요? <span><label class="" for="agree-terms"><a
-								href="/signup" target="_blank">가입하기</a></label></span>
-					</p>
+					<h1 class="text-large">회원 탈퇴</h1>
 				</div>
 				<form name="signin" class="form">
 					<div class="input-control">
@@ -61,38 +57,15 @@
 							type="password" name="password" id="password" class="input-field"
 							placeholder="비밀번호">
 					</div>
-					<div class="input-control">
-						<label class="" for="agree-terms"><a href="/find/account"
-							target="_blank">로그인 정보를 잊으셨나요?</a></label>
+					<div class="input-control" style="justify-content: end">
 						<div class="donate-link">
 							<a href="donate.html" class="theme-btn btn-style-one"> <span
-								class="btn-title text-center">로그인</span>
+								class="btn-title text-center">회원 탈퇴</span>
 							</a>
 						</div>
 					</div>
 				</form>
-				<div class="striped">
-					<span class="striped-line"></span> <span class="striped-text">Or</span>
-					<span class="striped-line"></span>
-				</div>
-				<div class="method">
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="fab fa-brands fa-google" style="color: red"></i> <span
-							style="margin-left: 0.3rem;">구글로 로그인</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="ion ion-logo-facebook"></i> <span>카카오로 로그인</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="ion ion-logo-apple"></i> <span>네이버로 로그인</span>
-						</a>
-					</div>
-				</div>
+			
 			</section>
 		</div>
 	</main>
