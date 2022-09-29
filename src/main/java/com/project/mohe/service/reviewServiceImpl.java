@@ -25,7 +25,7 @@ public class reviewServiceImpl implements reviewService{
 	public void updateReview(BoardVO vo) {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 	@Override
 	public void deleteReview(BoardVO vo) {

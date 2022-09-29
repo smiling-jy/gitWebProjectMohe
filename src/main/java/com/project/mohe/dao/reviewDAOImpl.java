@@ -20,7 +20,7 @@ public class reviewDAOImpl implements reviewDAO {
 	public void updateReview(BoardVO vo) {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 	@Override
 	public void deleteReview(BoardVO vo) {

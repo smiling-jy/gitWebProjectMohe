@@ -26,11 +26,11 @@ public class partnerServiceImpl implements partnerService {
 		// TODO Auto-generated method stub
 		
 	}
-
+  
 	@Override
 	public void deletePartner(BoardVO vo) {
 		// TODO Auto-generated method stub
-		
+		 
 	}
 
 	@Override

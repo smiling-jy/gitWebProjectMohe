@@ -22,3 +22,4 @@ public interface noticeService {
 		// 글 목록 조회
 		List<BoardVO> getNoticeList(HashMap map);
 }
+ 

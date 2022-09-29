@@ -14,7 +14,7 @@ public class noticeDAOImpl implements noticeDAO {
 	public void insertNotice(BoardVO vo) {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 	@Override
 	public void updateNotice(BoardVO vo) {

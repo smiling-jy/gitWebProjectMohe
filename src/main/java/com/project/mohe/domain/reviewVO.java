@@ -11,7 +11,7 @@ public class reviewVO {
 	private Date review_date;
 	private int user_no;
 	private String user_name;
-	
+	 
 	
 	public int getReview_no() {
 		return review_no;

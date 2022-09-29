@@ -12,7 +12,7 @@ public interface partnerDAO {
 				
 		// 글 수정
 		void updatePartner(BoardVO vo);
-			
+			 
 		// 글 삭제
 		void deletePartner(BoardVO vo);
 			

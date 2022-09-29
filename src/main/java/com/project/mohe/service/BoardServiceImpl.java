@@ -20,7 +20,7 @@ public class BoardServiceImpl implements BoardService{
 	public String timeTest() {
 		return boardDAO.timeTest();
 	}
-
+ 
 	@Override
 	public void insertBoard(BoardVO vo) {
 		

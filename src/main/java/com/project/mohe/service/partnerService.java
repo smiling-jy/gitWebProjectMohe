@@ -18,7 +18,7 @@ public interface partnerService {
 				
 		// 글 상세 조회
 		BoardVO getPartner(BoardVO vo);
-				
+				 
 		// 글 목록 조회
 		List<BoardVO> getPartnerList(HashMap map);
 }

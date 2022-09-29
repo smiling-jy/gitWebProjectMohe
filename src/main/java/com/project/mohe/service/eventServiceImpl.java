@@ -25,7 +25,7 @@ public class eventServiceImpl implements eventService {
 	@Override
 	public void updateEvent(BoardVO vo) {
 		// TODO Auto-generated method stub
-		
+		 
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public interface reviewDAO {
 		
 	// 글 삭제
 	void deleteReview(BoardVO vo);
-		
+		 
 	// 글 조회수 증가
 	void incReadCount(BoardVO vo);
 		

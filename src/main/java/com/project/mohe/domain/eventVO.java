@@ -8,7 +8,7 @@ public class eventVO {
 	private String event_text;
 	private String event_img;
 	
-	
+	 
 	
 	public int getEvent_no() {
 		return event_no;

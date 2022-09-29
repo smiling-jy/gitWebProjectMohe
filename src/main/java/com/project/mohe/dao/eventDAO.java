@@ -11,7 +11,7 @@ public interface eventDAO {
 		void insertEvent(BoardVO vo);
 				
 		// 글 수정
-		void updateEvent(BoardVO vo);
+		void updateEvent(BoardVO vo); 
 			
 		// 글 삭제
 		void deleteEvent(BoardVO vo);

@@ -16,7 +16,7 @@ public class eventDAOImpl implements eventDAO {
 		
 	}
 
-	@Override
+	@Override 
 	public void updateEvent(BoardVO vo) {
 		// TODO Auto-generated method stub
 		

@@ -7,7 +7,7 @@ import com.project.mohe.domain.BoardVO;
 
 
 public interface BoardService {
-
+ 
 	// 테스트용
 	String timeTest();
 	

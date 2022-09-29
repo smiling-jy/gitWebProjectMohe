@@ -15,7 +15,7 @@ public interface eventService {
 			
 	// 글 삭제
 	void deleteEvent(BoardVO vo);
-			
+			 
 	// 글 상세 조회
 	BoardVO getEvent(BoardVO vo);
 			

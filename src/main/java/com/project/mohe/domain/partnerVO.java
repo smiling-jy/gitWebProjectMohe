@@ -7,7 +7,7 @@ public class partnerVO {
 	private String partner_logo;
 	private String partner_url;
 	
-	
+	 
 	
 	public int getPartner_no() {
 		return partner_no;

@@ -14,7 +14,7 @@ public interface noticeDAO {
 				
 		// 글 수정
 		void updateNotice(BoardVO vo);
-			
+			 
 		// 글 삭제
 		void deleteNotice(BoardVO vo);
 			

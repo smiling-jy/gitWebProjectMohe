@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 public class noticeVO {
-	
+	 
 	private int notice_no;
 	private int adm_no;
 	private String notice_title;

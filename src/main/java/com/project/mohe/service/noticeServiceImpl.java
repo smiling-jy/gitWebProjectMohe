@@ -25,7 +25,7 @@ public class noticeServiceImpl implements noticeService{
 	public void updateNotice(BoardVO vo) {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 	@Override
 	public void deleteNotice(BoardVO vo) {
