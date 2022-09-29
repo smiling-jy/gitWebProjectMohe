@@ -10,20 +10,17 @@
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 <!-- Stylesheets -->
-<link href="resources/bootstrap.css" rel="stylesheet">
-<link href="resources/style.css" rel="stylesheet">
+<link href="resources/css/bootstrap.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 <!-- Responsive File -->
-<link href="resources/responsive.css" rel="stylesheet">
+<link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
-<link href="resources/color.css" rel="stylesheet">
+<link href="resources/css/color.css" rel="stylesheet">
 <!-- 수정한 css-->
-<link href="resources/funding.css" rel="stylesheet">
+<link href="resources/css/funding.css" rel="stylesheet">
 <link href="resources/css/header3.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/mainPage.css" rel="stylesheet">
-<!-- 모달 css-->
-<link href="resources/css/modal.css" rel="stylesheet">
-
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,10 +59,9 @@
 		<!--Donate Section-->
 		<section class="donate-section ">
 			<!--Form Column-->
-			<div
-				class="form-column col-lg-6 col-md-12 col-sm-12 new-font open-pj-form">
+			<div class="form-column col-lg-6 col-md-12 col-sm-12 new-font open-pj-form">
 				<div class="donate-form">
-					<div>
+					<div class="center">
 						<h1>프로젝트 주최하기</h1>
 					</div>
 					<form method="post" action="contact.html">
@@ -112,6 +108,7 @@
 						</div>
 					</form>
 				</div>
+			</div>	
 		</section>
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
