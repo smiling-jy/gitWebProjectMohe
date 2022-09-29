@@ -8,5 +8,6 @@
 </head>
 <body>
 	hello mohe
+	<a href="main.do">메인으로 가기</a>
 </body>
 </html>
