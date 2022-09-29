@@ -9,5 +9,6 @@
 <body>
 	hello mohe
 	<a href="main.do">메인으로 가기</a>
+	여기는 임시 페이지에요!
 </body>
 </html>
