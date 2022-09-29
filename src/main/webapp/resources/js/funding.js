@@ -8,11 +8,16 @@ $(window).scroll(function() {
   }
   });
 
-document.querySelector("#close").addEventListener("click", close);
+$("#close").click(function() {
+	$(".background").removeClass("show")
+})
 
-function close() {
-    document.querySelector(".background").className = "background";
-}
+
+//document.querySelector("#close").addEventListener("click", close);
+//
+//function close() {
+//    document.querySelector(".background").className = "background";
+//}
 
 
 // 왜 안대 ㅠ

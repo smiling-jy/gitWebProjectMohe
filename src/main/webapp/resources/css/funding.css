@@ -199,10 +199,17 @@ ul.new-font{
 
 /* 펀딩 결제 페이지 */
 
+.center{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
 /* 결제폼 */
 .pay-form{
     position: absolute;
     left: 30%;
+    padding-top: 20px;
+    padding-bottom: 120px;
 }
 
 .pay-form span{
@@ -222,6 +229,13 @@ ul.new-font{
 .pay-form div input[type=text]{
     width: 400px;
 
+}
+
+.pay-btn{
+	position:absolute;
+	bottom:50px;
+	left: 43%
+	
 }
 
 
@@ -301,8 +315,8 @@ td .new-btn{
 }
 
 
-
 /* 모달 */
+
 .background {
     position: fixed;
     top: 0;

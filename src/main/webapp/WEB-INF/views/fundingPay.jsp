@@ -105,9 +105,7 @@
 												<span>상세주소</span><br /> <input type="text" name="#" required>
 											</div>
 										</div>
-									</div>
-									<div class="link-box">
-										<button type="button" class="theme-btn btn-style-one cart-btn">
+										<button type="button" class="theme-btn btn-style-one cart-btn pay-btn">
 											<span class="btn-title new-btn-title">펀딩하기</span>
 										</button>
 									</div>
