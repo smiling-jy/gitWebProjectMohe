@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.mohe.dao.EventDAO;
-import com.project.mohe.domain.EventVO;
+import com.project.mohe.dao.Funding_cartDAO;
 import com.project.mohe.domain.Funding_cartVO;
 
 @Service("Funding_cartService")
 public class Funding_cartServiceImpl implements Funding_cartService {
+	
+	@Autowired
+	private Funding_cartDAO funding_cartDAO;
 
 	@Override
 	public void insertFunding_cart(Funding_cartVO vo) {

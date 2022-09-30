@@ -7,42 +7,42 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
-import com.project.mohe.domain.Funding_qnaVO;
 
 
-@Repository("funding_qnaDAO")
-public class Funding_qnaDAOImpl implements Funding_qnaDAO {
+@Repository("adminDAO")
+public class AdminDAOImpl implements AdminDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public void insertFunding_qna(Funding_qnaVO vo) {
+	public void insertAdmin(AdminVO vo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateFunding_qna(Funding_qnaVO vo) {
+	public void updateAdmin(AdminVO vo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteFunding_qna(Funding_qnaVO vo) {
+	public void deleteAdmin(AdminVO vo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Funding_qnaVO getFunding_qna(Funding_qnaVO vo) {
+	public EventVO getAdmin(EventVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Funding_qnaVO> getFunding_qnaList(HashMap map) {
+	public List<AdminVO> getAdminList(HashMap map) {
 		// TODO Auto-generated method stub
 		return null;
 	}

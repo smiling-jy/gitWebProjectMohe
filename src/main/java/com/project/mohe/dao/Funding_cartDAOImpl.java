@@ -11,7 +11,7 @@ import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_cartVO;
 
 
-@Repository("eventDAO")
+@Repository("funding_cartDAO")
 public class Funding_cartDAOImpl implements Funding_cartDAO {
 
 	@Autowired
