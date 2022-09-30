@@ -171,7 +171,13 @@
          <artifactId>commons-fileupload</artifactId>
          <version>1.3</version>
       </dependency>
-      
+     <!-- Lombok 롬북 : VO에있는 변수들의 setter,getter,tostring 메소드까지 자동으로 생성해주는 기능 -->
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.12</version>
+         <scope>provided</scope>
+      </dependency>  
 	</dependencies>
     <build>
         <plugins>
