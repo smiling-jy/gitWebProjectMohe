@@ -33,9 +33,9 @@
 
 <!--  미지씨 바디태그가 없어서 넣었는데, include하면 에러나...-->
 <body>
+	<div class="container">
+		<main class="main">
 
-	<main class="main">
-		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
 					<h1 class="text text-large">로그인</h1>
@@ -88,7 +88,8 @@
 					</div>
 				</div>
 			</section>
-		</div>
-	</main>
+
+		</main>
+	</div>
 </body>
 </html>
