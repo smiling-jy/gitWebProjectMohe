@@ -22,5 +22,5 @@ public class BongsaVO {
 	private String bs_email;
 	private int bs_img_cnt;
 	private String bs_img_name;
-
+	private int bs_read_cnt;
 }

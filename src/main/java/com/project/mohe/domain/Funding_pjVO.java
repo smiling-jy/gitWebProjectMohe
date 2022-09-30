@@ -21,6 +21,7 @@ public class Funding_pjVO {
 	private int fd_img_cnt;
 	private String fd_img_name;
 	private String fd_satatus;
+	private int fd_read_cnt;
 
 	
 }
