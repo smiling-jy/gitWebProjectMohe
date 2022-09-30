@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.mohe.service.BoardService;
 
 @Controller
 public class MainController {
@@ -13,7 +12,7 @@ public class MainController {
 	// 메소드명() {..}
 	
 	@Autowired
-	private BoardService boardService;
+//	private BoardService boardService;
 
 	
 	@RequestMapping("{step}.do")
