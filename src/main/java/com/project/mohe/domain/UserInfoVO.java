@@ -2,7 +2,7 @@ package com.project.mohe.domain;
 import lombok.Data;
 
 @Data
-public class UserVO {
+public class UserInfoVO {
 	private int user_no;
 	private String user_name;
 	private String user_phone;

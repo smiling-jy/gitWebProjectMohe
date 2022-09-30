@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.mohe.dao.EventDAO;
-import com.project.mohe.domain.EventVO;
+import com.project.mohe.dao.Funding_qnaDAO;
 import com.project.mohe.domain.Funding_qnaVO;
 
 @Service("eventService")
 public class Funding_qnaServiceImpl implements Funding_qnaService {
+	
+	@Autowired
+	private Funding_qnaDAO funding_qnaDAO;
 
 	@Override
 	public void insertFunding_qna(Funding_qnaVO vo) {

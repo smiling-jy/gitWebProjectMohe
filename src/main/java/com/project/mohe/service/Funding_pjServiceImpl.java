@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.mohe.dao.EventDAO;
-import com.project.mohe.domain.EventVO;
+import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.domain.Funding_pjVO;
 
 @Service("eventService")
 public class Funding_pjServiceImpl implements Funding_pjService {
+	
+	@Autowired
+	private Funding_pjDAO funding_pjDAO;
 
 	@Override
 	public void insertFunding_pj(Funding_pjVO vo) {

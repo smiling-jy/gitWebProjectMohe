@@ -3,13 +3,18 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.NoticeVO;
 
-@Repository("NoticeDAO")
+@Repository("noticeDAO")
 public class NoticeDAOImpl implements NoticeDAO {
 
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
 	@Override
 	public void insertNotice(NoticeVO vo) {
 		// TODO Auto-generated method stub
