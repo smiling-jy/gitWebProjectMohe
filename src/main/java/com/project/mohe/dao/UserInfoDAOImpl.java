@@ -9,42 +9,44 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.UserInfoVO;
 
 
-@Repository("adminDAO")
-public class AdminDAOImpl implements AdminDAO {
+@Repository("userInfoDAO")
+public class UserInfoDAOImpl implements UserInfoDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
+
+	@Override
+	public void insertUserInfo(UserInfoVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateUserInfo(UserInfoVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteUserInfo(UserInfoVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserInfoVO getUserInfo(UserInfoVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserInfoVO> getUserInfoList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	@Override
-	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public AdminVO getAdmin(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

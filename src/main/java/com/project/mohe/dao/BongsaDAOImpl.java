@@ -8,43 +8,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.EventVO;
 
 
-@Repository("adminDAO")
-public class AdminDAOImpl implements AdminDAO {
+@Repository("bongsaDAO")
+public class BongsaDAOImpl implements BongsaDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
+
+	@Override
+	public void insertBongsa(BongsaVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateBongsa(BongsaVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteBongsa(BongsaVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public BongsaVO getBongsa(BongsaVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BongsaVO> getBongsaList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	@Override
-	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public AdminVO getAdmin(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

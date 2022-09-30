@@ -9,42 +9,44 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.VolunteerVO;
 
 
-@Repository("adminDAO")
-public class AdminDAOImpl implements AdminDAO {
+@Repository("volunteerDAO")
+public class VolunteerDAOImpl implements VolunteerDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
+
+	@Override
+	public void insertVolunteer(VolunteerVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVolunteer(VolunteerVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteVolunteer(VolunteerVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public VolunteerVO getVolunteer(VolunteerVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<VolunteerVO> getVolunteerList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	@Override
-	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public AdminVO getAdmin(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

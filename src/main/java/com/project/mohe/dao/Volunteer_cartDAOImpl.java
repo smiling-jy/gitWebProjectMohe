@@ -9,42 +9,44 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Volunteer_cartVO;
 
 
-@Repository("adminDAO")
-public class AdminDAOImpl implements AdminDAO {
+@Repository("volunteer_cartDAO")
+public class Volunteer_cartDAOImpl implements Volunteer_cartDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
+
+	@Override
+	public void insertVolunteer_cart(Volunteer_cartVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVolunteer_cart(Volunteer_cartVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteVolunteer_cart(Volunteer_cartVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Volunteer_cartVO getVolunteer_cart(Volunteer_cartVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Volunteer_cartVO> getVolunteer_cartList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	@Override
-	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public AdminVO getAdmin(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
