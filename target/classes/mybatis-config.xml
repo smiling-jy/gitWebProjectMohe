@@ -5,6 +5,6 @@
 	
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.project.mohe.domain.BoardVO" alias="board"/>
+		<typeAlias type="com.project.mohe.domain.EventVO" alias="event"/>
 	</typeAliases>
 </configuration>
