@@ -3,6 +3,8 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.domain.PartnerVO;
@@ -10,6 +12,9 @@ import com.project.mohe.domain.PartnerVO;
 @Repository("partnerDAO")
 public class PartnerDAOImpl implements PartnerDAO{
 
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
 	@Override
 	public void insertPartner(PartnerVO vo) {
 		// TODO Auto-generated method stub
