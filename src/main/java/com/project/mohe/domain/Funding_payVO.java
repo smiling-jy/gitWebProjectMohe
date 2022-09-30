@@ -14,7 +14,7 @@ public class Funding_payVO {
 	private int pay_count;
 	private int pay_total;
 	private String pay_pn_name;
-	private int pay_pn_num;
+	private String pay_pn_phone;
 	private String pay_pn_email;
 	private String pay_pn_addr;
 	private Date pay_date;

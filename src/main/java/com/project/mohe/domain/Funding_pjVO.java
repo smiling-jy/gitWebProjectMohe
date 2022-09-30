@@ -16,7 +16,7 @@ public class Funding_pjVO {
 	private Date fd_startdate;
 	private Date fd_enddate;
 	private String fd_hostname;
-	private int fd_host_num;
+	private String fd_host_phone;
 	private String fd_host_email;
 	private int fd_img_cnt;
 	private String fd_img_name;
