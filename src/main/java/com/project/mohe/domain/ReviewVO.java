@@ -13,5 +13,6 @@ public class ReviewVO {
 	private Date review_date;
 	private int user_no;
 	private String user_name;
+	private int review_readcnt;
 	
 }
