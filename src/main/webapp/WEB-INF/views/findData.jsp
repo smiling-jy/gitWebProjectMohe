@@ -9,7 +9,7 @@
 <link href="resources/css/login.css" rel="stylesheet">
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/mohe.checkout.css" rel="stylesheet">
+<link href="resources/css/style2.css" rel="stylesheet">
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->

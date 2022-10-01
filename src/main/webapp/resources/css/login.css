@@ -59,7 +59,6 @@ button {
 
 img {
   display: block;
-  width: 100%;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
@@ -243,4 +242,18 @@ img {
 }
 .margin-auto {
   margin: auto;
+}
+
+.gallery-page-section {
+	    background: var(--color-light);
+    background-image: ;
+    background-position-x: ;
+    background-position-y: ;
+    background-size: ;
+    background-repeat-x: ;
+    background-repeat-y: ;
+    background-attachment: ;
+    background-origin: ;
+    background-clip: ;
+    background-color: ;
 }
