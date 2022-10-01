@@ -4,12 +4,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>MOHE 회원가입</title>
+<title>MOHE 마이모해</title>
 <!-- Stylesheets -->
 <link href="resources/css/login.css" rel="stylesheet">
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/mohe.checkout.css" rel="stylesheet">
+<link href="resources/css/style2.css" rel="stylesheet">
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
@@ -33,9 +33,14 @@
 
 <body>
 
-	<main class="main">
+	<div class="page-wrapper">
+		<!-- Preloader -->
+
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
+
+		<!-- Gallery Page Section -->
+		<main class="main gallery-page-section" style="padding: 0">
 
 		<div class="container">
 			<section class="wrapper">
@@ -114,8 +119,12 @@
 			</section>
 		</div>
 	</main>
-	<!-- footer include -->
-	<jsp:include page="footer.jsp" />
+
+
+		<!-- End Gallery Page Section -->
+		<!-- footer include -->
+		<jsp:include page="footer.jsp" />
+	</div>
 	<!--End pagewrapper-->
 
 	<!--Scroll to top-->
@@ -127,8 +136,8 @@
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/jquery-ui.js"></script>
-	<script src="resources/js/jquery.bootstrap-touchspin.js"></script>
 	<script src="resources/js/jquery.fancybox.js"></script>
+	<script src="resources/js/mixitup.js"></script>
 	<script src="resources/js/owl.js"></script>
 	<script src="resources/js/appear.js"></script>
 	<script src="resources/js/wow.js"></script>
