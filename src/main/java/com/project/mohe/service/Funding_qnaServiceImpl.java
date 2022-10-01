@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.project.mohe.dao.Funding_qnaDAO;
 import com.project.mohe.domain.Funding_qnaVO;
 
-@Service("eventService")
+@Service("Funding_qnaService")
 public class Funding_qnaServiceImpl implements Funding_qnaService {
 	
 	@Autowired

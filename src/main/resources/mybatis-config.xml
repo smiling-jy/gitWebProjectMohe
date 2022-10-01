@@ -18,6 +18,6 @@
 		<typeAlias type="com.project.mohe.domain.ReviewVO" alias="review"/>
 		<typeAlias type="com.project.mohe.domain.UserInfoVO" alias="userInfo"/>
 		<typeAlias type="com.project.mohe.domain.Volunteer_cartVO" alias="volunteer_cart"/>
-		<typeAlias type="com.project.mohe.domain.VolunteerVo" alias="Volunteer"/>
+		<typeAlias type="com.project.mohe.domain.VolunteerVO" alias="Volunteer"/>
 	</typeAliases>
 </configuration>
