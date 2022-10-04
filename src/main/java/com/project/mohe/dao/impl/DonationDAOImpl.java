@@ -21,7 +21,9 @@ public class DonationDAOImpl implements DonationDAO {
 
 	@Override
 	public void insertDonation(DonationVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("donation insert 접근");
+		mybatis.insert("DonationDAO.insertDonation",vo);
+		System.out.println("donation insert 완료");
 		
 	}
 

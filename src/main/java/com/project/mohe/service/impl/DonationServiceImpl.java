@@ -19,7 +19,7 @@ public class DonationServiceImpl implements DonationService {
 
 	@Override
 	public void insertDonation(DonationVO vo) {
-		// TODO Auto-generated method stub
+		donationDao.insertDonation(vo);
 		
 	}
 
