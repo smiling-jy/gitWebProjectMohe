@@ -41,12 +41,10 @@
 
 		<!-- Gallery Page Section -->
 		<main class="main gallery-page-section" style="padding: 0">
-
 		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
-					<h1 class="text text-large">회원가입</h1>
-					<span class="text text-normal">모해에 가입해 기부와 펀딩을 이용해 보세요 </span>
+					<h1 class="text-large">회원 탈퇴</h1>
 				</div>
 				<form name="signin" class="form">
 					<div class="input-control">
@@ -59,63 +57,15 @@
 							type="password" name="password" id="password" class="input-field"
 							placeholder="비밀번호">
 					</div>
-					<div class="input-control">
-						<label for="password_check" class="input-label" hidden>비밀번호
-							확인</label> <input type="password_check" name="password_check"
-							id="password_check" class="input-field" placeholder="비밀번호 확인">
-					</div>
-					<div class="input-control">
-						<label for="name" class="input-label" hidden>이름</label> <input
-							type="name" name="name" id="name" class="input-field"
-							placeholder="이름">
-					</div>
-					<div class="input-control">
-						<label for="phone" class="input-label" hidden>핸드폰 번호</label> <input
-							type="phone" name="phone" id="phone" class="input-field"
-							placeholder="핸드폰 번호">
-					</div>
-					<div class="my-4">
-						<div class="custom-control custom-checkbox mb-3">
-							<input type="checkbox" class="custom-control-input"
-								id="agree-terms" name="agree-terms"> <label
-								class="custom-control-label" for="agree-terms"><a
-								href="/service/terms" target="_blank">이용약관</a> 동의 </label>
+					<div class="input-control" style="justify-content: end">
+						<div class="donate-link">
+							<a href="donate.html" class="theme-btn btn-style-one"> <span
+								class="btn-title text-center">회원 탈퇴</span>
+							</a>
 						</div>
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="privacy-terms" name="privacy-terms"> <label
-								class="custom-control-label" for="privacy-terms"><a
-								href="/privacy/policy" target="_blank">개인정보 취급방침</a> 동의 </label>
-						</div>
-					</div>
-					<div class="donate-link">
-						<a href="donate.html" class="theme-btn btn-style-one btn-block">
-							<span class="btn-title text-center">회원가입</span>
-						</a>
 					</div>
 				</form>
-				<div class="striped">
-					<span class="striped-line"></span> <span class="striped-text">Or</span>
-					<span class="striped-line"></span>
-				</div>
-				<div class="method">
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="fab fa-brands fa-google" style="color: red"></i> <span
-							style="margin-left: 0.3rem;">구글로 회원가입</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="ion ion-logo-facebook"></i> <span>카카오로 회원가입</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="ion ion-logo-apple"></i> <span>네이버로 회원가입</span>
-						</a>
-					</div>
-				</div>
+			
 			</section>
 		</div>
 	</main>

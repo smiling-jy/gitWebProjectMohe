@@ -11,7 +11,7 @@ public class MainController {
 	// @requestMapping(value = "주소")
 	// 메소드명() {..}
 	
-	@Autowired
+//	@Autowired
 //	private BoardService boardService;
 
 	

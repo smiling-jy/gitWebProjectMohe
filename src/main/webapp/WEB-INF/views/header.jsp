@@ -44,7 +44,7 @@
 									id="navbarSupportedContent">
 									<ul class="navigation clearfix" style="margin-right: 60px">
 										<li><a href="infopage1.html"><h4>소개</h4></a></li>
-										<li><a href="causes.html"><h4>펀딩</h4></a></li>
+										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="donate.html"><h4>봉사</h4></a></li>
 										<li class="dropdown"><a href="blog.html"><h4>더보기</h4></a>
 											<ul>

@@ -4,12 +4,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>MOHE 로그인</title>
+<title>MOHE 마이모해</title>
 <!-- Stylesheets -->
 <link href="resources/css/login.css" rel="stylesheet">
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/mohe.checkout.css" rel="stylesheet">
+<link href="resources/css/style2.css" rel="stylesheet">
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
@@ -31,10 +31,16 @@
 <link href="resources/css/maingPage.css" rel="stylesheet">
 </head>
 
-<!--  미지씨 바디태그가 없어서 넣었는데, include하면 에러나...-->
 <body>
 
-	<main class="main">
+	<div class="page-wrapper">
+		<!-- Preloader -->
+
+		<!-- header include -->
+		<jsp:include page="header.jsp" />
+
+		<!-- Gallery Page Section -->
+		<main class="main gallery-page-section" style="padding: 0">
 		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
@@ -90,5 +96,31 @@
 			</section>
 		</div>
 	</main>
+
+
+		<!-- End Gallery Page Section -->
+		<!-- footer include -->
+		<jsp:include page="footer.jsp" />
+	</div>
+	<!--End pagewrapper-->
+
+	<!--Scroll to top-->
+	<div class="scroll-to-top scroll-to-target" data-target="html">
+		<span class="flaticon-up-arrow"></span>
+	</div>
+
+	<script src="resources/js/jquery.js"></script>
+	<script src="resources/js/popper.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="resources/js/jquery.fancybox.js"></script>
+	<script src="resources/js/mixitup.js"></script>
+	<script src="resources/js/owl.js"></script>
+	<script src="resources/js/appear.js"></script>
+	<script src="resources/js/wow.js"></script>
+	<script src="resources/js/lazyload.js"></script>
+	<script src="resources/js/scrollbar.js"></script>
+	<script src="resources/js/script.js"></script>
+
 </body>
 </html>

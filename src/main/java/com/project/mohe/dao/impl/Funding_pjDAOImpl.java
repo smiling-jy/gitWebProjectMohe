@@ -37,15 +37,14 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	}
 
 	@Override
-	public EventVO getFunding_pj(Funding_pjVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Funding_pjVO getFunding_pj(Funding_pjVO vo) {
+		
+		return mybatis.selectOne("Funding_pjDAO.getFunding_pj", vo);
 	}
 
 	@Override
 	public List<Funding_pjVO> getFunding_pjList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("Funding_pjDAO.getFunding_pjList", map);
 	}
 
 

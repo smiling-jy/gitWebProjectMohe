@@ -64,37 +64,50 @@
 					<div class="center">
 						<h1>프로젝트 주최하기</h1>
 					</div>
-					<form method="post" action="contact.html">
-						<span>프로젝트 카테고리</span><br /> <select>
+					<form method="post" action="savefunding.do">
+						<span>프로젝트 카테고리</span><br />
+						<select name="fd_category">
 							<option>디자인문구</option>
 							<option>식품</option>
 							<option>패션잡화</option>
 							<option>홈 리빙</option>
 							<option>반려동물</option>
-						</select> <span>프로젝트 제목</span><br /> <input type="text" name="#" required>
+						</select>
+						
+						<span>프로젝트 제목</span><br />
+						<input type="text" name="fd_title" required>
 
 						<span>프로젝트 소개</span><br />
-						<textarea></textarea>
+						<textarea name="fd_content"></textarea>
 
-						<span>후원 대상</span><br /> <input type="text" name="#" required>
+						<span>후원 대상</span><br />
+						<input type="text" name="fd_receiver" required>
 
-						<span>상품 금액</span><br /> <input type="text" name="#" required>
+						<span>상품 금액</span><br />
+						<input type="text" name="fd_price" required>
 
-						<span>목표 금액</span><br /> <input type="text" name="#" required>
+						<span>목표 금액</span><br />
+						<input type="text" name="fd_goals" required>
 
-						<span>프로젝트 시작일</span><br /> <input type="date" name="#" required><br />
+						<span>프로젝트 시작일</span><br />
+						<input type="date" name="fd_startdate" required><br />
 
-						<span>프로젝트 종료일</span><br /> <input type="date" name="#" required><br />
+						<span>프로젝트 종료일</span><br />
+						<input type="date" name="fd_enddate" required><br />
 
-						<span>창작자(상호)</span><br /> <input type="text" name="#" required>
+						<span>창작자(상호)</span><br />
+						<input type="text" name="fd_hostname" required>
 
-						<span>창작자 연락처</span><br /> <input type="text" name="#" required>
+						<span>창작자 연락처</span><br />
+						<input type="text" name="fd_host_phone" required>
 
-						<span>창작자 이메일</span><br /> <input type="text" name="#" required>
+						<span>창작자 이메일</span><br />
+						<input type="text" name="fd_host_email" required>
 
 						<span>프로젝트 소개 첨부파일</span>
-						<button class="new-btn">첨부파일 등록하기</button>
-						<br /> <span>첨부파일 목록</span>
+						<input type="file" class="new-btn" value="첨부파일 등록하기"><br />
+						
+						<span>첨부파일 목록</span>
 
 						<div></div>
 						<br />
