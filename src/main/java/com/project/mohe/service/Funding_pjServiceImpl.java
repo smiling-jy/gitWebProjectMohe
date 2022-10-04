@@ -1,4 +1,4 @@
-package com.project.mohe.service.impl;
+package com.project.mohe.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.domain.Funding_pjVO;
-import com.project.mohe.service.Funding_pjService;
 
 @Service("eventService")
 public class Funding_pjServiceImpl implements Funding_pjService {
