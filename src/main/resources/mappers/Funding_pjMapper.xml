@@ -7,11 +7,11 @@
 	<!-- 목록보기 -->
   	<select id="getFunding_pjList" parameterType="hashmap" resultType="funding_pj">
   		select *, to_char(pj.fd_enddate-sysdate , ddd) remain_day , trunc(pay.sum(pay_total)/pj.fd_goals)*100 rate
-  		from funding_pj pj , (select pay_fd_no, sum(pay_total) pay_total 
-  								from funding_pay
-  						  	group by pay_fd_no) pay
-  		where pj.fd_no = pay.pay_fd_no
-  		  and fd_satatus = '진행중'
+  		  from funding_pj pj , (select pay_fd_no, sum(pay_total) pay_total 
+  								  from funding_pay
+  						  	  group by pay_fd_no) pay
+  		 where pj.fd_no = pay.pay_fd_no
+  		   and fd_satatus = '진행중'
   		  <![CDATA[and pj.fd_startdate <= sysdate]]>
   		  <![CDATA[and pj.fd_enddate > sysdate]]>
   		<if test="fd_category != null">
@@ -30,7 +30,26 @@
   	
   	<!-- 상세페이지 -->
   	<select id="getFunding_pj" parameterType="funding_pj" resultType="funding_pj">
-  		select *, to_char(pj.fd_enddate-sysdate , ddd) remain_day, trunc(pay.sum(pay_total)/pj.fd_goals)*100 rate ,  
+  		select *, to_char(pj.fd_enddate-sysdate , ddd) remain_day , trunc(pay.sum(pay_total)/pj.fd_goals)*100 rate
+  		  from funding_pj pj , (select pay_fd_no, sum(pay_total) pay_total , count(user_no) total_people
+  								from funding_pay
+  						  	group by pay_fd_no) pay
+  		 where pj.fd_no = pay.pay_fd_no
+  		   and pj.fd_no = #{fd_no}
   	</select>
+  	
+  	<!-- 조회수 증가 -->
+  	<update id="upCount" parameterType="funding_pj">
+  		update funding_pj
+  		   set fd_read_cnt = fd_read_cnt+1
+  		 where fd_no = #{fd_no}
+  	</update>
+  	
+  	<!-- 관리자가 펀딩 프로젝트 승인 -->
+  	<update id="updateFunding_pj" parameterType="funding_pj">
+  		update funding_pj
+  		   set fd_satatus = '진행중'
+  		 where fd_no = #{fd_no}
+  	</update>
   	
   </mapper>

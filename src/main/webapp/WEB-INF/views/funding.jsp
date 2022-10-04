@@ -63,7 +63,7 @@
 					</button>
 					<select name="select">
 						<option value="fd_no">최신순</option>
-						<option value="pay_total">인기순</option>
+						<option value="fd_read_cnt">인기순</option>
 					</select>
 				</form>
 			</div>
