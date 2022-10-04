@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +29,22 @@
 <link href="resources/css/mainPage.css" rel="stylesheet">
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
+<style>
+.table_div::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+.table_div::-webkit-scrollbar-thumb {
+    height: 20%; /* 스크롤바의 길이 */
+    background: #ff6b70; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+}
+
+.table_div::-webkit-scrollbar-track {
+    background: rgba(255, 107, 112, .2);  /*스크롤바 뒷 배경 색상*/
+}
+</style>
 </head>
 
 <body>
@@ -487,7 +504,7 @@
 										<h2 class="color_white">기부하기</h2>
 										<div class="text">당신의 기부가 누군가에겐 한 줄기 빛으로 다가옵니다</div>
 										<div class="link-box">
-											<a href="donate.html" class="theme-btn btn-style-three"><span
+											<a href="donate.do" class="theme-btn btn-style-three"><span
 												class="btn-title">Donate</span></a>
 										</div>
 									</div>
@@ -497,28 +514,14 @@
 								<div class="inner">
 									<div class="row clearfix">
 										<div class="image wow fadeInDown" data-wow-delay="0ms">
-											<div class="table_div">
+											<div class="table_div" style="height:300px; overflow:auto;">
 												<table class="donate_table_style">
-													<tr>
-														<td>이**</td>
-														<td>30,000원</td>
-													</tr>
-													<tr>
-														<td>신**</td>
-														<td>430,000원</td>
-													</tr>
-													<tr>
-														<td>김**</td>
-														<td>50,000원</td>
-													</tr>
-													<tr>
-														<td>박**</td>
-														<td>10,000원</td>
-													</tr>
-													<tr>
-														<td>하**</td>
-														<td>100,000원</td>
-													</tr>
+													<c:forEach items="${donation}" var="dnt">
+														<tr>
+															<td>${dnt.dnt_name}</td>
+															<td>${dnt.dnt_amount}</td>
+														</tr>
+													</c:forEach>
 												</table>
 											</div>
 										</div>
@@ -528,6 +531,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
 
 		<!-- 웹 사이트 수치 표기 섹션 -->
@@ -999,5 +1003,14 @@
 					});
 		};
 	</script>
+	<!-- 	<script> -->
+	// $(function(){ // $('.dropdown_show').hover(function(){ //
+	$('.dropdown_show ul').first().css({ // "position":" relative", //
+	"z-index":"2", // }); // }); // });
+
+
+	<!-- 	</script> -->
+
+
 </body>
 </html>
