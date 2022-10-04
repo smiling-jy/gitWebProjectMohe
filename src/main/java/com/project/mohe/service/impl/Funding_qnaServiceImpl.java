@@ -1,4 +1,4 @@
-package com.project.mohe.service;
+package com.project.mohe.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.Funding_qnaDAO;
 import com.project.mohe.domain.Funding_qnaVO;
+import com.project.mohe.service.Funding_qnaService;
 
 @Service("Funding_qnaService")
 public class Funding_qnaServiceImpl implements Funding_qnaService {
