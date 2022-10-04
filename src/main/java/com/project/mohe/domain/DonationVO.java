@@ -7,7 +7,8 @@ public class DonationVO {
 	private String dnt_name;
 	private String dnt_phone;
 	private String dnt_amount;
-	private String dnt_receipt;
+	private String dnt_email;
 	private String dnt_indate;
+	private String dnt_pay_type;
 	
 }
