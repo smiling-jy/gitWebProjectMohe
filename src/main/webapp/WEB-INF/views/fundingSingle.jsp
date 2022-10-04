@@ -74,14 +74,14 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="70%">
-												<div class="count-text">70%</div>
+											<div class="bar-inner count-bar" data-percent="${pj.rate}%">
+												<div class="count-text">${pj.rate}%</div>
 											</div>
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>현재금액</strong> 6,000원</span> <span
-											class="goal"><strong>목표금액:</strong> 8,000원</span>
+										<span class="raised"><strong>현재금액</strong> ${pj.pay_total}</span> <span
+											class="goal"><strong>목표금액:</strong> ${pj.fd_goals}</span>
 									</div>
 								</div>
 								<!-- 첨부파일 영역 -->
@@ -102,18 +102,12 @@
 						<aside class="sidebar" id="new-side">
 							<!-- Search -->
 							<div class="sidebar-widget new-font">
-								<h5>
-									모인금액
-									<h5>
-										<h1>00000000원</h1>
-										<h5>
-											남은시간
-											<h5>
-												<h1>00일</h1>
-												<h5>
-													참여자
-													<h5>
-														<h1>000명</h1>
+								<h5>모인금액<h5>
+								<h1>${pj.pay_total}원</h1>
+								<h5>남은시간<h5>
+								<h1>${pj.remain_day}일</h1>
+								<h5>참여자<h5>
+								<h1>${pj.total_people}명</h1>
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">

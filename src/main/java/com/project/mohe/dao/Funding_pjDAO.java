@@ -18,7 +18,7 @@ public interface Funding_pjDAO {
 		void deleteFunding_pj(Funding_pjVO vo);
 			
 		// 글 상세 조회
-		EventVO getFunding_pj(Funding_pjVO vo);
+		Funding_pjVO getFunding_pj(Funding_pjVO vo);
 			
 		// 글 목록 조회
 		List<Funding_pjVO> getFunding_pjList(HashMap map);
