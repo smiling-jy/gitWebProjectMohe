@@ -5,13 +5,15 @@
   
   <mapper namespace="Funding_pjDAO">
 	<!-- 목록보기 -->
-  	<select id="getFunding_pjList" parameterType="hashmap" resultType="funding_pj">
-  		select *, to_char(pj.fd_enddate-sysdate , ddd) remain_day , trunc(pay.sum(pay_total)/pj.fd_goals)*100 rate
-  		  from funding_pj pj , (select pay_fd_no, sum(pay_total) pay_total 
-  								  from funding_pay
-  						  	  group by pay_fd_no) pay
-  		 where pj.fd_no = pay.pay_fd_no
-  		   and fd_satatus = '진행중'
+  	<select id="getFunding_pjList" parameterType="map" resultType="funding_pj">
+  		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0)
+       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+		  from funding_pj pj , (select fd_no , sum(pay_total) total_sum 
+                        		  from funding_pay
+                    		  group by fd_no) pay
+  		 where pj.fd_no = pay.fd_no(+)
+  		   and pj.fd_satatus = '진행중'
   		  <![CDATA[and pj.fd_startdate <= sysdate]]>
   		  <![CDATA[and pj.fd_enddate > sysdate]]>
   		<if test="fd_category != null">
@@ -30,11 +32,13 @@
   	
   	<!-- 상세페이지 -->
   	<select id="getFunding_pj" parameterType="funding_pj" resultType="funding_pj">
-  		select *, to_char(pj.fd_enddate-sysdate , ddd) remain_day , trunc(pay.sum(pay_total)/pj.fd_goals)*100 rate
-  		  from funding_pj pj , (select pay_fd_no, sum(pay_total) pay_total , count(user_no) total_people
-  								from funding_pay
-  						  	group by pay_fd_no) pay
-  		 where pj.fd_no = pay.pay_fd_no
+  		select pj.fd_no , pj.fd_goals , pj.fd_title , pay.total_sum , pay.total_people
+       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+		  from funding_pj pj , (select fd_no , nvl(sum(pay_total),0) total_sum, count(user_no) total_people
+                        		  from funding_pay
+                    		  group by fd_no) pay
+  		 where pj.fd_no = pay.fd_no(+)
   		   and pj.fd_no = #{fd_no}
   	</select>
   	

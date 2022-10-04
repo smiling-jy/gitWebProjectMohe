@@ -43,7 +43,7 @@
 		<div class="sidebar-page-container">
 			<div class="page-banner no-banner">
 				<div class="auto-container new-font">
-					<h1>${pj.title}</h1>
+					<h1>${pj.fd_title}</h1>
 					<ul class="bread-crumb clearfix new-font info-qna">
 						<li class="active">소개</li>
 						<li><a href="fundingQna.do?fd_no=${pj.fd_no}">문의</a></li>
@@ -75,7 +75,7 @@
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>현재금액</strong> ${pj.pay_total}</span> <span
+										<span class="raised"><strong>현재금액</strong> ${pj.total_sum}</span> <span
 											class="goal"><strong>목표금액:</strong> ${pj.fd_goals}</span>
 									</div>
 								</div>
@@ -96,7 +96,7 @@
 							<!-- Search -->
 							<div class="sidebar-widget new-font">
 								<h5>모인금액</h5>
-								<h1>${pj.pay_total}원</h1>
+								<h1>${pj.total_sum}원</h1>
 								<h5>남은시간</h5>
 								<h1>${pj.remain_day}일</h1>
 								<h5>참여자</h5>
@@ -104,7 +104,7 @@
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">
-								<a href="fundingPay.html"
+								<a href="fundingPay.do"
 									class="theme-btn btn-style-one link-box"><span
 									class="btn-title new-font new-btn-title">펀딩하기</span></a>
 								<button class="funding-btn" id="jjim">♥</button>

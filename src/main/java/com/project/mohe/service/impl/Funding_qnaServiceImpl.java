@@ -41,9 +41,8 @@ public class Funding_qnaServiceImpl implements Funding_qnaService {
 	}
 
 	@Override
-	public List<Funding_qnaVO> getFunding_qnaList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo) {
+		return funding_qnaDAO.getFunding_qnaList(vo);
 	}
 	
 
