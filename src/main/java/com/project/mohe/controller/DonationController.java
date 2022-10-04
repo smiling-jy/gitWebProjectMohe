@@ -15,14 +15,19 @@ public class DonationController {
 	
 	// 기부 데이터 등록 
 	@RequestMapping("insertDonation.do")
-	public void insertDonation(DonationVO vo) {
+	public String insertDonation(DonationVO vo) {
+		boolean result = true;
 		// 결제가 완료되면 데이터를 저장하러 들어옴
-		
-		System.out.println(vo.toString());
-		
 		donationService.insertDonation(vo);
 		// 작업을 마치면 기부페이지로 이동
-//		return "redirect:/donate.do";
+		
+		if(result) {
+			// 결제와, db insert 모두 문제가 없다면
+			return "redirect:/donate.do?result="+result;
+		}else {
+			return "redirect:/donate.do";
+		}
 	}
+
 	
 }

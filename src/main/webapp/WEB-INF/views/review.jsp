@@ -59,12 +59,18 @@
 			<div id="new-search-box" style="margin-left: 1070px;">
 				<input type="search" name="search-field" value="" placeholder="검색"
 					required>
+				
 			</div>
 			<div class="auto-container">
+			
+			
+			<!-- 후기 작성 임시 링크 !! 나중에 마이페이지에서 제대로 이어주기 (10.04 영민) -->
+					<br>
+					<a href="reviewInsertForm.do">[ 후기작성하기 ]</a>
+					<br>
 
 				<div class="row clearfix">
-
-
+					
 					<!--Event Block-->
 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">

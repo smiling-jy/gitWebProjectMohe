@@ -4,8 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>LoveUs - Charity and Fundraising HTML Template | Make
-	Donation</title>
+<title>모해 MOHE | 기부하기</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -33,6 +32,7 @@
 </head>
 
 <body>
+
 
 	<div class="page-wrapper">
 		<!-- header include -->
@@ -274,6 +274,11 @@
 				// hidden 값에 적용
 				$('#dnt_amount').val(inputPay);
 			});
+			
+			<%if(request.getParameter("result") != null){%>
+				// 기부를 정상적으로 완료했다면
+				alert("기부가 완료되었습니다.");
+			<%}%>
 		});
 	</script>
 </body>

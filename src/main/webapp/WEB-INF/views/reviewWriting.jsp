@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>MOHE 마이모해</title>
+<title>모해 MOHE | 마이 모해 -후기 작성</title>
 <!-- Stylesheets -->
 <link rel="shortcut icon"
    href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
@@ -37,22 +37,21 @@
                   <h1 class="text text-large ">후기작성</h1>
 
                </div>
-               <form name="signin" class="form">
-                  <div class="input-control">
-                     <input type="text" name="text" id="text" class="input-field"
+               <form action="reviewInsert.do" name="insertReview" class="form">
+                 
+                     <input type="text" name="review_title" id="text" class="input-field"
                          placeholder="제목을 입력해주세요">
-                  </div>
-                  <div class="input-control">
-                     <textarea type="text" name="text" id="text" class="input-field"
+                  
+                  	<input type="text" name="user_name" id="text" class="input-field"
+                         placeholder="이름을 입력해주세요">
+                  
+                     <textarea type="text" name="review_text" id="text" class="input-field"
                         placeholder="본문을 입력해주세요" rows="5"></textarea>
-                  </div>
-                  <div class="input-control">
+              
+                
                      <div class="donate-link">
-                        <a href="donate.html" class="theme-btn btn-style-one"> <span
-                           class="btn-title text-center">작성하기</span>
-                        </a>
-                     </div>
-                  </div>
+                        <input type="submit" class="theme-btn btn-style-one btn-title text-center" value="작성하기">
+                      </div>
                </form>
             </section>
          </div>

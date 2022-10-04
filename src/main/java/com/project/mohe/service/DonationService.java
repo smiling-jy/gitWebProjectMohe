@@ -20,5 +20,5 @@ public interface DonationService {
 	DonationVO getDonation(DonationVO vo);
 			
 	// 글 목록 조회
-	List<DonationVO> getDonationList(HashMap map);
+	List<DonationVO> getDonationList();
 }

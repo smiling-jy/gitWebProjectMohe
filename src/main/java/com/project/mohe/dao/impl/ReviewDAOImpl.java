@@ -18,7 +18,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	@Override
 	public void insertReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("ReviewDAO.insertReview",vo);
 		
 	}
 
