@@ -42,9 +42,8 @@ public class DonationServiceImpl implements DonationService {
 	}
 
 	@Override
-	public List<DonationVO> getDonationList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DonationVO> getDonationList() {
+		return donationDao.getDonationList();
 	}
 	
 }

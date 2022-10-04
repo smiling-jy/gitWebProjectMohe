@@ -23,10 +23,8 @@
 						<!--Logo-->
 						<div class="logo-box">
 							<div class="logo">
-								<a href="mainPage.html" title="MOHE"><img style="top: 40px;"
-									src="resources/images/mohe_logo/logo_garo_color_big.png"
-									alt="LoveUs - Charity and Fundraising HTML Template"
-									title="LoveUs - Charity and Fundraising HTML Template"></a>
+								<a href="main.do" title="MOHE"><img style="top: 40px;"
+									src="resources/images/mohe_logo/logo_garo_color_big.png"></a>
 							</div>
 						</div>
 
@@ -43,17 +41,18 @@
 								<div class="collapse navbar-collapse show clearfix"
 									id="navbarSupportedContent">
 									<ul class="navigation clearfix" style="margin-right: 60px">
-										<li><a href="infopage1.html"><h4>소개</h4></a></li>
+										<li><a href="info1.do"><h4>소개</h4></a></li>
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
-										<li><a href="donate.html"><h4>봉사</h4></a></li>
-										<li class="dropdown"><a href="blog.html"><h4>더보기</h4></a>
+										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
+										<li class="dropdown dropdown_show"><a href="blog.html"><h4>더보기</h4></a>
 											<ul>
 												<li><a href="blog.html">이벤트</a></li>
 												<li><a href="blog.html">후기 모아보기</a></li>
 												<li><a href="blog.html">공지사항</a></li>
 												<li><a href="blog.html">문의하기 (Q&A)</a></li>
 												<li><a href="blog.html">파트너</a></li>
-											</ul></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 							</nav>
@@ -61,7 +60,7 @@
 
 							<div class="link-box clearfix">
 								<div class="donate-link">
-									<a href="donate.html" class="theme-btn btn-style-one"><span
+									<a href="donate.do" class="theme-btn btn-style-one"><span
 										class="btn-title">Login</span></a>
 								</div>
 							</div>
@@ -76,7 +75,7 @@
 				<div class="auto-container clearfix">
 					<!--Logo-->
 					<div class="logo pull-left">
-						<a href="mainPage.html" title=""><img
+						<a href="main.do" title=""><img
 							src="resources/images/mohe_logo/logo_garo_color_small.png" alt=""
 							title=""></a>
 					</div>
@@ -101,7 +100,7 @@
 
 				<nav class="menu-box">
 					<div class="nav-logo">
-						<a href="mainPage.html"><img
+						<a href="main.do"><img
 							src="resources/images/mohe_logo/main_logo.png" alt="" title=""></a>
 					</div>
 					<div class="menu-outer">
