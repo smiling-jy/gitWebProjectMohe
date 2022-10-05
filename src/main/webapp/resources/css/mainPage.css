@@ -1,0 +1,169 @@
+
+    @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    li h4{
+        font-family: 'GmarketSansMedium';
+    }
+    h1{
+        font-family: 'GmarketSansMedium';
+    }
+    .slid_fix{
+        height:600px;
+    }
+    .slid_innerText_fix{
+        top:-150px;
+    }
+    .content-box h2{
+        font-family: 'GmarketSansMedium';
+        text-align: left;
+        margin-left:70px;
+        margin-top:130px;
+        position:relative;
+        z-index:2;
+    }
+    .sec-title div,h2,h3{
+        font-family: 'GmarketSansMedium';
+    }
+    .donate_list_div{
+        width:400px;
+    }
+    .donate_section{
+        background-color:rgb(250,190,170);
+        height:350px;
+        padding:0px; 
+        margin-top:70px
+    }
+    .donate_div img{
+        margin:0 auto;
+        margin-left:50px;
+        width:1400px;
+        height:350px;
+        position:absolute;
+        z-index:0;
+    }
+    .color_white{
+        color:white;
+    }
+    .donate_table_style{
+        margin:20px;
+    }
+    .donate_table_style td{
+        width:150px;
+        height:45px;
+        font-family: 'GmarketSansMedium';
+        color:rgba(255, 255, 255, 0.808);
+    }
+    .donate_table_style td:nth-child(2){
+        text-align: right;
+    }
+    .table_div{
+        margin-top:35px;
+        margin-left:250px;
+        width:350px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding:10px;
+    }
+    .donate_price input::placeholder{
+        text-align: right;
+        color:rgb(145, 144, 144);
+    }
+
+    .block_back{
+        border: 1px solid rgb(215, 215, 215);
+        border-radius: 30px;
+        padding:30px;
+        margin-left:30px;
+    }
+    .what_div{
+        margin-bottom:100px;
+    }
+
+    .maker_div{
+        width:200px;
+    }
+
+    .mint_banner{
+        background-color: rgb(112,191,187);
+    }
+
+    #Partner_text{
+        /* border:1px solid black; */
+        width:150px;
+        margin-top:50px;
+        position:absolute;
+        z-index:2;
+        background-color: white;
+    }
+    #main_Partner_div{
+        height:200px;
+        width:1500px;
+        margin-top:5px;
+        margin-left:100px;
+        margin-bottom:50px;
+        position: relative;
+        /* border:1px solid black; */
+        overflow: hidden;
+    }
+    #main_Partner_div a{
+        font-family: 'GmarketSansMedium';
+    }
+    #main_Partner_div h2{
+        display: inline-block;
+        width:150px;
+        /* border:1px solid black; */
+    }
+    
+    #rotation_partner_div{
+        width:2100px;
+        height:200px;
+        position: absolute;
+        margin-left:0px;
+        z-index:1;
+        top:-70px;
+        left:150px;
+    }
+    #rotation_partner_div img{
+        width:300px;
+    }
+    #partner_section{
+        height:200px;
+        width:1400px;
+        margin:0 auto;
+    }
+    .service_fix{
+        margin-left:300px;
+        background-color: rgb(255,255,255,0.5);
+    }
+    .service_fix2{
+        background-color: rgb(255,255,255,0.5);
+    }
+    .btn_fix{
+        font-family: 'GmarketSansMedium';
+    }
+    .donate_benner_section{
+        width:1300px;
+        height:300px;
+        margin:0 auto;
+        margin-top:100px;
+        padding-top:100px;
+    }
+    .donate_benner_section .benner_text{
+        width:190px;
+        height:300px;
+        margin:0 auto;
+    }
+    .donation_img_fix{
+        position:absolute;
+        width:300px;
+        height:200px;
+        margin-left:-70px;
+        margin-top:-50px;
+
+    }
+    
+   

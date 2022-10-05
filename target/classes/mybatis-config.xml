@@ -5,6 +5,19 @@
 	
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.project.mohe.domain.BoardVO" alias="board"/>
+		<typeAlias type="com.project.mohe.domain.AdminVO" alias="admin"/>
+		<typeAlias type="com.project.mohe.domain.BongsaVO" alias="bongsa"/>
+		<typeAlias type="com.project.mohe.domain.DonationVO" alias="donation"/>
+		<typeAlias type="com.project.mohe.domain.EventVO" alias="event"/>
+		<typeAlias type="com.project.mohe.domain.Funding_cartVO" alias="funding_cart"/>
+		<typeAlias type="com.project.mohe.domain.Funding_payVO" alias="funding_pay"/>
+		<typeAlias type="com.project.mohe.domain.Funding_pjVO" alias="funding_pj"/>
+		<typeAlias type="com.project.mohe.domain.Funding_qnaVO" alias="funding_qna"/>
+		<typeAlias type="com.project.mohe.domain.NoticeVO" alias="notice"/>
+		<typeAlias type="com.project.mohe.domain.PartnerVO" alias="partner"/>
+		<typeAlias type="com.project.mohe.domain.ReviewVO" alias="review"/>
+		<typeAlias type="com.project.mohe.domain.UserInfoVO" alias="userInfo"/>
+		<typeAlias type="com.project.mohe.domain.Volunteer_cartVO" alias="volunteer_cart"/>
+		<typeAlias type="com.project.mohe.domain.VolunteerVO" alias="Volunteer"/>
 	</typeAliases>
 </configuration>

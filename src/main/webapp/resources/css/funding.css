@@ -1,0 +1,383 @@
+
+/* 펀딩페이지 메인 */
+
+/* 펀딩 프로젝트 목록 검색창 + 셀렉트 */
+.funding-search-box{
+    position: relative;
+    left: 30px;
+    margin: 15px;
+}
+#search{
+    margin-left: 700px;
+}
+
+/* 카테고리 베너 css 삭제 */
+.no-banner{
+    background-color: white;
+    padding: 0;
+    padding-bottom: 50px;
+}
+.no-banner .bread-crumb li , .no-banner .bread-crumb li a , .no-banner h1{
+    color: black;
+}
+
+.no-banner .bread-crumb li.active{
+    color: black;
+}
+
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체폰트 */
+.new-font{
+    font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+/* 전체폰트 */
+span{
+    font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+
+/* 카테고리 폰트 사이즈 */
+ul.new-font{
+    font-size: 30px;
+    /* style.css .bread-crumb  font-size 주석처리함*/
+}
+
+.new-btn-title{
+    font-size: 18px; 
+}
+
+#funding-div{
+    position:static
+}
+
+.d-day{
+    position: absolute;
+    right: 40px;
+}
+
+.donation-count{
+    color: gray;
+}
+
+
+
+
+
+/* 펀딩페이지 상세 */
+
+/* 펀딩하기, 찜, 공유 */
+#funding-div .btn-title{
+    padding: 11px 35px;
+}
+
+.funding-btn{
+    background-color: rgb(112,191,187) ;
+    font-size: 25px;
+    padding: 10px 14px;
+    border-radius: 50px;
+    position: absolute;
+    transition: all 0.3s;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.funding-btn:hover{
+    background-color: rgb(254,74,43);
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    color: white;
+}
+
+#jjim{
+    left: 185px;
+    bottom: 69px;
+    /* height: 50px; */
+    font-size: 25px;
+    height: 53px;
+    width: 53px;
+}
+#gongu{
+    left: 250px;
+    bottom: 69px;
+    height: 53px;
+    width: 53px;
+}
+
+/* 펀딩 상세페이지 첨부파일 이미지 크기 */
+.lower-content img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* 프로젝트 주체하기 페이지 */
+
+/* 프로젝트 주최하기 폼 span */
+.open-pj-form form span:not(.btn-title){
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 30px;
+}
+/* 첨부파일, 질문하기 버튼 */
+.new-btn{
+    background-color: lightgrey;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.open-pj-form form span:last-of-type:not(.new-btn-title){
+    font-size: 25px;
+}
+/* 폼 가운데 정렬 */
+.open-pj-form{
+    position: absolute;
+    left: 25%;
+}
+
+/* 오픈펀딩페이지 주최하기버튼 정렬 */
+.open-pj-form form .form-group{
+    margin-left: 250px;
+}
+
+
+
+
+/* 펀딩 문의페이지 */
+
+
+#question-box{
+    margin-top: 50px;
+}
+
+.info-qna li{
+    font-size: 18px;
+}
+
+/* 문의 텍스트박스 */
+#question-box{
+    margin-left: 40px;
+    margin-bottom: 15px;
+    width: 720px;
+}
+#question-box~.new-btn{
+    margin-left: 680px;
+}
+
+/* 문의글 삭제 버튼 */
+.x-btn{
+    font-size: 15px;
+    background-color: rgb(230, 223, 223);
+    color: gray;
+    border-radius: 5px;
+    padding: 0 7px;
+    position: absolute;
+    right: 70px;
+
+}
+
+
+
+
+
+/* 펀딩 결제 페이지 */
+
+.center{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+/* 결제폼 */
+.pay-form{
+    position: absolute;
+    left: 30%;
+    padding-top: 20px;
+    padding-bottom: 120px;
+}
+
+.pay-form span{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pay-form div{
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.pay-form div span{
+    font-size: 16px;
+}
+
+.pay-form div input[type=text]{
+    width: 400px;
+
+}
+
+.pay-btn{
+	position:absolute;
+	bottom:50px;
+	left: 43%
+	
+}
+
+
+/* 주최자 마이페이지 - 펀딩  */
+
+/* 주최자 마이페이지 프로젝트 제목 컬러 */
+h5 a.black-font{
+    color: black;
+}
+
+.our-shop div h3{
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+/* 주최자 마이페이지 질문답변하기 */
+
+.margin td , .marign div{
+    font-size: 18px;
+}
+
+.margin td:not(.content){
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+#answer{
+    margin-left: 725px;
+    margin-top: 10px;
+}
+
+
+/* 펀딩 메인페이지 카테고리 */
+#category div ul li a img{
+    width: 50px;
+    height:50px;
+    margin: 15px;
+}
+
+.page-banner .bread-crumb li:before{
+    content: " ";
+}
+
+/* 소개 | 문의 부분 */
+.auto-container h1~.info-qna li:before{
+    content: "|";
+    padding-left:10px;
+}
+
+
+ul.bread-crumb li a{
+    padding-bottom:19px;
+}
+
+
+ul.bread-crumb li a span {
+    font-size: 15px;
+    position:absolute; bottom:-16px; left:50%; line-height:1.462em; white-space:nowrap; transform:translate(-50%, 0)
+}
+
+
+
+/* 버튼 컬러 바꿈 */
+.btn-style-one .new-btn-title{
+    background-color: rgb(112,191,187);
+    color: black;
+}
+
+.btn-style-one .new-btn-title:before{
+    background-color: rgb(254,74,43);
+}
+
+/* 주최자마이페이지세부 상태 버튼*/
+td .new-btn{
+    width: 90px;
+}
+
+
+/* 모달 */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+    /* 숨기기 */
+    z-index: -1;
+    opacity: 0;
+}
+
+.show {
+opacity: 1;
+z-index: 1000;
+transition: all 0.5s;
+}
+
+.window {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+.popup {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color:rgb(112,191,187);
+box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+border-radius: 30px;
+border: 0px;
+color: white;
+
+/* 임시 지정 */
+width: 700px;
+height: 700px;
+
+/* 초기에 약간 아래에 배치 */
+transform: translate(-50%, -40%);
+}
+
+/* .show .popup {
+transform: translate(-50%, -50%);
+transition: all 0.5s;
+} */
+
+#close{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 내용부분 정렬 */
+#modal-con{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}

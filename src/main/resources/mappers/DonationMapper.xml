@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DonationDAO">
+	<insert id="insertDonation" parameterType="donation">
+		INSERT INTO DONATION
+		VALUES(
+		DONATION_DNT_NO_SEQ.NEXTVAL,#{dnt_name},#{dnt_phone},#{dnt_amount},#{dnt_email},sysdate,#{dnt_pay_type})
+	</insert>
+	<select id="getDonationList" resultType="donation">
+		select *
+		from donation
+		order by dnt_no desc
+	</select>
+	<delete id="deleteDonation" parameterType="donation">
+		delete
+		from donation
+		where dnt_no = #{dnt_no}
+	</delete>
+</mapper>

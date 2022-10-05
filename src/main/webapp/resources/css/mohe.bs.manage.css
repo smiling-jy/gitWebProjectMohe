@@ -1,0 +1,15 @@
+ /* 참여 봉사 내역 관리 페이지*/
+
+/* 참여 봉사 내역 내부 폰트 변경 */
+table tr{
+	font-family: 'GmarketSansMedium';
+ }
+ 
+ 
+ .manage-bs-title, .manage-bs-name, .manage-bs-palce, .manage-bs-date, .manage-bs-ing{
+	color: black;
+ }
+
+ #btn-title{
+	margin: 14px;
+ }
