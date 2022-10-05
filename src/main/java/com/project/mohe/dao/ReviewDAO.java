@@ -24,5 +24,5 @@ public interface ReviewDAO {
 	ReviewVO getReview(ReviewVO vo);
 		
 	// 글 목록 조회
-	List<ReviewVO> getReviewList(HashMap map);
+	List<ReviewVO> getReviewList();
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +74,7 @@
 				<div class="row clearfix">
 					
 					<!--Event Block-->
+					<c:forEach items="${reviewList}" var="review">
 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
@@ -86,13 +89,10 @@
 							</div>
 							<div class="lower-content">
 								<h3>
-									<a href="event-single.html"> 대학생 서포터즈 <br> 유기 동물 쉼터 봉사
-										활동
-									</a>
+									<a href="event-single.html"> ${review.review_title} </a>
 								</h3>
 								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 9.00 AM - 7.00
-										PM</li>
+									<li><span class="icon far fa-clock">${review.user_name}</span></li>
 									<li><span class="icon fa fa-map-marker-alt"></span> 천안
 										포해피니스</li>
 								</ul>
@@ -103,167 +103,169 @@
 							</div>
 						</div>
 					</div>
+					</c:forEach>
 
-					<!--Event Block-->
-					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
-							<div class="image-box">
-								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review02.jpg" alt=""></a>
-								</figure>
-								<div class="date">
-									28 <span class="month">Aug</span>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h3>
-									<a href="event-single.html"> 한강에서 <br> 쓰레기줍기
-									</a>
-								</h3>
-								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 8.00 AM - 3.00
-										PM</li>
-									<li><span class="icon fa fa-map-marker-alt"></span> 한강</li>
-								</ul>
-								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
+					
+<!-- 					Event Block -->
+<!-- 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12"> -->
+<!-- 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms"> -->
+<!-- 							<div class="image-box"> -->
+<!-- 								<figure class="image"> -->
+<!-- 									<a href="event-single.html"><img class="lazy-image" -->
+<!-- 										src="resources/images/resource/image-spacer-for-validation.png" -->
+<!-- 										data-src="resources/images/mohe_logo/review02.jpg" alt=""></a> -->
+<!-- 								</figure> -->
+<!-- 								<div class="date"> -->
+<!-- 									28 <span class="month">Aug</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="lower-content"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="event-single.html"> 한강에서 <br> 쓰레기줍기 -->
+<!-- 									</a> -->
+<!-- 								</h3> -->
+<!-- 								<ul class="info clearfix"> -->
+<!-- 									<li><span class="icon far fa-clock"></span> 8.00 AM - 3.00 -->
+<!-- 										PM</li> -->
+<!-- 									<li><span class="icon fa fa-map-marker-alt"></span> 한강</li> -->
+<!-- 								</ul> -->
+<!-- 								<div class="link-box"> -->
+<!-- 									<a href="event-single.html" class="theme-btn btn-style-two"><span -->
+<!-- 										class="btn-title">더보기</span></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
-					<!--Event Block-->
-					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
-							<div class="image-box">
-								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review03.png" alt=""></a>
-								</figure>
-								<div class="date">
-									30 <span class="month">Aug</span>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h3>
-									<a href="event-single.html"> 원효대교에서 <br> 플로깅DAY!
-									</a>
-								</h3>
-								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 9.00 AM -
-										11.00 PM</li>
-									<li><span class="icon fa fa-map-marker-alt"></span> 원효대교</li>
-								</ul>
-								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					Event Block -->
+<!-- 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12"> -->
+<!-- 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms"> -->
+<!-- 							<div class="image-box"> -->
+<!-- 								<figure class="image"> -->
+<!-- 									<a href="event-single.html"><img class="lazy-image" -->
+<!-- 										src="resources/images/resource/image-spacer-for-validation.png" -->
+<!-- 										data-src="resources/images/mohe_logo/review03.png" alt=""></a> -->
+<!-- 								</figure> -->
+<!-- 								<div class="date"> -->
+<!-- 									30 <span class="month">Aug</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="lower-content"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="event-single.html"> 원효대교에서 <br> 플로깅DAY! -->
+<!-- 									</a> -->
+<!-- 								</h3> -->
+<!-- 								<ul class="info clearfix"> -->
+<!-- 									<li><span class="icon far fa-clock"></span> 9.00 AM - -->
+<!-- 										11.00 PM</li> -->
+<!-- 									<li><span class="icon fa fa-map-marker-alt"></span> 원효대교</li> -->
+<!-- 								</ul> -->
+<!-- 								<div class="link-box"> -->
+<!-- 									<a href="event-single.html" class="theme-btn btn-style-two"><span -->
+<!-- 										class="btn-title">더보기</span></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
-					<!--Event Block-->
-					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-							<div class="image-box">
-								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review04.jpg" alt=""></a>
-								</figure>
-								<div class="date">
-									21 <span class="month">Aug</span>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h3>
-									<a href="event-single.html"> 양산 콩할매 유기견보호소 <br> 견사 청소와
-										보수작업
-									</a>
-								</h3>
-								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 7.00 AM - 4.00
-										PM</li>
-									<li><span class="icon fa fa-map-marker-alt"></span> 양산</li>
-								</ul>
-								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					Event Block -->
+<!-- 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12"> -->
+<!-- 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms"> -->
+<!-- 							<div class="image-box"> -->
+<!-- 								<figure class="image"> -->
+<!-- 									<a href="event-single.html"><img class="lazy-image" -->
+<!-- 										src="resources/images/resource/image-spacer-for-validation.png" -->
+<!-- 										data-src="resources/images/mohe_logo/review04.jpg" alt=""></a> -->
+<!-- 								</figure> -->
+<!-- 								<div class="date"> -->
+<!-- 									21 <span class="month">Aug</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="lower-content"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="event-single.html"> 양산 콩할매 유기견보호소 <br> 견사 청소와 -->
+<!-- 										보수작업 -->
+<!-- 									</a> -->
+<!-- 								</h3> -->
+<!-- 								<ul class="info clearfix"> -->
+<!-- 									<li><span class="icon far fa-clock"></span> 7.00 AM - 4.00 -->
+<!-- 										PM</li> -->
+<!-- 									<li><span class="icon fa fa-map-marker-alt"></span> 양산</li> -->
+<!-- 								</ul> -->
+<!-- 								<div class="link-box"> -->
+<!-- 									<a href="event-single.html" class="theme-btn btn-style-two"><span -->
+<!-- 										class="btn-title">더보기</span></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
-					<!--Event Block-->
-					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
-							<div class="image-box">
-								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review05.jpg" alt=""></a>
-								</figure>
-								<div class="date">
-									20 <span class="month">Aug</span>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h3>
-									<a href="event-single.html"> 시민 공원 <br> 벽화 봉사 활동 
-								</h3>
-								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 10.00 AM -
-										6.00 PM</li>
-									<li><span class="icon fa fa-map-marker-alt"></span>통영</li>
-								</ul>
-								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					Event Block -->
+<!-- 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12"> -->
+<!-- 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms"> -->
+<!-- 							<div class="image-box"> -->
+<!-- 								<figure class="image"> -->
+<!-- 									<a href="event-single.html"><img class="lazy-image" -->
+<!-- 										src="resources/images/resource/image-spacer-for-validation.png" -->
+<!-- 										data-src="resources/images/mohe_logo/review05.jpg" alt=""></a> -->
+<!-- 								</figure> -->
+<!-- 								<div class="date"> -->
+<!-- 									20 <span class="month">Aug</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="lower-content"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="event-single.html"> 시민 공원 <br> 벽화 봉사 활동  -->
+<!-- 								</h3> -->
+<!-- 								<ul class="info clearfix"> -->
+<!-- 									<li><span class="icon far fa-clock"></span> 10.00 AM - -->
+<!-- 										6.00 PM</li> -->
+<!-- 									<li><span class="icon fa fa-map-marker-alt"></span>통영</li> -->
+<!-- 								</ul> -->
+<!-- 								<div class="link-box"> -->
+<!-- 									<a href="event-single.html" class="theme-btn btn-style-two"><span -->
+<!-- 										class="btn-title">더보기</span></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
-					<!--Event Block-->
-					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
-							<div class="image-box">
-								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review06.jpg" alt=""></a>
-								</figure>
-								<div class="date">
-									18 <span class="month">Aug</span>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h3>
-									<a href="event-single.html"> 어린이 보호구역 <br> 바닥화 그리기 봉사
-									</a>
-								</h3>
-								<ul class="info clearfix">
-									<li><span class="icon far fa-clock"></span> 9.00 AM - 5.00
-										PM</li>
-									<li><span class="icon fa fa-map-marker-alt"></span> 남산동</li>
-								</ul>
-								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					Event Block -->
+<!-- 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12"> -->
+<!-- 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms"> -->
+<!-- 							<div class="image-box"> -->
+<!-- 								<figure class="image"> -->
+<!-- 									<a href="event-single.html"><img class="lazy-image" -->
+<!-- 										src="resources/images/resource/image-spacer-for-validation.png" -->
+<!-- 										data-src="resources/images/mohe_logo/review06.jpg" alt=""></a> -->
+<!-- 								</figure> -->
+<!-- 								<div class="date"> -->
+<!-- 									18 <span class="month">Aug</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="lower-content"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="event-single.html"> 어린이 보호구역 <br> 바닥화 그리기 봉사 -->
+<!-- 									</a> -->
+<!-- 								</h3> -->
+<!-- 								<ul class="info clearfix"> -->
+<!-- 									<li><span class="icon far fa-clock"></span> 9.00 AM - 5.00 -->
+<!-- 										PM</li> -->
+<!-- 									<li><span class="icon fa fa-map-marker-alt"></span> 남산동</li> -->
+<!-- 								</ul> -->
+<!-- 								<div class="link-box"> -->
+<!-- 									<a href="event-single.html" class="theme-btn btn-style-two"><span -->
+<!-- 										class="btn-title">더보기</span></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 
 
-				</div>
+<!-- 				</div> -->
 
-			</div>
+<!-- 			</div> -->
 		</section>
 
 
