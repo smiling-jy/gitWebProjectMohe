@@ -17,26 +17,26 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 	private Funding_pjDAO funding_pjDAO;
 
 	@Override
-	public void insertFunding_pj(Funding_pjVO vo) {
+	public void insertFunding_pj(Funding_pjVO pj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateFunding_pj(Funding_pjVO vo) {
+	public void updateFunding_pj(Funding_pjVO pj) {
+		funding_pjDAO.updateFunding_pj(pj);
+		
+	}
+
+	@Override
+	public void deleteFunding_pj(Funding_pjVO pj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteFunding_pj(Funding_pjVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Funding_pjVO getFunding_pj(Funding_pjVO vo) {
-		return funding_pjDAO.getFunding_pj(vo);
+	public Funding_pjVO getFunding_pj(Funding_pjVO pj) {
+		return funding_pjDAO.getFunding_pj(pj);
 	}
 
 	@Override
