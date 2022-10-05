@@ -44,10 +44,10 @@
 				<div class="auto-container">
 					<ul class="bread-crumb clearfix new-font boder">
 						<li><a href="funding.do">전체</a></li>
-						<li><a href="funding.do?fd_category=문구"><img src="resources/images/fd-category/identification.png"><span>문구</span></a></li>
+						<li><a href="funding.do?fd_category=디자인문구"><img src="resources/images/fd-category/identification.png"><span>문구</span></a></li>
 						<li><a href="funding.do?fd_category=삭퓸"><img src="resources/images/fd-category/sandwich.png"><span>식품</span></a></li>
 						<li><a href="funding.do?fd_category=패션잡화"><img src="resources/images/fd-category/clothes.png"><span>패션잡화</span></a></li>
-						<li><a href="funding.do?fd_category=홈+리빙"><img src="resources/images/fd-category/tent.png"><span>홈 리빙</span> </a></li>
+						<li><a href="funding.do?fd_category=홈리빙"><img src="resources/images/fd-category/tent.png"><span>홈 리빙</span> </a></li>
 						<li><a href="funding.do?fd_category=반려동물"><img src="resources/images/fd-category/animal.png"><span>반려동물</span></a></li>
 					</ul>
 				</div>
@@ -63,7 +63,7 @@
 					</button>
 					<select name="select">
 						<option value="fd_no">최신순</option>
-						<option value="pay_total">인기순</option>
+						<option value="fd_read_cnt">인기순</option>
 					</select>
 				</form>
 			</div>

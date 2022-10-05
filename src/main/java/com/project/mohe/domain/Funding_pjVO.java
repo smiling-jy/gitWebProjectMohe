@@ -23,5 +23,9 @@ public class Funding_pjVO {
 	private String fd_satatus;
 	private int fd_read_cnt;
 
-	
+	// DB에 칼럼 추가할 필요 X 함수로 생성된 칼럼용 변수
+	private String remain_day; // 펀딩종료까지 남은 일수
+	private int total_sum; // 현재 모인 금액
+	private int rate; // 현재 달성 퍼센트
+	private int total_people; // 현재 모인 인원수
 }

@@ -18,7 +18,8 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void insertReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("=============>insert서비스");
+		reviewDAO.insertReview(vo);
 		
 	}
 
