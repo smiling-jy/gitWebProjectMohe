@@ -20,6 +20,6 @@ public interface DonationDAO {
 		DonationVO getDonation(DonationVO vo);
 			
 		// 글 목록 조회
-		List<DonationVO> getDonationList(HashMap map);
+		List<DonationVO> getDonationList();
 		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
 }
