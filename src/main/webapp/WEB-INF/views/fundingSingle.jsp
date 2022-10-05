@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,22 +37,16 @@
 	<div class="page-wrapper">
 		<!-- header include -->
 		<jsp:include page="headerMint.jsp" />
-		<!-- Page Banner Section -->
-		<!-- <section class="page-banner"> -->
-		<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div> -->
-		<!-- <div class="bottom-rotten-curve"></div> -->
-		<!-- </section> -->
-		<!--End Banner Section -->
 
 
 		<!--Sidebar Page Container-->
 		<div class="sidebar-page-container">
 			<div class="page-banner no-banner">
 				<div class="auto-container new-font">
-					<h1>저소득층 여성을 돕는 유기농 생리대</h1>
+					<h1>${pj.fd_title}</h1>
 					<ul class="bread-crumb clearfix new-font info-qna">
 						<li class="active">소개</li>
-						<li><a href="fundingQna.html">문의</a></li>
+						<li><a href="fundingQna.do?fd_no=${pj.fd_no}">문의</a></li>
 					</ul>
 				</div>
 			</div>
@@ -68,7 +63,7 @@
 									<figure class="image">
 										<img class="lazy-image"
 											src="resources/images/resource/image-spacer-for-validation.png"
-											data-src="resources/images/resource/cause-image-7.jpg" alt="">
+											data-src="resources/images/resource/1_${pj.fd_img_name}" alt="">
 									</figure>
 								</div>
 								<div class="donate-info">
@@ -80,17 +75,15 @@
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>현재금액</strong> ${pj.pay_total}</span> <span
+										<span class="raised"><strong>현재금액</strong> ${pj.total_sum}</span> <span
 											class="goal"><strong>목표금액:</strong> ${pj.fd_goals}</span>
 									</div>
 								</div>
 								<!-- 첨부파일 영역 -->
 								<div class="lower-content">
-									<img src="resources/images/mohe_logo/logo_mint.png" alt="">
-									<img src="resources/images/mohe_logo/logo_mint.png" alt="">
-									<img src="resources/images/mohe_logo/logo_mint.png" alt="">
-									<img src="resources/images/mohe_logo/logo_mint.png" alt="">
-									<img src="resources/images/mohe_logo/logo_mint.png" alt="">
+									<c:forEach var="cnt" begin="1" end="${pj.fd_img_cnt}">
+										<img src="resources/images/${cnt}_${pj.fd_img_name}" alt="">
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -102,16 +95,16 @@
 						<aside class="sidebar" id="new-side">
 							<!-- Search -->
 							<div class="sidebar-widget new-font">
-								<h5>모인금액<h5>
-								<h1>${pj.pay_total}원</h1>
-								<h5>남은시간<h5>
+								<h5>모인금액</h5>
+								<h1>${pj.total_sum}원</h1>
+								<h5>남은시간</h5>
 								<h1>${pj.remain_day}일</h1>
-								<h5>참여자<h5>
+								<h5>참여자</h5>
 								<h1>${pj.total_people}명</h1>
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">
-								<a href="fundingPay.html"
+								<a href="fundingPay.do"
 									class="theme-btn btn-style-one link-box"><span
 									class="btn-title new-font new-btn-title">펀딩하기</span></a>
 								<button class="funding-btn" id="jjim">♥</button>

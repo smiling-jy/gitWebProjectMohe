@@ -43,9 +43,8 @@ public class Funding_qnaDAOImpl implements Funding_qnaDAO {
 	}
 
 	@Override
-	public List<Funding_qnaVO> getFunding_qnaList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo) {
+		return mybatis.selectList("Funding_qnaDAO.getFunding_qnaList", vo);
 	}
 
 }
