@@ -48,48 +48,54 @@
 					<h1 class="text text-large">회원가입</h1>
 					<span class="text text-normal">모해에 가입해 기부와 펀딩을 이용해 보세요 </span>
 				</div>
-				<form name="signin" class="form">
+				<form id="form_eamil_signUp" action="email/signUp.do" method="post" class="form">
 					<div class="input-control">
-						<label for="email" class="input-label" hidden>이메일</label> <input
-							type="email" name="email" id="email" class="input-field"
-							placeholder="이메일">
-					</div>
+							<label for="user_email" class="input-label" hidden>이메일</label> 
+							<input
+								type="user_email" name="user_email" id="user_email" class="input-field"
+								onkeyup="onkeyupEmail()"
+								placeholder="이메일">
+							<div class="input-group-append">
+								<button id="btn-email-check" class="btn btn-outline-secondary" type="button" onclick="btnEmailCheck()">중복확인</button>
+							</div>
+						</div>
 					<div class="input-control">
-						<label for="password" class="input-label" hidden>비밀번호</label> <input
-							type="password" name="password" id="password" class="input-field"
+						<label for="user_password" class="input-label" hidden>비밀번호</label> <input
+							type="password" name="user_password" id="user_password" class="input-field"
 							placeholder="비밀번호">
 					</div>
 					<div class="input-control">
-						<label for="password_check" class="input-label" hidden>비밀번호
-							확인</label> <input type="password_check" name="password_check"
-							id="password_check" class="input-field" placeholder="비밀번호 확인">
+						<label for="user_password_check" class="input-label" hidden>비밀번호
+							확인</label> <input type="password" name="user_password_check"
+							id="user_password_check" class="input-field" placeholder="비밀번호 확인">
 					</div>
 					<div class="input-control">
-						<label for="name" class="input-label" hidden>이름</label> <input
-							type="name" name="name" id="name" class="input-field"
+						<label for="user_name" class="input-label" hidden>이름</label> <input
+							type="text" name="user_name" id="user_name" class="input-field"
 							placeholder="이름">
 					</div>
 					<div class="input-control">
-						<label for="phone" class="input-label" hidden>핸드폰 번호</label> <input
-							type="phone" name="phone" id="phone" class="input-field"
+						<label for="user_phone" class="input-label" hidden>핸드폰 번호</label> <input
+							type="tel" name="user_phone" id="user_phone" class="input-field"
 							placeholder="핸드폰 번호">
 					</div>
 					<div class="my-4">
 						<div class="custom-control custom-checkbox mb-3">
 							<input type="checkbox" class="custom-control-input"
-								id="agree-terms" name="agree-terms"> <label
-								class="custom-control-label" for="agree-terms"><a
+								id="agree_terms" name="agree_terms"> <label
+								class="custom-control-label" for="agree_terms"><a
 								href="/service/terms" target="_blank">이용약관</a> 동의 </label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input"
-								id="privacy-terms" name="privacy-terms"> <label
-								class="custom-control-label" for="privacy-terms"><a
+								id="privacy_terms" name="privacy_terms"> <label
+								class="custom-control-label" for="privacy_terms"><a
 								href="/privacy/policy" target="_blank">개인정보 취급방침</a> 동의 </label>
 						</div>
 					</div>
 					<div class="donate-link">
-						<a href="donate.html" class="theme-btn btn-style-one btn-block">
+						<a id="submit_eamil_signUp" href="#" class="theme-btn btn-style-one btn-block"
+						onclick="submit()">
 							<span class="btn-title text-center">회원가입</span>
 						</a>
 					</div>
@@ -111,7 +117,7 @@
 						</a>
 					</div>
 					<div class="method-control">
-						<a href="#" class="method-action"> <i
+						<a href="javascript:;" class="method-action"> <i
 							class="ion ion-logo-apple"></i> <span>네이버로 회원가입</span>
 						</a>
 					</div>
@@ -144,6 +150,121 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	
+	<script type="text/javascript">
+		let emailCheck = false;
+	
+		function btnEmailCheck() {
+			var user_email = $('#user_email');
+			if (user_email.val() === "") {
+				alert("이메일을 입력해 주세요.");
+				user_email.focus();
+				return;
+			}
+			var data = {'user_email' : user_email.val()}
+			
+			$.ajax({
+				type: 'post',
+				url : 'email/Check.do',
+				data: data,
+				async: true, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
+				contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
+				success: function(result){
+					if (result === '사용 가능한 이메일입니다.') {
+						emailCheck = true;
+						document.getElementById("btn-email-check").innerText= "✓";
+					} else {
+						alert('중복된 이메일입니다.');
+						document.getElementById("btn-email-check").innerText= "중복확인";
+						emailCheck = false;
+					}
+				},
+				error:function(){  
+		            alert('error');
+				}
+			})
+		}
+		
+		function onkeyupEmail() {
+			document.getElementById("btn-email-check").innerText= "중복확인";
+			emailCheck = false;
+		}
+	
+		function submit() {
+			var user_email = $('#user_email');
+			
+			if (!emailCheck) {
+				alert("이메일 중복 확인을 해주세요.");
+				user_email.focus();
+				return;
+			}
+			
+			if (user_email.val() === "") {
+				alert("이메일을 입력해 주세요.");
+				user_email.focus();
+				return;
+			}
+			
+			var user_password = $('#user_password');
+			if (user_password.val() === "") {
+				alert("비밀번호를 입력해 주세요.");
+				user_password.focus();
+				return;
+			}
+			if (user_password.val().length < 4) {
+				alert("비밀번호를 4자리 이상 입력해 주세요.");
+				user_password.focus();
+				return;
+			}
+			
+			var user_password_check = $('#user_password_check');
+			if (user_password_check.val() === "") {
+				alert("비밀번호 확인을 입력해 주세요.");
+				user_password_check.focus();
+				return;
+			}
+			if (user_password_check.val() !== user_password.val()) {
+				alert("비밀번호와 비밀번호 확인이 다릅니다.");
+				user_password_check.focus();
+				return;
+			}
+			
+			var user_name = $('#user_name');
+			if (user_name.val() === "") {
+				alert("이름을 입력해 주세요.");
+				user_name.focus();
+				return;
+			}
+			
+			var user_phone = $('#user_phone');
+			if (user_phone.val() === "") {
+				alert("핸드폰 번호를 입력해 주세요.");
+				user_phone.focus();
+				return;
+			}
+			
+			var agree_terms = $('#agree_terms');
+			if (!agree_terms.prop('checked')) {
+				alert("이용약관에 동의해 주세요.");
+				agree_terms.focus();
+				return;
+			}
+			
+			var privacy_terms = $('#privacy_terms');
+			if (!privacy_terms.prop('checked')) {
+				alert("개인정보 취급방침에 동의해 주세요.");
+				privacy_terms.focus();
+				return;
+			}
+			
+			document.getElementById('form_eamil_signUp').submit();
+		}
+		
+		
+	
+	
+	</script>
+
 
 </body>
 </html>
