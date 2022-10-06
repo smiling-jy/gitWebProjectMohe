@@ -16,7 +16,7 @@ public class BongsaVO {
 	private String bs_work_end;
 	private int bs_goal_cnt;
 	private int bs_success_cnt;
-	private String bs_ing;
+	private String bs_ing; //진행 or 완료
 	private String bs_name;
 	private String bs_phone;
 	private String bs_email;

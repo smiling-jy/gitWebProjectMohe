@@ -45,8 +45,8 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public List<BongsaVO> getBongsaList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("dao진입");
+		return mybatis.selectList("BongsaDAO.getBongsaList", map);
 	}
 	
 	

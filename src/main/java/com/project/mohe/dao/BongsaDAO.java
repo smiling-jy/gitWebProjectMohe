@@ -21,5 +21,7 @@ public interface BongsaDAO {
 			
 		// 글 목록 조회
 		List<BongsaVO> getBongsaList(HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		
+		
+		
 }
