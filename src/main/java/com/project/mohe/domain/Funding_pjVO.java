@@ -12,6 +12,7 @@ public class Funding_pjVO {
 	private String fd_title;
 	private String fd_content;
 	private String fd_receiver;
+	private int fd_price;
 	private int fd_goals;
 	private Date fd_startdate;
 	private Date fd_enddate;

@@ -8,5 +8,11 @@
   		select *
   		  from FUNDING_QNA
   		 where fd_no = ${fd_no}
+  		order by qna_no desc
   	</select>
+  	
+  	<insert id="insertFunding_qna" parameterType="funding_qna">
+  		insert into FUNDING_QNA(fd_no, qna_no, user_no, qna_question)
+  		values(${fd_no},fd_qna_seq.nextval,${user_no},${qna_question})
+  	</insert>
   </mapper>

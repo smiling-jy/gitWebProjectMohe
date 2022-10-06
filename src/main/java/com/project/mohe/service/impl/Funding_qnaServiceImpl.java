@@ -18,7 +18,7 @@ public class Funding_qnaServiceImpl implements Funding_qnaService {
 
 	@Override
 	public void insertFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		funding_qnaDAO.insertFunding_qna(vo);
 		
 	}
 
