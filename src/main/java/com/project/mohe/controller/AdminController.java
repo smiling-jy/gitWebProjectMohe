@@ -41,7 +41,40 @@ public class AdminController {
 	public void getFundingList(HashMap map,Model model) {
 		model.addAttribute("fdList",adminService.adGetFdList(map)); 
 	}
-	
 	// 승인되지 않은 펀딩 목록
-	
+	@RequestMapping("adFdApproval.do")
+	public void getFdApprovalList(HashMap map,Model model) {
+		model.addAttribute("fdApproval",adminService.getFdApprovalList(map)); 
+	}
+	// 승인된 봉사 목록
+	@RequestMapping("adVtList.do")
+	public void getBsList(HashMap map,Model model) {
+		model.addAttribute("bsList",adminService.getBsList(map)); 
+	}
+	// 승인되지 않은 봉사 목록
+	@RequestMapping("adVtApproval.do")
+	public void getBsApprovalList(HashMap map,Model model) {
+		model.addAttribute("bsApproval",adminService.getBsApprovalList(map)); 
+	}
+	// 파트너쉽 목록
+	@RequestMapping("adPartner.do")
+	public void getPartnerList(HashMap map,Model model) {
+		model.addAttribute("partner",adminService.getPartnerList(map)); 
+	}
+	// 리뷰 목록
+	@RequestMapping("adReviewList.do")
+	public void getReviewList(HashMap map,Model model) {
+		model.addAttribute("review",adminService.getReviewList(map)); 
+	}
+	// 기부 목록
+	@RequestMapping("adDonationList.do")
+	public void getDonationList(HashMap map,Model model) {
+		model.addAttribute("donation",adminService.getDonationList(map)); 
+	}
+	// 공지 리스트
+	@RequestMapping("adNotice.do")
+	public void getNoticeList(HashMap map,Model model) {
+		model.addAttribute("notice",adminService.getNoticeList(map)); 
+	}
+
 }
