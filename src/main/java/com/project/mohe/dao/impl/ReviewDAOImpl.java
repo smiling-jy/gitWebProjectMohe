@@ -42,14 +42,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ReviewVO> getReviewList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReviewVO> getReviewList() {
+		System.out.println("========>리뷰리스트 DAOimpl");
+		return mybatis.selectList("ReviewDAO.getReivewList");
 	}
 
 	
