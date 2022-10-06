@@ -2,6 +2,7 @@ package com.project.mohe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.ReviewVO;
@@ -13,16 +14,15 @@ public class ReviewController {
 	private ReviewService reviewService;
 	
 		//리뷰 리스트 페이지 보기
-		@RequestMapping("Review.do")
-		public String reviewList() {
+		@RequestMapping("review.do")
+		public void reviewList(Model model) {
 			System.out.println("===========>리뷰컨트롤러 reviewList");
-			return "review";
+			model.addAttribute("reviewList", reviewService.getReviewList());
 			
 		}
 		
 		@RequestMapping("reviewInsertForm.do")
 		public String reviewInsertForm() {
-			System.out.println("===========>리뷰컨트롤러 리뷰작성Form");
 			return "reviewWriting";
 		}
 		
