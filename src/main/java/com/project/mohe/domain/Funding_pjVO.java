@@ -21,7 +21,7 @@ public class Funding_pjVO {
 	private int fd_img_cnt;
 	private String fd_img_name;
 	private String fd_satatus;
-	private int fd_read_cnt;
+	private int fd_read_cnt; 
 
 	// DB에 칼럼 추가할 필요 X 함수로 생성된 칼럼용 변수
 	private String remain_day; // 펀딩종료까지 남은 일수

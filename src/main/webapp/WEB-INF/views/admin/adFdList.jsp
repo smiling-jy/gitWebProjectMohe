@@ -67,7 +67,7 @@
 				</nav>
 			</div>
 		</div>
-		<!-- /top navigation -->
+		<!-- /top navigation --> 
 		<!-- 컨텐츠 section -->
 		<div class="col-md-push-9 right_col content_right" role="main">
 			<div class="">
@@ -95,76 +95,30 @@
 													<table class="cart-table">
 														<thead class="cart-header">
 															<tr>
-																<th width="400px">제목</th>
-																<th>주최자명</th>
-																<th>시작일</th>
-																<th>마감일</th>
+																<th>NO</th>
+																<th width="200px">제목</th>
+																<th>주최자</th>
 																<th>달성도</th>
+																<th>남은일자</th>
 																<th width="300px">수정 / 삭제</th>
 															</tr>
 														</thead>
 
 														<tbody>
-															<tr>
-																<td class="qty"><a href="#">감자밭에서난 고기</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">80%</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">감자밭에서난 고기</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">80%</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">감자밭에서난 고기</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">80%</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">감자밭에서난 고기</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">80%</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">감자밭에서난 고기</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">80%</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+															<c:forEach items="${fdList}" var="fd">
+																<tr>
+																	<td style="word-break:break-all">${fd.fd_no}</td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
+																	<td style="word-break:break-all">${fd.fd_hostname}</td>
+																	<td style="font-size:13px">${fd.rate}%</td>
+																	<td style="word-break:break-all">${fd.remain_day}일</td>
+																	<td><a href="#" class="remove-btn"> <span
+																			class="flaticon-check"></span>
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
+																			class="flaticon-delete-1"></span>
+																	</a></td>
+																</tr>
+															</c:forEach>															
 														</tbody>
 													</table>
 												</div>

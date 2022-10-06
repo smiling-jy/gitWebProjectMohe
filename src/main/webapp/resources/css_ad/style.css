@@ -25,6 +25,14 @@ font-family: 'Open Sans', sans-serif;
 @import url('hover.css');
 @import url('jquery.touchspin.css');
 
+/* 모해 사이트 폰트 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*** 
 
 ====================================================================
@@ -40,6 +48,7 @@ font-family: 'Open Sans', sans-serif;
 	outline:none;
 	font-size: 100%;
 	line-height: inherit;
+	font-family: GmarketSansMedium;
 }
 
 /*** 
@@ -59,7 +68,9 @@ body {
 	background:#ffffff;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
-	font-family: 'Open Sans', sans-serif;
+/* 	font-family: 'Open Sans', sans-serif; */
+	font-family: GmarketSansMedium;
+	
 }
 
 a{
