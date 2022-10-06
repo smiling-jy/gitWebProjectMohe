@@ -22,4 +22,6 @@ public interface UserInfoDAO {
 		// 글 목록 조회
 		List<UserInfoVO> getUserInfoList(HashMap map);
 		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+
+		List<UserInfoVO> adGetUserInfoList();
 }

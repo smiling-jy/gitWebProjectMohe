@@ -43,8 +43,7 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public List<EventVO> getEventList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("EventDAO.getEventList");
 	}
 
 

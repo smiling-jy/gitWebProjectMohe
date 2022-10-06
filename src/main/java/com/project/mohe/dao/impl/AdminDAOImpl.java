@@ -44,8 +44,7 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public List<AdminVO> getAdminList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("AdminDAO.getAdminList");
 	}
 
 }

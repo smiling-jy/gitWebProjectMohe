@@ -1003,13 +1003,13 @@
 					});
 		};
 	</script>
-	<!-- 	<script> -->
+	<!-- 	<script>
 	// $(function(){ // $('.dropdown_show').hover(function(){ //
 	$('.dropdown_show ul').first().css({ // "position":" relative", //
 	"z-index":"2", // }); // }); // });
 
 
-	<!-- 	</script> -->
+	</script> -->
 
 
 </body>

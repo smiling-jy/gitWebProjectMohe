@@ -49,5 +49,8 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return null;
 	}
 	
-
+	// 관리자 유저리스트 불러올때사용
+	public List<UserInfoVO> adGetUserInfoList() {
+		return mybatis.selectList("UserInfoDAO.adGetUserInfoList");
+	}
 }
