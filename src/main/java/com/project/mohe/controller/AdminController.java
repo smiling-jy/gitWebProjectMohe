@@ -39,7 +39,7 @@ public class AdminController {
 	// 승인된 펀딩 목록
 	@RequestMapping("adFdList.do")
 	public void getFundingList(HashMap map,Model model) {
-		model.addAttribute("fdList",adminService.adGetFdList(map));
+		model.addAttribute("fdList",adminService.adGetFdList(map)); 
 	}
 	
 	// 승인되지 않은 펀딩 목록

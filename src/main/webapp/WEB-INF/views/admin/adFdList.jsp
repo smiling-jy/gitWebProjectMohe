@@ -67,7 +67,7 @@
 				</nav>
 			</div>
 		</div>
-		<!-- /top navigation -->
+		<!-- /top navigation --> 
 		<!-- 컨텐츠 section -->
 		<div class="col-md-push-9 right_col content_right" role="main">
 			<div class="">

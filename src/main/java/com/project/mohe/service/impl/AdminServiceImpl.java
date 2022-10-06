@@ -63,7 +63,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	public List<EventVO> adGetEventList(HashMap map) {
+	public List<EventVO> adGetEventList(HashMap map) { 
 		return eventDao.getEventList(map);
 	}
 

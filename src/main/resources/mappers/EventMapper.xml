@@ -9,5 +9,5 @@
 		from event,admin
 		where event.adm_no = admin.adm_no
 		order by event_no desc
-	</select>
+	</select> 
 </mapper>
