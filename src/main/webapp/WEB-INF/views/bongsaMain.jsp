@@ -67,7 +67,7 @@
 			<div class="auto-container">
 				<!--모집하기 버튼 -->
 				<div class="donate-link">
-					<a href="bongsaRecruite.html" class="theme-btn btn-style-one"><span
+					<a href="bongsaRecruite.do" class="theme-btn btn-style-one"><span
 						class="btn-title newFont">모집하기</span></a>
 				</div>
 				<div class="row clearfix">
@@ -77,7 +77,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s1.jpg" data-src=""
 										alt=""></a>
 								</figure>
@@ -98,7 +98,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -112,7 +112,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title">Read More</span></a>
 								</div>
 							</div>
@@ -124,7 +124,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s2.jpg" data-src=""
 										alt=""></a>
 								</figure>
@@ -145,7 +145,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -159,7 +159,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title new-btn-title">Read More</span></a>
 								</div>
 							</div>
@@ -171,7 +171,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s3.png" data-src=""
 										alt=""></a>
 								</figure>
@@ -192,7 +192,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -206,7 +206,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title">Read More</span></a>
 								</div>
 							</div>
@@ -218,7 +218,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s4.jpg" data-src=""
 										alt=""></a>
 								</figure>
@@ -239,7 +239,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -253,7 +253,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title">Read More</span></a>
 								</div>
 							</div>
@@ -265,7 +265,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s5.jpg" data-src=""
 										alt=""></a>
 								</figure>
@@ -286,7 +286,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -300,7 +300,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title">Read More</span></a>
 								</div>
 							</div>
@@ -312,7 +312,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="bongsaDetail.html"><img class="lazy-image"
+									<a href="bongsaDetail.do"><img class="lazy-image"
 										src="resources/images/mohe_logo/bongsaMain/s6.png" data-src=""
 										alt=""></a>
 								</figure>
@@ -333,7 +333,7 @@
 							</div>
 							<div class="lower-content ">
 								<h3>
-									<a href="bongsaDetail.html" class="bs-title newFont">한마음
+									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
 								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
@@ -347,7 +347,7 @@
 								</div>
 								<br>
 								<div class="link-box">
-									<a href="bongsaDetail.html" class="theme-btn btn-style-two"><span
+									<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
 										class="btn-title">Read More</span></a>
 								</div>
 							</div>
