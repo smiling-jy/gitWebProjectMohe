@@ -99,44 +99,16 @@
 																<th>check</th>
 															</tr>
 														</thead>
-
 														<tbody>
-															<tr>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">100,000,000</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn">확인</a></td>
-															</tr>
-															<tr>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">100,000,000</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn">확인</a></td>
-															</tr>
-															<tr>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">100,000,000</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn">확인</a></td>
-															</tr>
-															<tr>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">100,000,000</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn">확인</a></td>
-															</tr>
-															<tr>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">100,000,000</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn">확인</a></td>
-															</tr>
-
+															<c:forEach items="${donation}" var="dnt">
+																<tr>
+																	<td style="word-break:break-all">${dnt.dnt_name}</td>
+																	<td style="word-break:break-all">${dnt.dnt_phone}</td>
+																	<td style="word-break:break-all">${dnt.dnt_amount}원</td>
+																	<td style="word-break:break-all">${dnt.dnt_indate}</td>
+																	<td><a href="#" class="remove-btn">확인</a></td>
+																</tr>
+															</c:forEach>															
 														</tbody>
 													</table>
 												</div>
