@@ -47,33 +47,127 @@
 				<!-- <h1>Our Causes</h1> -->
 				<!-- <div> -->
 				<ul class="bs-regeion">
-					<li><a href="#">전국</a></li>
-					<li><a href="#">서울</a></li>
-					<li><a href="#">경기 인천</a></li>
-					<li><a href="#">강원</a></li>
-					<li><a href="#">대구 경북</a></li>
+					<li><a href="bongsaMain.do">전국</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=서울">서울</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=경기인천">경기 인천</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=강원">강원</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=대구경북">대구 경북</a></li>
 				</ul>
 				<!-- </div> -->
 				<!-- <div> -->
 				<ul class="bs-regeion">
-					<li><a href="#">광주 전라</a></li>
-					<li><a href="#">울산 부산 경남</a></li>
-					<li><a href="#">대전 세종 충남</a></li>
-					<li><a href="#">제주도</a></li>
-					<li><a href="#">비대면</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=광주전라">광주 전라</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=울산부산경남">울산 부산 경남</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=대전세종충남">대전 세종 충남</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=제주도">제주도</a></li>
+					<li><a href="bongsaMain.do?BS_REGION=비대면">비대면</a></li>
 				</ul>
-				<!-- </div> -->
-			</div>
+				
+			</div> <!-- 지역 카테고리 끝 -->
+
 			<div class="auto-container">
-				<!--모집하기 버튼 -->
+
+<!-- 				모집하기 버튼
 				<div class="donate-link">
 					<a href="bongsaRecruite.do" class="theme-btn btn-style-one"><span
 						class="btn-title newFont">모집하기</span></a>
-				</div>
-				<div class="row clearfix">
+				</div>모집하기 버튼 끝  -->
+				
+				
+			<!-- 검색창 -->
+			<!-- 검색창 위치 css로 이동 필요-->
+			<div class=" new-font bongsa-search-box">
+				<a href="bongsaRecruite.do" class="theme-btn btn-style-one link-box">
+				<span class="btn-title new-btn-title">모집하기</span></a>
+				<form action="bongsaMain.do" method="post">
+		               <select name="searchCondition">
+		                  <option value='BS_TITLE'>봉사명</option>
+		                  <option value='BS_CONTENT'>봉사내용</option>
+		                  <option value='BS_NAME'>주체자 </option>                                    
+		               </select> 
+		               <input name="searchKeyword" type="text" /> 
+		               <input type="submit" value="검색"/>
+				</form>
+			</div>
+
+				<div class="row clearfix">	
 					<!--Cause Block-->
+					
+					<!-- 반복문 봉사 블럭  -->
+					<!-- 객체이름 : bsPj 만들기   -->
+					<c:forEach items="${bs_list}" var="bongsa">
+						<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+								<div class="image-box">
+									<figure class="image">
+										<a href="bongsaDetail.do"><img class="lazy-image"
+											src="resources/images/mohe_logo/bongsaMain/s1.jpg" data-src=""
+											alt=""></a>
+									</figure>
+								</div>
+								<div class="donate-info">
+									<div class="progress-box">
+										<div class="bar">
+											<div class="bar-inner count-bar" data-percent="60%">
+												<div class="count-text">60%</div>
+											</div>
+										</div>
+									</div>
+									<div class="donation-count clearfix">
+										<span class="raised"><strong>모집인원:</strong><span
+											class="bs-goal-cnt">${bongsa.BS_GOAL_CNT}</span>명</span><span class="goal"><strong>현재
+												신청인원:</strong><span class="bs-success-cnt">${bongsa.BS_SUCCESS_CNT}</span>명</span>
+									</div>
+								</div>
+								<div class="lower-content ">
+									<h3>
+										<a href="bongsaDetail.do" class="bs-title newFont">${bongsa.BS_TITLE}</a>
+									</h3>
+									<h5 class="bs-name">수원시의회</h5><br>
+									<div class="donation-count clearfix">
+										<span class="raised"><strong>주최 :</span><span
+											class="bs-name">수원시의회</span></strong>
+									</div>
+									<div>
+										<span class="bs-content">소년소녀 가장을 위한 한마음 달리기! 당신의 소중한
+											마음을 전달해주세요</span>
+									</div>
+									<br>
+									<div class="link-box">
+										<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
+											class="btn-title">Read More</span></a>
+									</div>
+								</div>
+							</div>
+						</div> 
+					</c:forEach>
+					<!-- 봉사 반복문 -->
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					<!--봉사썸네일 블럭 -->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
 								<figure class="image">
@@ -101,7 +195,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -117,10 +211,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- end-썸네일 블록 -->
 					<!--Cause Block-->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
 							<div class="image-box">
 								<figure class="image">
@@ -148,7 +242,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -164,10 +258,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!--Cause Block-->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
 							<div class="image-box">
 								<figure class="image">
@@ -195,7 +289,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -211,10 +305,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!--Cause Block-->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
 								<figure class="image">
@@ -242,7 +336,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -258,10 +352,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!--Cause Block-->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
 							<div class="image-box">
 								<figure class="image">
@@ -289,7 +383,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -305,10 +399,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!--Cause Block-->
-					<div class="cause-block col-lg-4 col-md-6 col-sm-12">
+					<!-- <div class="cause-block col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
 							<div class="image-box">
 								<figure class="image">
@@ -336,7 +430,7 @@
 									<a href="bongsaDetail.do" class="bs-title newFont">한마음
 										달리기</a>
 								</h3>
-								<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+								<h5 class="bs-name">수원시의회</h5><br>
 								<div class="donation-count clearfix">
 									<span class="raised"><strong>주최 :</span><span
 										class="bs-name">수원시의회</span></strong>
@@ -352,9 +446,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-
+					</div> -->
 				</div>
 			</div>
 		</section>
