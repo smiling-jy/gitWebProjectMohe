@@ -2,6 +2,7 @@ package com.project.mohe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,4 +20,9 @@ public class AdminController {
 		return "/admin/"+step;
 	}
 	
+	// 회원 목록 띄우기
+	@RequestMapping("adUserList.do")
+	public void getUserList(Model model) {	
+		model.addAttribute("userList",adminService.adGetUserList());
+	}
 }
