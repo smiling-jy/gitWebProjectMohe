@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.AdminDAO;
+import com.project.mohe.dao.UserInfoDAO;
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 
 @Service("adminService")
@@ -15,6 +17,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private AdminDAO adminDao;
+	@Autowired
+	private UserInfoDAO userInfoDao;
+	
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -41,10 +46,15 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getEventList(HashMap map) {
+	public List<UserInfoVO> adGetUserList() {
+		return userInfoDao.adGetUserInfoList();
+	}
+
+	@Override
+	public List<AdminVO> getAdminList(HashMap map) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
+	
 }

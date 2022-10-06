@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.UserInfoVO;
 
 public interface AdminService {
 	// CRUD 기능 구현
@@ -20,5 +21,8 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 글 목록 조회
-	List<AdminVO> getEventList(HashMap map);
+	List<AdminVO> getAdminList(HashMap map);
+	
+	List<UserInfoVO> adGetUserList();
+
 }

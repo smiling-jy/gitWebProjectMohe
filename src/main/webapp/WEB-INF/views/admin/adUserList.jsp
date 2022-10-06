@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,8 +80,8 @@
 						<div class="link-box btn_tb_mg">
 							<a href="cause-single.do" class="theme-btn btn-style-three">
 								<span class="btn-title"><h2>사용불가 전환</h2></span>
-							</a> <a href="cause-single.do" class="theme-btn btn-style-one">
-								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
+							</a> <a href="cause-single.do" class="theme-btn btn-style-one"> <span
+								class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
 						<!-- 버튼끝 -->
@@ -106,54 +107,16 @@
 														</thead>
 
 														<tbody>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
+															<c:forEach items="${userList}" var="user">
+																<tr>
+																	<td><input type="checkbox"/></td>
+																	<td><a href="adUserDetail.do">${user.user_email}</a></td>
+																	<td>${user.user_name}</td>
+																	<td>${user.user_phone}</td>
+																	<td>${user.user_rating}</td>
+																	<td>${user.user_indate}</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

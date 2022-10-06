@@ -14,5 +14,6 @@ public class UserInfoVO {
 	private String user_password;
 	private String user_indate;
 	private String user_outdate;
+	private String user_rating;
 	
 }
