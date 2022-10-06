@@ -111,54 +111,16 @@
 														</thead>
 
 														<tbody>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">주니어</td>
-																<td class="qty">2022/09/22</td>
-															</tr>
+															<c:forEach items="${adminList}" var="admin">
+																<tr>
+																	<td style="word-break:break-all"><input type="checkbox"/></td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${admin.adm_id}</a></td>
+																	<td style="word-break:break-all">${admin.adm_name}</td>
+																	<td style="font-size:13px">${admin.adm_phone}</td>
+																	<td style="word-break:break-all">${admin.adm_dept}</td>
+																	<td style="font-size:13px">${admin.adm_hiredate}</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

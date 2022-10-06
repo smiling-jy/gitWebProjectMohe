@@ -109,12 +109,12 @@
 														<tbody>
 															<c:forEach items="${userList}" var="user">
 																<tr>
-																	<td><input type="checkbox"/></td>
-																	<td><a href="adUserDetail.do">${user.user_email}</a></td>
-																	<td>${user.user_name}</td>
-																	<td>${user.user_phone}</td>
-																	<td>${user.user_rating}</td>
-																	<td>${user.user_indate}</td>
+																	<td style="word-break:break-all"><input type="checkbox"/></td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${user.user_email}</a></td>
+																	<td style="word-break:break-all">${user.user_name}</td>
+																	<td style="font-size:13px">${user.user_phone}</td>
+																	<td style="word-break:break-all">${user.user_rating}</td>
+																	<td style="font-size:13px">${user.user_indate}</td>
 																</tr>
 															</c:forEach>
 														</tbody>

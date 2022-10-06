@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.UserInfoVO;
 
 public interface AdminService {
@@ -25,4 +27,7 @@ public interface AdminService {
 	
 	List<UserInfoVO> adGetUserList();
 
+	List<EventVO> adGetEventList(HashMap map);
+	
+	List<Funding_pjVO> adGetFdList(HashMap map);
 }
