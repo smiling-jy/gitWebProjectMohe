@@ -94,7 +94,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
-		return null; //funding_pjDao.getFdApprovalList(map);
+		return funding_pjDao.getFdApprovalList(map);
 	}
 
 	@Override
