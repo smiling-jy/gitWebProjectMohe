@@ -25,8 +25,9 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void updateReview(ReviewVO vo) {
-		System.out.println("=============>업데이트 서비스");
-		reviewDAO.updateReview(vo);
+		System.out.println("=============>수정 서비스");
+		
+	    reviewDAO.updateReview(vo);
 		
 	} 
 
