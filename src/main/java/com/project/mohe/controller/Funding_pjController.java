@@ -9,15 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.service.Funding_pjService;
 import com.project.mohe.service.NoticeService;
 import com.project.mohe.service.impl.Funding_pjServiceImpl;
 
 @Controller
 public class Funding_pjController {
 	@Autowired
-	private Funding_pjServiceImpl funding_pjService;
+	private Funding_pjService funding_pjService;
 	
-	// 헤더의 펀딩 클릭시 펀딩 리스트 페이지로 이동
+		// 헤더의 펀딩 클릭시 펀딩 리스트 페이지로 이동
 		@RequestMapping("funding.do")
 		public String funding(Model model, String fd_category, String search, String select) {
 			HashMap map = new HashMap();
@@ -40,14 +41,19 @@ public class Funding_pjController {
 		
 		// 펀딩주최하기 클릭시 페이지 단순 이동
 		@RequestMapping("openfunding.do")
-		public void openfunding() {
+		public void openFunding() {
 
 		}
 		
 		// Funding_pjVO 테이블에 insert
 		@RequestMapping("savefunding.do")
-		public String insertfunding(Funding_pjVO pj) {
+		public String insertFunding(Funding_pjVO pj) {
 			// 파일추가때문에 좀 더 생각해봐
 			return "funding";
+		}
+		
+		// 관리자페이지에서 프로젝트 승인해줄때
+		public void approveFunding(Funding_pjVO pj) {
+			funding_pjService.updateFunding_pj(pj);
 		}
 }

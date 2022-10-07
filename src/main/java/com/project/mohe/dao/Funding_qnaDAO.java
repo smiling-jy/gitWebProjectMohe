@@ -20,6 +20,6 @@ public interface Funding_qnaDAO {
 		Funding_qnaVO getFunding_qna(Funding_qnaVO vo);
 			
 		// 글 목록 조회
-		List<Funding_qnaVO> getFunding_qnaList(HashMap map);
+		List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo);
 		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
 }

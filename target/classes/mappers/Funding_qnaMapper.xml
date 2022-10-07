@@ -4,5 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Funding_qnaDAO">
-
+  	<select id="getFunding_qnaList" parameterType="funding_qna" resultType="funding_qna">
+  		select *
+  		  from FUNDING_QNA
+  		 where fd_no = ${fd_no}
+  	</select>
   </mapper>

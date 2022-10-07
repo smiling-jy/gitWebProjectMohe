@@ -46,9 +46,8 @@ public class DonationDAOImpl implements DonationDAO {
 	}
 
 	@Override
-	public List<DonationVO> getDonationList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DonationVO> getDonationList() {
+		return mybatis.selectList("DonationDAO.getDonationList");
 	}
 	
 
