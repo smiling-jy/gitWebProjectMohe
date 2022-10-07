@@ -99,74 +99,26 @@
 															<tr>
 																<th>Check</th>
 																<th>제목</th>
-																<th>등록자</th>
 																<th>시작일</th>
 																<th>마감일</th>
 																<th>수정 / 삭제</th>
 															</tr>
 														</thead>
-
 														<tbody>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">추석 이벤트</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/23</td>
-																<td class="qty">2022/12/31</td>
-																<td><a href="#" class="remove-btn"> <span
+															<c:forEach items="${popup}" var="pop">
+																<tr>
+																	<td><input type="checkbox" /></td>
+																	<td style="word-break:break-all"><a href="adUserDetail.do">${pop.pop_title}</a></td>
+																	<td style="font-size:13px">${pop.pop_start_date}</td>
+																	<td style="font-size:13px">${pop.pop_end_date}</td>
+																	<td><a href="#" class="remove-btn"> <span
 																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">추석 이벤트</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/23</td>
-																<td class="qty">2022/12/31</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">추석 이벤트</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/23</td>
-																<td class="qty">2022/12/31</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">추석 이벤트</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/23</td>
-																<td class="qty">2022/12/31</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">추석 이벤트</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/23</td>
-																<td class="qty">2022/12/31</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
+																				class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
