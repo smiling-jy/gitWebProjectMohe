@@ -4,5 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="PartnerDAO">
-
+	<select id="getPartnerList" resultType="partner">
+		select *
+		from partner
+		order by partner_no desc
+	</select>
   </mapper>
