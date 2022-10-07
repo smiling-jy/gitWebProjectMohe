@@ -57,7 +57,7 @@ public class AdminController {
 		model.addAttribute("bsApproval",adminService.getBsApprovalList(map)); 
 	}
 	// 파트너쉽 목록
-	@RequestMapping("adPartner.do")
+	@RequestMapping("adPartnerList.do")
 	public void getPartnerList(HashMap map,Model model) {
 		model.addAttribute("partner",adminService.getPartnerList(map)); 
 	}
