@@ -78,8 +78,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	public List<UserInfoVO> adGetUserList() {
-		return userInfoDao.adGetUserInfoList();
+	public List<UserInfoVO> adGetUserList(HashMap map) {
+		return userInfoDao.getUserInfoList(map);
 	}
 	
 	@Override

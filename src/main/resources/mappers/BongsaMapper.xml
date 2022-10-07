@@ -7,13 +7,13 @@
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
 	  	select * from bongsa
-  		<where>
+<!--   		<where>
   		
 			<if test="searchKeyword != null">
   				${searchCondition} like '%${searchKeyword}%'
   			</if>
   		
-  		</where>
+  		</where> -->
   		  
   		  
 

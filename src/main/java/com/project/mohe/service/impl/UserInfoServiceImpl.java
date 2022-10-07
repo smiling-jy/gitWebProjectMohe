@@ -61,8 +61,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Override
 	public List<UserInfoVO> getUserInfoList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return userInfoDao.getUserInfoList(map);
 	}
 
 //	@Override

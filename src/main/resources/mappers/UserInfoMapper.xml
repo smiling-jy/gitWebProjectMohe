@@ -13,7 +13,7 @@
   	VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone}, #{user_email}, #{user_password}, #{user_intype}, SYSDATE)
   </insert>
   
-	<select id="adGetUserInfoList" resultType="userInfo">
+	<select id="getUserList" resultType="userInfo">
 		select * 
 		from userinfo
 		order by user_no desc

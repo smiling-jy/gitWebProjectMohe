@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>모해 MOHE | 봉사메인페이지</title>
+<title>모해 MOHE | 봉사페이지</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/bongsaMain.css" rel="stylesheet">
@@ -82,8 +82,8 @@
 				<form action="bongsaMain.do" method="post">
 		               <select name="searchCondition">
 		                  <option value='BS_TITLE'>봉사명</option>
-		                  <option value='BS_CONTENT'>봉사내용</option>
-		                  <option value='BS_NAME'>주체자 </option>                                    
+		                  <option value='BS_CONTENT'>내용</option>
+		                  <option value='BS_NAME'>주체 </option>                                    
 		               </select> 
 		               <input name="searchKeyword" type="text" /> 
 		               <input type="submit" value="검색"/>
@@ -92,17 +92,15 @@
 
 				<div class="row clearfix">	
 					<!--Cause Block-->
-					
 					<!-- 반복문 봉사 블럭  -->
-					<!-- 객체이름 : bsPj 만들기   -->
-					<c:forEach items="${bs_list}" var="bongsa">
+					<c:forEach items="bs_list" var="bongsa">
 						<div class="cause-block col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 								<div class="image-box">
 									<figure class="image">
 										<a href="bongsaDetail.do"><img class="lazy-image"
-											src="resources/images/mohe_logo/bongsaMain/s1.jpg" data-src=""
-											alt=""></a>
+											src="resources/images/resource/image-spacer-for-validation.png"
+											data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
 									</figure>
 								</div>
 								<div class="donate-info">
