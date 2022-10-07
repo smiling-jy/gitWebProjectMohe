@@ -14,5 +14,6 @@ public class AdminVO {
 	private String adm_adress;
 	private String adm_hiredate;
 	private String adm_enddate;
+	private String adm_email;
 	
 }

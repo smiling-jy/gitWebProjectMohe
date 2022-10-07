@@ -31,6 +31,14 @@ a{
 	background-color: #25283a;		
 }
 
+.btn-style-six .btn-title{
+	background-color: rgb(70,106,140);
+}
+
+.btn-style-six .btn-title:before{
+	background-color: #25283a;		
+}
+
 .btn-style-two:hover{
 	border-color:#3cc88f;
 	background:#3cc88f;

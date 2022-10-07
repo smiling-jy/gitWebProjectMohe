@@ -26,25 +26,25 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.update("AdminDAO.updateAdmin",vo);
 		
 	}
 
 	@Override
 	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		// db 삭제 하지않고 퇴사일을 업데이트한다 
+		mybatis.update("AdminDAO.updateEndDate",vo);
 		
 	}
-
-	@Override
-	public AdminVO getAdmin(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<AdminVO> getAdminList(HashMap map) {
 		return mybatis.selectList("AdminDAO.getAdminList");
+	}
+
+	@Override
+	public AdminVO getAdminDetail(AdminVO vo) {
+		return mybatis.selectOne("AdminDAO.getAdminDetail",vo);
 	}
 
 }

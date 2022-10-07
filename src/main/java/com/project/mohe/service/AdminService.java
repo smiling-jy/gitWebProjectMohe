@@ -10,6 +10,7 @@ import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 
@@ -29,6 +30,8 @@ public interface AdminService {
 			
 	// 관리자 리스트
 	List<AdminVO> getAdminList(HashMap map);
+
+	AdminVO getAdminDetail(AdminVO vo);
 	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(HashMap map);
@@ -59,4 +62,7 @@ public interface AdminService {
 	
 	//공지 리스트
 	List<NoticeVO> getNoticeList(HashMap map);
+	
+	//공지 리스트
+	List<PopupVO> getPopupList(HashMap map);
 }
