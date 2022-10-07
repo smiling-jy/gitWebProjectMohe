@@ -6,17 +6,54 @@
   <mapper namespace="BongsaDAO">
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
-	SELECT * FROM BONGSA ORDER BY BS_NO DESC
-
-<!--   	<where>
-  		
-			<if test="searchKeyword != null">
+	SELECT BS_NO, BS_TITLE, BS_CONTENT ,BS_GOAL_CNT, BS_SUCCESS_CNT, BS_NAME, round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate FROM BONGSA 
+	
+		<where>
+			<!-- 지역별 검색 -->
+	 		<if test="bs_region != null">
+	 			bs_region = #{bs_region}
+	 		</if>
+	 		<!-- 키워드 검색-->
+		 	<if test="searchKeyword != null">
   				${searchCondition} like '%${searchKeyword}%'
   			</if>
-  		 
-  		</where> -->
-
+		 
+		</where> 
+	ORDER BY BS_NO DESC
 
 	</select>
+	
+	
+	<!-- 봉사 상세페이지 가져오기 -->
+	<select id="getBongsa" parameterType="bongsa" resultType="bongsa">
+  		select BS_TITLE, BS_CONTENT, BS_NAME, 
+  		BS_NO, BS_REGION, BS_PLACE, BS_IMG_CNT, 
+  		BS_PHONE, BS_WORK_START, BS_SUCCESS_CNT, 
+  		BS_WORK_END, BS_EMAIL, BS_IMG_NAME, 
+  		BS_GOAL_CNT, USER_NO, BS_READ_CNT, 
+  		USER_NO,
+  		round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate
+  		from BONGSA 
+  		where bs_no=#{bs_no}
+  	</select>
+  	
+  	<!-- 참여하기페이지 보여주기 -->
+  	
+  	
+  	
+  	
+	
+	
+	
+	
+<!-- 	 <insert id="insertBongsa" parameterType="bongsa" > -->
+<!--   		Insert Into bongsa (BS_NO, BS_TITLE, BS_CONTENT,  -->
+<!--   		BS_REGIONBS_PLACE, BS_RECRUIT_START, BS_RECRUIT_END, BS_WORK_START,  -->
+<!--   		BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, BS_ING, BS_NAME, BS_PHONE,  -->
+<!--   		BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, BS_READ_CNT, USER_NO) -->
+<!--   		values (BONGSA_PJ_SEQ.nextval, #{title}, #{writer}, #{content}, sysdate, 0) -->
+<!--   	</insert> -->
+	
+	
 
   </mapper>

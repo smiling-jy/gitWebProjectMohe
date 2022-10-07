@@ -23,4 +23,8 @@ public class BongsaVO {
 	private int bs_img_cnt;
 	private String bs_img_name;
 	private int bs_read_cnt;
+	
+	
+	//db에 없는 변수 
+	private int bs_rate; //인원 모집 달성률
 }

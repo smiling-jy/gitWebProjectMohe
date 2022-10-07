@@ -36,8 +36,8 @@ public class BongsaServiceImpl implements BongsaService {
 
 	@Override
 	public BongsaVO getBongsa(BongsaVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		//봉사 상세 페이지 출력
+		return bongsaDao.getBongsa(vo);
 	}
 
 	@Override
