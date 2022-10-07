@@ -22,7 +22,7 @@
 						<!--Logo-->
 						<div class="logo-box">
 							<div class="logo">
-								<a href="index.html" title="모해공지상세"><img style="top: 20px;"
+								<a href="main.do" title="모해공지상세"><img style="top: 20px;"
 									src="resources/images/mohe_logo/main_logo.png" LoveUs - Charity
 									and Fundraising HTML
 									Template" title="LoveUs - Charity and Fundraising HTML Template"></a>
@@ -42,9 +42,9 @@
 								<div class="collapse navbar-collapse show clearfix"
 									id="navbarSupportedContent">
 									<ul class="navigation clearfix" style="margin-right: 60px">
-										<li><a href="infopage1.html"><h4>소개</h4></a></li>
-										<li><a href="causes.html"><h4>펀딩</h4></a></li>
-										<li><a href="donate.html"><h4>봉사</h4></a></li>
+										<li><a href="info1.do"><h4>소개</h4></a></li>
+										<li><a href="funding.do"><h4>펀딩</h4></a></li>
+										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
 										<li class="dropdown"><a href="blog.html"><h4>더보기</h4></a>
 											<ul>
 												<li><a href="blog.html">이벤트</a></li>
