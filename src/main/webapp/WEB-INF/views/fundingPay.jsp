@@ -72,10 +72,10 @@
 															<h4 class="prod-title">${pj.fd_title}</h4>
 														</div>
 													</td>
-													<td class="price">${pj.fd_price} 원</td>
+													<td class="price"><span>${pj.fd_price}</span>원</td>
 													<td class="qty"><input class="quantity-spinner"
 														type="text" value="1" name="pay_count"></td>
-													<td class="sub-total">${pj.fd_price} 원</td>
+													<td class="sub-total"><span>${pj.fd_price}</span>원</td>
 												</tr>
 											</tbody>
 										</table>
@@ -143,6 +143,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/funding.js"></script>
 
 </body>
 </html>

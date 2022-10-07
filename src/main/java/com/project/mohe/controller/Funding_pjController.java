@@ -25,6 +25,7 @@ public class Funding_pjController {
 			map.put("fd_category",fd_category); // 카테고리
 			map.put("search",search); // 검색어
 			map.put("select",select); // 최신순 , 인기순
+			System.out.println(select);
 			List<Funding_pjVO> pj_list = funding_pjService.getFunding_pjList(map);
 			model.addAttribute("pj_list", pj_list);
 			return "funding";

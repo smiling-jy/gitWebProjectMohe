@@ -6,7 +6,7 @@
   <mapper namespace="Funding_pjDAO">
 	<!-- 목록보기 -->
   	<select id="getFunding_pjList" parameterType="map" resultType="funding_pj">
-  		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0) , pj.FD_HOSTNAME
+  		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0) 
        		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
       		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
 		  from funding_pj pj , (select fd_no , sum(pay_total) total_sum 
@@ -22,12 +22,15 @@
   		<if test="search != null">
   			and pj.fd_title like '%${search}%'
   		</if>
-  		<if test="select != null">
-  			order by ${select} desc
-  		</if>
-  		<if test="select = null">
-  			order by pj.fd_no desc
-  		</if>
+  		<choose>
+  			<when test="select != null">
+  				order by pj.${select} desc
+  			</when>
+  			<otherwise>
+  				order by pj.fd_no desc
+  			</otherwise>
+  		</choose>
+  		
   	</select>
   	<!-- 승인 안된 펀딩 리스트 조회 -->
   	<select id="getFdApprovalList" resultType="funding_pj">
