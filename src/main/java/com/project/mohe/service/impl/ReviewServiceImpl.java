@@ -25,25 +25,27 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void updateReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("=============>업데이트 서비스");
+		reviewDAO.updateReview(vo);
 		
 	} 
 
 	@Override
 	public void deleteReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("=============>딜리트 서비스");
+		reviewDAO.deleteReview(vo);
 		
 	}
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reviewDAO.getReview(vo);
 	}
 
 	@Override
 	public List<ReviewVO> getReviewList() {
-		System.out.println("========>리뷰리스트 서비스impl");
+		
 		return reviewDAO.getReviewList();
 	}
 
