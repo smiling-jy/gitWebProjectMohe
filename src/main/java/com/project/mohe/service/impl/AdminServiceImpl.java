@@ -60,13 +60,13 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		adminDao.updateAdmin(vo);
 		
 	}
 
 	@Override
 	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		adminDao.deleteAdmin(vo);
 		
 	}
 
@@ -134,6 +134,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<PopupVO> getPopupList(HashMap map) {
 		return popupDao.getPopupList(map);
+	}
+
+	@Override
+	public AdminVO getAdminDetail(AdminVO vo) {
+		return adminDao.getAdminDetail(vo);
 	}
 
 

@@ -18,7 +18,7 @@ public interface AdminDAO {
 		void deleteAdmin(AdminVO vo);
 			
 		// 글 상세 조회
-		AdminVO getAdmin(EventVO vo);
+		AdminVO getAdminDetail(AdminVO vo);
 			
 		// 글 목록 조회
 		List<AdminVO> getAdminList(HashMap map);
