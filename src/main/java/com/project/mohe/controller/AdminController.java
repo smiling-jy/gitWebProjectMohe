@@ -28,8 +28,8 @@ public class AdminController {
 	}
 	// 회원 목록 띄우기
 	@RequestMapping("adUserList.do")
-	public void getUserList(Model model) {	
-		model.addAttribute("userList",adminService.adGetUserList());
+	public void getUserList(HashMap map,Model model) {	
+		model.addAttribute("userList",adminService.adGetUserList(map));
 	}
 	// 이벤트 목록 띄우기
 	@RequestMapping("adEventList.do")
@@ -57,7 +57,7 @@ public class AdminController {
 		model.addAttribute("bsApproval",adminService.getBsApprovalList(map)); 
 	}
 	// 파트너쉽 목록
-	@RequestMapping("adPartner.do")
+	@RequestMapping("adPartnerList.do")
 	public void getPartnerList(HashMap map,Model model) {
 		model.addAttribute("partner",adminService.getPartnerList(map)); 
 	}
