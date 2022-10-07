@@ -64,17 +64,5 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoDao.getUserInfoList(map);
 	}
 
-//	@Override
-//	public UserInfoVO userInsert(UserInfoVO vo) {
-//		// TODO Auto-generated method stubs
-//		return null;
-//	}
-
-
-//	@Override
-//	public UserInfoVO emailCheck(UserInfoVO vo) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 	
 }
