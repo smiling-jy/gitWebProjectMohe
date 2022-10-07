@@ -3,6 +3,7 @@ package com.project.mohe.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.ReviewVO;
@@ -40,14 +41,22 @@ public class ReviewController {
 		//리뷰 읽기
 		@RequestMapping("getReview.do")
 		public String getReview(ReviewVO vo, Model model) {
+			System.out.println("======>> 컨트롤러 getReview.do");
+			
 			model.addAttribute("review", reviewService.getReview(vo));
+			
 			return "reviewDetail";
 		}
 		
 		
 		//수정페이지로 이동
 		@RequestMapping("goUpdate.do")
-		public String goUpdate() {
+		public String goUpdate(ReviewVO vo,Model model) {
+			System.out.println("======>> 컨트롤러 goUpdate.do");
+			
+			//수정하고자 하는 게시글의 내용을 출력해야함 따라서 해당 게시물의 내용을 가져오는 서비스 메소드를 호출
+			model.addAttribute("review", reviewService.getReview(vo));
+			
 			return "reviewUpdate";
 		}
 		
@@ -55,8 +64,9 @@ public class ReviewController {
 		@RequestMapping("updateReview.do")
 		public String updateReview(ReviewVO vo) {
 			System.out.println("===========>리뷰컨트롤러 updateReview");
+			
 			reviewService.updateReview(vo);
-			//java.sql.SQLException: 부적합한 열 유형: 1111>null허용하지 않는데 들어갔거나 부적합한 입력값이 들어갔을경우
+		
 			return "redirect:/review.do";
 		}
 		
