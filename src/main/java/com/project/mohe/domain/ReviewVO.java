@@ -9,6 +9,7 @@ public class ReviewVO {
 	private int review_no;
 	private String review_title;
 	private int review_img_cnt;
+	private String review_img;
 	private String review_text;
 	private Date review_date;
 	private int user_no;

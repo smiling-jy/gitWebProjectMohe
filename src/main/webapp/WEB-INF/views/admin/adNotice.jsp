@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +97,8 @@
 													<table class="cart-table">
 														<thead class="cart-header">
 															<tr>
-																<th colspan="3">제목</th>
+																<th>NO</th>
+																<th>제목</th>
 																<th>작성자</th>
 																<th>등록일</th>
 																<th>수정 / 삭제</th>
@@ -104,50 +106,20 @@
 														</thead>
 
 														<tbody>
-															<tr>
-																<td colspan="3" class="qty"><a href="#">주말엔
-																		푹쉬도록 합시다</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
+															<c:forEach items="${notice}" var="ntc">
+																<tr>
+																	<td style="word-break:break-all">${ntc.notice_no}</td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${ntc.notice_title}</a></td>
+																	<td style="font-size:13px">${ntc.adm_id}</td>
+																	<td style="word-break:break-all">${ntc.notice_date}</td>
+																	<td><a href="#" class="remove-btn"> <span
 																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="3" class="qty"><a href="#">주말엔
-																		푹쉬도록 합시다</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="3" class="qty"><a href="#">주말엔
-																		푹쉬도록 합시다</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="3" class="qty"><a href="#">주말엔
-																		푹쉬도록 합시다</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
+																				class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

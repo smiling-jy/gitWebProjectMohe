@@ -42,8 +42,8 @@ public class BongsaServiceImpl implements BongsaService {
 
 	@Override
 	public List<BongsaVO> getBongsaList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("서비스진입");
+		return bongsaDao.getBongsaList(map);
 	}
 	
 	

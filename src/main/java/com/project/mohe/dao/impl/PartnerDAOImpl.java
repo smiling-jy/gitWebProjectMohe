@@ -42,8 +42,7 @@ public class PartnerDAOImpl implements PartnerDAO{
 
 	@Override
 	public List<PartnerVO> getPartnerList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("PartnerDAO.getPartnerList");
 	}
 
 

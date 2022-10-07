@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,8 +79,8 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-one">
-								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
+							<a href="cause-single.do" class="theme-btn btn-style-one"> <span
+								class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
 						<!-- 버튼끝 -->
@@ -95,9 +96,9 @@
 													<table class="cart-table">
 														<thead class="cart-header">
 															<tr>
-																<th width="200px">제목</th>
+																<th>NO</th>
+																<th>제목</th>
 																<th>주최자명</th>
-																<th>신청일</th>
 																<th>시작일</th>
 																<th>마감일</th>
 																<th width="200px">승인 / 반려</th>
@@ -105,66 +106,20 @@
 														</thead>
 
 														<tbody>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+															<c:forEach items="${fdApproval}" var="fd">
+																<tr>
+																	<td style="word-break: break-all">${fd.fd_no}</td>
+																	<td style="width:200px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
+																	<td style="word-break: break-all">${fd.fd_hostname}</td>
+																	<td style="font-size: 13px">${fd.fd_startdate}</td>
+																	<td style="font-size: 13px">${fd.fd_enddate}</td>
+																	<td><a href="#" class="remove-btn"> 
+																		<span class="flaticon-check"></span>
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																			<span class="flaticon-delete-1"></span>
+																	</a></td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,61 +95,29 @@
 													<table class="cart-table">
 														<thead class="cart-header">
 															<tr>
-																<th colspan="2">제목</th>
+																<th>NO</th>
+																<th>제목</th>
+																<th>내용</th>
 																<th>작성자</th>
-																<th>등급</th>
 																<th>작성일</th>
 																<th>삭제</th>
 															</tr>
 														</thead>
-
 														<tbody>
-															<tr>
-																<td colspan="2" class="qty"><a href="#">왕감자 존맛</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">시니어</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="2" class="qty"><a href="#">왕감자 존맛</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">시니어</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="2" class="qty"><a href="#">왕감자 존맛</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">시니어</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="2" class="qty"><a href="#">왕감자 존맛</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">시니어</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td colspan="2" class="qty"><a href="#">왕감자 존맛</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">시니어</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-
+															<c:forEach items="${review}" var="review">
+																<tr>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${review.review_no}</a></td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${review.review_title}</a></td>
+																	<td style="word-break:break-all">${review.review_text}</td>
+																	<td style="word-break:break-all">${review.user_name}</td>
+																	<td style="word-break:break-all">${review.review_date}</td>
+																	<td>
+																		<a href="#" class="remove-btn"> 
+																			<span class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
+																</tr>
+															</c:forEach>															
 														</tbody>
 													</table>
 												</div>

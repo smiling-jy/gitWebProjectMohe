@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,75 +102,27 @@
 														<thead class="cart-header">
 															<tr>
 																<th>Check</th>
+																<th>NO</th>
 																<th>회사명</th>
-																<th>대표명</th>
-																<th>연락처</th>
-																<th>등록일</th>
+																<th>URL</th>
 																<th>수정 / 삭제</th>
 															</tr>
 														</thead>
 
 														<tbody>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">삼성</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
+															<c:forEach items="${partner}" var="ptn">
+																<tr>
+																	<td style="word-break:break-all"><input type="checkbox"/></td>
+																	<td style="font-size:13px"><a href="adUserDetail.do">${ptn.partner_no}</a></td>
+																	<td style="word-break:break-all">${ptn.partner_name}</td>
+																	<td style="font-size:13px">${ptn.partner_url}</td>
+																	<td><a href="#" class="remove-btn"> <span
 																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">삼성</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">삼성</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">삼성</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td><input type="checkbox" /></td>
-																<td class="qty"><a href="#">삼성</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">01045681987</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
+																			class="flaticon-delete-1"></span>
+																	</a></td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
