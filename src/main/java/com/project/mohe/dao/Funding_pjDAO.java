@@ -22,5 +22,7 @@ public interface Funding_pjDAO {
 			
 		// 글 목록 조회
 		List<Funding_pjVO> getFunding_pjList(HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		
+		// 펀딩 승인안된 리스트
+		List<Funding_pjVO> getFdApprovalList(HashMap map);
 }

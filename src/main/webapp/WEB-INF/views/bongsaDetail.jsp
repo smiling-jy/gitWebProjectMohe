@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@
 		<jsp:include page="headerRed.jsp" />
 		<!--End Banner Section -->
 		<div class="auto-container bs-detail-name">
-			<h1 class="newFont">초록 지구 만들기! 플로킹 봉사활동</h1>
+			<h1 class="newFont">${bongsa.bs_title}</h1>
 		</div>
 
 		<!--Sidebar Page Container-->
@@ -62,21 +63,19 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="20%">
-												<div class="count-text">20%</div>
+											<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
+												<div class="count-text">${bongsa.bs_rate}%</div>
 											</div>
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>모집인원:</strong> 1000명</span> <span
-											class="goal"><strong>현재 신청인원:</strong> 200명</span>
+										<span class="raised"><strong>모집인원:</strong>${bongsa.bs_goal_cnt}명</span>
+										<span class="goal"><strong>현재 신청인원:</strong>${bongsa.bs_success_cnt}명</span>
 									</div>
 								</div>
 								<div class="lower-content">
 									<div class="text-content">
-										<h6 class="newFont">* 언제, 어디에서나, 누구나 참여 가능한 비대면 봉사
-											프로그램입니다. * 초록 지구 만들기 키트는 플로킹 활동에 필요한 도구들로 구성되어 있으며, 걸으면서 쓰레기를
-											주워 주변 환경을 깨끗하게 만드는 활동입니다. 참가비 역시 나무를 심고 환경을 지키는 일에 사용됩니다.</h6>
+										<h6 class="newFont">${bongsa.bs_content}</h6>
 										<br>
 										<div class="image-box">
 											<figure class="image">
@@ -153,20 +152,17 @@
                             <div class="text">Lorem ipsum dolor sit amet consectur pisicelit sed do.</div> -->
 								<div class="widget-content">
 									<ul>
-										<li><span>주최 :<span class="bs-name">글로벌비전</span></li>
-										<li><span>일시 :<span class="bs-work-start">2022-05-18
-													10:00</span> ~ <br>
-											<span class="bs-work-end" style="margin-left: 50px;">2022-08-19
-													17:00</span></span></li>
-										<li><span>장소 :<span class="bs-place">어디서나</span></li>
-										<li><span>준비물 :<span class="bs-supply">블로킹키트</span></li>
-										<li><span>문의번호 :<span class="bs-phone">031-999-9999</span></li>
-										<li><span>이메일 :<span class="bs-email">5555@naver.com</span></li>
+										<li><span>주최 :<span class="bs-name">${bongsa.bs_name}</span></li>
+										<li><span>일시 :<span class="bs-work-start">${bongsa.bs_work_start}</span> ~ <br>
+											<span class="bs-work-end" style="margin-left: 50px;">${bongsa.bs_work_end}</span></span></li>
+										<li><span>장소 :<span class="bs-place">${bongsa.bs_place}</span></li>
+										<li><span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></li>
+										<li><span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></li>
 									</ul>
 								</div>
 							</div>
 							<div>
-								<a href="bongsaParticipate.html" class="theme-btn btn-style-one"><span
+								<a href="bongsaParticipate.do" class="theme-btn btn-style-one"><span
 									class="btn-title cs-btn">참여하기</span></a> <a href="#"
 									class="theme-btn btn-style-one"><span
 									class="btn-title cs-btn">공유</span></a> <a href="#"

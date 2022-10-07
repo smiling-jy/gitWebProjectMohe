@@ -39,8 +39,8 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public BongsaVO getBongsa(BongsaVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return mybatis.selectOne("BongsaDAO.getBongsa",vo);
 	}
 
 	@Override
@@ -48,6 +48,7 @@ public class BongsaDAOImpl implements BongsaDAO {
 		System.out.println("dao진입");
 		System.out.println("조건 : " + map.get("searchCondition"));// 키인 searchCondition로 value 받기  
 		System.out.println("키워드 : " + map.get("searchKeyword"));
+		System.out.println("지역 : " + map.get("bs_region"));
 		return mybatis.selectList("BongsaDAO.getBongsaList", map);
 	}
 	

@@ -4,5 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Funding_payDAO">
-
+	<insert parameterType="funding_pay" id="insertFunding_pay">
+		INSERT INTO funding_pay(PAY_NO , FD_TITLE ,FD_HOSTNAME
+								, PAY_COUNT,PAY_TOTAL, PAY_PN_NAME
+								, PAY_PN_PHONE ,PAY_PN_EMAIL
+								, PAY_PN_ADDR, PAY_DATE ,USER_NO, FD_NO)
+		     VALUES(FD_PAY_SEQ.nextval, #{fd_title}, #{fd_hostname}
+		     		, #{pay_count}, #{pay_total}, #{pay_pn_name}
+		     		, #{pay_pn_phone}, #{pay_pn_email}, #{pay_pn_addr}
+		     		, sysdate, #{user_no}, #{fd_no})
+	</insert>
   </mapper>

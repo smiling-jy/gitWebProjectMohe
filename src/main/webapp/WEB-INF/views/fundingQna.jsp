@@ -65,32 +65,39 @@
 						<!--Cause Details-->
 						<div class="cause-details">
 							<div class="inner-box donate-form">
-								<form action="#">
-									<textarea id="question-box"></textarea>
+								<form action="questionSave.do" method="post">
+									<input type="hidden" name="fd_no" value="${pj.fd_no}">
+									<textarea id="question-box" name="qna_question"></textarea>
 									<button class="new-btn">질문하기</button>
 								</form>
-								<div class="tab active-tab" id="tab-1">
+								<div class="tab active-tab">
 									<ul class="accordion-box clearfix">
 										<!--Block-->
 										<c:forEach items="${qna_list}" var="qna">
-												<li class="accordion block">
-													<div class="acc-btn">
-														<span>${qna.qna_question}</span>
-														<!-- 조건문으로 본인 글만 삭제 가능하게... -->
+											<li class="accordion block active-block f-size">
+												<div class="acc-btn">
+													<span><strong>Q. </strong> ${qna.qna_question}</span>
+													<!-- 조건문으로 본인 글만 삭제 가능하게... -->
+													<c:if test="${sessionScope.user_no eq qna.user_no}">
 														<button class="x-btn">x</button>
-													</div>
-													<div class="acc-content current">
-														<div class="content">
-															<!-- 조건문으로 답변있없 -->
-															<div class="text">
-																<c:choose>
-																	<c:when test="${qna.qna_answer eq null }"> <span>아직 답변이 없습니다.</span></c:when>
-																	<c:otherwise> <span>${qna.qna_answer}</span> </c:otherwise>
-																</c:choose>
-															</div>
+													</c:if>
+												</div>
+												<div class="acc-content">
+													<div class="content">
+														<!-- 조건문으로 답변있없 -->
+														<div class="text">
+															<c:choose>
+																<c:when test="${qna.qna_answer eq null }">
+																	<span>아직 답변이 없습니다.</span>
+																</c:when>
+																<c:otherwise> <span><strong>A.
+																	</strong>${qna.qna_answer}</span>
+																</c:otherwise>
+															</c:choose>
 														</div>
 													</div>
-												</li>
+												</div>
+											</li>
 										</c:forEach>
 									</ul>
 								</div>
@@ -113,8 +120,7 @@
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">
-								<a href="fundingPay.do"
-									class="theme-btn btn-style-one link-box"><span
+								<a href="fundingPay.do?fd_no=${pj.fd_no}" class="theme-btn btn-style-one link-box"><span
 									class="btn-title new-font new-btn-title">펀딩하기</span></a>
 								<button class="funding-btn" id="jjim">♥</button>
 								<button class="funding-btn" id="gongu">

@@ -113,12 +113,12 @@
                                     <select>
                                         <option>전국</option>
                                         <option>서울</option>
-                                        <option>경기 인천</option>
+                                        <option>경기인천</option>
                                         <option>강원</option>
-                                        <option>대구 경북</option>
-                                        <option>광주 전라</option>
-                                        <option>울산 부산 경남</option>
-                                        <option>대전 세종 충남</option>
+                                        <option>대구경북</option>
+                                        <option>광주전라</option>
+                                        <option>울산부산경남</option>
+                                        <option>대전세종충남</option>
                                         <option>제주</option>
                                         <option>비대면</option>
                                     </select>
@@ -134,7 +134,6 @@
                                     <span>모집종료일</span>
                                     <input type="date" name="#" required><br/>
                                     <hr>
-
                                     <span>봉사시작 일시</span>
                                     <input type="datetime-local" name="#" required><br/>
                                     <hr>

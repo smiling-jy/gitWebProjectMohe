@@ -13,6 +13,7 @@ import com.project.mohe.dao.EventDAO;
 import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.dao.NoticeDAO;
 import com.project.mohe.dao.PartnerDAO;
+import com.project.mohe.dao.PopupDAO;
 import com.project.mohe.dao.ReviewDAO;
 import com.project.mohe.dao.UserInfoDAO;
 import com.project.mohe.domain.AdminVO;
@@ -22,6 +23,7 @@ import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
@@ -47,6 +49,8 @@ public class AdminServiceImpl implements AdminService {
 	private DonationDAO donationDao;
 	@Autowired
 	private NoticeDAO noticeDao;
+	@Autowired
+	private PopupDAO popupDao;
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -56,13 +60,13 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void updateAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		adminDao.updateAdmin(vo);
 		
 	}
 
 	@Override
 	public void deleteAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
+		adminDao.deleteAdmin(vo);
 		
 	}
 
@@ -76,6 +80,7 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminVO> getAdminList(HashMap map) {
 		return adminDao.getAdminList(map);
 	}
+	
 	
 	@Override
 	public List<UserInfoVO> adGetUserList(HashMap map) {
@@ -94,7 +99,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
-		return null; //funding_pjDao.getFdApprovalList(map);
+		return funding_pjDao.getFdApprovalList(map);
 	}
 
 	@Override
@@ -124,6 +129,16 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<NoticeVO> getNoticeList(HashMap map) {
 		return noticeDao.getNoticeList(map);
+	}
+
+	@Override
+	public List<PopupVO> getPopupList(HashMap map) {
+		return popupDao.getPopupList(map);
+	}
+
+	@Override
+	public AdminVO getAdminDetail(AdminVO vo) {
+		return adminDao.getAdminDetail(vo);
 	}
 
 

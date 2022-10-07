@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,19 +49,19 @@
 				<!-- <div> -->
 				<ul class="bs-regeion">
 					<li><a href="bongsaMain.do">전국</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=서울">서울</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=경기인천">경기 인천</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=강원">강원</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=대구경북">대구 경북</a></li>
+					<li><a href="bongsaMain.do?bs_region=서울">서울</a></li>
+					<li><a href="bongsaMain.do?bs_region=경기인천">경기 인천</a></li>
+					<li><a href="bongsaMain.do?bs_region=강원">강원</a></li>
+					<li><a href="bongsaMain.do?bs_region=대구경북">대구 경북</a></li>
 				</ul>
 				<!-- </div> -->
 				<!-- <div> -->
 				<ul class="bs-regeion">
-					<li><a href="bongsaMain.do?BS_REGION=광주전라">광주 전라</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=울산부산경남">울산 부산 경남</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=대전세종충남">대전 세종 충남</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=제주도">제주도</a></li>
-					<li><a href="bongsaMain.do?BS_REGION=비대면">비대면</a></li>
+					<li><a href="bongsaMain.do?bs_region=광주전라">광주 전라</a></li>
+					<li><a href="bongsaMain.do?bs_region=울산부산경남">울산 부산 경남</a></li>
+					<li><a href="bongsaMain.do?bs_region=대전세종충남">대전 세종 충남</a></li>
+					<li><a href="bongsaMain.do?bs_region=제주도">제주도</a></li>
+					<li><a href="bongsaMain.do?bs_region=비대면">비대면</a></li>
 				</ul>
 				
 			</div> <!-- 지역 카테고리 끝 -->
@@ -79,26 +80,30 @@
 			<div class=" new-font bongsa-search-box">
 				<a href="bongsaRecruite.do" class="theme-btn btn-style-one link-box">
 				<span class="btn-title new-btn-title">모집하기</span></a>
-				<form action="bongsaMain.do" method="post">
-		               <select name="searchCondition">
-		                  <option value='BS_TITLE'>봉사명</option>
-		                  <option value='BS_CONTENT'>내용</option>
-		                  <option value='BS_NAME'>주체 </option>                                    
-		               </select> 
-		               <input name="searchKeyword" type="text" /> 
-		               <input type="submit" value="검색"/>
-				</form>
+				
+	
+					<form action="bongsaMain.do" method="post" class="bs-search-main">
+			               <select name="searchCondition">
+			                  <option value='bs_title'>봉사명</option>
+			                  <option value='bs_content'>내용</option>
+			                  <option value='bs_name'>주체 </option>                                    
+			               </select> 
+			               <input name="searchKeyword" type="text" /> 
+			               <input type="submit" value="검색"/>
+					</form>
+
+				
 			</div>
 
 				<div class="row clearfix">	
 					<!--Cause Block-->
 					<!-- 반복문 봉사 블럭  -->
-					<c:forEach items="bs_list" var="bongsa">
+					<c:forEach items="${bs_list}" var="bongsa">
 						<div class="cause-block col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 								<div class="image-box">
 									<figure class="image">
-										<a href="bongsaDetail.do"><img class="lazy-image"
+										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
 											src="resources/images/resource/image-spacer-for-validation.png"
 											data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
 									</figure>
@@ -106,33 +111,31 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="60%">
-												<div class="count-text">60%</div>
+											<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
+												<div class="count-text">${bongsa.bs_rate}%</div>
 											</div>
 										</div>
 									</div>
 									<div class="donation-count clearfix">
 										<span class="raised"><strong>모집인원:</strong><span
-											class="bs-goal-cnt">${bongsa.BS_GOAL_CNT}</span>명</span><span class="goal"><strong>현재
-												신청인원:</strong><span class="bs-success-cnt">${bongsa.BS_SUCCESS_CNT}</span>명</span>
+											class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
+												신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 									</div>
 								</div>
 								<div class="lower-content ">
 									<h3>
-										<a href="bongsaDetail.do" class="bs-title newFont">${bongsa.BS_TITLE}</a>
+										<a href="bongsaDetail.do" class="bs-title newFont">${bongsa.bs_title}</a>
 									</h3>
-									<h5 class="bs-name">수원시의회</h5><br>
 									<div class="donation-count clearfix">
 										<span class="raised"><strong>주최 :</span><span
-											class="bs-name">수원시의회</span></strong>
+											class="bs-name">${bongsa.bs_name}</span></strong>
 									</div>
 									<div>
-										<span class="bs-content">소년소녀 가장을 위한 한마음 달리기! 당신의 소중한
-											마음을 전달해주세요</span>
+										<span class="bs-content">${bongsa.bs_content}</span>
 									</div>
 									<br>
 									<div class="link-box">
-										<a href="bongsaDetail.do" class="theme-btn btn-style-two"><span
+										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-two"><span
 											class="btn-title">Read More</span></a>
 									</div>
 								</div>
@@ -140,28 +143,6 @@
 						</div> 
 					</c:forEach>
 					<!-- 봉사 반복문 -->
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					
 					
 					<!--봉사썸네일 블럭 -->

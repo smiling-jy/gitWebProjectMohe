@@ -163,22 +163,19 @@ ul.new-font{
 /* 펀딩 문의페이지 */
 
 
-#question-box{
-    margin-top: 50px;
-}
-
 .info-qna li{
     font-size: 18px;
 }
 
 /* 문의 텍스트박스 */
 #question-box{
-    margin-left: 40px;
+	margin-top: 50px;
+    margin-left: 45px;
     margin-bottom: 15px;
-    width: 720px;
+    width: 680px;
 }
 #question-box~.new-btn{
-    margin-left: 680px;
+    margin-left: 640px;
 }
 
 /* 문의글 삭제 버튼 */
