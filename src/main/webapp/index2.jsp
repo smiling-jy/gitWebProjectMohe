@@ -10,7 +10,7 @@
 	hello mohe <!-- 영민 TEST index-->
 	<a href="main.do">메인으로 가기</a>
 	<a href="review.do">리뷰로 가기</a>
-	<a href="Event.do">이벤트로 가기</a>
+	<a href="partner.do">파트너로 가기</a>
 
 	
 </body>
