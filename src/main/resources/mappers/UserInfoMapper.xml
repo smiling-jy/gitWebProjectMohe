@@ -4,9 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="UserInfoDAO">
-	<select id="adGetUserInfoList" resultType="userInfo">
+  <select id="emailCheck" parameterType="userInfo" resultType="userInfo">
+  	SELECT * FROM USERINFO WHERE USER_EMAIL = #{user_email}
+  </select>
+  
+  <insert id="insertUserInfo" parameterType="userInfo">
+  	INSERT INTO USERINFO(USER_NO, USER_NAME, USER_PHONE, USER_EMAIL, USER_PASSWORD, USER_INTYPE, USER_INDATE)
+  	VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone}, #{user_email}, #{user_password}, #{user_intype}, SYSDATE)
+  </insert>
+  
+	<select id="getUserList" resultType="userInfo">
 		select * 
 		from userinfo
 		order by user_no desc
 	</select>
   </mapper>
+  
+  

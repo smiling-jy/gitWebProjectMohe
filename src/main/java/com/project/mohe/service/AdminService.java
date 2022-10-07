@@ -4,8 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 
 public interface AdminService {
@@ -22,12 +27,36 @@ public interface AdminService {
 	// 글 상세 조회
 	AdminVO getAdmin(AdminVO vo);
 			
-	// 글 목록 조회
+	// 관리자 리스트
 	List<AdminVO> getAdminList(HashMap map);
 	
-	List<UserInfoVO> adGetUserList();
-
+	// 회원 목록 리스트
+	List<UserInfoVO> adGetUserList(HashMap map);
+	
+	// 이벤트 리스트
 	List<EventVO> adGetEventList(HashMap map);
 	
+	// 펀딩 리스트
 	List<Funding_pjVO> adGetFdList(HashMap map);
+	
+	// 신청 펀딩 리스트
+	List<Funding_pjVO> getFdApprovalList(HashMap map);
+	
+	// 봉사 리스트
+	List<BongsaVO> getBsList(HashMap map);
+	
+	// 신청 봉사 리스트
+	List<BongsaVO> getBsApprovalList(HashMap map);
+	
+	// 파트너 리스트
+	List<PartnerVO> getPartnerList(HashMap map);
+	
+	//리뷰 리스트
+	List<ReviewVO> getReviewList(HashMap map);
+	
+	//기부 리스트
+	List<DonationVO> getDonationList(HashMap map);
+	
+	//공지 리스트
+	List<NoticeVO> getNoticeList(HashMap map);
 }

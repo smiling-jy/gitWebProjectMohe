@@ -24,13 +24,15 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public void updateReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("=====>>>> DAO updateReview");
+		mybatis.update("ReviewDAO.updateReview", vo);
 		
 	} 
 
 	@Override
 	public void deleteReview(ReviewVO vo) {
-		// TODO Auto-generated method stub
+		System.out.println("=====>>>> DAO deleteReview");
+		mybatis.delete("ReviewDAO.deleteReview",vo);
 		
 	}
 
@@ -42,7 +44,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		return null;
+		System.out.println("========>겟리뷰 DAOimpl");
+		return mybatis.selectOne("ReviewDAO.getReview", vo);
 	}
 
 	@Override

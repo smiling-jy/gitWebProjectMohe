@@ -16,4 +16,22 @@
   	SELECT * FROM REVIEW 
   		 ORDER BY REVIEW_NO DESC
   	</select>
+  <!-- 리뷰 읽기 -->
+  <select id="getReview" parameterType="review" resultType="review">
+    SELECT * 
+      FROM REVIEW
+     WHERE review_no=#{review_no}
+    
+  </select>
+  <!-- 리뷰 수정 -->
+  <update id="updateReview" parameterType="review">
+   UPDATE REVIEW
+   	  SET review_title=#{review_title}, review_text=#{review_text}
+    WHERE review_no=#{review_no}
+  </update>
+  <!-- 리뷰 삭제 -->
+  <delete id="deleteReview" parameterType="review">
+   DELETE FROM REVIEW
+   		 WHERE review_no=#{review_no}
+  </delete>
   </mapper>
