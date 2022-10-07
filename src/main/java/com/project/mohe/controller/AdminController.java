@@ -76,5 +76,9 @@ public class AdminController {
 	public void getNoticeList(HashMap map,Model model) {
 		model.addAttribute("notice",adminService.getNoticeList(map)); 
 	}
-
+	// 팝업 리스트
+	@RequestMapping("adPopList.do")
+	public void getPopupList(HashMap map,Model model) {
+		model.addAttribute("popup",adminService.getPopupList(map)); 
+	}
 }
