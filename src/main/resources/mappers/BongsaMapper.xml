@@ -6,24 +6,17 @@
   <mapper namespace="BongsaDAO">
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
-	  	select * from bongsa
-<!--   		<where>
+	SELECT * FROM BONGSA ORDER BY BS_NO DESC
+
+<!--   	<where>
   		
 			<if test="searchKeyword != null">
   				${searchCondition} like '%${searchKeyword}%'
   			</if>
-  		
+  		 
   		</where> -->
-  		  
-  		  
 
-	
-	
-	
+
 	</select>
-	
-
-
-
 
   </mapper>
