@@ -31,7 +31,7 @@ public interface AdminService {
 	List<AdminVO> getAdminList(HashMap map);
 	
 	// 회원 목록 리스트
-	List<UserInfoVO> adGetUserList();
+	List<UserInfoVO> adGetUserList(HashMap map);
 	
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(HashMap map);

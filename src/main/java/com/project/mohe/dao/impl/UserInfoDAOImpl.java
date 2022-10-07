@@ -58,8 +58,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 	@Override
 	public List<UserInfoVO> getUserInfoList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("UserInfoDAO.getUserList");
 	}
 
 //	@Override
