@@ -62,6 +62,7 @@
 						<span class="icon flaticon-search-1"></span>
 					</button>
 					<select name="select">
+						<option >선택안함</option>
 						<option value="fd_no">최신순</option>
 						<option value="fd_read_cnt">인기순</option>
 					</select>
