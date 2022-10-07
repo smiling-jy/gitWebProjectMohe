@@ -48,8 +48,7 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public List<NoticeVO> getNoticeList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectList("NoticeDAO.getNoticeList");
 	}
 
 }

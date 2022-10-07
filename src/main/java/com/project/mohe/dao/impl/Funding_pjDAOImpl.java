@@ -48,5 +48,11 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 		return mybatis.selectList("Funding_pjDAO.getFunding_pjList", map);
 	}
 
+	// 펀딩 승인 안된 리스트 - 지윤
+	@Override
+	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
+		return mybatis.selectList("Funding_pjDAO.getFdApprovalList");
+	}
+
 
 }
