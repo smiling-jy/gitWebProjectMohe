@@ -107,12 +107,17 @@
 						<a>함께하는</a><br> <a>파트너 ></a>
 					</h2>
 				</div>
+				<div id="gradation"></div>
 				<div id="rotation_partner_div">
 					<!-- a태그 안의 img , 파트너 로고 -->
-					<c:forEach items="${donation}" var="dnt">
-						<img src="">
+					<c:forEach items="${partner}" var="partner">
+						<a href="${partner.partner_url}"><img class="lazy-image"
+										src="resources/images/resource/image-spacer-for-validation.png"
+										data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+										style="height: 360px;" alt=""></a>
 					</c:forEach>
 				</div>
+				<div id="gradation2"></div>
 			</div>
 		</div>
 
@@ -960,38 +965,22 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	<!-- <script>
-    $(function(){
-        $(document).ready(function(){
-            $(".owl-item").css("width","200px");
-        });
-    })
-</script> -->
-	<script>
-		setInterval(fnSlide, 2000);
-		function fnSlide() {
-			$("#rotation_partner_div").animate(
-					{
-						"margin-left" : "-300px"
-					},
-					1000,
-					function() {
-						$("#rotation_partner_div").css({
-							"margin-left" : "0px"
-						});
-						$("#rotation_partner_div a:first-child").insertAfter(
-								"#rotation_partner_div a:last-child");
-					});
-		};
-	</script>
-	<!-- 	<script>
-	// $(function(){ // $('.dropdown_show').hover(function(){ //
-	$('.dropdown_show ul').first().css({ // "position":" relative", //
-	"z-index":"2", // }); // }); // });
-
-
-	</script> -->
-
-
+ 	<script> 
+ 		setInterval(fnSlide, 2000);
+ 		function fnSlide() {
+ 			$("#rotation_partner_div").animate(
+ 					{
+ 						"margin-left" : "-300px"
+ 					},
+ 					1000,
+ 					function() {
+ 						$("#rotation_partner_div").css({
+ 							"margin-left" : "0px"
+ 						});
+ 						$("#rotation_partner_div a:first-child").insertAfter(
+ 								"#rotation_partner_div a:last-child");
+ 					});
+ 		};
+ 	</script> 
 </body>
 </html>
