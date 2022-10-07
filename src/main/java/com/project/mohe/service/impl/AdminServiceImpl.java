@@ -27,104 +27,104 @@ import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 
 @Service("adminService")
-public class AdminServiceImpl implements AdminService {
-
-   @Autowired
-   private AdminDAO adminDao;
-   @Autowired
-   private UserInfoDAO userInfoDao;
-   @Autowired
-   private EventDAO eventDao;
-   @Autowired
-   private Funding_pjDAO funding_pjDao;
-   @Autowired
-   private BongsaDAO bongsaDao;
-   @Autowired
-   private PartnerDAO partnerDao;
-   @Autowired
-   private ReviewDAO reviewDao;
-   @Autowired
-   private DonationDAO donationDao;
-   @Autowired
-   private NoticeDAO noticeDao;
-   
-   @Override
-   public void insertAdmin(AdminVO vo) {
-      // TODO Auto-generated method stub
-      
-   }
-
-   @Override
-   public void updateAdmin(AdminVO vo) {
-      // TODO Auto-generated method stub
-      
-   }
-
-   @Override
-   public void deleteAdmin(AdminVO vo) {
-      // TODO Auto-generated method stub
-      
-   }
-
-   @Override
-   public AdminVO getAdmin(AdminVO vo) {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
-   @Override
-   public List<AdminVO> getAdminList(HashMap map) {
-      return adminDao.getAdminList(map);
-   }
-   
-   public List<UserInfoVO> adGetUserList(HashMap map) {
-      return userInfoDao.getUserInfoList(map);
-   }
-   
-   @Override
-   public List<EventVO> adGetEventList(HashMap map) { 
-      return eventDao.getEventList(map);
-   }
-
-   @Override
-   public List<Funding_pjVO> adGetFdList(HashMap map) {
-      return funding_pjDao.getFunding_pjList(map);
-   }
-
-   @Override
-   public List<Funding_pjVO> getFdApprovalList(HashMap map) {
-      return null; //funding_pjDao.getFdApprovalList(map);
-   }
-
-   @Override
-   public List<BongsaVO> getBsList(HashMap map) {
-      return bongsaDao.getBongsaList(map);
-   }
-
-   @Override
-   public List<BongsaVO> getBsApprovalList(HashMap map) {
-      return null; //bongsaDao.getBsApprovalList(map);
-   }
-
-   @Override
-   public List<PartnerVO> getPartnerList(HashMap map) {
-      return partnerDao.getPartnerList(map);
-   }
-
-   @Override
-   public List<ReviewVO> getReviewList(HashMap map) {
-      return reviewDao.getReviewList();
-   }
-
-   @Override
-   public List<DonationVO> getDonationList(HashMap map) {
-      return donationDao.getDonationList();
-   }
-   @Override
-   public List<NoticeVO> getNoticeList(HashMap map) {
-      return noticeDao.getNoticeList(map);
-   }
-
+public class AdminServiceImpl {
+//
+//   @Autowired
+//   private AdminDAO adminDao;
+//   @Autowired
+//   private UserInfoDAO userInfoDao;
+//   @Autowired
+//   private EventDAO eventDao;
+//   @Autowired
+//   private Funding_pjDAO funding_pjDao;
+//   @Autowired
+//   private BongsaDAO bongsaDao;
+//   @Autowired
+//   private PartnerDAO partnerDao;
+//   @Autowired
+//   private ReviewDAO reviewDao;
+//   @Autowired
+//   private DonationDAO donationDao;
+//   @Autowired
+//   private NoticeDAO noticeDao;
+//   
+//   @Override
+//   public void insertAdmin(AdminVO vo) {
+//      // TODO Auto-generated method stub
+//      
+//   }
+//
+//   @Override
+//   public void updateAdmin(AdminVO vo) {
+//      // TODO Auto-generated method stub
+//      
+//   }
+//
+//   @Override
+//   public void deleteAdmin(AdminVO vo) {
+//      // TODO Auto-generated method stub
+//      
+//   }
+//
+//   @Override
+//   public AdminVO getAdmin(AdminVO vo) {
+//      // TODO Auto-generated method stub
+//      return null;
+//   }
+//
+//   @Override
+//   public List<AdminVO> getAdminList(HashMap map) {
+//      return adminDao.getAdminList(map);
+//   }
+//   
+//   public List<UserInfoVO> adGetUserList(HashMap map) {
+//      return userInfoDao.getUserInfoList(map);
+//   }
+//   
+//   @Override
+//   public List<EventVO> adGetEventList(HashMap map) { 
+//      return eventDao.getEventList(map);
+//   }
+//
+//   @Override
+//   public List<Funding_pjVO> adGetFdList(HashMap map) {
+//      return funding_pjDao.getFunding_pjList(map);
+//   }
+//
+//   @Override
+//   public List<Funding_pjVO> getFdApprovalList(HashMap map) {
+//      return null; //funding_pjDao.getFdApprovalList(map);
+//   }
+//
+//   @Override
+//   public List<BongsaVO> getBsList(HashMap map) {
+//      return bongsaDao.getBongsaList(map);
+//   }
+//
+//   @Override
+//   public List<BongsaVO> getBsApprovalList(HashMap map) {
+//      return null; //bongsaDao.getBsApprovalList(map);
+//   }
+//
+//   @Override
+//   public List<PartnerVO> getPartnerList(HashMap map) {
+//      return partnerDao.getPartnerList(map);
+//   }
+//
+//   @Override
+//   public List<ReviewVO> getReviewList(HashMap map) {
+//      return reviewDao.getReviewList();
+//   }
+//
+//   @Override
+//   public List<DonationVO> getDonationList(HashMap map) {
+//      return donationDao.getDonationList();
+//   }
+//   @Override
+//   public List<NoticeVO> getNoticeList(HashMap map) {
+//      return noticeDao.getNoticeList(map);
+//   }
+//
 
 
    
