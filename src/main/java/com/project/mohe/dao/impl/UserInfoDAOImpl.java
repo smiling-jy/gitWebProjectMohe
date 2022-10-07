@@ -30,6 +30,13 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		System.out.println("===>  MemberMapper insertUserInfo() 호출");
 		return mybatis.insert("UserInfoDAO.insertUserInfo", vo);
 	}
+	
+	@Override
+	public UserInfoVO loginCheck(UserInfoVO vo) {
+		System.out.println("===> MemberMapper loginCheck 호출");
+		return mybatis.selectOne("UserInfoDAO.loginCheck", vo);
+	}
+	
 
 	@Override
 	public void insertUserInfo(UserInfoVO vo) {
@@ -38,17 +45,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		
 	}
 
-	@Override
-	public void updateUserInfo(UserInfoVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteUserInfo(UserInfoVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public UserInfoVO getUserInfo(UserInfoVO vo) {
@@ -60,18 +56,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public List<UserInfoVO> getUserInfoList(HashMap map) {
 		return mybatis.selectList("UserInfoDAO.getUserList");
 	}
-
-//	@Override
-//	public UserInfoVO userInsert(UserInfoVO vo) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-//	@Override
-//	public UserInfoVO duplicatedUserEmailCheck(UserInfoVO vo) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 	
 
 }
