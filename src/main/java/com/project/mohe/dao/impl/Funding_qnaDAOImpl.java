@@ -20,7 +20,7 @@ public class Funding_qnaDAOImpl implements Funding_qnaDAO {
 	
 	@Override
 	public void insertFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("Funding_qnaDAO.insertFunding_qna", vo);
 		
 	}
 
