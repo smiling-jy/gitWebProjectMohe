@@ -39,5 +39,8 @@ public class UserInfoController {
 		return resultVO == null ? "사용 가능한 이메일입니다." : "중복된 이메일입니다.";
 	}
 
+
+
+
 	
 }
