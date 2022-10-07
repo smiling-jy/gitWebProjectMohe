@@ -42,8 +42,7 @@ public class PartnerServiceImpl implements PartnerService {
 
 	@Override
 	public List<PartnerVO> getPartnerList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return partnerDAO.getPartnerList(map);
 	}
 
 }
