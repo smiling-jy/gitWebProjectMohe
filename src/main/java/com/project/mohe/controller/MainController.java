@@ -34,7 +34,7 @@ public class MainController {
 		// 메인화면에 필요한 각 데이터 호출 및 모델에 setting
 		// donation 리스트 확인하기
 		model.addAttribute("donation",mainService.getDonationList());
-		model.addAttribute("partner",mainService.getDonationList());
+		model.addAttribute("partner",mainService.getPartnerList());
 	}
 
 }
