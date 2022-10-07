@@ -3,6 +3,8 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
@@ -14,6 +16,7 @@ import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 
+@Service
 public interface AdminService {
 	// CRUD 기능 구현
 	// 글 등록

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,18 +31,17 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <style>
 .table_div::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
+	width: 10px; /* 스크롤바의 너비 */
 }
 
 .table_div::-webkit-scrollbar-thumb {
-    height: 20%; /* 스크롤바의 길이 */
-    background: #ff6b70; /* 스크롤바의 색상 */
-    
-    border-radius: 10px;
+	height: 20%; /* 스크롤바의 길이 */
+	background: #ff6b70; /* 스크롤바의 색상 */
+	border-radius: 10px;
 }
 
 .table_div::-webkit-scrollbar-track {
-    background: rgba(255, 107, 112, .2);  /*스크롤바 뒷 배경 색상*/
+	background: rgba(255, 107, 112, .2); /*스크롤바 뒷 배경 색상*/
 }
 </style>
 </head>
@@ -109,28 +108,10 @@
 					</h2>
 				</div>
 				<div id="rotation_partner_div">
-					<a href="#"><img
-						src="resources/images/partner_logo/partner_logo_01.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_02.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_03.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_04.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_05.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_06.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_07.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_08.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_09.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_10.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_11.jpg" /></a>
+					<!-- a태그 안의 img , 파트너 로고 -->
+					<c:forEach items="${donation}" var="dnt">
+						<img src="">
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -514,7 +495,7 @@
 								<div class="inner">
 									<div class="row clearfix">
 										<div class="image wow fadeInDown" data-wow-delay="0ms">
-											<div class="table_div" style="height:300px; overflow:auto;">
+											<div class="table_div" style="height: 300px; overflow: auto;">
 												<table class="donate_table_style">
 													<c:forEach items="${donation}" var="dnt">
 														<tr>
