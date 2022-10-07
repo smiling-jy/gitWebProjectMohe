@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project.mohe.domain.AdminVO;
 import com.project.mohe.service.AdminService;
 
 @Controller
@@ -25,6 +26,11 @@ public class AdminController {
 	@RequestMapping("adminList.do")
 	public void getAdminList(HashMap map,Model model) {	
 		model.addAttribute("adminList",adminService.getAdminList(map));
+	}
+	// 관리자 상세 목록 띄우기
+	@RequestMapping("adminDetail.do")
+	public void getAdminDetail(AdminVO vo,Model model) {
+		model.addAttribute("admin",adminService.getAdminDetail(vo));
 	}
 	// 회원 목록 띄우기
 	@RequestMapping("adUserList.do")
@@ -81,4 +87,27 @@ public class AdminController {
 	public void getPopupList(HashMap map,Model model) {
 		model.addAttribute("popup",adminService.getPopupList(map)); 
 	}
+	
+	// 관리자 사용불가 전환하기
+	@RequestMapping("adminEnd.do")
+	public String deleteAdmin(AdminVO vo) {
+		// 퇴사일이 시스데이트로 업데이트됨
+		adminService.deleteAdmin(vo);
+		return "redirect:/admin/adminList.do";
+	}
+	
+	// 관리자 수정페이지 이동하기
+	@RequestMapping("adminUpdateInfo.do")
+	public void adminUpdateInfo(AdminVO vo,Model model) {
+		// 퇴사일이 시스데이트로 업데이트됨
+		model.addAttribute("admin",adminService.getAdminDetail(vo));
+	}
+	
+	// 관리자정보 수정하기
+	@RequestMapping("updateAdmin.do")
+	public String updateAdmin(AdminVO vo) {
+		adminService.updateAdmin(vo);
+		return "redirect:/admin/adminDetail.do?adm_no="+vo.getAdm_no();
+	}
+	
 }

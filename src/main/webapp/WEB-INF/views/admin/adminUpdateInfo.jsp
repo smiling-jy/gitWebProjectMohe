@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +37,13 @@
 	type="image/x-icon">
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+<style>
+.detail_form {
+	border: 1px solid white;
+	border-radius: 20px;
+	background-color: rgb(148 165 183/ 40%);
+}
+</style>
 </head>
 
 <body class="nav-md">
@@ -73,63 +80,104 @@
 			<div class="">
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
-					<div class="text_size_title">관리자 목록</div>
+					<div class="text_size_title">
+						<a href="adminList.do">관리자 목록</a>
+					</div>
 					<hr>
 					<div class="content_table_div">
-						<!-- 버튼시작 -->
-						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten">
-								<span class="btn-title"><h2>추가하기</h2></span>
-							</a>
-							<div class="emptyDiv" style="width:480px"></div>
-							</a> <a href="cause-single.do" class="theme-btn btn-style-one">
-								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
-							</a>
-						</div>
-						<!-- 버튼끝 -->
-						<!-- 테이블 시작 -->
-						<section class="cart-section no_padding">
-							<div class="auto-container">
-								<!--Cart Outer-->
-								<div class="cart-outer">
-									<div class="table-column">
-										<div class="inner-column">
-											<div class="table-outer">
-												<div class="table-box">
-													<table class="cart-table">
-														<thead class="cart-header">
-															<tr>
-																<th>Check</th>
-																<th>ID</th>
-																<th>이름</th>
-																<th>핸드폰</th>
-																<th>등급</th>
-																<th>가입일</th>
-															</tr>
-														</thead>
-
-														<tbody>
-															<c:forEach items="${adminList}" var="admin">
-																<tr>
-																	<td style="word-break:break-all"><input type="checkbox"/></td>
-																	<td style="font-size:13px"><a href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
-																	<td style="word-break:break-all">${admin.adm_name}</td>
-																	<td style="font-size:13px">${admin.adm_phone}</td>
-																	<td style="word-break:break-all">${admin.adm_dept}</td>
-																	<td style="font-size:13px">${admin.adm_hiredate}</td>
-																</tr>
-															</c:forEach>
-														</tbody>
-													</table>
+						<!--form 구간 시작-->
+						<div class="col-md-12">
+							<div>
+								<h3>관리자 정보 수정하기</h3>
+								<hr>
+								<form class="detail_form" name="userDetail"
+									action="updateAdmin.do" method="post">
+									<section>
+										<div class="auto-container">
+											<div class="tabs-box">
+												<div>
+													<!--Form Column-->
+													<div class="form-column col-lg-6 col-md-12 col-sm-12"
+														style="margin-left: 250px">
+														<div class="inner">
+															<div class="donate-form">
+																<div class="personal-info">
+																	<h2>NO. ${admin.adm_no}</h2>
+																	<input type="hidden" value="${admin.adm_no}" name="adm_no"/>
+																	<hr style="width: 430px; color: white;">
+																	<div class="row clearfix">
+																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																			<div class="field-label">성함</div>
+																			<input type="text" id="adm_name" name="adm_name"
+																				value="${admin.adm_name}">
+																		</div>
+																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																			<div class="field-label">아이디</div>
+																			<input type="text" maxlength="13" id="adm_id"
+																				name="adm_id" value="${admin.adm_id}">
+																		</div>
+																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																			<div class="field-label">부서</div>
+																			<input type="text" id="adm_dept" name="adm_dept"
+																				value="${admin.adm_dept}">
+																		</div>
+																		<div
+																			class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
+																			<div class="field-label">연락처</div>
+																			<input type="text" id="adm_phone" name="adm_phone"
+																				value="${admin.adm_phone}">
+																			<div class="field-label" id="email_message"
+																				style="text-align: right;"></div>
+																		</div>
+																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
+																			<div class="field-label">Email</div>
+																			<input type="email" id="adm_email" name="adm_email"
+																				value="${admin.adm_email}">
+																			<div class="field-label" id="email_message"
+																				style="text-align: right;"></div>
+																		</div>
+																		<div
+																			class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
+																			<div class="field-label">주소</div>
+																			<input type="text" id="adm_adress" name="adm_adress"
+																				value="${admin.adm_adress}">
+																			<div class="field-label" id="email_message"
+																				style="text-align: right;"></div>
+																		</div>
+																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																			<div class="field-label">입사일</div>
+																			<input type="text" id="adm_hiredate"
+																				name="adm_hiredate" value="${admin.adm_hiredate}">
+																			<div class="field-label" id="email_message"
+																				style="text-align: right;"></div>
+																		</div>
+																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																			<div class="field-label">퇴사일</div>
+																			<input type="text" id="adm_enddate"
+																				name="adm_enddate" value="${admin.adm_enddate}">
+																			<div class="field-label" id="email_message"
+																				style="text-align: right;"></div>
+																		</div>
+																		<div>
+																			<button type="submit" class="theme-btn btn-style-five"
+																				id="update_btn">
+																				<span class="btn-title btn_fix">수정 완료하기</span>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
+									</section>
+								</form>
 							</div>
-						</section>
-						<!-- End Cart Section-->
-						<!-- 테이블 끝 -->
+						</div>
+						<!-- form 끝-->
+
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>
@@ -137,7 +185,6 @@
 		</div>
 		<!-- /page content -->
 	</div>
-
 
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
