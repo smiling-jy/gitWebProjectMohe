@@ -7,10 +7,11 @@ import lombok.Data;
 public class Funding_payVO {
 
 	private int pay_no;
-	private int pay_fd_no;
-	private int pay_user_no;
-	private String pay_title;
-	private String pay_hostname;
+	private int fd_no;
+	private int user_no;
+	private String fd_title;
+	private String fd_hostname;
+	private int fd_price;
 	private int pay_count;
 	private int pay_total;
 	private String pay_pn_name;
@@ -18,5 +19,9 @@ public class Funding_payVO {
 	private String pay_pn_email;
 	private String pay_pn_addr;
 	private Date pay_date;
+	
+	// 주소 + 상세주소 합치기 위한 변수
+	private String addr1;
+	private String addr2;
 
 }

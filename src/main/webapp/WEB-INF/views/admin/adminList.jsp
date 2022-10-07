@@ -81,9 +81,7 @@
 							<a href="cause-single.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a>
-							<div class="emptyDiv"></div>
-							<a href="cause-single.do" class="theme-btn btn-style-three">
-								<span class="btn-title"><h2>사용불가 전환</h2></span>
+							<div class="emptyDiv" style="width:480px"></div>
 							</a> <a href="cause-single.do" class="theme-btn btn-style-one">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
@@ -114,7 +112,7 @@
 															<c:forEach items="${adminList}" var="admin">
 																<tr>
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${admin.adm_id}</a></td>
+																	<td style="font-size:13px"><a href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
 																	<td style="word-break:break-all">${admin.adm_name}</td>
 																	<td style="font-size:13px">${admin.adm_phone}</td>
 																	<td style="word-break:break-all">${admin.adm_dept}</td>

@@ -20,7 +20,7 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 	
 	@Override
 	public void insertFunding_pay(Funding_payVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("Funding_payDAO.insertFunding_pay",vo);
 		
 	}
 

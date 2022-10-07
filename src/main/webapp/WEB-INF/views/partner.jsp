@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@
 					<li><a href="faq.html"><h5>자주 묻는 질문</h5></a></li>
 					<li><a href="event.html"><h5>이벤트</h5></a></li>
 					<li class="active"><h5>파트너</h5>
-						</a></li>
+			
 					<li><a href="review.html"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
@@ -59,172 +60,36 @@
 			<br>
 			<div class="auto-container">
 				<!--MixitUp Galery-->
-				<div class="mixitup-gallery">
-					<div class="filter-list row">
+	
+					 <div class="filter-list row">
 						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer children col-lg-4 col-md-6 col-sm-12">
+					<c:forEach items="${partnerList}" var="partner">
+						<div class="gallery-item-two mix all volunteer children col-lg-4 col-md-6 col-sm-12">
 							<div class="image-box">
 								<figure class="image">
 									<img class="lazy-image"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner08.png"
+										data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
 										style="height: 340px;" alt="">
 								</figure>
 								<div class="overlay-box">
-									<a href="https://volunteer.seoul.kr/"><span
+									<a href="${partner.partner_url}"><span
 										class="icon flaticon-cross-1"></span></a>
 								</div>
 							</div>
 						</div>
+					</c:forEach>
 
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer children col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner10.png"
-										style="height: 340px;" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://koreashe.org/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer children col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner05.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://www.1365.go.kr/vols/main.do"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer animals col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner11.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://www.instagram.com/responsibledivers/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer children col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner07.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://csv.culture.go.kr/frt/main.do"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all volunteer animals col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner09.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://westart.or.kr/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all donate volunteer children col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner03.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://www.youth.go.kr/youth/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all donate volunteer animals col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner06.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://www.habitat.or.kr/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Gallery Item Two -->
-						<div
-							class="gallery-item-two mix all donate volunteer children col-lg-4 col-md-6 col-sm-12">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partner12.png" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="https://www.goodneighbors.kr/"><span
-										class="icon flaticon-cross-1"></span></a>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
-			</div>
-		</section>
-		<!-- End Gallery Page Section -->
-
-
-
-
-		<!-- Call To Action Section -->
-
-		<!--End Gallery Section -->
-
+			</section>
+		</div>
+				
 
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
-	</div>
+
 	<!--End pagewrapper-->
 
 	<!--Scroll to top-->

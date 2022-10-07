@@ -1,5 +1,8 @@
 package com.project.mohe.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,18 +12,34 @@ import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.Funding_qnaVO;
 import com.project.mohe.service.Funding_pjService;
 import com.project.mohe.service.Funding_qnaService;
-import com.project.mohe.service.NoticeService;
-import com.project.mohe.service.impl.Funding_qnaServiceImpl;
 
 @Controller
 public class Funding_qnaController {
 	@Autowired
 	private Funding_qnaService funding_qnaService;
+	@Autowired
+	private Funding_pjService fd_pjService;
 	
 	@RequestMapping("fundingQna.do")
-	public String fundingQna(Funding_qnaVO qna ,Model model) {
+	public String fundingQna(Funding_qnaVO qna ,Model model ,Funding_pjVO pj) {
 		model.addAttribute("qna_list",funding_qnaService.getFunding_qnaList(qna));
+		model.addAttribute("pj", fd_pjService.getFunding_pj(pj));
 		return "fundingQna";
+	}
+	
+	@RequestMapping("questionSave.do")
+	public String questionSave(Funding_qnaVO qna, HttpServletRequest request) {
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+		
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
+		session.setAttribute("user_no", 1);
+		
+		qna.setUser_no((Integer) session.getAttribute("user_no"));
+		
+		funding_qnaService.insertFunding_qna(qna);
+		
+		return "redirect:/fundingQna.do?fd_no="+qna.getFd_no();
 	}
 	
 	

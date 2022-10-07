@@ -7,6 +7,26 @@
 	<select id="getAdminList" resultType="admin">
 		select *
 		from admin
+		where adm_enddate is null
 		order by adm_no desc
 	</select>
+	<select id="getAdminDetail" parameterType="admin" resultType="admin">
+		select *
+		from admin
+		where adm_no = #{adm_no}
+	</select>
+	<update id="updateEndDate" parameterType="admin">
+		update admin
+		set adm_enddate = sysdate
+		where adm_no = #{adm_no}
+	</update>
+	<update id="updateAdmin" parameterType="admin">
+		update admin
+		set adm_name = #{adm_name},
+			adm_dept = #{adm_dept},
+			adm_email = #{adm_email},
+			adm_phone = #{adm_phone},
+			adm_adress = #{adm_adress}
+		where adm_no = #{adm_no}
+	</update>
   </mapper>

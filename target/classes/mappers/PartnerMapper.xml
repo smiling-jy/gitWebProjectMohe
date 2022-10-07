@@ -7,6 +7,6 @@
 	<select id="getPartnerList" resultType="partner">
 		select *
 		from partner
-		order by partner_no desc
+		order by partner_no
 	</select>
   </mapper>

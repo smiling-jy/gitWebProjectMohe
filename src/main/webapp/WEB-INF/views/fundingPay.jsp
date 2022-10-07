@@ -37,85 +37,90 @@
 		<!-- header include -->
 		<jsp:include page="headerMint.jsp" />
 
-		<!-- Page Banner Section -->
-		<!-- <section class="page-banner"> -->
-		<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div> -->
-		<!-- 한지스러움 삭제 -->
-		<!-- <div class="bottom-rotten-curve"></div> -->
-		<!-- </section> -->
-		<!--End Banner Section -->
-
-		<section class="cart-section">
-			<div class="auto-container">
-				<!--Cart Outer-->
-				<div class="cart-outer">
-					<div class="table-column">
-						<div class="inner-column">
-							<div class="table-outer">
-								<div class="table-box">
-									<table class="cart-table new-font">
-										<thead class="cart-header">
-											<tr>
-												<th class="prod-column">상품이름</th>
-												<th>&nbsp;</th>
-												<th class="price">금액</th>
-												<th>수량</th>
-												<th>총금액</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<tr>
-												<td colspan="2" class="prod-column">
-													<div class="column-box">
-														<figure class="prod-thumb">
-															<a href="#"><img class="lazy-image"
-																src="resources/images/resource/image-spacer-for-validation.png"
-																data-src="resources/images/resource/products/prod-thumb-1.jpg"
-																alt=""></a>
-														</figure>
-														<h4 class="prod-title">Woven Crop Cami</h4>
-													</div>
-												</td>
-												<td class="price">$50.00</td>
-												<td class="qty"><input class="quantity-spinner"
-													type="text" value="1" name="quantity"></td>
-												<td class="sub-total">$50.00</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-
-								<div class="coupon-outer">
-									<div class="content-box clearfix">
-										<div class="apply-coupon clearfix donate-form pay-form">
-											<span>받는 사람</span><br />
-											<div>
-												<span>연락처</span><br /> <input type="text" name="#" required>
+		
+		<form action="paySave.do" method="post">
+			<section class="cart-section">
+				<div class="auto-container">
+					<!--Cart Outer-->
+					
+					<div class="cart-outer">
+						<div class="table-column">
+							<div class="inner-column">
+								<div class="table-outer">
+									<div class="table-box">
+										<table class="cart-table new-font">
+											<thead class="cart-header">
+												<tr>
+													<th class="prod-column">상품이름</th>
+													<th>&nbsp;</th>
+													<th class="price">금액</th>
+													<th>수량</th>
+													<th>총금액</th>
+												</tr>
+											</thead>
+	
+											<tbody>
+												<tr>
+													<td colspan="2" class="prod-column">
+														<div class="column-box">
+															<figure class="prod-thumb">
+																<a href="#"><img class="lazy-image"
+																	src="resources/images/resource/image-spacer-for-validation.png"
+																	data-src="resources/images/resource/products/prod-thumb-1.jpg"
+																	alt=""></a>
+															</figure>
+															<h4 class="prod-title">${pj.fd_title}</h4>
+														</div>
+													</td>
+													<td class="price"><span>${pj.fd_price}</span>원</td>
+													<td class="qty"><input class="quantity-spinner"
+														type="text" value="1" name="pay_count"></td>
+													<td class="sub-total"><span>${pj.fd_price}</span>원</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+	
+									<div class="coupon-outer">
+										<div class="content-box clearfix">
+											<div class="apply-coupon clearfix donate-form pay-form">
+											
+												<span>받는 사람</span><br />
+												<div>
+													<span>이름</span><br /> <input type="text" name="pay_pn_name" required>
+												</div>
+												<div>
+													<span>연락처</span><br /> <input type="text" name="pay_pn_phone" required>
+												</div>
+												<div>
+													<span>이메일</span><br /> <input type="text" name="pay_pn_email" required>
+												</div>
+	
+												<span>배송지</span><br />
+												<div>
+												<!-- api 가능하다면 ㄱㄱ -->
+													<span>주소</span><br /> <input type="text" name="addr1" required>
+												</div>
+												<div>
+													<span>상세주소</span><br /> <input type="text" name="addr2" required>
+												</div>
+												<input type="hidden" name="fd_no" value="${pj.fd_no}">
+												<input type="hidden" name="fd_title" value="${pj.fd_title}">
+												<input type="hidden" name="fd_hostname" value="${pj.fd_hostname}">
+												<input type="hidden" name="fd_price" value="${pj.fd_price}">
 											</div>
-											<div>
-												<span>이메일</span><br /> <input type="text" name="#" required>
-											</div>
-
-											<span>배송지</span><br />
-											<div>
-												<span>주소</span><br /> <input type="text" name="#" required>
-											</div>
-											<div>
-												<span>상세주소</span><br /> <input type="text" name="#" required>
-											</div>
+											<button type="submit" class="theme-btn btn-style-one cart-btn pay-btn">
+												<span class="btn-title new-btn-title">펀딩하기</span>
+											</button>
 										</div>
-										<button type="button" class="theme-btn btn-style-one cart-btn pay-btn">
-											<span class="btn-title new-btn-title">펀딩하기</span>
-										</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</form>	
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>
@@ -138,6 +143,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/funding.js"></script>
 
 </body>
 </html>

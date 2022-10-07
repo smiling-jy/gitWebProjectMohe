@@ -104,7 +104,7 @@
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">
-								<a href="fundingPay.do"
+								<a href="fundingPay.do?fd_no=${pj.fd_no}"
 									class="theme-btn btn-style-one link-box"><span
 									class="btn-title new-font new-btn-title">펀딩하기</span></a>
 								<button class="funding-btn" id="jjim">♥</button>
