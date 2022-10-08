@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.UserInfoVO;
 
 public interface Funding_payDAO {
 	// CRUD 기능 구현
@@ -22,5 +23,6 @@ public interface Funding_payDAO {
 			
 		// 글 목록 조회
 		List<Funding_payVO> getFunding_payList(HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		// 관리자 유저 펀딩 조회
+		List<Funding_payVO> adGetFunding_payList(UserInfoVO vo);
 }

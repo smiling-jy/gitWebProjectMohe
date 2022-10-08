@@ -45,17 +45,15 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		
 	}
 
-
+	// 회원 상세페이지
 	@Override
 	public UserInfoVO getUserInfo(UserInfoVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("UserInfoDAO.getUserInfo",vo);
 	}
 
 	@Override
 	public List<UserInfoVO> getUserInfoList(HashMap map) {
 		return mybatis.selectList("UserInfoDAO.getUserList");
 	}
-	
 
 }

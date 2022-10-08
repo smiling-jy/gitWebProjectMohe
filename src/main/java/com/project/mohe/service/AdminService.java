@@ -9,6 +9,7 @@ import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
@@ -38,6 +39,9 @@ public interface AdminService {
 	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(HashMap map);
+	
+	// 회원 상세 페이지
+	UserInfoVO adUserDetail(UserInfoVO vo);
 	
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(HashMap map);
