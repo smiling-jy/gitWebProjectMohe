@@ -22,6 +22,8 @@ public interface BongsaDAO {
 		// 글 목록 조회
 		List<BongsaVO> getBongsaList(HashMap map);
 		
+		// 미승인 봉사 리스트 조회
+		List<BongsaVO> getBsApprovalList(HashMap map);
 		
 		
 }

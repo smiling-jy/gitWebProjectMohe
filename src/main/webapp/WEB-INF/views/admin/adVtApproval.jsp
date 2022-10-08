@@ -95,76 +95,29 @@
 													<table class="cart-table">
 														<thead class="cart-header">
 															<tr>
+																<th>NO</th>
 																<th width="200px">제목</th>
-																<th>주최자명</th>
-																<th>신청일</th>
+																<th>주최자</th>
 																<th>시작일</th>
-																<th>마감일</th>
 																<th width="200px">승인 / 반려</th>
 															</tr>
 														</thead>
 
 														<tbody>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+															<c:forEach items="${bsApproval}" var="bs">
+																<tr>
+																	<td style="word-break: break-all">${bs.bs_no}</td>
+																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
+																	<td style="font-size: 13px">${bs.user_email}</td>
+																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
+																	<td><a href="#" class="remove-btn"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																			<span class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

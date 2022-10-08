@@ -87,6 +87,7 @@ public class AdminController {
 	public void getPopupList(HashMap map,Model model) {
 		model.addAttribute("popup",adminService.getPopupList(map)); 
 	}
+
 	
 	// 관리자 사용불가 전환하기
 	@RequestMapping("adminEnd.do")
@@ -109,5 +110,6 @@ public class AdminController {
 		adminService.updateAdmin(vo);
 		return "redirect:/admin/adminDetail.do?adm_no="+vo.getAdm_no();
 	}
+	
 	
 }
