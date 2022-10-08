@@ -27,4 +27,7 @@ public interface UserInfoDAO {
 		// 글 목록 조회
 		List<UserInfoVO> getUserInfoList(HashMap map);
 		
+		// 회원 탈퇴,정지 업데이트
+		void updateOutDate(UserInfoVO vo);
+		
 }

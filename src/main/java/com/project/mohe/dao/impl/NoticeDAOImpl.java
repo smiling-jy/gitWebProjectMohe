@@ -30,7 +30,7 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public void deleteNotice(NoticeVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("NoticeDAO.deleteNotice",vo);
 		
 	}
 

@@ -106,7 +106,7 @@
 																<th>NO</th>
 																<th>회사명</th>
 																<th>URL</th>
-																<th>수정 / 삭제</th>
+																<th width="300px">수정 / 삭제</th>
 															</tr>
 														</thead>
 
@@ -116,12 +116,15 @@
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
 																	<td style="font-size:13px"><a href="adUserDetail.do">${ptn.partner_no}</a></td>
 																	<td style="word-break:break-all">${ptn.partner_name}</td>
-																	<td style="font-size:13px">${ptn.partner_url}</td>
-																	<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																			class="flaticon-delete-1"></span>
-																	</a></td>
+																	<td style="word-break:break-all">${ptn.partner_url}</td>
+																	<td>
+																		<a href="#" class="remove-btn"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" class="remove-btn"> 
+																			<span class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
 																</tr>
 															</c:forEach>
 														</tbody>

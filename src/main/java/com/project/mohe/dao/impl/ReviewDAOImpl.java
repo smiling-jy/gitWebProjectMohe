@@ -53,6 +53,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 		System.out.println("========>리뷰리스트 DAOimpl");
 		return mybatis.selectList("ReviewDAO.getReivewList");
 	}
+	// 배스트 리뷰 리스트
+	@Override
+	public List<ReviewVO> getBestReview() {
+		return mybatis.selectList("ReviewDAO.getBestReview");
+	}
 
 	
 

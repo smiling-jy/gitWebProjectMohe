@@ -78,5 +78,16 @@
   		   set fd_satatus = '불가함'
   		 where fd_no = #{fd_no}
   	</update>
-  	
+  	<!-- 펀딩 삭제 -->
+	<delete id="deleteFunding_pj" parameterType="funding_pj">
+		delete 
+		from funding_pj
+		where fd_no = #{fd_no}
+	</delete>
+	<!-- 메인에 노출할(조회수기준) 인기펀딩 리스트 -->
+	<select id="getBestFd" resultType="funding_pj">
+		select *
+		from ( select * from funding_pj order by fd_read_cnt desc)
+		where <![CDATA[rownum <= 10]]>
+	</select>
   </mapper>

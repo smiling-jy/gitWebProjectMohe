@@ -26,6 +26,9 @@ public interface BongsaDAO {
 		// 미승인 봉사 리스트 조회
 		List<BongsaVO> getBsApprovalList(HashMap map);
 		
+		// 메인에 노출할 마감임박 봉사 리스트 조회
+		List<BongsaVO> getDeadlineBs();
+		
 		// 봉사 승인 업데이트
 		void okBsUpdate(BongsaVO vo);
 		

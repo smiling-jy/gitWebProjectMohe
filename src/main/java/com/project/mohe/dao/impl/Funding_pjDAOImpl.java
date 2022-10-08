@@ -32,7 +32,7 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 
 	@Override
 	public void deleteFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+		mybatis.delete("Funding_pjDAO.deleteFunding_pj",pj);
 		
 	}
 
@@ -63,6 +63,11 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	public void noFdUpdate(Funding_pjVO vo) {
 		mybatis.update("Funding_pjDAO.noFdUpdate", vo);
 		
+	}
+	// 인기펀딩 리스트
+	@Override
+	public List<Funding_pjVO> getBestFd() {
+		return mybatis.selectList("Funding_pjDAO.getBestFd");
 	}
 
 }
