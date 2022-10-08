@@ -98,7 +98,7 @@
 															<tr>
 																<th>NO</th>
 																<th width="200px">제목</th>
-																<th>주최자</th>
+																<th>모금액</th>
 																<th>달성도</th>
 																<th>남은일자</th>
 																<th width="300px">수정 / 삭제</th>
@@ -111,7 +111,7 @@
 																	<td style="word-break: break-all">${fd.fd_no}</td>
 																	<td style="font-size: 13px"><a
 																		href="adUserDetail.do">${fd.fd_title}</a></td>
-																	<td style="word-break: break-all">${fd.fd_hostname}</td>
+																	<td style="word-break: break-all">${fd.total_sum}원</td>
 																	<td style="font-size: 13px">${fd.rate}%</td>
 																	<td style="word-break: break-all">${fd.remain_day}일</td>
 																	<td><a href="#" class="remove-btn"> <span
