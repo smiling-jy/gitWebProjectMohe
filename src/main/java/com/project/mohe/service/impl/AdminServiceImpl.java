@@ -109,7 +109,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<BongsaVO> getBsApprovalList(HashMap map) {
-		return null; //bongsaDao.getBsApprovalList(map);
+		return bongsaDao.getBsApprovalList(map);
 	}
 
 	@Override
