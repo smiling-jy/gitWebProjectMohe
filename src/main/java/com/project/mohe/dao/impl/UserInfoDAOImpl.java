@@ -56,4 +56,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return mybatis.selectList("UserInfoDAO.getUserList");
 	}
 
+	@Override
+	public void updateOutDate(UserInfoVO vo) {
+		mybatis.delete("UserInfoDAO.updateOutDate",vo);
+	}
+
 }

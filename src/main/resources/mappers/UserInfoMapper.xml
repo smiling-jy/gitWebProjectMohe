@@ -2,29 +2,40 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="UserInfoDAO">
-  <select id="emailCheck" parameterType="userInfo" resultType="userInfo">
-  	SELECT * FROM USERINFO WHERE USER_EMAIL = #{user_email}
-  </select>
-  
-  <insert id="insertUserInfo" parameterType="userInfo">
-  	INSERT INTO USERINFO(USER_NO, USER_NAME, USER_PHONE, USER_EMAIL, USER_PASSWORD, USER_INTYPE, USER_INDATE)
-  	VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone}, #{user_email}, #{user_password}, #{user_intype}, SYSDATE)
-  </insert>
-  	<!-- end date 즉 회원 탈퇴,정지된 회원을 제외한 회읜의 리스트 -->
+
+<mapper namespace="UserInfoDAO">
+	<select id="emailCheck" parameterType="userInfo"
+		resultType="userInfo">
+		SELECT * FROM USERINFO WHERE USER_EMAIL = #{user_email}
+	</select>
+
+	<insert id="insertUserInfo" parameterType="userInfo">
+		INSERT INTO USERINFO(USER_NO, USER_NAME, USER_PHONE, USER_EMAIL,
+		USER_PASSWORD, USER_INTYPE, USER_INDATE)
+		VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone},
+		#{user_email}, #{user_password}, #{user_intype}, SYSDATE)
+	</insert>
+	<!-- end date 즉 회원 탈퇴,정지된 회원을 제외한 회읜의 리스트 -->
 	<select id="getUserList" resultType="userInfo">
-		select * 
+		select *
 		from userinfo
 		where user_outdate is null
 		order by user_no desc
 	</select>
 	<!-- 회원의 상세정보 조회 -->
-	<select id="getUserInfo" parameterType="userInfo" resultType="userInfo">
+	<select id="getUserInfo" parameterType="userInfo"
+		resultType="userInfo">
 		select *
 		from userinfo
 		where user_no = #{user_no}
 	</select>
-  </mapper>
+	<!-- 회원 탈퇴, 사용정지시 outdate 업데이트 -->
+	<update id="updateOutDate" parameterType="userInfo">
+		update userinfo
+		set
+		user_outdate = sysdate
+		where user_no = #{user_no}
+	</update>
+</mapper>
   
   
