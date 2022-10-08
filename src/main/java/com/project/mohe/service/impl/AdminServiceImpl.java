@@ -10,6 +10,7 @@ import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.dao.BongsaDAO;
 import com.project.mohe.dao.DonationDAO;
 import com.project.mohe.dao.EventDAO;
+import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.dao.NoticeDAO;
 import com.project.mohe.dao.PartnerDAO;
@@ -20,6 +21,7 @@ import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
@@ -51,6 +53,8 @@ public class AdminServiceImpl implements AdminService {
 	private NoticeDAO noticeDao;
 	@Autowired
 	private PopupDAO popupDao;
+	@Autowired
+	private Funding_payDAO funding_payDao;
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -141,6 +145,11 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.getAdminDetail(vo);
 	}
 
+	// 유저 상세페이지
+	@Override
+	public UserInfoVO adUserDetail(UserInfoVO vo) {
+		return userInfoDao.getUserInfo(vo);
+	}
 
 	
 }

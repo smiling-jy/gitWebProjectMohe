@@ -217,3 +217,8 @@ h1 {
 	margin-left: -70px;
 	margin-top: -50px;
 }
+
+/* 엑셀 내보내기 이름 설정 div 감추기 > 사용할사람들을 위해 */
+#exportExcel_name{
+	 visibility: hidden;
+}

@@ -80,7 +80,7 @@
 						<div class="link-box btn_tb_mg">
 							<a href="cause-single.do" class="theme-btn btn-style-ten"> <span
 								class="btn-title"><h2>추가하기</h2></span>
-							</a> <a href="cause-single.do" class="theme-btn btn-style-one"> <span
+							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
 								class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
@@ -94,7 +94,8 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">event</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
@@ -109,15 +110,15 @@
 															<c:forEach items="${eventList}" var="event">
 																<tr>
 																	<td style="font-size: 13px">${event.event_no}</td>
-																	<td style="font-size: 13px"><a href="adUserDetail.do">${event.event_title}</a></td>
+																	<td style="font-size: 13px"><a
+																		href="adUserDetail.do">${event.event_title}</a></td>
 																	<td style="word-break: break-all">${event.event_text}</td>
 																	<td style="word-break: break-all">${event.adm_id}</td>
-																	<td><a href="#" class="remove-btn"> 
-																			<span class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																	<td><a href="#" class="remove-btn"> <span
+																			class="flaticon-check"></span>
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
-																		</a>
-																	</td>
+																	</a></td>
 																</tr>
 															</c:forEach>
 														</tbody>
@@ -182,5 +183,9 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
+
 </body>
 </html>

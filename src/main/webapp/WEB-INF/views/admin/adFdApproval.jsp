@@ -79,8 +79,8 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-one"> <span
-								class="btn-title"><h2>EXCEL 내보내기</h2></span>
+							<a href="#" class="theme-btn btn-style-one" id="excel_export">
+								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
 						<!-- 버튼끝 -->
@@ -93,7 +93,8 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">adFdApproval</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
@@ -109,12 +110,12 @@
 															<c:forEach items="${fdApproval}" var="fd">
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
-																	<td style="width:200px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
+																	<td style="width: 200px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
 																	<td style="font-size: 13px">${fd.fd_startdate}</td>
 																	<td style="font-size: 13px">${fd.fd_enddate}</td>
-																	<td><a href="#" class="remove-btn"> 
-																		<span class="flaticon-check"></span>
+																	<td><a href="#" class="remove-btn"> <span
+																			class="flaticon-check"></span>
 																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
 																	</a></td>
@@ -180,5 +181,8 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
 </body>
 </html>

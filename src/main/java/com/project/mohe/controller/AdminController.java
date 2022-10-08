@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 
 @Controller
@@ -36,6 +37,11 @@ public class AdminController {
 	@RequestMapping("adUserList.do")
 	public void getUserList(HashMap map,Model model) {	
 		model.addAttribute("userList",adminService.adGetUserList(map));
+	}
+	// 회원 상세 페이지
+	@RequestMapping("adUserDetail.do")
+	public void adUserDetail(HashMap map,Model model,UserInfoVO vo) {	
+		model.addAttribute("userDetail",adminService.adUserDetail(vo));
 	}
 	// 이벤트 목록 띄우기
 	@RequestMapping("adEventList.do")
