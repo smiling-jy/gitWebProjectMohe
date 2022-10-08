@@ -55,6 +55,8 @@ public class AdminServiceImpl implements AdminService {
 	private PopupDAO popupDao;
 	@Autowired
 	private Funding_payDAO funding_payDao;
+	@Autowired
+	private BongsaDAO BongsaDao;
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -149,6 +151,28 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public UserInfoVO adUserDetail(UserInfoVO vo) {
 		return userInfoDao.getUserInfo(vo);
+	}
+	// 펀딩 신청 수락,거부
+	@Override
+	public void judgFdUpdate(Funding_pjVO vo) {
+		if(vo.getFd_judg().equals("ok")) {
+			// 신청 수락이면
+			funding_pjDao.okFdUpdate(vo);
+		}else {
+			// 신청 거부면
+			funding_pjDao.noFdUpdate(vo);
+		}
+	}
+
+	@Override
+	public void judgBsUpdate(BongsaVO vo) {
+		if(vo.getBs_judg().equals("ok")) {
+			// 신청 수락이면
+			BongsaDao.okBsUpdate(vo);
+		}else {
+			// 신청 거부면
+			BongsaDao.noBsUpdate(vo);
+		}
 	}
 
 	

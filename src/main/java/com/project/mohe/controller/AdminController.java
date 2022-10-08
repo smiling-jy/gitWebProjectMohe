@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 
@@ -58,6 +60,13 @@ public class AdminController {
 	public void getFdApprovalList(HashMap map,Model model) {
 		model.addAttribute("fdApproval",adminService.getFdApprovalList(map)); 
 	}
+	// 펀딩 승인,비승인 업데이트
+	@RequestMapping("judgBsUpdate.do")
+	public String judgBsUpdate(BongsaVO vo,Model model) {
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		adminService.judgBsUpdate(vo);
+		return "redirect:/admin/adFdApproval.do";
+	}
 	// 승인된 봉사 목록
 	@RequestMapping("adVtList.do")
 	public void getBsList(HashMap map,Model model) {
@@ -67,6 +76,13 @@ public class AdminController {
 	@RequestMapping("adVtApproval.do")
 	public void getBsApprovalList(HashMap map,Model model) {
 		model.addAttribute("bsApproval",adminService.getBsApprovalList(map)); 
+	}
+	// 펀딩 승인,비승인 업데이트
+	@RequestMapping("judgFdUpdate.do")
+	public String judgFdUpdate(Funding_pjVO vo,Model model) {
+		//fd_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		adminService.judgFdUpdate(vo);
+		return "redirect:/admin/adFdApproval.do";
 	}
 	// 파트너쉽 목록
 	@RequestMapping("adPartnerList.do")

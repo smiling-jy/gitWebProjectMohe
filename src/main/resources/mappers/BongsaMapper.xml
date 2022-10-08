@@ -43,13 +43,24 @@
   			</if>
 	 		<!--검색을 하지않았을때 기본 조인값-->
 		 	<if test="searchKeyword == null and bs_region == null">
-  				b.user_no = u.user_no and b.bs_ing = '대기'
+  				b.user_no = u.user_no and b.bs_ing = '대기중'
   			</if>
 		</where> 
 	ORDER BY BS_NO DESC
-
 	</select>
 	
+	<!-- 관리자가 봉사 프로젝트 승인 -->
+  	<update id="okBsUpdate" parameterType="bongsa">
+  		update bongsa
+  		   set bs_ing = '진행중'
+  		 where bs_no = #{bs_no}
+  	</update>
+  	 <!-- 관리자가 봉사 프로젝트 반려함 -->
+  	<update id="noBsUpdate" parameterType="bongsa">
+  		update bongsa
+  		   set bs_ing = '불가함'
+  		 where bs_no = #{bs_no}
+  	</update>
 	
 	<!-- 봉사 상세페이지 가져오기 -->
 	<select id="getBongsa" parameterType="bongsa" resultType="bongsa">

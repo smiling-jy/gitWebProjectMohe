@@ -35,6 +35,7 @@ public interface AdminService {
 	// 관리자 리스트
 	List<AdminVO> getAdminList(HashMap map);
 
+	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);
 	
 	// 회원 목록 리스트
@@ -52,11 +53,16 @@ public interface AdminService {
 	// 신청 펀딩 리스트
 	List<Funding_pjVO> getFdApprovalList(HashMap map);
 	
+	// 펀딩 승인,비승인 업데이트
+	void judgFdUpdate(Funding_pjVO vo);
+	
 	// 봉사 리스트
 	List<BongsaVO> getBsList(HashMap map);
 	
 	// 신청 봉사 리스트
 	List<BongsaVO> getBsApprovalList(HashMap map);
+	
+	void judgBsUpdate(BongsaVO vo);
 	
 	// 파트너 리스트
 	List<PartnerVO> getPartnerList(HashMap map);

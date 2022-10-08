@@ -111,10 +111,12 @@
 																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
 																	<td style="font-size: 13px">${bs.user_email}</td>
 																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
-																	<td><a href="#" class="remove-btn"> 
+																	<td>
+																		<a href="#" class="remove-btn bs_judg_ok"> 
 																			<span class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
-																			<span class="flaticon-delete-1"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" class="remove-btn bs_judg_no">
+																				<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
 																</tr>
@@ -183,5 +185,25 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script>
+	
+		// 펀딩 수락 버튼 클릭시
+		$('.bs_judg_ok').click(function(){
+			// 해당 행의 펀딩 번호 값 받아오기
+			var no = $(this).parent().parent().children('td:first-child').text();
+			if(confirm("프로젝트를 승인 하시겠습니까?")){
+				location.href = "judgBsUpdate.do?bs_judg=ok&&bs_no="+no;
+			}
+		});
+		// 펀딩 반려 버튼 클릭시
+		$('.bs_judg_no').click(function(){
+			// 해당 행의 펀딩 번호 값 받아오기
+			var no = $(this).parent().parent().children('td:first-child').text();
+			if(confirm("프로젝트를 반려 하시겠습니까?")){
+				location.href = "judgBsUpdate.do?bs_judg=no&&bs_no="+no;
+			}
+		});
+	
+	</script>
 </body>
 </html>
