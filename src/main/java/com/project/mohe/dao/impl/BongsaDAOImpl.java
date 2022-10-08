@@ -51,6 +51,11 @@ public class BongsaDAOImpl implements BongsaDAO {
 		System.out.println("지역 : " + map.get("bs_region"));
 		return mybatis.selectList("BongsaDAO.getBongsaList", map);
 	}
+
+	@Override
+	public List<BongsaVO> getBsApprovalList(HashMap map) {
+		return mybatis.selectList("BongsaDAO.getBsApprovalList", map);
+	}
 	
 	
 

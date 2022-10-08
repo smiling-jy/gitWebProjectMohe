@@ -35,10 +35,9 @@
 										<li><a href="adUserList.do">회원목록</a></li>
 										<li><a href="adminList.do">관리자목록</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-no"></i> 메세지관리 <span
+								<li><a><i class="fa fa-no"></i> 이메일 관리 <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a href="sendMessage.do">메세지보내기</a></li>
 										<li><a href="sendEmail.do">이메일보내기</a></li>
 									</ul></li>
 								<li><a><i class="fa fa-no"></i> 이벤트관리 <span
