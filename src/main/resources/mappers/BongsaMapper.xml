@@ -6,18 +6,45 @@
   <mapper namespace="BongsaDAO">
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
-	SELECT BS_NO, BS_TITLE, BS_CONTENT ,BS_GOAL_CNT, BS_SUCCESS_CNT, BS_NAME, round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate FROM BONGSA 
-	
+		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
+           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end,u.user_email
+    	FROM BONGSA b,userinfo u
 		<where>
 			<!-- 지역별 검색 -->
 	 		<if test="bs_region != null">
-	 			bs_region = #{bs_region}
+	 			bs_region = #{bs_region}  and b.user_no = u.user_no
 	 		</if>
 	 		<!-- 키워드 검색-->
 		 	<if test="searchKeyword != null">
-  				${searchCondition} like '%${searchKeyword}%'
+  				${searchCondition} like '%${searchKeyword}%'  and b.user_no = u.user_no
   			</if>
-		 
+	 		<!--검색을 하지않았을때 기본 조인값-->
+		 	<if test="searchKeyword == null and bs_region == null">
+  				b.user_no = u.user_no
+  			</if>
+		</where> 
+	ORDER BY BS_NO DESC
+
+	</select>
+	
+	<!-- 미승인 목록 보기 -->
+	<select id="getBsApprovalList" parameterType="HashMap" resultType="bongsa">
+		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
+           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end,u.user_email
+    	FROM BONGSA b,userinfo u
+		<where>
+			<!-- 지역별 검색 -->
+	 		<if test="bs_region != null">
+	 			bs_region = #{bs_region}  and b.user_no = u.user_no
+	 		</if>
+	 		<!-- 키워드 검색-->
+		 	<if test="searchKeyword != null">
+  				${searchCondition} like '%${searchKeyword}%'  and b.user_no = u.user_no
+  			</if>
+	 		<!--검색을 하지않았을때 기본 조인값-->
+		 	<if test="searchKeyword == null and bs_region == null">
+  				b.user_no = u.user_no and b.bs_ing = '대기'
+  			</if>
 		</where> 
 	ORDER BY BS_NO DESC
 
