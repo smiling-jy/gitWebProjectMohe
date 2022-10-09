@@ -35,6 +35,10 @@ public class MainController {
 		// donation 리스트 확인하기
 		model.addAttribute("donation",mainService.getDonationList());
 		model.addAttribute("partner",mainService.getPartnerList());
+		model.addAttribute("bestFdList",mainService.getFdList());
+		model.addAttribute("deadlineBs",mainService.getBsList());
+		model.addAttribute("bestReview",mainService.getReviewList());
+		model.addAttribute("eventList",mainService.getEventList());
 	}
 
 }

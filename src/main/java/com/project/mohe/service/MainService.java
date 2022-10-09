@@ -18,7 +18,7 @@ public interface MainService {
 	// 각 테이블의 list들 조회 
 	
 	// 펀딩 리스트
-	List<Funding_pjVO> adGetFdList();
+	List<Funding_pjVO> getFdList();
 	
 	// 봉사 리스트
 	List<BongsaVO> getBsList();
