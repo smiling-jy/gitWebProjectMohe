@@ -78,9 +78,9 @@
 							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 								<div class="image-box">
 									<figure class="image">
-										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image"
-											src="resources/images/resource/image-spacer-for-validation.png"
-											data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
+										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image img-size"
+											src="resources/attached_file/funding/${pj.fd_no}/0.png"
+											data-src="resources/attached_file/funding/${pj.fd_no}/0.png" alt=""></a>
 									</figure>
 								</div>
 								<div class="lower-content new-font">
