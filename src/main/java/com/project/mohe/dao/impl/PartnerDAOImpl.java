@@ -30,7 +30,7 @@ public class PartnerDAOImpl implements PartnerDAO{
  
 	@Override
 	public void deletePartner(PartnerVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("PartnerDAO.deletePartner",vo);
 		
 	}
 

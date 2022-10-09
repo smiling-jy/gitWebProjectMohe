@@ -81,17 +81,17 @@
 				<a href="bongsaRecruite.do" class="theme-btn btn-style-one link-box">
 				<span class="btn-title new-btn-title">모집하기</span></a>
 				
-				
-<!-- 				<form action="bongsaMain.do" method="post"> -->
-<!-- 		               <select name="searchCondition"> -->
-<!-- 		                  <option value='BS_TITLE'>봉사명</option> -->
-<!-- 		                  <option value='BS_CONTENT'>내용</option> -->
-<!-- 		                  <option value='BS_NAME'>주체 </option>                                     -->
-<!-- 		               </select>  -->
-<!-- 		               <input name="searchKeyword" type="text" />  -->
-<!-- 		               <input type="submit" value="검색"/> -->
-<!-- 				</form> -->
-				
+	
+					<form action="bongsaMain.do" method="post" class="bs-search-main">
+			               <select name="searchCondition">
+			                  <option value='bs_title'>봉사명</option>
+			                  <option value='bs_content'>내용</option>
+			                  <option value='bs_name'>주체 </option>                                    
+			               </select> 
+			               <input name="searchKeyword" type="text" /> 
+			               <input type="submit" value="검색"/>
+					</form>
+
 				
 			</div>
 
@@ -111,8 +111,8 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="60%">
-												<div class="count-text">60%</div>
+											<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
+												<div class="count-text">${bongsa.bs_rate}%</div>
 											</div>
 										</div>
 									</div>
@@ -135,7 +135,7 @@
 									</div>
 									<br>
 									<div class="link-box">
-										<a href="bongsaDetail.do?BS_NO=${bongsa.bs_no}" class="theme-btn btn-style-two"><span
+										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-two"><span
 											class="btn-title">Read More</span></a>
 									</div>
 								</div>

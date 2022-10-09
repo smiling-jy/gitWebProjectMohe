@@ -3,10 +3,13 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
@@ -14,6 +17,7 @@ import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 
+@Service
 public interface AdminService {
 	// CRUD 기능 구현
 	// 글 등록
@@ -31,10 +35,14 @@ public interface AdminService {
 	// 관리자 리스트
 	List<AdminVO> getAdminList(HashMap map);
 
+	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);
 	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(HashMap map);
+	
+	// 회원 상세 페이지
+	UserInfoVO adUserDetail(UserInfoVO vo);
 	
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(HashMap map);
@@ -45,11 +53,16 @@ public interface AdminService {
 	// 신청 펀딩 리스트
 	List<Funding_pjVO> getFdApprovalList(HashMap map);
 	
+	// 펀딩 승인,비승인 업데이트
+	void judgFdUpdate(Funding_pjVO vo);
+	
 	// 봉사 리스트
 	List<BongsaVO> getBsList(HashMap map);
 	
 	// 신청 봉사 리스트
 	List<BongsaVO> getBsApprovalList(HashMap map);
+	
+	void judgBsUpdate(BongsaVO vo);
 	
 	// 파트너 리스트
 	List<PartnerVO> getPartnerList(HashMap map);

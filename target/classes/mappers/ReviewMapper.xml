@@ -2,36 +2,45 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="ReviewDAO">
-  <!-- 리뷰입력 -->
+
+<mapper namespace="ReviewDAO">
+	<!-- 리뷰입력 -->
 	<insert id="insertReview" parameterType="review">
-	INSERT INTO REVIEW
-	(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT, REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE, USER_NAME, REVIEW_READ_CNT, USER_NO)
-	VALUES
-	(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'테스트img',#{review_text}, SYSDATE, #{user_name},0,1)
+		INSERT INTO REVIEW
+		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT, REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
+		USER_NAME, REVIEW_READ_CNT, USER_NO)
+		VALUES
+		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'테스트img',#{review_text},
+		SYSDATE, #{user_name},0,1)
 	</insert>
-  <!-- 리뷰 목록 -->
-  	<select id="getReivewList" resultType="review">
-  	SELECT * FROM REVIEW 
-  		 ORDER BY REVIEW_NO DESC
-  	</select>
-  <!-- 리뷰 읽기 -->
-  <select id="getReview" parameterType="review" resultType="review">
-    SELECT * 
-      FROM REVIEW
-     WHERE review_no=#{review_no}
-    
-  </select>
-  <!-- 리뷰 수정 -->
-  <update id="updateReview" parameterType="review">
-   UPDATE REVIEW
-   	  SET review_title=#{review_title}, review_text=#{review_text}
-    WHERE review_no=#{review_no}
-  </update>
-  <!-- 리뷰 삭제 -->
-  <delete id="deleteReview" parameterType="review">
-   DELETE FROM REVIEW
-   		 WHERE review_no=#{review_no}
-  </delete>
-  </mapper>
+	<!-- 리뷰 목록 -->
+	<select id="getReivewList" resultType="review">
+		SELECT * FROM REVIEW
+		ORDER BY REVIEW_NO DESC
+	</select>
+	<!-- 리뷰 읽기 -->
+	<select id="getReview" parameterType="review"
+		resultType="review">
+		SELECT *
+		FROM REVIEW
+		WHERE review_no=#{review_no}
+
+	</select>
+	<!-- 리뷰 수정 -->
+	<update id="updateReview" parameterType="review">
+		UPDATE REVIEW
+		SET review_title=#{review_title}, review_text=#{review_text}
+		WHERE review_no=#{review_no}
+	</update>
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview" parameterType="review">
+		DELETE FROM REVIEW
+		WHERE review_no=#{review_no}
+	</delete>
+	<!-- 메인에 노출할 best리뷰(조회수기준) 리스트 -->
+	<select id="getBestReview" resultType="review">
+		select *
+		from ( select * from review order by review_read_cnt desc)
+		where <![CDATA[rownum <= 10]]>
+	</select>
+</mapper>

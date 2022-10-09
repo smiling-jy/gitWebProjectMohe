@@ -162,3 +162,8 @@
 	margin-top:30px;
 	width:450px;
 }
+
+/* 엑셀 내보내기 이름 설정 div 감추기 */
+#exportExcel_name{
+	 visibility: hidden;
+}

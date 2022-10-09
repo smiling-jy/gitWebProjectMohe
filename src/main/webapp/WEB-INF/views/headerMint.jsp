@@ -8,7 +8,7 @@
 
 <body>
 
-	<div class="page-wrapper">
+	<div class="page-wrapper" style="overflow:visible;">
 
 		<!-- Main Header -->
 		<header class="main-header">
@@ -40,14 +40,15 @@
 										<li><a href="info1.do"><h4>소개</h4></a></li>
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
-										<li class="dropdown"><a href="blog.html"><h4>더보기</h4></a>
+										<li class="dropdown dropdown_show"><a href="#"><h4>더보기</h4></a>
 											<ul>
-												<li><a href="blog.html">이벤트</a></li>
-												<li><a href="blog.html">후기 모아보기</a></li>
-												<li><a href="blog.html">공지사항</a></li>
-												<li><a href="blog.html">문의하기 (Q&A)</a></li>
-												<li><a href="blog.html">파트너</a></li>
-											</ul></li>
+												<li><a href="event.do">이벤트</a></li>
+												<li><a href="review.do">후기 모아보기</a></li>
+												<li><a href="notice.do">공지사항</a></li>
+												<li><a href="faq.do">문의하기 (Q&A)</a></li>
+												<li><a href="partner.do">파트너</a></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 							</nav>
@@ -149,7 +150,6 @@
 
 			</div>
 		</div>
-		<div style="height: 50px"></div>
 	</div>
 	<!--End pagewrapper-->
 </body>

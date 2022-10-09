@@ -74,8 +74,8 @@
 					<hr>
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
-						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-one">
+						<div class="link-box btn_tb_mg" id="excel_export">
+							<a href="#" class="theme-btn btn-style-one">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
@@ -89,14 +89,15 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">donation</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
 																<th>기부자명</th>
 																<th>연락처</th>
 																<th>기부금액</th>
 																<th>기부날짜</th>
-																<th>check</th>
+<!-- 																<th>check</th> -->
 															</tr>
 														</thead>
 														<tbody>
@@ -106,7 +107,7 @@
 																	<td style="word-break:break-all">${dnt.dnt_phone}</td>
 																	<td style="word-break:break-all">${dnt.dnt_amount}원</td>
 																	<td style="word-break:break-all">${dnt.dnt_indate}</td>
-																	<td><a href="#" class="remove-btn">확인</a></td>
+<!-- 																	<td><a href="#" class="remove-btn">확인</a></td> -->
 																</tr>
 															</c:forEach>															
 														</tbody>
@@ -170,5 +171,9 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
+
 </body>
 </html>

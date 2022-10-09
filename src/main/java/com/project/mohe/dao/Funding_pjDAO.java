@@ -25,4 +25,13 @@ public interface Funding_pjDAO {
 		
 		// 펀딩 승인안된 리스트
 		List<Funding_pjVO> getFdApprovalList(HashMap map);
+		
+		// 메인에 노출할 인기펀딩 리스트
+		List<Funding_pjVO> getBestFd();
+		
+		// 펀딩 승인 업데이트
+		void okFdUpdate(Funding_pjVO vo);
+		
+		// 펀딩 비승인 업데이트
+		void noFdUpdate(Funding_pjVO vo);
 }

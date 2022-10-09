@@ -25,4 +25,7 @@ public interface ReviewDAO {
 		
 	// 글 목록 조회
 	List<ReviewVO> getReviewList();
+	
+	// 배스트 리뷰 (조회수기준) 리스트
+	List<ReviewVO> getBestReview();
 }

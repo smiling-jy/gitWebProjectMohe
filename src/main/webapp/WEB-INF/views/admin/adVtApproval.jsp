@@ -78,7 +78,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-one">
+							<a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
@@ -92,79 +92,35 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">BongsaApproval</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
+																<th>NO</th>
 																<th width="200px">제목</th>
-																<th>주최자명</th>
-																<th>신청일</th>
+																<th>주최자</th>
 																<th>시작일</th>
-																<th>마감일</th>
 																<th width="200px">승인 / 반려</th>
 															</tr>
 														</thead>
 
 														<tbody>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
-															<tr>
-																<td class="qty"><a href="#">강냉이 초콜랫</a></td>
-																<td class="qty">이지윤</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td class="qty">2022/09/22</td>
-																<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																		class="flaticon-delete-1"></span>
-																</a></td>
-															</tr>
+															<c:forEach items="${bsApproval}" var="bs">
+																<tr>
+																	<td style="word-break: break-all">${bs.bs_no}</td>
+																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
+																	<td style="font-size: 13px">${bs.user_email}</td>
+																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
+																	<td>
+																		<a href="#" class="remove-btn bs_judg_ok"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" class="remove-btn bs_judg_no">
+																				<span class="flaticon-delete-1"></span>
+																		</a>
+																	</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -226,5 +182,28 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
+		<script>
+	
+		// 펀딩 수락 버튼 클릭시
+		$('.bs_judg_ok').click(function(){
+			// 해당 행의 펀딩 번호 값 받아오기
+			var no = $(this).parent().parent().children('td:first-child').text();
+			if(confirm("프로젝트를 승인 하시겠습니까?")){
+				location.href = "judgBsUpdate.do?bs_judg=ok&&bs_no="+no;
+			}
+		});
+		// 펀딩 반려 버튼 클릭시
+		$('.bs_judg_no').click(function(){
+			// 해당 행의 펀딩 번호 값 받아오기
+			var no = $(this).parent().parent().children('td:first-child').text();
+			if(confirm("프로젝트를 반려 하시겠습니까?")){
+				location.href = "judgBsUpdate.do?bs_judg=no&&bs_no="+no;
+			}
+		});
+	
+	</script>
 </body>
 </html>
