@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,8 +101,8 @@
 															<tr>
 																<th>NO</th>
 																<th>제목</th>
-																<th>내용</th>
 																<th>담당자</th>
+																<th>이벤트기간</th>
 																<th>수정 / 삭제</th>
 															</tr>
 														</thead>
@@ -112,8 +113,11 @@
 																	<td style="font-size: 13px">${event.event_no}</td>
 																	<td style="font-size: 13px"><a
 																		href="adUserDetail.do">${event.event_title}</a></td>
-																	<td style="word-break: break-all">${event.event_text}</td>
 																	<td style="word-break: break-all">${event.adm_id}</td>
+																	<td style="word-break: break-all"><c:set var="dt1" value="${event.event_stdate}"/>
+																										${fn:substring(dt1,0,10)}  <br>~
+																										<c:set var="dt2" value="${event.event_eddate}"/>
+																										${fn:substring(dt2,0,10)}</td>
 																	<td><a href="#" class="remove-btn"> <span
 																			class="flaticon-check"></span>
 																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">

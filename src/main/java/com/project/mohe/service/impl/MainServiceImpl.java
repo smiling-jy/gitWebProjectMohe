@@ -5,8 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.mohe.dao.BongsaDAO;
 import com.project.mohe.dao.DonationDAO;
+import com.project.mohe.dao.EventDAO;
+import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.dao.PartnerDAO;
+import com.project.mohe.dao.ReviewDAO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
@@ -22,17 +26,23 @@ public class MainServiceImpl implements MainService{
 	private DonationDAO donationDao;
 	@Autowired
 	private PartnerDAO partnerDao;
+	@Autowired
+	private ReviewDAO reviewDao;
+	@Autowired
+	private BongsaDAO bongsaDao;
+	@Autowired
+	private Funding_pjDAO funding_pjDao;
+	@Autowired
+	private EventDAO eventDao;
 
 	@Override
-	public List<Funding_pjVO> adGetFdList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Funding_pjVO> getFdList() {
+		return funding_pjDao.getBestFd();
 	}
 
 	@Override
 	public List<BongsaVO> getBsList() {
-		// TODO Auto-generated method stub
-		return null;
+		return bongsaDao.getDeadlineBs();
 	}
 
 	@Override
@@ -42,8 +52,7 @@ public class MainServiceImpl implements MainService{
 
 	@Override
 	public List<ReviewVO> getReviewList() {
-		// TODO Auto-generated method stub
-		return null;
+		return reviewDao.getBestReview();
 	}
 
 	@Override
@@ -53,8 +62,7 @@ public class MainServiceImpl implements MainService{
 
 	@Override
 	public List<EventVO> getEventList() {
-		// TODO Auto-generated method stub
-		return null;
+		return eventDao.getEventList(null);
 	}
 
 }
