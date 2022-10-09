@@ -1,15 +1,12 @@
 package com.project.mohe.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.mohe.domain.DonationVO;
-import com.project.mohe.service.DonationService;
+import com.project.mohe.service.MainService;
 
 
 @Controller
@@ -18,7 +15,7 @@ public class MainController {
 	// 메소드명() {..}
 	
 	@Autowired
-	private DonationService donationService;
+	private MainService mainService;
 
 	
 	@RequestMapping("{step}.do")
@@ -36,7 +33,12 @@ public class MainController {
 	public void viewMain(Model model) {
 		// 메인화면에 필요한 각 데이터 호출 및 모델에 setting
 		// donation 리스트 확인하기
-		model.addAttribute("donation",donationService.getDonationList());
+		model.addAttribute("donation",mainService.getDonationList());
+		model.addAttribute("partner",mainService.getPartnerList());
+		model.addAttribute("bestFdList",mainService.getFdList());
+		model.addAttribute("deadlineBs",mainService.getBsList());
+		model.addAttribute("bestReview",mainService.getReviewList());
+		model.addAttribute("eventList",mainService.getEventList());
 	}
 
 }

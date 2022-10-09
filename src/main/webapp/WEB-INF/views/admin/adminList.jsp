@@ -81,10 +81,8 @@
 							<a href="cause-single.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a>
-							<div class="emptyDiv"></div>
-							<a href="cause-single.do" class="theme-btn btn-style-three">
-								<span class="btn-title"><h2>사용불가 전환</h2></span>
-							</a> <a href="cause-single.do" class="theme-btn btn-style-one">
+							<div class="emptyDiv" style="width:480px"></div>
+							<a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
@@ -98,7 +96,8 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">admin</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
 																<th>Check</th>
@@ -114,7 +113,7 @@
 															<c:forEach items="${adminList}" var="admin">
 																<tr>
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${admin.adm_id}</a></td>
+																	<td style="font-size:13px"><a href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
 																	<td style="word-break:break-all">${admin.adm_name}</td>
 																	<td style="font-size:13px">${admin.adm_phone}</td>
 																	<td style="word-break:break-all">${admin.adm_dept}</td>
@@ -182,5 +181,8 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
 </body>
 </html>

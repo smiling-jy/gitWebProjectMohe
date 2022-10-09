@@ -4,9 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="PartnerDAO">
+  	<!-- 파트너 리스트 -->
 	<select id="getPartnerList" resultType="partner">
 		select *
 		from partner
-		order by partner_no desc
+		order by partner_no
 	</select>
+	<!-- 파트너 삭제 -->
+	<delete id="deleteBongsa" parameterType="partner">
+		delete 
+		from partner
+		where partner_no = #{partner_no}
+	</delete>
   </mapper>

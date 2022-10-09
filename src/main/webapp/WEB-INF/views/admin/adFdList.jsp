@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +67,7 @@
 				</nav>
 			</div>
 		</div>
-		<!-- /top navigation --> 
+		<!-- /top navigation -->
 		<!-- 컨텐츠 section -->
 		<div class="col-md-push-9 right_col content_right" role="main">
 			<div class="">
@@ -78,8 +78,8 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-one">
-								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
+							<a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
+								class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
 						<!-- 버튼끝 -->
@@ -92,12 +92,13 @@
 										<div class="inner-column">
 											<div class="table-outer">
 												<div class="table-box">
-													<table class="cart-table">
+													<div id="exportExcel_name">Funding</div>
+													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
 																<th width="200px">제목</th>
-																<th>주최자</th>
+																<th>모금액</th>
 																<th>달성도</th>
 																<th>남은일자</th>
 																<th width="300px">수정 / 삭제</th>
@@ -107,18 +108,19 @@
 														<tbody>
 															<c:forEach items="${fdList}" var="fd">
 																<tr>
-																	<td style="word-break:break-all">${fd.fd_no}</td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
-																	<td style="word-break:break-all">${fd.fd_hostname}</td>
-																	<td style="font-size:13px">${fd.rate}%</td>
-																	<td style="word-break:break-all">${fd.remain_day}일</td>
+																	<td style="word-break: break-all">${fd.fd_no}</td>
+																	<td style="font-size: 13px"><a
+																		href="adUserDetail.do">${fd.fd_title}</a></td>
+																	<td style="word-break: break-all">${fd.total_sum}원</td>
+																	<td style="font-size: 13px">${fd.rate}%</td>
+																	<td style="word-break: break-all">${fd.remain_day}일</td>
 																	<td><a href="#" class="remove-btn"> <span
 																			class="flaticon-check"></span>
-																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																			class="flaticon-delete-1"></span>
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																			<span class="flaticon-delete-1"></span>
 																	</a></td>
 																</tr>
-															</c:forEach>															
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -181,5 +183,8 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<!-- 엑셀 내보내기 플러그인 -->
+	<script src='../resources/js_ad/jquery.table2excel.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>
 </body>
 </html>

@@ -46,7 +46,7 @@
 			<section class="wrapper">
 				<div class="heading">
 					<h1 class="text text-large">회원가입</h1>
-					<span class="text text-normal">모해에 가입해 기부와 펀딩을 이용해 보세요 </span>
+					<span class="text text-normal">모해에 가입해 봉사와 펀딩 이용해 보세요 </span>
 				</div>
 				<form id="form_eamil_signUp" action="email/signUp.do" method="post" class="form">
 					<div class="input-control">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.UserInfoVO;
 
 
 @Repository("funding_payDAO")
@@ -44,8 +45,12 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 
 	@Override
 	public List<Funding_payVO> getFunding_payList(HashMap map) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Funding_payVO> adGetFunding_payList(UserInfoVO vo) {
+		return mybatis.selectList("Fundgin_payDAO.adGetFunding_payList",vo);
 	}
 
 
