@@ -9,7 +9,7 @@ import com.project.mohe.domain.Funding_pjVO;
 public interface Funding_pjDAO {
 	// CRUD 기능 구현
 		// 글 등록
-		void insertFunding_pj(Funding_pjVO vo);
+		int insertFunding_pj(Funding_pjVO vo);
 				
 		// 글 수정
 		void updateFunding_pj(Funding_pjVO vo); 

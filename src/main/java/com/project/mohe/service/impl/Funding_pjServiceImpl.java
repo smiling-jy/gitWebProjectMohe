@@ -17,8 +17,9 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 	private Funding_pjDAO funding_pjDAO;
 
 	@Override
-	public void insertFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+	public int insertFunding_pj(Funding_pjVO pj) {
+		
+		return funding_pjDAO.insertFunding_pj(pj);
 		
 	}
 

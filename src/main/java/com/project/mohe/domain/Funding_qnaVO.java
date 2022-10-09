@@ -1,4 +1,5 @@
 package com.project.mohe.domain;
+
 import lombok.Data;
 
 @Data
