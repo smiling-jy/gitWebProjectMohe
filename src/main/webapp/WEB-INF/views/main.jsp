@@ -43,7 +43,9 @@
 .table_div::-webkit-scrollbar-track {
 	background: rgba(255, 107, 112, .2); /*스크롤바 뒷 배경 색상*/
 }
-
+/* .page-wrapper { */
+/*     overflow: visible; */
+/* } */
 </style>
 </head>
 
@@ -339,7 +341,7 @@
 							<div class="team-block">
 								<div class="inner-box">
 									<figure class="image-box">
-										<a href="#"><img
+										<a href="getReview.do?review_no=${bestRv.review_no}"><img
 											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
@@ -582,5 +584,14 @@
  					});
  		};
  	</script> 
+ 	<script>
+//  		$(function(){
+//  			$('.drop_more').hover(function(){
+//  				$('#header_event').css({'height':'250px'});
+//  			},function(){
+//  				$('#header_event').css({'height':'0px'});
+//  			});
+//  		});
+ 	</script>
 </body>
 </html>
