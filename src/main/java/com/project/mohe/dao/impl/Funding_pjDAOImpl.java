@@ -19,10 +19,12 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public void insertFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+	public int insertFunding_pj(Funding_pjVO pj) {
 		
+		return mybatis.insert("Funding_pjDAO.insertFunding_pj" , pj);
 	}
+	
+	
 
 	@Override
 	public void updateFunding_pj(Funding_pjVO pj) {

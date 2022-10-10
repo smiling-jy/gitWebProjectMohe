@@ -4,6 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Funding_pjDAO">
+  
+	<!-- 펀딩 주최하기 -->
+	<!-- 일단 임시로 데이터 입출력 확인때문에 상태는 진행중으로 놓았습니다. 최종적으로는 '미승인'이어야 한다 -->
+	<insert id="insertFunding_pj" parameterType="funding_pj">
+		<selectKey keyProperty="fd_no" order="AFTER" resultType="int">
+			select FD_PJ_SEQ.currval fd_no from dual
+		</selectKey>
+		insert into funding_pj(FD_NO,FD_CATEGORY,FD_TITLE,FD_CONTENT,FD_RECEIVER
+								,FD_GOALS,FD_STARTDATE,FD_ENDDATE,FD_HOSTNAME
+								,FD_HOST_PHONE,FD_HOST_EMAIL,FD_IMG_CNT
+								,FD_SATATUS,FD_READ_CNT,FD_PRICE,USER_NO)
+				values(FD_PJ_SEQ.nextval , #{fd_category}, #{fd_title} ,#{fd_content} ,#{fd_receiver}
+						, #{fd_goals}, #{fd_startdate}, #{fd_enddate}, #{fd_hostname}, #{fd_host_phone}
+						, #{fd_host_email} , #{fd_img_cnt} , '진행중'
+						, #{fd_read_cnt} , #{fd_price} , #{user_no})
+	</insert>
+  
+  
 	<!-- 목록보기 -->
   	<select id="getFunding_pjList" parameterType="map" resultType="funding_pj">
   		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0) 
@@ -32,6 +50,8 @@
   		</choose>
   		
   	</select>
+  	
+  	
   	<!-- 승인 안된 펀딩 리스트 조회 -->
   	<select id="getFdApprovalList" resultType="funding_pj">
   		select *
