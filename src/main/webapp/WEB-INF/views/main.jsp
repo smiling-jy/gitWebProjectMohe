@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,71 +31,104 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <style>
 .table_div::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
+	width: 10px; /* 스크롤바의 너비 */
 }
 
 .table_div::-webkit-scrollbar-thumb {
-    height: 20%; /* 스크롤바의 길이 */
-    background: #ff6b70; /* 스크롤바의 색상 */
-    
-    border-radius: 10px;
+	height: 20%; /* 스크롤바의 길이 */
+	background: #ff6b70; /* 스크롤바의 색상 */
+	border-radius: 10px;
 }
 
 .table_div::-webkit-scrollbar-track {
-    background: rgba(255, 107, 112, .2);  /*스크롤바 뒷 배경 색상*/
+	background: rgba(255, 107, 112, .2); /*스크롤바 뒷 배경 색상*/
+}
+/*네비 손잡이*/
+.btn_div{
+	width:50px;
+	height:50px;
+	background-color:white;
+	position:absolute;
+	cursor : pointer;
+}
+/*네비 포장지*/
+.right_nav{
+	width:250px;
+	height:400px;
+/* 	background-color:blue; */
+	position:fixed;
+	z-index:10;
+	right:-200px;
+	top:30%;
+	transition: all 1s ease ;
+}
+/*네비 몸통*/
+.click_right_menu{
+	width:200px;
+	height:400px;
+	background-color:white;
+	position:absolute;
+	margin-left:50px;
+	cursor : pointer;
+}
+.click_right_menu li,.click_right_menu a{
+	width:200px;
+	height:80px;
+	text-align: center;
+	padding-top:30px;
+	border-bottom: 1px solid rgb(229,229,229);
+	color:rgb(100,100,100);
+	font-family: 'GmarketSansMedium';
+	text-decoration:none;
+	transition: all 1s ease ;
 }
 </style>
 </head>
 
 <body>
-
+	<!-- 우측 간편 메뉴 시작 -->
+	<div class="right_nav">
+		<div class="btn_div"></div>
+		<div class="click_right_menu">
+			<!-- 네비 카테고리 시작 -->
+			<ul>
+				<li><a href="#">My페이지</a></li>
+				<li><a href="#">찜목록</a></li>
+				<li><a href="#">기부하기</a></li>
+				<li><a href="#">리뷰보기</a></li>
+				<li><a href="#">Q&A</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 우측 간편 메뉴 끝  -->
+	
 	<div class="page-wrapper">
 		<!-- header include -->
-		<jsp:include page="header.jsp" />
+		<jsp:include page="header.jsp"/>
 
 		<!-- 캐러셀 섹션 -->
 		<!-- Banner Section -->
-		<section class="banner-section style-two slid_fix">
+		<section class="banner-section style-two slid_fix" id="header_bottom">
 			<div class="banner-carousel love-carousel owl-theme owl-carousel"
 				data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "768" :{ "items" : "1" } , "1000":{ "items" : "1" }}}'>
-				<!-- Slide Item -->
-				<div class="slide-item slid_fix">
-					<div class="image-layer lazy-image"></div>
-					<div class="image-layer lazy-image"
-						data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
-					<div class="auto-container">
-						<div class="content-box" style="top: -150px">
-							<h2>
-								5만원 쿠폰팩<br>민트 페스티벌에 초대합니다
-							</h2>
+				
+				<!-- 슬라이드 내용 반복 시작 -->
+				<c:forEach items="${eventList}" var="event">
+					<!-- Slide Item -->
+					<div class="slide-item slid_fix">
+						<div class="image-layer lazy-image"></div>
+						<div class="image-layer lazy-image"
+							data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
+						<div class="auto-container">
+							<div class="content-box" style="top: -150px">
+								<h2>
+									${event.event_title}
+								</h2>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- Slide Item -->
-				<div class="slide-item slid_fix">
-					<div class="image-layer lazy-image"
-						data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
-					<div class="auto-container">
-						<div class="content-box" style="top: -150px">
-							<h2>
-								5만원 쿠폰팩<br>민트 페스티벌에 초대합니다
-							</h2>
-						</div>
-					</div>
-				</div>
-				<!-- Slide Item -->
-				<div class="slide-item slid_fix">
-					<div class="image-layer lazy-image"
-						data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
-					<div class="auto-container">
-						<div class="content-box" style="top: -150px">
-							<h2>
-								5만원 쿠폰팩<br>민트 페스티벌에 초대합니다
-							</h2>
-						</div>
-					</div>
-				</div>
-
+				</c:forEach>
+				<!-- 반복 종료 -->
 			</div>
 		</section>
 		<!--End Banner Section -->
@@ -105,33 +138,20 @@
 			<div id="main_Partner_div">
 				<div id="Partner_text">
 					<h2>
-						<a>함께하는</a><br> <a>파트너 ></a>
+						<a href="partner.do">함께하는<br>파트너 </a>
 					</h2>
 				</div>
+				<div id="gradation"></div>
 				<div id="rotation_partner_div">
-					<a href="#"><img
-						src="resources/images/partner_logo/partner_logo_01.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_02.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_03.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_04.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_05.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_06.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_07.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_08.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_09.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_10.jpg" /></a> <a
-						href="#"><img
-						src="resources/images/partner_logo/partner_logo_11.jpg" /></a>
+					<!-- a태그 안의 img , 파트너 로고 -->
+					<c:forEach items="${partner}" var="partner">
+						<a href="${partner.partner_url}"><img class="lazy-image"
+										src="resources/images/resource/image-spacer-for-validation.png"
+										data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+										style="height: 360px;" alt=""></a>
+					</c:forEach>
 				</div>
+				<div id="gradation2"></div>
 			</div>
 		</div>
 
@@ -146,170 +166,44 @@
 						<h2>인기펀딩</h2>
 					</div>
 				</div>
-
+				
 				<!--Team Carousel-->
 				<div class="team-carousel love-carousel owl-theme owl-carousel"
 					data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 500, "responsive":{ "0" :{ "items": "1" },"600" :{ "items": "1" }, "800" :{ "items" : "2" }, "1024":{ "items" : "3" }, "1366":{ "items" : "3" }}}'>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#"></a>우리지구는 일회용이 아니야
-										</h3>
-										<div class="designation">공익협회</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
+					<!-- 펀딩 리스트 반복 시작 -->
+					<c:forEach items="${bestFdList}" var="bestFd">
+						<div class="slide-item">
+							<!--Team Block-->
+							<div class="team-block">
+								<div class="inner-box">
+									<figure class="image-box">
+										<a href="fundingSingle.do?fd_no=${bestFd.fd_no}"><img
+											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+									</figure>
+									<div class="lower-box">
+										<div class="content">
+											<h3>
+												<a href="fundingSingle.do?fd_no=${bestFd.fd_no}">${bestFd.fd_title}</a>
+											</h3>
+											<div class="designation">${bestFd.fd_hostname}</div>
+											<div class="social-links">
+												<ul class="clearfix">
+													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">엄마의 마음으로 만든 쿠키</a>
-										</h3>
-										<div class="designation">승용맘</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">두피 건강을 지키자</a>
-										</h3>
-										<div class="designation">헤어클린</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">지구를 위한 가벼운 발걸음</a>
-										</h3>
-										<div class="designation">에코라이브</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">신선한 달걀</a>
-										</h3>
-										<div class="designation">아이러브닭</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">티끌 플라스틱 모아 만든</a>
-										</h3>
-										<div class="designation">재활용맨</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 				<!--End Team Carousel-->
 			</div>
 		</section>
+		
 		<!-- 마감 임박 봉사 섹션 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
@@ -326,162 +220,36 @@
 				<!--Team Carousel-->
 				<div class="team-carousel love-carousel owl-theme owl-carousel"
 					data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 500, "responsive":{ "0" :{ "items": "1" },"600" :{ "items": "1" }, "800" :{ "items" : "2" }, "1024":{ "items" : "3" }, "1366":{ "items" : "3" }}}'>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
+					<!-- 마감임박 봉사 리스트 반복시작 -->
+					<c:forEach items="${deadlineBs}" var="ddBs">
+						<div class="slide-item">
+							<!--Team Block-->
+							<div class="team-block">
+								<div class="inner-box">
+									<figure class="image-box">
+										<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}"><img
+											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+									</figure>
+									<div class="lower-box">
+										<div class="content">
+											<h3>
+												<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}">${ddBs.bs_title}</a>
+											</h3>
+											<div class="designation">${ddBs.bs_place}</div>
+											<div class="social-links">
+												<ul class="clearfix">
+													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+						</div>	
+					</c:forEach>
+					<!-- 반복끝 -->
 				</div>
 				<!--End Team Carousel-->
 			</div>
@@ -491,13 +259,10 @@
 		<!--Mission Vision Section-->
 		<section class="donate_section">
 			<div class="auto-container">
-
 				<div class="donate_div image wow fadeInUp">
 					<img src="resources/images/mohe_logo/gibubener_1.png">
 					<div class="mission">
-
 						<div class="row clearfix">
-
 							<div class="text-column col-lg-6 col-md-12 col-sm-12">
 								<div class="inner">
 									<div class="sec-title" style="margin-top: 80px">
@@ -514,7 +279,7 @@
 								<div class="inner">
 									<div class="row clearfix">
 										<div class="image wow fadeInDown" data-wow-delay="0ms">
-											<div class="table_div" style="height:300px; overflow:auto;">
+											<div class="table_div" style="height: 300px; overflow: auto;">
 												<table class="donate_table_style">
 													<c:forEach items="${donation}" var="dnt">
 														<tr>
@@ -620,162 +385,36 @@
 				<!--Team Carousel-->
 				<div class="team-carousel love-carousel owl-theme owl-carousel"
 					data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 500, "responsive":{ "0" :{ "items": "1" },"600" :{ "items": "1" }, "800" :{ "items" : "2" }, "1024":{ "items" : "3" }, "1366":{ "items" : "3" }}}'>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
+					<!-- 베스트 리뷰 반복시작 -->
+					<c:forEach items="${bestReview}" var="bestRv">
+						<div class="slide-item">
+							<!--Team Block-->
+							<div class="team-block">
+								<div class="inner-box">
+									<figure class="image-box">
+										<a href="getReview.do?review_no=${bestRv.review_no}"><img
+											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+									</figure>
+									<div class="lower-box">
+										<div class="content">
+											<h3>
+												<a href="getReview.do?review_no=${bestRv.review_no}">${bestRv.review_title}</a>
+											</h3>
+											<div class="designation">${bestRv.user_name}</div>
+											<div class="social-links">
+												<ul class="clearfix">
+													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
+					<!-- 반복종료 -->
 				</div>
 				<!--End Team Carousel-->
 			</div>
@@ -979,38 +618,33 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	<!-- <script>
-    $(function(){
-        $(document).ready(function(){
-            $(".owl-item").css("width","200px");
-        });
-    })
-</script> -->
-	<script>
-		setInterval(fnSlide, 2000);
-		function fnSlide() {
-			$("#rotation_partner_div").animate(
-					{
-						"margin-left" : "-300px"
-					},
-					1000,
-					function() {
-						$("#rotation_partner_div").css({
-							"margin-left" : "0px"
-						});
-						$("#rotation_partner_div a:first-child").insertAfter(
-								"#rotation_partner_div a:last-child");
-					});
-		};
-	</script>
-	<!-- 	<script>
-	// $(function(){ // $('.dropdown_show').hover(function(){ //
-	$('.dropdown_show ul').first().css({ // "position":" relative", //
-	"z-index":"2", // }); // }); // });
-
-
-	</script> -->
-
-
+ 	<script> 
+ 		setInterval(fnSlide, 2000);
+ 		function fnSlide() {
+ 			$("#rotation_partner_div").animate(
+ 					{
+ 						"margin-left" : "-300px"
+ 					},
+ 					1000,
+ 					function() {
+ 						$("#rotation_partner_div").css({
+ 							"margin-left" : "0px"
+ 						});
+ 						$("#rotation_partner_div a:first-child").insertAfter(
+ 								"#rotation_partner_div a:last-child");
+ 					});
+ 		};
+ 	</script> 
+ 	<script>
+ 		$(function(){
+ 			$(".btn_div").click(function(){
+ 				if($(".right_nav").css("right") == "0px"){
+ 	 				$(".right_nav").css("right","-200px");
+ 				}else{
+ 	 				$(".right_nav").css("right","0px");
+ 				}
+ 			});
+ 		});
+ 	</script>
 </body>
 </html>

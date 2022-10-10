@@ -19,10 +19,12 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public void insertFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+	public int insertFunding_pj(Funding_pjVO pj) {
 		
+		return mybatis.insert("Funding_pjDAO.insertFunding_pj" , pj);
 	}
+	
+	
 
 	@Override
 	public void updateFunding_pj(Funding_pjVO pj) {
@@ -32,7 +34,7 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 
 	@Override
 	public void deleteFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+		mybatis.delete("Funding_pjDAO.deleteFunding_pj",pj);
 		
 	}
 
@@ -48,11 +50,26 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 		return mybatis.selectList("Funding_pjDAO.getFunding_pjList", map);
 	}
 
-	// 펀딩 승인 안된 리스트 - 지윤
+	// 펀딩 승인 안된 리스트 
 	@Override
 	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
 		return mybatis.selectList("Funding_pjDAO.getFdApprovalList");
 	}
-
+	
+	// 펀딩 승인 업데이트
+	public void okFdUpdate(Funding_pjVO vo) {
+		mybatis.update("Funding_pjDAO.okFdUpdate", vo);
+		
+	}
+	// 펀딩 비승인 업데이트
+	public void noFdUpdate(Funding_pjVO vo) {
+		mybatis.update("Funding_pjDAO.noFdUpdate", vo);
+		
+	}
+	// 인기펀딩 리스트
+	@Override
+	public List<Funding_pjVO> getBestFd() {
+		return mybatis.selectList("Funding_pjDAO.getBestFd");
+	}
 
 }

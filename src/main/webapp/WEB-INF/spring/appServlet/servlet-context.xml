@@ -33,6 +33,9 @@
 	<!-- 원래는 id,class등 빈 객체당 하나하나 설정을 해줬어야했지만 아래의 scan기능으로 한번에 처리를 한것이다 -->
 	<context:component-scan
 		base-package="com.project.mohe" />
+		
+	<!-- 파일 업로드를 위한 multipartResolver 인터페이스 객체화 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
 
 

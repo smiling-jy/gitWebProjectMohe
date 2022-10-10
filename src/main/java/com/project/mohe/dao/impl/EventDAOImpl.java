@@ -31,7 +31,7 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public void deleteEvent(EventVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("EventDAO.deleteEvent",vo);
 		
 	}
 

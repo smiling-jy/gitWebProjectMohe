@@ -27,4 +27,8 @@ public class BongsaVO {
 	
 	//db에 없는 변수 
 	private int bs_rate; //인원 모집 달성률
+	// 관리자 페이지에서 user_no로 조인할 주최자 아이디 변수
+	private String user_email;
+	// 관리자 페이지에서 승인/취소에 쓰일 변수
+	private String bs_judg;
 }

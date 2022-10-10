@@ -8,7 +8,7 @@
 
 <body>
 
-	<div class="page-wrapper">
+	<div class="page-wrapper" style="overflow:visible;">
 		<!-- Preloader -->
 		<div class="preloader">
 			<div class="icon"></div>
@@ -44,13 +44,13 @@
 										<li><a href="info1.do"><h4>소개</h4></a></li>
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
-										<li class="dropdown dropdown_show"><a href="blog.html"><h4>더보기</h4></a>
+										<li class="dropdown dropdown_show"><a href="#"><h4>더보기</h4></a>
 											<ul>
-												<li><a href="blog.html">이벤트</a></li>
-												<li><a href="blog.html">후기 모아보기</a></li>
-												<li><a href="blog.html">공지사항</a></li>
-												<li><a href="blog.html">문의하기 (Q&A)</a></li>
-												<li><a href="blog.html">파트너</a></li>
+												<li><a href="event.do">이벤트</a></li>
+												<li><a href="review.do">후기 모아보기</a></li>
+												<li><a href="notice.do">공지사항</a></li>
+												<li><a href="faq.do">문의하기 (Q&A)</a></li>
+												<li><a href="partner.do">파트너</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -121,39 +121,6 @@
 			<!-- End Mobile Menu -->
 		</header>
 		<!-- End Main Header -->
-
-		<!--Search Popup-->
-		<div id="search-popup" class="search-popup">
-			<div class="close-search theme-btn">
-				<span class="flaticon-cancel"></span>
-			</div>
-			<div class="popup-inner">
-				<div class="overlay-layer"></div>
-				<div class="search-form">
-					<form method="post" action="mainPage.html">
-						<div class="form-group">
-							<fieldset>
-								<input type="search" class="form-control" name="search-input"
-									value="" placeholder="Search Here" required> <input
-									type="submit" value="Search Now!" class="theme-btn">
-							</fieldset>
-						</div>
-					</form>
-
-					<br>
-					<h3>Recent Search Keywords</h3>
-					<ul class="recent-searches">
-						<li><a href="#">Finance</a></li>
-						<li><a href="#">Idea</a></li>
-						<li><a href="#">Service</a></li>
-						<li><a href="#">Growth</a></li>
-						<li><a href="#">Plan</a></li>
-					</ul>
-
-				</div>
-
-			</div>
-		</div>
 	</div>
 	<!--End pagewrapper-->
 </body>

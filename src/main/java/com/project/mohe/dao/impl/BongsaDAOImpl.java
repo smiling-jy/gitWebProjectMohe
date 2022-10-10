@@ -33,7 +33,7 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public void deleteBongsa(BongsaVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("BongsaDAO.deleteBongsa",vo);
 		
 	}
 
@@ -52,6 +52,30 @@ public class BongsaDAOImpl implements BongsaDAO {
 		return mybatis.selectList("BongsaDAO.getBongsaList", map);
 	}
 	
+	// 봉사 미승인 리스트
+	@Override
+	public List<BongsaVO> getBsApprovalList(HashMap map) {
+		return mybatis.selectList("BongsaDAO.getBsApprovalList", map);
+	}
+	
+	// 봉사 신청 승인 업데이트
+	@Override
+	public void okBsUpdate(BongsaVO vo) {
+		mybatis.update("BongsaDAO.noBsUpdate", vo);
+	}
+
+	// 봉사 신청 반려 업데이트
+	@Override
+	public void noBsUpdate(BongsaVO vo) {
+		mybatis.update("BongsaDAO.noBsUpdate", vo);
+	}
+	
+	// 마감임박 봉사 리스트
+	@Override
+	public List<BongsaVO> getDeadlineBs() {
+		return mybatis.selectList("BongsaDAO.getDeadlineBs");
+	}
+
 	
 
 }

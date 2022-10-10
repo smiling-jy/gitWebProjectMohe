@@ -64,14 +64,14 @@
 					<div class="center">
 						<h1>프로젝트 주최하기</h1>
 					</div>
-					<form method="post" action="savefunding.do">
-						<span>프로젝트 카테고리</span><br />
+					<form method="post" action="savefunding.do" enctype="multipart/form-data">
+ 				 		<span>프로젝트 카테고리</span><br />
 						<select name="fd_category">
-							<option>디자인문구</option>
-							<option>식품</option>
-							<option>패션잡화</option>
-							<option>홈 리빙</option>
-							<option>반려동물</option>
+							<option value="디자인문구">디자인문구</option>
+							<option value="식품">식품</option>
+							<option value="패션잡화">패션잡화</option>
+							<option value="홈리빙">홈 리빙</option>
+							<option value="반려동물">반려동물</option>
 						</select>
 						
 						<span>프로젝트 제목</span><br />
@@ -103,19 +103,19 @@
 
 						<span>창작자 이메일</span><br />
 						<input type="text" name="fd_host_email" required>
-
+ 
 						<span>프로젝트 소개 첨부파일</span>
-						<input type="file" class="new-btn" value="첨부파일 등록하기"><br />
+						<input type="file" name="file" multiple="multiple" class="add-file" value="첨부파일 등록하기"><br />
 						
-						<span>첨부파일 목록</span>
+						<!-- <span>첨부파일 목록</span>
 
-						<div></div>
+						<div></div>-->
 						<br />
 						<br />
 						<br />
-						<br />
+						<br /> 
 						<div class="form-group">
-							<button type="submit" class="theme-btn btn-style-one ">
+							<button type="submit" class="theme-btn btn-style-one">
 								<span class="btn-title new-btn-title">주최하기</span>
 							</button>
 						</div>

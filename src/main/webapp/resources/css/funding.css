@@ -70,7 +70,12 @@ ul.new-font{
     color: gray;
 }
 
+/* 펀딩리스트 타이틀이미지 크기 */
 
+img.img-size{
+	width: 323.9px;
+	height: 323.9px;
+}
 
 
 

@@ -1,12 +1,16 @@
 package com.project.mohe.domain;
 
-import java.util.Date;
+import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
+
 
 @Data
 public class Funding_pjVO {
 
-	private int fd_user_no;
+	private int user_no;
 	private int fd_no;
 	private String fd_category;
 	private String fd_title;
@@ -29,4 +33,11 @@ public class Funding_pjVO {
 	private int total_sum; // 현재 모인 금액
 	private int rate; // 현재 달성 퍼센트
 	private int total_people; // 현재 모인 인원수
+	
+	// 펀딩 승인,비승인시 사용할 변수 ok,no
+	private String fd_judg;
+	
+	// 첨부 파일
+	MultipartFile titleImg;
+	MultipartFile[] file;
 }
