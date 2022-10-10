@@ -14,6 +14,13 @@
 		     		, #{pay_pn_phone}, #{pay_pn_email}, #{pay_pn_addr}
 		     		, sysdate, #{user_no}, #{fd_no})
 	</insert>
+	
+	<select id="getPayList" parameterType="funding_pay" resultType="funding_pay">
+		select *
+		  from funding_pay
+		 where fd_no = #{fd_no}
+	</select>
+	
 	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
 	<select id="adGetFunding_payList" parameterType="userInfo" resultType="funding_pay">
 		select * 

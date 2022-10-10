@@ -41,9 +41,9 @@ public class Funding_payServiceImpl implements Funding_payService {
 	}
 
 	@Override
-	public List<Funding_payVO> getFunding_payList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Funding_payVO> getFunding_payList(Funding_payVO vo) {
+		
+		return funding_payDAO.getFunding_payList(vo);
 	}
 	
 

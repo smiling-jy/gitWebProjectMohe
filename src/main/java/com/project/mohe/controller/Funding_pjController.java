@@ -26,83 +26,100 @@ import com.project.mohe.service.Funding_pjService;
 public class Funding_pjController {
 	@Autowired
 	private Funding_pjService funding_pjService;
-	
-	@Autowired 
+
+	@Autowired
 	ServletContext servletContext;
-	
-		// 헤더의 펀딩 클릭시 펀딩 리스트 페이지로 이동
-		@RequestMapping("funding.do")
-		public String funding(Model model, String fd_category, String search, String select) {
-			HashMap map = new HashMap();
-			map.put("fd_category",fd_category); // 카테고리
-			map.put("search",search); // 검색어
-			map.put("select",select); // 최신순 , 인기순
-			System.out.println(select);
-			List<Funding_pjVO> pj_list = funding_pjService.getFunding_pjList(map);
-			model.addAttribute("pj_list", pj_list);
-			return "funding";
-		}
-		
-		// 펀딩 상세 페이지 이동
-		@RequestMapping("fundingSingle.do")
-		public String fundingSingle(Funding_pjVO pj, Model model) {
-			model.addAttribute("pj", funding_pjService.getFunding_pj(pj));
-			return "fundingSingle";
-		}
-		
-		
-		
-		// 펀딩주최하기 클릭시 페이지 단순 이동
-		@RequestMapping("openfunding.do")
-		public void openFunding() {
 
-		}
-		
-		// Funding_pjVO 테이블에 insert
-		@RequestMapping("savefunding.do")
-		public String insertFunding(Funding_pjVO pj , HttpServletRequest request){
-			
-			// 유저번호 세션에서 받아오기
-			HttpSession session = request.getSession();
-			
-			// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-			session.setAttribute("user_no", 1);
-			
-			pj.setUser_no((Integer) session.getAttribute("user_no"));
-			
-			
-			// DB저장
-			pj.setFd_read_cnt(pj.getFile().length);
-			funding_pjService.insertFunding_pj(pj);
-			// 프로젝트 번호를 폴더명으로 받아옴
-			String folder_name =  pj.getFd_no()+"";
+	// 헤더의 펀딩 클릭시 펀딩 리스트 페이지로 이동
+	@RequestMapping("funding.do")
+	public String funding(Model model, String fd_category, String search, String select) {
+		HashMap map = new HashMap();
+		map.put("fd_category", fd_category); // 카테고리
+		map.put("search", search); // 검색어
+		map.put("select", select); // 최신순 , 인기순
+		System.out.println(select);
+		List<Funding_pjVO> pj_list = funding_pjService.getFunding_pjList(map);
+		model.addAttribute("pj_list", pj_list);
+		return "funding";
+	}
 
-			// 첨부파일 있는지 확인
+	// 펀딩 상세 페이지 이동
+	@RequestMapping("fundingSingle.do")
+	public String fundingSingle(Funding_pjVO pj, Model model) {
+		model.addAttribute("pj", funding_pjService.getFunding_pj(pj));
+		return "fundingSingle";
+	}
+
+	// 펀딩주최하기 클릭시 페이지 단순 이동
+	@RequestMapping("openfunding.do")
+	public void openFunding() {
+
+	}
+
+	// Funding_pjVO 테이블에 insert
+	@RequestMapping("savefunding.do")
+	public String insertFunding(Funding_pjVO pj, HttpServletRequest request) {
+
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
+		session.setAttribute("user_no", 1);
+
+		pj.setUser_no((Integer) session.getAttribute("user_no"));
+
+		// DB저장
+		pj.setFd_read_cnt(pj.getFile().length);
+		funding_pjService.insertFunding_pj(pj);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = pj.getFd_no() + "";
+
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!pj.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성
+
+			// 절대경로 받아오는 메소드
+			String resources = servletContext.getRealPath("/resources/attached_file/funding");
+			// 절대경로 + 지정한 폴더이름으로 폴더 생성
+			Path directoryPath = Paths.get(resources + "/" + folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = pj.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File(resources + "/" + folder_name + "/" + "title_img" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				pj.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+
+			// 내용 이미지 배열 확인 조건문
 			if (pj.getFile().length != 0) {
 
-				// 2. 폴더 생성
-
-				// 절대경로 받아오는 메소드
-				String resources = servletContext.getRealPath("/resources/attached_file/funding");
-				// 절대경로 + 지정한 폴더이름으로 폴더 생성
-				Path directoryPath = Paths.get(resources + "/" + folder_name);
-
-				try {
-					// 폴더 생성 메소드
-					Files.createDirectories(directoryPath);
-					System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
-
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				// 3. 폴더 안에 이미지 저장
+				// 배열을 담기 위한 반복문
 				for (int i = 0; i < pj.getFile().length; i++) {
 
-					String fname = pj.getFile()[i].getOriginalFilename();
-					String fileExtension = fname.substring(fname.lastIndexOf("."));
+					fname = pj.getFile()[i].getOriginalFilename();
+					fileExtension = fname.substring(fname.lastIndexOf("."));
 
-					File f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
+					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
 
 					try {
 						// 파일저장
@@ -115,14 +132,32 @@ public class Funding_pjController {
 
 						e.printStackTrace();
 					}
-
 				} // for_end
 			} // if_end
-			return "redirect:/funding.do";
-		}
+		} // if_end
+		return "redirect:/funding.do";
+	}
+
+	// 관리자페이지에서 프로젝트 승인해줄때
+	public void approveFunding(Funding_pjVO pj) {
+		funding_pjService.updateFunding_pj(pj);
+	}
+
+	// 주최자 마이페이지 성공, 진행중 프로젝트 리스트
+	@RequestMapping("fundingHost.do")
+	public String fundingHost(Model model, HttpServletRequest request) {
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+					
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
+		session.setAttribute("user_no", 1);
 		
-		// 관리자페이지에서 프로젝트 승인해줄때
-		public void approveFunding(Funding_pjVO pj) {
-			funding_pjService.updateFunding_pj(pj);
-		}
+		HashMap map = new HashMap();
+		map.put("user_no", (Integer) session.getAttribute("user_no"));
+		model.addAttribute("success_list", funding_pjService.getSuccess_pjList(map));
+		model.addAttribute("ongoing_list", funding_pjService.getOngoing_pjlist(map));
+		
+		return "fundingHost";
+	}
+	
 }

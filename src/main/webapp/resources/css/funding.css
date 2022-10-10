@@ -253,6 +253,11 @@ h5 a.black-font{
     margin-top: 60px;
 }
 
+.new-box{
+	display:inline-block;
+}
+
+
 /* 주최자 마이페이지 질문답변하기 */
 
 .margin td , .marign div{

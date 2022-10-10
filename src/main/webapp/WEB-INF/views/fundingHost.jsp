@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +24,7 @@
 <link href="resources/css/mainPage.css" rel="stylesheet">
 
 
+
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -37,14 +39,6 @@
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
 
-		<!-- Page Banner Section -->
-		<!-- <section class="page-banner"> -->
-		<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div> -->
-		<!-- <div class="bottom-rotten-curve"></div> -->
-		<!-- </section> -->
-		<!--End Banner Section -->
-
-
 		<!--Sidebar Page Container-->
 		<div class="sidebar-page-container shop-page">
 			<div class="auto-container">
@@ -56,68 +50,74 @@
 							<div>
 								<h3>성공한 프로젝트</h3>
 								<!-- 펀딩 블럭 -->
-								<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-									<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="mypage-details.html"><img class="lazy-image"
-													src="resources/images/resource/image-spacer-for-validation.png"
-													data-src="resources/images/resource/cause-image-4.jpg"
-													alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content new-font">
-											<div class="progress-box">
-												<div class="bar">
-													<div class="bar-inner count-bar" data-percent="100%">
-														<div class="count-text">707%</div>
+								<c:forEach items="${success_list}" var="pj">
+									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+											<div class="image-box">
+												<figure class="image">
+													<a href="partronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}"><img class="lazy-image"
+														src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+														data-src="resources/attached_file/funding/${pj.fd_no}/tilte_img.png"
+														alt=""></a>
+												</figure>
+											</div>
+											<div class="lower-content new-font">
+												<div class="progress-box">
+													<div class="bar">
+														<div class="bar-inner count-bar" data-percent="100%">
+															<div class="count-text">${pj.rate}%</div>
+														</div>
 													</div>
 												</div>
+												<div class="donation-count clearfix">
+													<span class="goal">달성금액:<strong>${pj.total_sum}원</strong></span>
+												</div>
+												<h5>
+													<a href="partronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}" class="new-font black-font">${pj.fd_title}</a>
+												</h5>
 											</div>
-											<div class="donation-count clearfix">
-												<span class="goal">달성금액:<strong> 8,000,000원</strong></span>
-											</div>
-											<h5>
-												<a href="patronList.html" class="new-font black-font">저소득층
-													여성을 돕는 유기농 생리대</a>
-											</h5>
 										</div>
 									</div>
-								</div>
+								</c:forEach>
+								<!-- 펀딩 블럭 끝 -->
 							</div>
 							<div>
 								<h3>진행중인 프로젝트</h3>
 								<!-- 펀딩 블럭 -->
-								<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-									<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="cause-single.html"><img class="lazy-image"
-													src="resources/images/resource/image-spacer-for-validation.png"
-													data-src="resources/images/resource/cause-image-4.jpg"
-													alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content new-font">
-											<div class="progress-box">
-												<div class="bar">
-													<div class="bar-inner count-bar" data-percent="33%">
-														<div class="count-text">33%</div>
+								<c:forEach items="${ongoing_list}" var="pj">
+									<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
+										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+											<div class="image-box">
+												<figure class="image">
+													<a href="cause-single.html"><img class="lazy-image"
+														src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+														data-src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+														alt=""></a>
+												</figure>
+											</div>
+											<div class="lower-content new-font">
+												<div class="progress-box">
+													<div class="bar">
+														<div class="bar-inner count-bar" data-percent="${pj.rate}%">
+															<div class="count-text">${pj.rate}%</div>
+														</div>
 													</div>
 												</div>
+												<div class="donation-count clearfix">
+													<span class="goal">현재금액:<strong>
+															${pj.total_sum}원</strong></span><br />
+													<span><strong>${pj.remain_day}</strong>일남음</span>
+												</div>
+												<h5>
+													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font">${pj.fd_title}</a>
+												</h5>
+												<input type="button" class="a-btn" value="Q&A">
+												<input type="hidden" value="${pj.fd_no}" class="fd_no">
 											</div>
-											<div class="donation-count clearfix">
-												<span clan class="goal">현재금액:<strong>
-														8,000,000원</strong></span><br />
-												<span><strong>3</strong>일남음</span>
-											</div>
-											<h5>
-												<a href="fundingSingle.html" class="new-font black-font">저소득층
-													여성을 돕는 유기농 생리대</a>
-											</h5>
 										</div>
 									</div>
-								</div>
+								</c:forEach>
+								<!-- 펀딩 블럭 끝 -->
 							</div>
 							<div>
 								<h3>질문 답변하기</h3>
@@ -125,8 +125,8 @@
 									<ul class="accordion-box clearfix">
 										<!--Block-->
 										<li class="accordion block active-block f-size">
-											<div class="acc-btn margin">
-												<table>
+											<div class="acc-btn margin" id="qna-in">
+												<!-- <table>
 													<tr>
 														<td>123</td>
 														<td class="content">어쩌구저저구 궁금함다어쩌구저저구 궁금함다어쩌구저저구
@@ -140,66 +140,7 @@
 												<div class="content donate-form">
 													<textarea placeholder="여기에 답변하세요"></textarea>
 													<button class="new-btn" id="answer">답변하기</button>
-												</div>
-											</div>
-										</li>
-
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">Q. What is minimum amount to
-												donate?</div>
-											<div class="acc-content">
-												<div class="content">
-													<div class="text">Minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea commodo
-														consequat. Duis aute irure dolor in in voluptate velit
-														esse cillum dolore eu fugiat nulla pariatur. Excepteur
-														sint occaecat cupidatat non proident, sunt in culpa qui
-														officia deserunt.</div>
-													<button class="x-btn">x</button>
-												</div>
-											</div>
-										</li>
-
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">Q. What is the main cause in your
-												list?</div>
-											<div class="acc-content">
-												<div class="content">
-													<div class="text">Lorem ipsum dolor amet consectetur
-														adipisicing sed do eiusmod tempor incididunt ut labore
-														magna aliqua enim minim veniam quis nostrud.</div>
-												</div>
-											</div>
-										</li>
-
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">Q. What is minimum amount to
-												donate?</div>
-											<div class="acc-content">
-												<div class="content">
-													<div class="text">Minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea commodo
-														consequat. Duis aute irure dolor in in voluptate velit
-														esse cillum dolore eu fugiat nulla pariatur. Excepteur
-														sint occaecat cupidatat non proident, sunt in culpa qui
-														officia deserunt.</div>
-												</div>
-											</div>
-										</li>
-
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">Q. What is the main cause in your
-												list?</div>
-											<div class="acc-content">
-												<div class="content">
-													<div class="text">Lorem ipsum dolor amet consectetur
-														adipisicing sed do eiusmod tempor incididunt ut labore
-														magna aliqua enim minim veniam quis nostrud.</div>
-												</div>
+												</div> -->
 											</div>
 										</li>
 
@@ -212,35 +153,28 @@
 					<!--Sidebar Side-->
 					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar shop-sidebar">
-
-							<!-- Search -->
-							<div class="sidebar-widget search-box">
-								<h3 class="sidebar-title">Search</h3>
-								<form method="post" action="contact.html">
-									<div class="form-group">
-										<input type="search" name="search-field" value=""
-											placeholder="Search..." required="">
-										<button type="submit">
-											<span class="icon flaticon-search-1"></span>
-										</button>
+							<div class="sidebar-widget price-filters rangeslider-widget">
+								<div class="input-control d-block">
+									<label for="userName" class="input-label"></label>
+									<div class="profile-user-img margin-auto">
+										<img class="margin-auto profile-user-img-img"
+											src="resources/images/mohe_logo/img_no_profile.png"
+											alt="profile-user-img" style="max-width: 130px">
 									</div>
-								</form>
-							</div>
-
-							<!-- Category Widget -->
-							<div class="sidebar-widget categories">
-								<h3 class="sidebar-title">Categories</h3>
-								<div class="widget-content">
-									<ul>
-										<li class="current"><a href="blog-single.html">Education</a></li>
-										<li><a href="blog-single.html">Olympiad</a></li>
-										<li><a href="blog-single.html">Children</a></li>
-										<li><a href="blog-single.html">Animals</a></li>
-										<li><a href="blog-single.html">Donations</a></li>
-										<li><a href="blog-single.html">Causes</a></li>
-									</ul>
+								</div>
+								<h3 class="sidebar-title">차미지 님</h3>
+								<div class="range-slider-one clearfix">
+									<div class="clearfix">
+										<div class="text-center">
+											<a href="modifyInfo.html" class="theme-btn btn-style-one"><span
+												class="btn-title">회원 수정</span></a> <a href="#"
+												class="theme-btn btn-style-one"><span
+												class="btn-title bg-red">회원 탈퇴</span></a>
+										</div>
+									</div>
 								</div>
 							</div>
+
 						</aside>
 					</div>
 				</div>
@@ -268,6 +202,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/funding.js"></script>
 
 </body>
 </html>

@@ -21,4 +21,10 @@ public interface Funding_pjService {
 			
 	// 글 목록 조회
 	List<Funding_pjVO> getFunding_pjList(HashMap map);
+	
+	// 성공한 프로젝트 목록 조회 
+	List<Funding_pjVO> getSuccess_pjList(HashMap map);
+	
+	// 진행중인 프로젝트 목록 조회
+	List<Funding_pjVO> getOngoing_pjlist(HashMap map);
 }
