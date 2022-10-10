@@ -110,4 +110,39 @@
 		from ( select * from funding_pj order by fd_read_cnt desc)
 		where <![CDATA[rownum <= 10]]>
 	</select>
+	
+	
+	<!-- 주최자 마이페이지 성공 펀딩 리스트 -->
+	
+	<select id="getSuccess_pjList" parameterType="map" resultType="funding_pj">
+		select pj.fd_no , pj.fd_goals , pj.fd_title , pay.total_sum
+       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+		  from funding_pj pj , (select fd_no , nvl(sum(pay_total),0) total_sum 
+                        		  from funding_pay
+                    		  group by fd_no) pay
+  		 where pj.fd_no = pay.fd_no(+)
+		   and pj.user_no = #{user_no}
+		   <![CDATA[and pj.fd_enddate < sysdate]]>
+		   <![CDATA[and pay.total_sum > pj.fd_goals]]>
+		order by pj.fd_no desc
+	</select>
+	
+	<select id="getOngoing_pjlist" parameterType="map" resultType="funding_pj">
+		select pj.fd_no , pj.fd_goals , pj.fd_title , pay.total_sum 
+	       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+	      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+		  from funding_pj pj , (select fd_no , nvl(sum(pay_total),0) total_sum 
+                        		  from funding_pay
+                    		  group by fd_no) pay
+  		 where pj.fd_no = pay.fd_no(+)
+		   and pj.user_no = #{user_no}
+		   and pj.fd_satatus = '진행중'
+ 		   <![CDATA[and pj.fd_startdate <= sysdate]]>
+ 		   <![CDATA[and pj.fd_enddate > sysdate]]>
+		order by pj.fd_no desc
+	</select>
+	
+	
+	<!-- 주최자 마이페이지 진행중 펀딩 리스트 -->
   </mapper>

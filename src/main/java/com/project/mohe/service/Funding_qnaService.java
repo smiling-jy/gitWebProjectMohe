@@ -21,4 +21,6 @@ public interface Funding_qnaService {
 			
 	// 글 목록 조회
 	List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo);
+	// 글 목록 조회
+	List<Funding_qnaVO> getHost_qnaList(Funding_qnaVO vo);
 }

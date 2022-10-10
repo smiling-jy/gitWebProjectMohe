@@ -38,6 +38,6 @@ public class Funding_pjVO {
 	private String fd_judg;
 	
 	// 첨부 파일
-	MultipartFile titleImg;
+	MultipartFile title_img;
 	MultipartFile[] file;
 }

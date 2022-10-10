@@ -54,4 +54,12 @@ public class Funding_payController {
 		return "redirect:/fundingSingle.do?fd_no="+pay.getFd_no();
 		
 	}
+	
+	@RequestMapping("patronList.do")
+	public String patronList(Funding_payVO pay, Model model) {
+		System.out.println(pay);
+		model.addAttribute("title", pay.getFd_title());
+		model.addAttribute("pay_list", funding_payService.getFunding_payList(pay));
+		return "partronList";
+	}
 }

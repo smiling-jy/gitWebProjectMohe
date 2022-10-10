@@ -77,10 +77,8 @@
 											<li class="accordion block active-block f-size">
 												<div class="acc-btn">
 													<span><strong>Q. </strong> ${qna.qna_question}</span>
-													<!-- 조건문으로 본인 글만 삭제 가능하게... -->
-													<c:if test="${sessionScope.user_no eq qna.user_no}">
-														<button class="x-btn">x</button>
-													</c:if>
+													
+													
 												</div>
 												<div class="acc-content">
 													<div class="content">
@@ -94,6 +92,15 @@
 																	</strong>${qna.qna_answer}</span>
 																</c:otherwise>
 															</c:choose>
+															<!-- 조건문으로 본인 글만 삭제 가능하게... -->
+															<c:if test="${sessionScope.user_no eq qna.user_no}">
+																<form action="delete_qna.do" method="post">
+																	<button class="x-btn">질문삭제</button>
+																	<input type="hidden" name="fd_no" value="${qna.fd_no}">
+																	<input type="hidden" name="qna_no" value="${qna.qna_no}">
+																	<input type="hidden" name="user_no" value="${qna.user_no}">
+																</form>
+															</c:if>
 														</div>
 													</div>
 												</div>

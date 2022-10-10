@@ -26,13 +26,13 @@ public class Funding_qnaDAOImpl implements Funding_qnaDAO {
 
 	@Override
 	public void updateFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.update("Funding_qnaDAO.updateFunding_qna", vo);
 		
 	}
 
 	@Override
 	public void deleteFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("Funding_qnaDAO.deleteFunding_qna",vo);
 		
 	}
 
@@ -45,6 +45,11 @@ public class Funding_qnaDAOImpl implements Funding_qnaDAO {
 	@Override
 	public List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo) {
 		return mybatis.selectList("Funding_qnaDAO.getFunding_qnaList", vo);
+	}
+
+	@Override
+	public List<Funding_qnaVO> getHost_qnaList(Funding_qnaVO vo) {
+		return mybatis.selectList("Funding_qnaDAO.getHost_qnaList", vo);
 	}
 
 }

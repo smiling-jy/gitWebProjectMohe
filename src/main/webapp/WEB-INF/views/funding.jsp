@@ -79,8 +79,8 @@
 								<div class="image-box">
 									<figure class="image">
 										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image img-size"
-											src="resources/attached_file/funding/${pj.fd_no}/0.png"
-											data-src="resources/attached_file/funding/${pj.fd_no}/0.png" alt=""></a>
+											src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+											data-src="resources/attached_file/funding/${pj.fd_no}/title_img.png" alt=""></a>
 									</figure>
 								</div>
 								<div class="lower-content new-font">

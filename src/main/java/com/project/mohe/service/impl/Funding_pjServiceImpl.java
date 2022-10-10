@@ -45,6 +45,16 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 		
 		return funding_pjDAO.getFunding_pjList(map);
 	}
+
+	@Override
+	public List<Funding_pjVO> getSuccess_pjList(HashMap map) {
+		return funding_pjDAO.getSuccess_pjList(map);
+	}
+
+	@Override
+	public List<Funding_pjVO> getOngoing_pjlist(HashMap map) {
+		return funding_pjDAO.getOngoing_pjlist(map);
+	}
 	
 
 }
