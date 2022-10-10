@@ -21,39 +21,34 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	
 	@Override
 	public UserInfoVO emailCheck(UserInfoVO vo) {
-		System.out.println("===> MemberMapper emailCheck 호출");
 		return mybatis.selectOne("UserInfoDAO.emailCheck", vo);
 	}
 	
 	@Override
-	public int userInsert(UserInfoVO vo) {
-		System.out.println("===>  MemberMapper insertUserInfo() 호출");
-		return mybatis.insert("UserInfoDAO.insertUserInfo", vo);
-	}
-	
-	@Override
-	public UserInfoVO loginCheck(UserInfoVO vo) {
-		System.out.println("===> MemberMapper loginCheck 호출");
-		return mybatis.selectOne("UserInfoDAO.loginCheck", vo);
-	}
-	
-
-	@Override
 	public void insertUserInfo(UserInfoVO vo) {
 		mybatis.insert("UserInfoDAO.insertUserInfo", vo);
-		// TODO Auto-generated method stub
-		
 	}
+	
+	@Override
+	public UserInfoVO emailLogin(UserInfoVO vo) {
+		return mybatis.selectOne("UserInfoDAO.emailLogin", vo);
+	}
+	
 
 	// 회원 상세페이지
-	@Override
-	public UserInfoVO getUserInfo(UserInfoVO vo) {
-		return mybatis.selectOne("UserInfoDAO.getUserInfo",vo);
-	}
+		@Override
+		public UserInfoVO getUserInfo(UserInfoVO vo) {
+			return mybatis.selectOne("UserInfoDAO.getUserInfo",vo);
+		}
 
-	@Override
-	public List<UserInfoVO> getUserInfoList(HashMap map) {
-		return mybatis.selectList("UserInfoDAO.getUserList");
-	}
+		@Override
+		public List<UserInfoVO> getUserInfoList(HashMap map) {
+			return mybatis.selectList("UserInfoDAO.getUserList");
+		}
+
+		@Override
+		public void updateOutDate(UserInfoVO vo) {
+			mybatis.delete("UserInfoDAO.updateOutDate",vo);
+		}
 
 }

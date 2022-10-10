@@ -15,42 +15,34 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired
 	private UserInfoDAO userInfoDao;
-	
-	/**
-	  * 아이디 중복 체크하는 sql + 로그인 기능 sql
-	  */
-	  public UserInfoVO emailCheck_Login( UserInfoVO vo)
-	  {
-		  return userInfoDao.emailCheck(vo);
-	  }
-	  
-	  /**
-	   * 회원가입 sql
-	   */
-	   public int userInsert_Login(UserInfoVO vo )
-	   {
-		  return userInfoDao.userInsert(vo);
-	   }
-	  
 
+	/**
+	 * 아이디 중복 체크하는 sql + 로그인 기능 sql
+	 */
+	public UserInfoVO emailCheck_Login(UserInfoVO vo) {
+		return userInfoDao.emailCheck(vo);
+	}
+	
 	@Override
 	public void insertUserInfo(UserInfoVO vo) {
-		System.out.println("");
 		userInfoDao.insertUserInfo(vo);
-		// TODO Auto-generated method stub
-		
 	}
+	
+	public UserInfoVO emailLogin(UserInfoVO vo) {
+		return userInfoDao.emailLogin(vo);
+	}
+	
 
 	@Override
 	public void updateUserInfo(UserInfoVO vo) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteUserInfo(UserInfoVO vo) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -64,5 +56,4 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoDao.getUserInfoList(map);
 	}
 
-	
 }

@@ -81,8 +81,8 @@
 																		<i class="fas fa-solid fa-coins"></i>
 																	</div>
 																	<h4>참여 펀딩</h4>
-																	<a href="details.html" class="over-link"
-																		target="_blank" rel="nofollow"> </a>
+																	<a href="details.do" class="over-link"
+																		rel="nofollow"> </a>
 																</div>
 															</div>
 														</div>
@@ -103,8 +103,8 @@
 																				<i class="fas fa-regular fa-handshake"></i>
 																			</div>
 																			<h4>참여 봉사</h4>
-																			<a href="details.html" class="over-link"
-																				target="_blank" rel="nofollow"> </a>
+																			<a href="details.do" class="over-link"
+																				rel="nofollow"> </a>
 																		</div>
 																	</div>
 																</div>
@@ -125,8 +125,8 @@
 																			<i class="fa fa-heart"></i>
 																		</div>
 																		<h4>찜 목록</h4>
-																		<a href="shoppingBasket.html" class="over-link"
-																			target="_blank" rel="nofollow"> </a>
+																		<a href="shoppingBasket.do" class="over-link"
+																			rel="nofollow"> </a>
 																	</div>
 																</div>
 															</div>

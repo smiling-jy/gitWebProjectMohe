@@ -27,7 +27,7 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 		<!-- utf-8로 모두 설정하더라도 오류가 발생할 수 있기때문에 설정해주는 부분 -->
    <!-- 한글인코딩  -->
