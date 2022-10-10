@@ -43,12 +43,65 @@
 .table_div::-webkit-scrollbar-track {
 	background: rgba(255, 107, 112, .2); /*스크롤바 뒷 배경 색상*/
 }
-
+/*네비 손잡이*/
+.btn_div{
+	width:50px;
+	height:50px;
+	background-color:white;
+	position:absolute;
+	cursor : pointer;
+}
+/*네비 포장지*/
+.right_nav{
+	width:250px;
+	height:400px;
+/* 	background-color:blue; */
+	position:fixed;
+	z-index:10;
+	right:-200px;
+	top:30%;
+	transition: all 1s ease ;
+}
+/*네비 몸통*/
+.click_right_menu{
+	width:200px;
+	height:400px;
+	background-color:white;
+	position:absolute;
+	margin-left:50px;
+	cursor : pointer;
+}
+.click_right_menu li,.click_right_menu a{
+	width:200px;
+	height:80px;
+	text-align: center;
+	padding-top:30px;
+	border-bottom: 1px solid rgb(229,229,229);
+	color:rgb(100,100,100);
+	font-family: 'GmarketSansMedium';
+	text-decoration:none;
+	transition: all 1s ease ;
+}
 </style>
 </head>
 
 <body>
-
+	<!-- 우측 간편 메뉴 시작 -->
+	<div class="right_nav">
+		<div class="btn_div"></div>
+		<div class="click_right_menu">
+			<!-- 네비 카테고리 시작 -->
+			<ul>
+				<li><a href="#">My페이지</a></li>
+				<li><a href="#">찜목록</a></li>
+				<li><a href="#">기부하기</a></li>
+				<li><a href="#">리뷰보기</a></li>
+				<li><a href="#">Q&A</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 우측 간편 메뉴 끝  -->
+	
 	<div class="page-wrapper">
 		<!-- header include -->
 		<jsp:include page="header.jsp"/>
@@ -85,7 +138,7 @@
 			<div id="main_Partner_div">
 				<div id="Partner_text">
 					<h2>
-						<a>함께하는</a><br> <a>파트너 ></a>
+						<a href="partner.do">함께하는<br>파트너 </a>
 					</h2>
 				</div>
 				<div id="gradation"></div>
@@ -339,7 +392,7 @@
 							<div class="team-block">
 								<div class="inner-box">
 									<figure class="image-box">
-										<a href="#"><img
+										<a href="getReview.do?review_no=${bestRv.review_no}"><img
 											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
@@ -582,5 +635,16 @@
  					});
  		};
  	</script> 
+ 	<script>
+ 		$(function(){
+ 			$(".btn_div").click(function(){
+ 				if($(".right_nav").css("right") == "0px"){
+ 	 				$(".right_nav").css("right","-200px");
+ 				}else{
+ 	 				$(".right_nav").css("right","0px");
+ 				}
+ 			});
+ 		});
+ 	</script>
 </body>
 </html>
