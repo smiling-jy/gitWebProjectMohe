@@ -82,6 +82,11 @@
 	text-decoration:none;
 	transition: all 1s ease ;
 }
+#main_partenr_text{
+	text-decoration:none;
+	color:rgb(30,30,30);
+	font-weight: bold;
+}
 </style>
 </head>
 
@@ -138,7 +143,7 @@
 			<div id="main_Partner_div">
 				<div id="Partner_text">
 					<h2>
-						<a href="partner.do">함께하는<br>파트너 </a>
+						<a id="main_partenr_text" href="partner.do">함께하는<br>파트너 </a>
 					</h2>
 				</div>
 				<div id="gradation"></div>
