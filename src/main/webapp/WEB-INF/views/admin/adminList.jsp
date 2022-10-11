@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +38,6 @@
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 </head>
-
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -78,10 +77,10 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten">
-								<span class="btn-title"><h2>추가하기</h2></span>
+							<a href="cause-single.do" class="theme-btn btn-style-ten"> <span
+								class="btn-title"><h2>추가하기</h2></span>
 							</a>
-							<div class="emptyDiv" style="width:480px"></div>
+							<div class="emptyDiv" style="width: 480px"></div>
 							<a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
@@ -112,12 +111,14 @@
 														<tbody>
 															<c:forEach items="${adminList}" var="admin">
 																<tr>
-																	<td style="word-break:break-all"><input type="checkbox"/></td>
-																	<td style="font-size:13px"><a href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
-																	<td style="word-break:break-all">${admin.adm_name}</td>
-																	<td style="font-size:13px">${admin.adm_phone}</td>
-																	<td style="word-break:break-all">${admin.adm_dept}</td>
-																	<td style="font-size:13px">${admin.adm_hiredate}</td>
+																	<td style="word-break: break-all"><input
+																		type="checkbox" /></td>
+																	<td style="font-size: 13px"><a
+																		href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
+																	<td style="word-break: break-all">${admin.adm_name}</td>
+																	<td style="font-size: 13px">${admin.adm_phone}</td>
+																	<td style="word-break: break-all">${admin.adm_dept}</td>
+																	<td style="font-size: 13px">${admin.adm_hiredate}</td>
 																</tr>
 															</c:forEach>
 														</tbody>
@@ -131,6 +132,29 @@
 						</section>
 						<!-- End Cart Section-->
 						<!-- 테이블 끝 -->
+						<!-- 페이징 부분 -->
+						<div id="paging">
+							<c:choose>
+								<c:when test="${page.groupNo-1 > 0 }">
+									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+								</c:when>
+								<c:otherwise>
+									<span> ◀  </span>
+								</c:otherwise>
+							</c:choose>
+							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+								<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${page.endPageNo < page.pageTotalCount }">
+									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+								</c:when>
+								<c:otherwise>
+									<span> ▶ </span>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<!-- 페이징 끝 -->
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>

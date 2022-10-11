@@ -94,3 +94,42 @@ table{
 .notice-td1{
  	width:80%;
 }
+
+#event-table{
+	margin: auto;
+	width: 70%;
+}
+
+
+
+.event-btn{
+	text-align:center; 
+
+}
+
+.eventView-td{
+	text-align:center;
+}
+
+
+.event-tab{
+	font-family:'GmarketSansMedium';
+	border: solid rgb(112,191,187) 1px;
+	position: relative;
+	padding: 5px;
+	border-radius: 13px;
+	color: white;
+	font-size: 18px;
+	background: rgb(112,191,187);
+	width: 150px;
+	
+}
+
+.event-tab:hover{
+	color: navy;
+}
+
+.table-gap{
+	height:27px;
+}
+
