@@ -25,6 +25,39 @@ $("button.btn-default").on("click",function(){
 $("select[name=select]").on("change",function(){	
 	$("form").submit();
 })
+
+
+// 주최자 질문 답변하기
+$(".a-btn").on("click",function(){
+	alert("클릭은 된다");
+    $.ajax({
+        type:'post',
+        url:'qnalist.do',
+        dataType : 'json',
+        data : {'fd_no' : $(this).next().val()},
+        async: true, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
+        contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
+        success : function(data){
+            console.log('data : '+data);
+            $("#qna-in").html("");
+            if ($(data).isEmpty()) {
+                $("#qna-in").append('<span>질문이 없습니다.</span>');
+            }else{
+                $(data).each(function(){
+                    $("#qna-in").append('<table><tr><td>'+this.qna_no+'</td><td class="content">'+this.qna_question+'</td>'
+                                        +'<td>'+(this.qna_answer == null ? '':'답변완료')+'</td></tr></table>'
+                                        +'</div><div class="acc-content current"><div class="content donate-form">'
+                                        +(this.qna_answer == null ? '<textarea placeholder="여기에 답변하세요"></textarea>'
+                                        +'<button class="new-btn" id="answer">답변하기</button>':this.qna_answer)+'</div>')
+                })
+            }
+        }
+    })
+})
+
+
+
+
 // 왜 안대 ㅠ
 // $("#category div ul li a").on("click", function(){
 //     alert('1');

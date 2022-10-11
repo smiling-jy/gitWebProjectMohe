@@ -24,13 +24,13 @@ public class Funding_qnaServiceImpl implements Funding_qnaService {
 
 	@Override
 	public void updateFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		funding_qnaDAO.updateFunding_qna(vo);
 		
 	}
 
 	@Override
 	public void deleteFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
+		funding_qnaDAO.deleteFunding_qna(vo);
 		
 	}
 
@@ -43,6 +43,11 @@ public class Funding_qnaServiceImpl implements Funding_qnaService {
 	@Override
 	public List<Funding_qnaVO> getFunding_qnaList(Funding_qnaVO vo) {
 		return funding_qnaDAO.getFunding_qnaList(vo);
+	}
+
+	@Override
+	public List<Funding_qnaVO> getHost_qnaList(Funding_qnaVO vo) {
+		return funding_qnaDAO.getHost_qnaList(vo);
 	}
 	
 

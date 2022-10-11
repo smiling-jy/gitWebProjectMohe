@@ -23,6 +23,12 @@ public interface Funding_pjDAO {
 		// 글 목록 조회
 		List<Funding_pjVO> getFunding_pjList(HashMap map);
 		
+		// 성공한 프로젝트 목록 조회 
+		List<Funding_pjVO> getSuccess_pjList(HashMap map);
+		
+		// 진행중인 프로젝트 목록 조회
+		List<Funding_pjVO> getOngoing_pjlist(HashMap map);
+		
 		// 펀딩 승인안된 리스트
 		List<Funding_pjVO> getFdApprovalList(HashMap map);
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +38,6 @@
 		<!-- header include -->
 		<jsp:include page="headerMint.jsp" />
 
-		<!-- Page Banner Section -->
-		<!-- <section class="page-banner"> -->
-		<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div> -->
-		<!-- 한지스러움 삭제 -->
-		<!-- <div class="bottom-rotten-curve"></div> -->
-		<!-- </section> -->
-		<!--End Banner Section -->
-
 		<section class="cart-section new-font">
 			<div class="auto-container">
 				<h2>내 프로젝트 관리하기</h2>
@@ -53,7 +46,7 @@
 				<div class="cart-outer">
 					<div class="table-column">
 						<div class="inner-column">
-							<h3>프로젝트 이름</h3>
+							<h3>${title}</h3>
 							<br />
 							<div class="table-outer">
 								<div class="table-box">
@@ -70,40 +63,23 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${pay_list}" var="pay">
 											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
+												<td>${pay.pay_no}</td>
+												<td>${pay.pay_pn_name}</td>
 												<td>
-													<!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
-													<button class="new-btn">배송예정</button>
+													<%-- <!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
+													<form>
+														<input type="hidden" name="pay_no" value="${pay.pay_no}">
+														<button class="new-btn">배송예정</button>
+													</form> --%>
 												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동</td>
+												<td>${pay.pay_count}</td>
+												<td class="price">${pay.pay_total}원</td>
+												<td>${pay.pay_pn_phone}</td>
+												<td>${pay.pay_pn_addr}</td>
 											</tr>
-											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
-												<td>
-													<button class="new-btn">배송예정</button>
-												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동</td>
-											</tr>
-											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
-												<td>
-													<button class="new-btn">배송예정</button>
-												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동</td>
-											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
