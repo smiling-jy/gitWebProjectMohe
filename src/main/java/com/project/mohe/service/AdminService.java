@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
-import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
@@ -33,7 +34,10 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 관리자 리스트
-	List<AdminVO> getAdminList(HashMap map);
+	List<AdminVO> getAdminList(PagingVO vo,HashMap map,Model model);
+	
+	// 관리자 페이징을 위한 행 조회
+	PagingVO getAllcnt();
 
 	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);

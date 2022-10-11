@@ -43,8 +43,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public List<EventVO> getEventList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		return eventDAO.getEventList(map);
 	}
 
 }

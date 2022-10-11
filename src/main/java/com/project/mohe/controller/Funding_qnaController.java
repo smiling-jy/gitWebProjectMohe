@@ -2,6 +2,7 @@ package com.project.mohe.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -53,21 +54,20 @@ public class Funding_qnaController {
 		return "redirect:/fundingQna.do?fd_no="+qna.getFd_no();
 	}
 	
-	
-	
 	// 주최자 마이페이지 질문 답변하기
-	@RequestMapping(value = "qnalist.do", produces = "application/text; charset=utf8")
+	@RequestMapping(value = "qnalist.do")
 	@ResponseBody
 	public List<Funding_qnaVO> getHost_qnaList(Funding_qnaVO qna) {
 		System.out.println("자바 answerSave 클래스 접근 ");
 		System.out.println("qna.getFd_no() >> "+qna.getFd_no());
 		List<Funding_qnaVO> reQan = funding_qnaService.getHost_qnaList(qna);
 		System.out.println(reQan);
-		return reQan;	
+		return reQan;
 	}
 	
+	
 	// 주최자 답변 등록
-	@RequestMapping("answerSave")
+	@RequestMapping("answerSave.do")
 	public String answerSave(Funding_qnaVO qna) {
 		funding_qnaService.updateFunding_qna(qna);
 		return "redirect:/fundingHost.do";

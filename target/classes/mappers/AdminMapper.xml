@@ -2,31 +2,53 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="AdminDAO">
-	<select id="getAdminList" resultType="admin">
+
+<mapper namespace="AdminDAO">
+	<!-- 관리자 정보 리스트 조회 -->
+	<select id="getAdminList" parameterType="page" resultType="admin">
 		select *
 		from admin
-		where adm_enddate is null
+		where adm_no in(select adm_no from
+			(select adm_no,rownum AS rnum from
+				(select adm_no from admin order by adm_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
 		order by adm_no desc
 	</select>
-	<select id="getAdminDetail" parameterType="admin" resultType="admin">
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcnt" resultType="page">
+		select count(adm_no) as totalRecCount from admin
+	</select>
+	<!-- 관리자 세부 정보 조회 -->
+	<select id="getAdminDetail" parameterType="admin"
+		resultType="admin">
 		select *
 		from admin
 		where adm_no = #{adm_no}
 	</select>
+	<!-- 관리자 계정 정지 : enddate update -->
 	<update id="updateEndDate" parameterType="admin">
 		update admin
-		set adm_enddate = sysdate
+		set
+		adm_enddate = sysdate
 		where adm_no = #{adm_no}
 	</update>
+	<!-- 관리자 정보 수정 -->
 	<update id="updateAdmin" parameterType="admin">
 		update admin
-		set adm_name = #{adm_name},
-			adm_dept = #{adm_dept},
-			adm_email = #{adm_email},
-			adm_phone = #{adm_phone},
-			adm_adress = #{adm_adress}
+		set adm_name
+		= #{adm_name},
+		adm_dept = #{adm_dept},
+		adm_phone = #{adm_phone},
+		adm_adress = #{adm_adress}
 		where adm_no = #{adm_no}
 	</update>
-  </mapper>
+	<!-- 관리자 로그인 -->
+	<select id="adminLogin" parameterType="userInfo"
+		resultType="int">
+		select *
+		from admin
+		where adm_id = #{user_email} and adm_pass = #{user_password}
+	</select>
+</mapper>

@@ -107,8 +107,9 @@
 								<a href="fundingPay.do?fd_no=${pj.fd_no}"
 									class="theme-btn btn-style-one link-box"><span
 									class="btn-title new-font new-btn-title">펀딩하기</span></a>
-								<button class="funding-btn" id="jjim">♥</button>
-								<button class="funding-btn" id="gongu">
+									<button class="funding-btn" id="jjim">♥</button>
+									<input type="hidden" name="fd_no" value="${pj.fd_no}">
+									<button class="funding-btn" id="gongu">
 									<span class="flaticon-share"></span>
 								</button>
 							</div>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.dao.BongsaDAO;
@@ -21,9 +22,9 @@ import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
-import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
@@ -83,10 +84,16 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		return adminDao.getAdminList(map);
+	public List<AdminVO> getAdminList(PagingVO vo,HashMap map,Model model) {
+		return adminDao.getAdminList(vo,map);
 	}
 	
+
+	// 관리자 페이징을 위한 행 조회
+	@Override
+	public PagingVO getAllcnt() {
+		return adminDao.getAllcnt();
+	}
 	
 	@Override
 	public List<UserInfoVO> adGetUserList(HashMap map) {
@@ -174,6 +181,7 @@ public class AdminServiceImpl implements AdminService {
 			BongsaDao.noBsUpdate(vo);
 		}
 	}
+
 
 	
 }

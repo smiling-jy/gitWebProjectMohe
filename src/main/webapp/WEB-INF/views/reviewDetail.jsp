@@ -73,7 +73,7 @@
                             <h2>${review.review_title} </h2>
                             <div class="post-meta" >
                                 <ul class="clearfix">
-                                    <li><span class="icon fa fa-user"></span>${review.user_name} </a></li>
+                                    <li><span class="icon fa fa-user"></span>${review.user_name}</li>
                                     <li> ${review.review_date}</li>
                                 </ul>
                         
