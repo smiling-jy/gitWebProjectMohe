@@ -17,4 +17,10 @@
 		from notice
 		where notice_no = #{notice_no}
 	</delete>
+	<!-- 공지 읽기 -->
+	<select id="getNotice" parameterType="notice" resultType="notice">
+		select *
+		  from NOTICE
+		 WHERE notice_no=#{notice_no}
+	</select>
   </mapper>

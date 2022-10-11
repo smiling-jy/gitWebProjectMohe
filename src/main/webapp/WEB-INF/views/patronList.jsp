@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +38,6 @@
 		<!-- header include -->
 		<jsp:include page="headerMint.jsp" />
 
-		<!-- Page Banner Section -->
-		<!-- <section class="page-banner"> -->
-		<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div> -->
-		<!-- 한지스러움 삭제 -->
-		<!-- <div class="bottom-rotten-curve"></div> -->
-		<!-- </section> -->
-		<!--End Banner Section -->
-
 		<section class="cart-section new-font">
 			<div class="auto-container">
 				<h2>내 프로젝트 관리하기</h2>
@@ -53,7 +46,7 @@
 				<div class="cart-outer">
 					<div class="table-column">
 						<div class="inner-column">
-							<h3>프로젝트 이름</h3>
+							<h3>${title}</h3>
 							<br />
 							<div class="table-outer">
 								<div class="table-box">
@@ -69,41 +62,37 @@
 												<th>주소</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
-												<td>
-													<!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
-													<button class="new-btn">배송예정</button>
-												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동어쩔구 어쩔동</td>
-											</tr>
-											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
-												<td>
-													<button class="new-btn">배송예정</button>
-												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동</td>
-											</tr>
-											<tr>
-												<td>21321321</td>
-												<td>김개똥</td>
-												<td>
-													<button class="new-btn">배송예정</button>
-												</td>
-												<td>1</td>
-												<td class="price">$50.00</td>
-												<td>연락처</td>
-												<td>어쩔구 어쩔동</td>
-											</tr>
+										<tbody class="patron-list">
+											<c:forEach items="${pay_list}" var="pay">
+												<tr>
+													<td>${pay.pay_no}</td>
+													<td>${pay.pay_pn_name}</td>
+													<td>
+														<%-- <!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
+														<form>
+															<input type="hidden" name="pay_no" value="${pay.pay_no}">
+															<button class="new-btn">배송예정</button>
+														</form> --%>
+														<c:choose>
+																<c:when test="${pay.pay_status eq '대기중'}">
+																	<form method="get" class="from">
+																		<input type="hidden" name="pay_no" value="${pay.pay_no}">
+																		<input type="hidden" name="fd_no" value="${pay.fd_no}">
+																		<input type="text"  name="pay_status" placeholder="운송장번호" class="transport_no">
+																		<button class="transport_btn">입력</button>
+																	</form>
+																</c:when>
+																<c:otherwise>
+																	${pay.pay_status}
+																</c:otherwise>
+															</c:choose>
+													</td>
+													<td>${pay.pay_count}</td>
+													<td>${pay.pay_total}원</td>
+													<td>${pay.pay_pn_phone}</td>
+													<td>${pay.pay_pn_addr}</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -137,5 +126,6 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/funding.js"></script>
 </body>
 </html>

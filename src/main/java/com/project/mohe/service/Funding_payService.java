@@ -20,5 +20,5 @@ public interface Funding_payService {
 	Funding_payVO getFunding_pay(Funding_payVO vo);
 			
 	// 글 목록 조회
-	List<Funding_payVO> getFunding_payList(HashMap map);
+	List<Funding_payVO> getFunding_payList(Funding_payVO vo);
 }

@@ -15,4 +15,25 @@
   		insert into FUNDING_QNA(fd_no, qna_no, user_no, qna_question)
   		values(#{fd_no},fd_qna_seq.nextval,#{user_no},#{qna_question})
   	</insert>
+  	
+  	<delete id="deleteFunding_qna" parameterType="funding_qna">
+  		delete from FUNDING_QNA
+			  where fd_no = #{fd_no}
+			  	and qna_no = #{qna_no}
+			  	and user_no = #{user_no} 				
+  	</delete>
+  	
+  	<select id="getHost_qnaList" parameterType="funding_qna" resultType="funding_qna">
+  		select *
+  		  from FUNDING_QNA
+  		 where fd_no = ${fd_no}
+  		 order by qna_no desc
+  	</select>
+  	
+  	<update id="updateFunding_qna" parameterType="funding_qna">
+  		update FUNDING_QNA
+  		   set qna_answer = #{qna_answer}
+  		 where fd_no = #{fd_no}
+		   and qna_no = #{qna_no}
+  	</update>
   </mapper>

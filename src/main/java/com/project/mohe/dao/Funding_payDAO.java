@@ -22,7 +22,7 @@ public interface Funding_payDAO {
 		EventVO getFunding_pay(Funding_payVO vo);
 			
 		// 글 목록 조회
-		List<Funding_payVO> getFunding_payList(HashMap map);
+		List<Funding_payVO> getFunding_payList(Funding_payVO vo);
 		// 관리자 유저 펀딩 조회
 		List<Funding_payVO> adGetFunding_payList(UserInfoVO vo);
 }

@@ -72,4 +72,19 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 		return mybatis.selectList("Funding_pjDAO.getBestFd");
 	}
 
+
+
+	@Override
+	public List<Funding_pjVO> getSuccess_pjList(HashMap map) {
+		
+		return mybatis.selectList("Funding_pjDAO.getSuccess_pjList", map);
+	}
+
+
+
+	@Override
+	public List<Funding_pjVO> getOngoing_pjlist(HashMap map) {
+		return mybatis.selectList("Funding_pjDAO.getOngoing_pjlist", map);
+	}
+
 }

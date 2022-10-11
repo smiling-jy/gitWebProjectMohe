@@ -27,7 +27,7 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 
 	@Override
 	public void updateFunding_pay(Funding_payVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.update("Funding_payDAO.updateFunding_pay", vo);
 		
 	}
 
@@ -44,13 +44,13 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 	}
 
 	@Override
-	public List<Funding_payVO> getFunding_payList(HashMap map) {
-		return null;
+	public List<Funding_payVO> getFunding_payList(Funding_payVO vo) {
+		return mybatis.selectList("Funding_payDAO.getPayList", vo);
 	}
 
 	@Override
 	public List<Funding_payVO> adGetFunding_payList(UserInfoVO vo) {
-		return mybatis.selectList("Fundgin_payDAO.adGetFunding_payList",vo);
+		return mybatis.selectList("Funding_payDAO.adGetFunding_payList",vo);
 	}
 
 

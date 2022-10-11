@@ -104,8 +104,11 @@
 						<span>창작자 이메일</span><br />
 						<input type="text" name="fd_host_email" required>
  
-						<span>프로젝트 소개 첨부파일</span>
-						<input type="file" name="file" multiple="multiple" class="add-file" value="첨부파일 등록하기"><br />
+						<span>타이틀 이미지</span><br />
+						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기"><br />
+
+						<span>내용 이미지</span><br />						
+						<input type="file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기"><br />
 						
 						<!-- <span>첨부파일 목록</span>
 

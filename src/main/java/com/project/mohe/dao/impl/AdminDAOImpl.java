@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.domain.AdminVO;
-import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 
 
 @Repository("adminDAO")
@@ -38,13 +38,19 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 	
 	@Override
-	public List<AdminVO> getAdminList(HashMap map) {
-		return mybatis.selectList("AdminDAO.getAdminList");
+	public List<AdminVO> getAdminList(PagingVO vo,HashMap map) {
+		return mybatis.selectList("AdminDAO.getAdminList",vo);
 	}
 
 	@Override
 	public AdminVO getAdminDetail(AdminVO vo) {
 		return mybatis.selectOne("AdminDAO.getAdminDetail",vo);
+	}
+
+	// 테이블의 데이터 갯수를 조회한다
+	@Override
+	public PagingVO getAllcnt() {
+		return mybatis.selectOne("AdminDAO.getAllcnt");
 	}
 
 }

@@ -53,23 +53,26 @@
 				</div>
 			</div>
 			<!-- 검색창 -->
-			<div class=" new-font funding-search-box">
-
-				<a href="openfunding.do" class="theme-btn btn-style-one link-box"><span class="btn-title new-btn-title">주최하기</span></a>
-				<form action="funding.do" method="post">
-					<input type="search"id="search" name="search" value="" placeholder="Search..."required>
-					<button type="submit">
-						<span class="icon flaticon-search-1"></span>
-					</button>
-					<select name="select">
-						<option >선택안함</option>
-						<option value="fd_no">최신순</option>
-						<option value="fd_read_cnt">인기순</option>
-					</select>
-				</form>
-			</div>
 
 			<div class="auto-container">
+				<div class=" new-font funding-search-box">
+					<a href="openfunding.do" class="theme-btn btn-style-one link-box">
+						<span class="btn-title new-btn-title">주최하기</span>
+					</a>
+					<div class="search">
+						<form action="funding.do" method="post">
+							<input type="search" name="search" value="" placeholder="Search..." required>
+							<button type="submit">
+								<span class="icon flaticon-search-1"></span>
+							</button>
+							<select name="select">
+								<option>선택안함</option>
+								<option value="fd_no">최신순</option>
+								<option value="fd_read_cnt">인기순</option>
+							</select>
+						</form>
+					</div>	
+				</div>
 				<div class="row clearfix">
 
 					<!-- 펀딩 블럭 -->
@@ -78,9 +81,11 @@
 							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 								<div class="image-box">
 									<figure class="image">
-										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image img-size"
-											src="resources/attached_file/funding/${pj.fd_no}/0.png"
-											data-src="resources/attached_file/funding/${pj.fd_no}/0.png" alt=""></a>
+										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img
+											class="lazy-image img-size"
+											src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+											data-src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
+											alt=""></a>
 									</figure>
 								</div>
 								<div class="lower-content new-font">
@@ -92,8 +97,8 @@
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="goal">목표금액:<strong> ${pj.fd_goals}</strong></span><span
-											class="d-day"><strong>${pj.remain_day}</strong>일남음</span>
+										<span class="goal">목표금액:<strong>
+												${pj.fd_goals}</strong></span><span class="d-day"><strong>${pj.remain_day}</strong>일남음</span>
 									</div>
 									<h3>
 										<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font">${pj.fd_title}</a>
@@ -103,7 +108,7 @@
 						</div>
 					</c:forEach>
 					<!-- 펀딩 블럭 끝 -->
-					
+
 				</div>
 			</div>
 		</section>

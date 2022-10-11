@@ -167,3 +167,12 @@
 #exportExcel_name{
 	 visibility: hidden;
 }
+
+#paging{
+	width:200px;
+	margin:0 auto;
+}
+
+#paging a{
+	margin:0 10px;
+}
