@@ -53,51 +53,70 @@
 			</div>
 
 		</section>
-		<!--End Banner Section -->
-
-		<!-- Gallery Page Section -->
-		<section class="gallery-page-section">
-			<div class="auto-container">
-				<!--MixitUp Galery-->
-				<div class="mixitup-gallery">
-					<!--Filter-->
-					<div class="filters clearfix">
-						<ul class="filter-tabs filter-btns clearfix">
-							<li class="active filter" data-role="button" data-filter="all">EVENT
-								1</li>
-							<li class="filter" data-role="button" data-filter=".children">EVENT
-								2</li>
-							<li class="filter" data-role="button" data-filter=".volunteer">EVENT
-								3</li>
-						</ul>
-					</div>
-
-					<div class="filter-list row">
-						<!-- Gallery Item Two -->
-						<div class="gallery-item-two mix all volunteer">
-							<div class="image-box">
-								<figure class="image">
-									<img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/gallery/7.jpg" alt="">
-								</figure>
-								<div class="overlay-box">
-									<a href="resources/images/gallery/7.jpg" class="lightbox-image"
-										data-fancybox="gallery"><span
-										class="icon flaticon-cross-1"></span></a>
+		
+	<section class="gallery-page-section">
+			<div class="tabSet">
+				<!-- 이벤트 탭 버튼 -->
+					<table id="event-table">
+						<tr>
+								<td class="event-btn">
+									<a href="#panel-1" class="on">
+									<button class="event-tab">EVENT 1</button></a>
+								</td>
+							
+								<td class="event-btn">
+									<a href="#panel-2">
+									<button class="event-tab">EVENT 2</button></a>
+								</td>
+								<td class="event-btn">
+									<a href="#panel-3">
+									<button class="event-tab">EVENT 3</button></a>
+								</td>
+								<td class="event-btn">
+									<a href="#panel-4">
+									<button class="event-tab">EVENT 4</button></a>
+								</td>
+								<td class="event-btn">
+									<a href="#panel-5">
+									<button class="event-tab">EVENT 5</button></a>
+								</td>
+						</tr>
+					
+						<!-- 이벤트 탭 화면 -->
+						<tr>
+							<td colspan="5" class="table-gap">
+							
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5" class="eventView-td">
+								<div class="panel" id="panel-1">
+									<img src="resources/images/event/EVENTIMG1.png">
 								</div>
-							</div>
-						</div>
+								<div class="panel" id="panel-2">
+									이벤트 view TEST 2
+								</div>
+								<div class="panel" id="panel-3">
+									이벤트 view TEST 3
+								</div>
+								<div class="panel" id="panel-3">
+									이벤트 view TEST 4
+								</div>
+								<div class="panel" id="panel-3">
+									이벤트 view TEST 5
+								</div>
+							</td>
+						</tr>
+					</table>
+					
+				</div><!-- end class="tabSet" -->
+	</section><!-- end class="event-section"  -->
 
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Gallery Page Section -->
-		<!-- footer include -->
-		<jsp:include page="footer.jsp" />
 
-	</div>
+	<!-- footer include -->
+	<jsp:include page="footer.jsp" />
+
+
 	<!--End pagewrapper-->
 
 	<!--Scroll to top-->
@@ -117,6 +136,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/event.js"></script>
 
 </body>
 </html>
