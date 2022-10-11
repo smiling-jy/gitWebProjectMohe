@@ -17,4 +17,5 @@
 		from event
 		where event_no = #{event_no}
 	</delete>
+	
 </mapper>
