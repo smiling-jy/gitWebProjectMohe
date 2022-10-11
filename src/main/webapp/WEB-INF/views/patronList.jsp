@@ -62,23 +62,36 @@
 												<th>주소</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody class="patron-list">
 											<c:forEach items="${pay_list}" var="pay">
-											<tr>
-												<td>${pay.pay_no}</td>
-												<td>${pay.pay_pn_name}</td>
-												<td>
-													<%-- <!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
-													<form>
-														<input type="hidden" name="pay_no" value="${pay.pay_no}">
-														<button class="new-btn">배송예정</button>
-													</form> --%>
-												</td>
-												<td>${pay.pay_count}</td>
-												<td class="price">${pay.pay_total}원</td>
-												<td>${pay.pay_pn_phone}</td>
-												<td>${pay.pay_pn_addr}</td>
-											</tr>
+												<tr>
+													<td>${pay.pay_no}</td>
+													<td>${pay.pay_pn_name}</td>
+													<td>
+														<%-- <!-- 클릭하면 운송장번호를 입력할 수 있는 새창 띄우기 -->
+														<form>
+															<input type="hidden" name="pay_no" value="${pay.pay_no}">
+															<button class="new-btn">배송예정</button>
+														</form> --%>
+														<c:choose>
+																<c:when test="${pay.pay_status eq '대기중'}">
+																	<form method="get" class="from">
+																		<input type="hidden" name="pay_no" value="${pay.pay_no}">
+																		<input type="hidden" name="fd_no" value="${pay.fd_no}">
+																		<input type="text"  name="pay_status" placeholder="운송장번호" class="transport_no">
+																		<button class="transport_btn">입력</button>
+																	</form>
+																</c:when>
+																<c:otherwise>
+																	${pay.pay_status}
+																</c:otherwise>
+															</c:choose>
+													</td>
+													<td>${pay.pay_count}</td>
+													<td>${pay.pay_total}원</td>
+													<td>${pay.pay_pn_phone}</td>
+													<td>${pay.pay_pn_addr}</td>
+												</tr>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -113,5 +126,6 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/funding.js"></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class Funding_payServiceImpl implements Funding_payService {
 
 	@Override
 	public void updateFunding_pay(Funding_payVO vo) {
-		// TODO Auto-generated method stub
+		funding_payDAO.updateFunding_pay(vo);
 		
 	}
 

@@ -55,7 +55,7 @@
 										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 											<div class="image-box">
 												<figure class="image">
-													<a href="partronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}"><img class="lazy-image"
+													<a href="patronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}"><img class="lazy-image"
 														src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
 														data-src="resources/attached_file/funding/${pj.fd_no}/tilte_img.png"
 														alt=""></a>
@@ -73,7 +73,7 @@
 													<span class="goal">달성금액:<strong>${pj.total_sum}원</strong></span>
 												</div>
 												<h5>
-													<a href="partronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}" class="new-font black-font">${pj.fd_title}</a>
+													<a href="patronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}" class="new-font black-font">${pj.fd_title}</a>
 												</h5>
 											</div>
 										</div>
@@ -85,7 +85,7 @@
 								<h3>진행중인 프로젝트</h3>
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${ongoing_list}" var="pj">
-									<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
+									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
 										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 											<div class="image-box">
 												<figure class="image">
@@ -109,7 +109,7 @@
 													<span><strong>${pj.remain_day}</strong>일남음</span>
 												</div>
 												<h5>
-													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font">${pj.fd_title}</a>
+													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font fd_title_qna">${pj.fd_title}</a>
 												</h5>
 												<input type="button" class="a-btn" value="Q&A">
 												<input type="hidden" value="${pj.fd_no}" class="fd_no">
@@ -120,31 +120,9 @@
 								<!-- 펀딩 블럭 끝 -->
 							</div>
 							<div>
-								<h3>질문 답변하기</h3>
+								<h3 class="fd_title_qna"></h3>
 								<div class="tab active-tab">
-									<ul class="accordion-box clearfix">
-										<!--Block-->
-										<li class="accordion block active-block f-size">
-											<div class="acc-btn margin" id="qna-in">
-												<!-- <table>
-													<tr>
-														<td>123</td>
-														<td class="content">어쩌구저저구 궁금함다어쩌구저저구 궁금함다어쩌구저저구
-															궁금함다어쩌구저저구 궁금함다어쩌구저저구 궁금함다어쩌구저저구 궁금함다어쩌구저저구 궁금함다어쩌구저저구
-															궁금함다어쩌구저저구 궁금함다어쩌구저저구 궁금함다</td>
-														<td>답변완료</td>
-													</tr>
-												</table>
-											</div>
-											<div class="acc-content current">
-												<div class="content donate-form">
-													<textarea placeholder="여기에 답변하세요"></textarea>
-													<button class="new-btn" id="answer">답변하기</button>
-												</div> -->
-											</div>
-										</li>
-
-									</ul>
+									<ul class="accordion-box clearfix" id="qna-in"></ul>
 								</div>
 							</div>
 						</div>
