@@ -4,5 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Funding_cartDAO">
-
+  	<!-- 찜버튼 클릭해서 찜목록 추가 -->
+  	<insert id="insertFunding_cart">
+  		insert into FUNDING_CART(FC_NO, FC_DATE_TIME , USER_NO , FD_NO)
+  			 values (fd_cart_seq.nextval , sysdate ,#{user_no} , #{fd_no})
+  	</insert>
   </mapper>

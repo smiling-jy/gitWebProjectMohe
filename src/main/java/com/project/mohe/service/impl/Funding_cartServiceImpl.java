@@ -18,7 +18,7 @@ public class Funding_cartServiceImpl implements Funding_cartService {
 
 	@Override
 	public void insertFunding_cart(Funding_cartVO vo) {
-		// TODO Auto-generated method stub
+		funding_cartDAO.insertFunding_cart(vo);
 		
 	}
 

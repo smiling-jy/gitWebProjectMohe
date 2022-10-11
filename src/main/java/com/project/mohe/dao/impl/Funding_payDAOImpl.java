@@ -27,7 +27,7 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 
 	@Override
 	public void updateFunding_pay(Funding_payVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.update("Funding_payDAO.updateFunding_pay", vo);
 		
 	}
 
