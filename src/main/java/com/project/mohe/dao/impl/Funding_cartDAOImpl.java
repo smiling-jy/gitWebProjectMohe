@@ -20,7 +20,7 @@ public class Funding_cartDAOImpl implements Funding_cartDAO {
 	
 	@Override
 	public void insertFunding_cart(Funding_cartVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("Funding_cartDAO.insertFunding_cart", vo);
 		
 	}
 

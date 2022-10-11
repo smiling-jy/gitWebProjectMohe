@@ -1,6 +1,7 @@
 package com.project.mohe.domain;
 
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -19,6 +20,7 @@ public class Funding_payVO {
 	private String pay_pn_email;
 	private String pay_pn_addr;
 	private Date pay_date;
+	private String pay_status;
 	
 	// 주소 + 상세주소 합치기 위한 변수
 	private String addr1;

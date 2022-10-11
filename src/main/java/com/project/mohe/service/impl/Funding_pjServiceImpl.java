@@ -17,8 +17,9 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 	private Funding_pjDAO funding_pjDAO;
 
 	@Override
-	public void insertFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+	public int insertFunding_pj(Funding_pjVO pj) {
+		
+		return funding_pjDAO.insertFunding_pj(pj);
 		
 	}
 
@@ -43,6 +44,16 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 	public List<Funding_pjVO> getFunding_pjList(HashMap map) {
 		
 		return funding_pjDAO.getFunding_pjList(map);
+	}
+
+	@Override
+	public List<Funding_pjVO> getSuccess_pjList(HashMap map) {
+		return funding_pjDAO.getSuccess_pjList(map);
+	}
+
+	@Override
+	public List<Funding_pjVO> getOngoing_pjlist(HashMap map) {
+		return funding_pjDAO.getOngoing_pjlist(map);
 	}
 	
 

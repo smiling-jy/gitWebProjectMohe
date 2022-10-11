@@ -3,12 +3,12 @@
 
 /* 펀딩 프로젝트 목록 검색창 + 셀렉트 */
 .funding-search-box{
-    position: relative;
-    left: 30px;
-    margin: 15px;
+   position: relative;
 }
-#search{
-    margin-left: 700px;
+.search{
+   position: absolute;
+   right: 5px;
+   bottom: 5px;
 }
 
 /* 카테고리 베너 css 삭제 */
@@ -70,7 +70,12 @@ ul.new-font{
     color: gray;
 }
 
+/* 펀딩리스트 타이틀이미지 크기 */
 
+img.img-size{
+	width: 323.9px;
+	height: 323.9px;
+}
 
 
 
@@ -248,21 +253,88 @@ h5 a.black-font{
     margin-top: 60px;
 }
 
+.new-box{
+	display:inline-block;
+}
+
+
 /* 주최자 마이페이지 질문답변하기 */
 
 .margin td , .marign div{
     font-size: 18px;
 }
 
-.margin td:not(.content){
+td.margin:not(.qna-con){
     width: 100px;
-    padding: 10px;
+    padding-left 10px;
+    padding-right 10px;
     text-align: center;
 }
 
-#answer{
-    margin-left: 725px;
-    margin-top: 10px;
+.answer{
+    padding-bottom: 40px;
+}
+
+.qna-con+td{
+	position: absolute;
+	right: 10%;
+}
+
+.answer textarea{
+	width: 630px;
+	margin-left: 70px;
+	margin-bottom: 6px;
+}
+
+.answer button{
+	position: absolute;
+    right: 5%;
+}
+
+div.answer span{
+	padding-left: 100px;
+}
+
+.a-btn{
+	position: absolute;
+	right: 10%;
+	/* background-color: rgb(230, 223, 223); */
+    color: gray;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.a-btn:hover{
+	color: #3cc88f;
+}
+
+
+/*후원자리스트 운송장번호 인풋  */
+input::placeholder{
+	color: gray;
+	font-size: 14px;
+	padding: 5px;
+	
+}
+
+.transport_no{
+	width: 150px;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.transport_no ~ button:hover{
+	color: black;
+}
+.transport_no ~ button{
+	background-color: lightgrey;
+	border-radius: 5px;
+	padding: 1px 5px 1px;
+	color: gray;
+}
+
+tbody.patron-list tr td{
+	padding: 10px 10px 10px;
 }
 
 

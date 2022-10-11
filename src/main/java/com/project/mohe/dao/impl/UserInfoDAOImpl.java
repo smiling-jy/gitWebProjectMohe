@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.UserInfoDAO;
-import com.project.mohe.domain.AdminVO;
-import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.UserInfoVO;
 
 
@@ -21,29 +19,21 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	
 	@Override
 	public UserInfoVO emailCheck(UserInfoVO vo) {
-		System.out.println("===> MemberMapper emailCheck 호출");
 		return mybatis.selectOne("UserInfoDAO.emailCheck", vo);
 	}
 	
 	@Override
-	public int userInsert(UserInfoVO vo) {
-		System.out.println("===>  MemberMapper insertUserInfo() 호출");
-		return mybatis.insert("UserInfoDAO.insertUserInfo", vo);
-	}
-	
-	@Override
-	public UserInfoVO loginCheck(UserInfoVO vo) {
-		System.out.println("===> MemberMapper loginCheck 호출");
-		return mybatis.selectOne("UserInfoDAO.loginCheck", vo);
-	}
-	
-
-	@Override
 	public void insertUserInfo(UserInfoVO vo) {
 		mybatis.insert("UserInfoDAO.insertUserInfo", vo);
-		// TODO Auto-generated method stub
-		
+
 	}
+
+	
+	@Override
+	public UserInfoVO emailLogin(UserInfoVO vo) {
+		return mybatis.selectOne("UserInfoDAO.emailLogin", vo);
+	}
+	
 
 	// 회원 상세페이지
 	@Override

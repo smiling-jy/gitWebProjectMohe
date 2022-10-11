@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +41,7 @@
 			<div class="auto-container">
 				<h1>공지 사항</h1>
 				<ul class="bread-crumb clearfix">
-					<li class="active"><h5>공지사항</h5>
-						</a></li>
+					<li class="active"><h5>공지사항</h5></li>
 					<li><a href="faq.html"><h5>자주 묻는 질문</h5></a></li>
 					<li><a href="event.html"><h5>이벤트</h5></a></li>
 					<li><a href="partner.html"><h5>파트너</h5></a></li>
@@ -55,75 +55,53 @@
 		<!--FAQs Section-->
 		<section class="faq-section" id="new-faq-section">
 
-			<div class="auto-container">
+			<div class="auto-container" id="notice-container">
 				<div class="tabs-box">
-					<div class="row clearfix">
+					
 
 						<!--Title Column-->
 
 						<!--공지사항 게시판!! 더보기 형식이 아닌 제목 클릭시 본문 페이지로 이동~~-->
-						<div class="content-column col-lg-10 col-md-12 col-sm-12">
+						<div class="content-column col-lg-10 col-md-12 col-sm-12" id="notice-content">
 							<div id="new-search-box">
 								<input type="search" name="search-field" value=""
 									placeholder="검색" required>
 							</div>
-							<div class="inner">
-								<div class="inner">
-									<div class="tabs-content">
-										<!--Tab-->
-										<div class="tab active-tab" id="tab-1">
-											<ul class="accordion-box clearfix">
-												<!--Block-->
-												<li class="accordion block active-block">
-													<div class="acc-btn active">[ 공지 ] 펀딩 후원 시스템 개편 안내 |
-														2022.09.01</div>
-												</li>
-												<hr style="border: solid 1px lightgrey">
-												<!--Block-->
-												<li class="accordion block">
-													<div class="acc-btn">[ 공지 ] 처음 여는 펀딩이라면? 여기를 주목하세요! |
-														2022.08.30</div>
-													<div class="acc-content">
-														<div class="content"></div>
-													</div>
-												</li>
-												<hr style="border: solid 1px lightgrey">
-												<!--Block-->
-												<li class="accordion block"><a href="noticeDetail.html"><div
-															class="acc-btn">[ 클릭! ] 2022 년도 지역별 봉사 매니저를 모집합니다.
-															| 2022.08.19</a>
-										</div>
-
-										</li>
-										<hr style="border: solid 1px lightgrey">
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">[ 공지 ] 모해-공공기관 협력 후원 행사 설명회 참석 신청
-												안내 | 2022.08.06</div>
-											<div class="acc-content"></div>
-										</li>
-										<hr style="border: solid 1px lightgrey">
-										<!--Block-->
-										<li class="accordion block">
-											<div class="acc-btn">[ 공지 ] 주최자 이용약관 개정 안내 | 2022.08.01</div>
-
-										</li>
-										<hr style="border: solid 1px lightgrey">
-										</ul>
+							<!-- 게시글 시작 -->
+							<c:forEach items="${noticeList}" var="notice">
+								<div>							
+									<table class="notice-table">
+									<tr>
+										<td class="notice-td1">
+											<h5><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
+											${notice.notice_title}</a></h5>
+										</td>
+										<td>
+											<div style="color:grey; font-size:13px;">
+											<span class="icon fa fa-user"></span>
+											${notice.adm_id} | ${notice.notice_date}</div>
+										</td>
+										</tr>
+									</table>
+										<hr style="border: solid 1px lightgrey;">
+										 </div><!--class="inner" 끝-->	
+										</c:forEach>	
+										
 										<br>
 										<h5 style="text-align: center">◀ [1] [2] [3] [4] [5] ▶</h5>
 										<br>
+									
+									 
 									</div>
-									<!--class="tab active-tab" 끝-->
 								</div>
 							</div>
-		</section>
+				
+				</section>
 
 
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 		<!-- Main Footer -->
-	</div>
 	<!--End pagewrapper-->
 
 	<!--Scroll to top-->

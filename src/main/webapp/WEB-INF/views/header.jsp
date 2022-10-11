@@ -60,8 +60,15 @@
 
 							<div class="link-box clearfix">
 								<div class="donate-link">
+									<%if(request.getSession().getAttribute("user") == null) {%>
 									<a href="donate.do" class="theme-btn btn-style-one"><span
 										class="btn-title">Login</span></a>
+										<%} else { %>
+										<a href="#" class="theme-btn btn-style-one" onclick="btnLogOut()">
+										<span class="btn-title">LogOut
+										</span>
+									</a>
+									<%} %>
 								</div>
 							</div>
 						</div>
@@ -123,5 +130,12 @@
 		<!-- End Main Header -->
 	</div>
 	<!--End pagewrapper-->
+	<script type="text/javascript">
+		function btnLogOut() {
+			if (confirm("로그아웃 하시겠습니까?")) {
+				location.href = "/basic/logOut.do";
+			}
+		}
+	</script>
 </body>
 </html>

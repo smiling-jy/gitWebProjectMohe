@@ -19,10 +19,12 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public void insertFunding_pj(Funding_pjVO pj) {
-		// TODO Auto-generated method stub
+	public int insertFunding_pj(Funding_pjVO pj) {
 		
+		return mybatis.insert("Funding_pjDAO.insertFunding_pj" , pj);
 	}
+	
+	
 
 	@Override
 	public void updateFunding_pj(Funding_pjVO pj) {
@@ -68,6 +70,21 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 	@Override
 	public List<Funding_pjVO> getBestFd() {
 		return mybatis.selectList("Funding_pjDAO.getBestFd");
+	}
+
+
+
+	@Override
+	public List<Funding_pjVO> getSuccess_pjList(HashMap map) {
+		
+		return mybatis.selectList("Funding_pjDAO.getSuccess_pjList", map);
+	}
+
+
+
+	@Override
+	public List<Funding_pjVO> getOngoing_pjlist(HashMap map) {
+		return mybatis.selectList("Funding_pjDAO.getOngoing_pjlist", map);
 	}
 
 }

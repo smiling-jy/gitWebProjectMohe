@@ -54,4 +54,19 @@ public class Funding_payController {
 		return "redirect:/fundingSingle.do?fd_no="+pay.getFd_no();
 		
 	}
+	
+	@RequestMapping("patronList.do")
+	public String patronList(Funding_payVO pay, Model model) {
+		model.addAttribute("title", pay.getFd_title());
+		model.addAttribute("pay_list", funding_payService.getFunding_payList(pay));
+		return "patronList";
+	}
+	
+	// 배송상태 업데이트
+	@RequestMapping("statusUpdate.do")
+	public String statusUpdate(Funding_payVO pay) {
+		System.out.println("배송번호 : "+pay.getPay_status());
+		funding_payService.updateFunding_pay(pay);
+		return "redirect:/patronList.do?fd_no="+pay.getFd_no();
+	}
 }

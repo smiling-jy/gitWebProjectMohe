@@ -7,17 +7,30 @@
 	<insert parameterType="funding_pay" id="insertFunding_pay">
 		INSERT INTO funding_pay(PAY_NO , FD_TITLE ,FD_HOSTNAME
 								, PAY_COUNT,PAY_TOTAL, PAY_PN_NAME
-								, PAY_PN_PHONE ,PAY_PN_EMAIL
-								, PAY_PN_ADDR, PAY_DATE ,USER_NO, FD_NO)
+								, PAY_PN_PHONE ,PAY_PN_EMAIL, PAY_PN_ADDR
+								, PAY_DATE , PAY_STATUS ,USER_NO, FD_NO)
 		     VALUES(FD_PAY_SEQ.nextval, #{fd_title}, #{fd_hostname}
 		     		, #{pay_count}, #{pay_total}, #{pay_pn_name}
 		     		, #{pay_pn_phone}, #{pay_pn_email}, #{pay_pn_addr}
-		     		, sysdate, #{user_no}, #{fd_no})
+		     		, sysdate, '대기중' , #{user_no}, #{fd_no})
 	</insert>
+	
+	<select id="getPayList" parameterType="funding_pay" resultType="funding_pay">
+		select *
+		  from funding_pay
+		 where fd_no = #{fd_no}
+	</select>
+	
 	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
 	<select id="adGetFunding_payList" parameterType="userInfo" resultType="funding_pay">
 		select * 
 		from funding_pay
 		where user_no = #{user_no}
 	</select>
+	
+	<update id="updateFunding_pay" parameterType="funding_pay">
+		update funding_pay
+		   set pay_status = '배송중 / ${pay_status}'
+		 where pay_no = #{pay_no}
+	</update>
   </mapper>
