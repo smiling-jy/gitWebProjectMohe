@@ -44,7 +44,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		System.out.println("========>겟리뷰 DAOimpl");
 		return mybatis.selectOne("ReviewDAO.getReview", vo);
 	}
 

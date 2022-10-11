@@ -36,14 +36,14 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public NoticeVO getNotice(NoticeVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("=========>>공지사항 getNotice 서비스");
+		return noticeDAO.getNotice(vo);
 	}
 
 	@Override
 	public List<NoticeVO> getNoticeList(HashMap map) {
-		// TODO Auto-generated method stub
-		return null;
+		  
+	      return noticeDAO.getNoticeList(map);
 	}
 	
 	
