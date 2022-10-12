@@ -53,5 +53,10 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 		return mybatis.selectList("Funding_payDAO.adGetFunding_payList",vo);
 	}
 
+	@Override
+	public Funding_payVO getPay_no(Funding_payVO vo) {
+		return mybatis.selectOne("Funding_payDAO.getPay_no",vo);
+	}
+
 
 }

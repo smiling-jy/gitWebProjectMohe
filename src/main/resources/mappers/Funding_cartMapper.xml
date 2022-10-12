@@ -5,8 +5,16 @@
   
   <mapper namespace="Funding_cartDAO">
   	<!-- 찜버튼 클릭해서 찜목록 추가 -->
-  	<insert id="insertFunding_cart">
+  	<insert id="insertFunding_cart" parameterType="funding_cart" >
   		insert into FUNDING_CART(FC_NO, FC_DATE_TIME , USER_NO , FD_NO)
   			 values (fd_cart_seq.nextval , sysdate ,#{user_no} , #{fd_no})
   	</insert>
+  	
+  	<!-- 중복확인 -->
+  	<select id="getFunding_cart" parameterType="funding_cart" resultType="funding_cart" >
+  		select *
+  		  from FUNDING_CART
+  		 where fd_no = #{fd_no}
+  		   and user_no = #{user_no}
+  	</select>
   </mapper>

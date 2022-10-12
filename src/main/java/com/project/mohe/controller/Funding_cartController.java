@@ -17,15 +17,26 @@ public class Funding_cartController {
 	@Autowired
 	private Funding_cartService funding_cartService;
 	
-	//찜 목록 추가
-	@RequestMapping("jjimSave.do")
+	//찜 목록 중복확인 후 추가
+	@RequestMapping(value ="jjimSave.do" , produces = "application/text; charset=utf8")
 	@ResponseBody
-	public void jjimSave(Funding_cartVO vo, HttpServletRequest request) {
+	public String jjimSave(Funding_cartVO vo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
 		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
 		session.setAttribute("user_no", 1);
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
-		funding_cartService.insertFunding_cart(vo);
+		String result = "찜목록에 추가되었습니다.";
+		// 중복확인
+		if(funding_cartService.getFunding_cart(vo) != null) {
+			result = "이미 찜목록에 있습니다.";
+			return result;
+					
+		}else {
+			funding_cartService.insertFunding_cart(vo);
+		}
+		System.out.println(vo);
+		System.out.println(result);
+		return result;		
 	}
 }

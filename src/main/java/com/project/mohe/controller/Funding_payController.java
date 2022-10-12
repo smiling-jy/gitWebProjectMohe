@@ -1,5 +1,7 @@
 package com.project.mohe.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
@@ -63,10 +66,14 @@ public class Funding_payController {
 	}
 	
 	// 배송상태 업데이트
-	@RequestMapping("statusUpdate.do")
-	public String statusUpdate(Funding_payVO pay) {
+	@RequestMapping(value = "statusUpdate.do")
+	@ResponseBody
+	public List<Funding_payVO> statusUpdate(Funding_payVO pay) {
+		System.out.println("결제번호 : "+pay.getPay_no());
+		System.out.println("프젝번호 : "+pay.getFd_no());
 		System.out.println("배송번호 : "+pay.getPay_status());
 		funding_payService.updateFunding_pay(pay);
-		return "redirect:/patronList.do?fd_no="+pay.getFd_no();
+		return funding_payService.getFunding_payList(pay);
+//		"redirect:/patronList.do?fd_no="+pay.getFd_no();
 	}
 }
