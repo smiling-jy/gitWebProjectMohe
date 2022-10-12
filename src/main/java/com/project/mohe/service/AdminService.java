@@ -34,7 +34,7 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 관리자 리스트
-	List<AdminVO> getAdminList(PagingVO vo,HashMap map,Model model);
+	List<AdminVO> getAdminList(PagingVO vo,HashMap map);
 	
 	// 관리자 페이징을 위한 행 조회
 	PagingVO getAllcnt();
@@ -75,11 +75,11 @@ public interface AdminService {
 	List<ReviewVO> getReviewList(HashMap map);
 	
 	//기부 리스트
-	List<DonationVO> getDonationList(HashMap map);
+	List<DonationVO> getDonationList(PagingVO vo,HashMap map);
 	
 	//공지 리스트
 	List<NoticeVO> getNoticeList(HashMap map);
 	
-	//공지 리스트
-	List<PopupVO> getPopupList(HashMap map);
+	//팝업 리스트
+	List<PopupVO> getPopupList(PagingVO vo,HashMap map);
 }

@@ -11,6 +11,7 @@ import com.project.mohe.dao.DonationDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 
 
 @Repository("donationDAO")
@@ -48,6 +49,16 @@ public class DonationDAOImpl implements DonationDAO {
 	@Override
 	public List<DonationVO> getDonationList() {
 		return mybatis.selectList("DonationDAO.getDonationList");
+	}
+
+	@Override
+	public List<DonationVO> getAdDonationList(PagingVO vo,HashMap map) {
+		return mybatis.selectList("DonationDAO.getAdDonationList",vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt() {
+		return mybatis.selectOne("DonationDAO.getAllcnt");
 	}
 	
 
