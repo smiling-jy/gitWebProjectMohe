@@ -23,4 +23,18 @@
 		  from NOTICE
 		 WHERE notice_no=#{notice_no}
 	</select>
+	<!-- 공지 본문에서 이전글 다음글 -->
+	<select id="movePage" parameterType="notice" resultType="notice">
+		<!--lead([속성],[이동값],[이동후 값이 없을경우 넣을 값]) OVER(ORDER BY [속성]) AS 지정해줄 이름  -->
+		select * from (SELECT NOTICE_NO,
+		                LEAD(NOTICE_NO,1,9999) OVER(ORDER BY NOTICE_NO) AS next,
+		                LAG(NOTICE_NO,1,9999) OVER(ORDER BY NOTICE_NO) AS prev,
+		                NOTICE_TITLE,
+		                LEAD(NOTICE_TITLE,1,9999) OVER(ORDER BY NOTICE_NO) AS next_title,
+		                LAG(NOTICE_TITLE,1,9999) OVER(ORDER BY NOTICE_NO) AS prev_title
+		                
+		                FROM notice
+		                ORDER BY NOTICE_NO DESC)
+                 where notice_no=#{notice_no}
+	</select>
   </mapper>
