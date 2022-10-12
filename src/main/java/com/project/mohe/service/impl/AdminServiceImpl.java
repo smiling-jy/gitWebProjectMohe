@@ -84,7 +84,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getAdminList(PagingVO vo,HashMap map,Model model) {
+	public List<AdminVO> getAdminList(PagingVO vo,HashMap map) {
 		return adminDao.getAdminList(vo,map);
 	}
 	
@@ -136,17 +136,18 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<DonationVO> getDonationList(HashMap map) {
-		return donationDao.getDonationList();
+	public List<DonationVO> getDonationList(PagingVO vo,HashMap map) {
+		return donationDao.getAdDonationList(vo,map);
 	}
+	
 	@Override
 	public List<NoticeVO> getNoticeList(HashMap map) {
 		return noticeDao.getNoticeList(map);
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(HashMap map) {
-		return popupDao.getPopupList(map);
+	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
+		return popupDao.getPopupList(vo,map);
 	}
 
 	@Override

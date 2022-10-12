@@ -61,7 +61,7 @@
 							<div class="link-box clearfix">
 								<div class="donate-link">
 									<%if(request.getSession().getAttribute("user") == null) {%>
-									<a href="donate.do" class="theme-btn btn-style-one"><span
+									<a href="loginCheck.do" class="theme-btn btn-style-one"><span
 										class="btn-title">Login</span></a>
 										<%} else { %>
 										<a href="#" class="theme-btn btn-style-one" onclick="btnLogOut()">

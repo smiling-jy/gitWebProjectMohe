@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.DonationVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface DonationDAO {
 	// CRUD 기능 구현
@@ -21,5 +22,10 @@ public interface DonationDAO {
 			
 		// 글 목록 조회
 		List<DonationVO> getDonationList();
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+
+		// 관리자 페이지에서 리스트 조회
+		List<DonationVO> getAdDonationList(PagingVO vo,HashMap map);
+		
+		// 페이징을 위한 메소드 
+		PagingVO getAllcnt();
 }

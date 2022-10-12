@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.PopupDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.service.PopupService;
 
@@ -41,8 +42,13 @@ public class PopupServiceImpl implements PopupService {
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(HashMap map) {
-		return popupDao.getPopupList(map);
+	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
+		return popupDao.getPopupList(vo,map);
+	}
+
+	@Override
+	public PagingVO getAllcnt() {
+		return popupDao.getAllcnt();
 	}
 
 	
