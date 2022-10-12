@@ -35,4 +35,7 @@ public interface MainService {
 	//이벤트 리스트
 	List<EventVO> getEventList();
 
+	//팝업 정보
+	PopupVO getMainPopup();
+
 }

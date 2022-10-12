@@ -103,25 +103,44 @@
                         </div>
                         
                          <hr style="border: solid 1px lightgrey">
-                         <br><br>
-                    <div style="text-align:center;">
-                        <div>
-                            <h5>[ 이전글 ]</h5>
-                            <h5 class="prev-next-post"><a style="color:black;" href="#">공지사항 이전글 </a></h5>
-                                <span>2022. 08. 30</span>
-                        
-                        </div>    
                          <br>
-                        <hr style="border: solid 1px lightgrey; width: 50%; margin:auto;">
-                            <br>
-                        <div>      
-                            <h5>[ 다음글 ]</h5>
-                            <h5 class="prev-next-post"><a style="color:black;" href="#" >공지사항 다음글</a></h5>
-                                <span>2022. 08. 06</span>
-                        </div> 
+                        
+                    	<div style="text-align:center;">
+                    		<div>
+                    		 <h5 style="color:grey;">[이전글]</h5>
+		                       <c:choose>
+	                    			<c:when test="${move.prev!=9999}">
+			                             <a class="notice-hover" style="color:black;" href="getNotice.do?notice_no=${move.prev}">
+			                             <h5>${move.prev_title}</h5></a>
+			                        </c:when>
+			                
+			                        <c:when test="${move.prev==9999}">
+			                             <a style="color:grey; font-weight:bold;">이전글이 없습니다.</a>
+			                          </c:when>
+		                       </c:choose>
+		                     </div> 
+	                  		<br>
+	                        <hr style="border: solid 1px lightgrey; width: 50%; margin:auto;">
+	                          <br>
+	                        <div>
+	                         <h5 style="color:grey;">[다음글]</h5>
+		                          <c:choose>
+		                    			<c:when test="${move.next!=9999}">
+				                             <a style="color:black;" href="getNotice.do?notice_no=${move.next}">
+				                             <h5>${move.next_title}</h5></a>
+				                            
+				                        </c:when>
+				                
+				                        <c:when test="${move.next==9999}">
+				                             <a style="color:grey; font-weight:bold;">다음글이 없습니다.</a>
+				                          </c:when>
+			                       </c:choose>
+	                        </div> 
+                       
                     <br><br>
                     <div class="donate-link"><a href="notice.do" class="theme-btn btn-style-one"><span class="btn-title">목록으로</span></a></div>
                      </div>
+                 
                 </div>
                      
         		</div>

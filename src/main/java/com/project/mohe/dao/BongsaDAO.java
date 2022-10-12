@@ -35,4 +35,8 @@ public interface BongsaDAO {
 		// 봉사 비승인 업데이트
 		void noBsUpdate(BongsaVO vo);
 		
+		// 참여하기 페이지 
+		BongsaVO getParticipateInfo(BongsaVO vo);
+		
+		
 }

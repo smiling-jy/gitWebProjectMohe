@@ -100,70 +100,72 @@
     
     <!--Donate Section-->
     <section class="donate-section newfont">    
-                    <!--Form Column-->
-                    <div class="form-column col-lg-6 col-md-12 col-sm-12 new-font open-pj-form ">
-                        	<div class="donate-form">
-                                <div class="recuruit-header"><h1 class="newFont centersetting">봉사활동 모집하기</h1></div>
-                                <form method="post" action="contact.html">
-                                    <span>봉사활동명</span>
-                                    <input type="text" name="#" required><br/>
-                                    <span>봉사 활동 소개</span>
-                                    <textarea></textarea><br/>
-                                    <span>봉사 지역</span><br/>
-                                    <select>
-                                        <option>전국</option>
-                                        <option>서울</option>
-                                        <option>경기인천</option>
-                                        <option>강원</option>
-                                        <option>대구경북</option>
-                                        <option>광주전라</option>
-                                        <option>울산부산경남</option>
-                                        <option>대전세종충남</option>
-                                        <option>제주</option>
-                                        <option>비대면</option>
-                                    </select>
-                                    <br/>
-
-                                    <span>장소</span>
-                                    <input type="text" name="#" required><br/>
-
-                                    <span>모집인원</span>
-                                    <input type="text" name="#" required><br/>
-                                    <hr>
-
-                                    <span>모집종료일</span>
-                                    <input type="date" name="#" required><br/>
-                                    <hr>
-                                    <span>봉사시작 일시</span>
-                                    <input type="datetime-local" name="#" required><br/>
-                                    <hr>
-                                    <span>봉사종료 일시</span>
-                                    <input type="datetime-local" name="#" required><br/>
-                                    <hr>
-                                    <span>모집자(단체)</span><br/>
-                                    <input type="text" name="#" required><br/>
-                                    
-                                    <span>모집자 연락처</span>
-                                    <input type="text" name="#" required><br/>
-                                    
-                                    <span>모집자 이메일</span>
-                                    <input type="text" name="#" required><br/>
-                                    
-                                    <span>봉사 활동 소개 첨부파일  </span>
-                                    <button class="new-btn">첨부파일 등록하기</button><br/><br/>
-
-                                    <span>첨부파일 목록</span>
-                                    <p></p>
-                                    <p>이미지1</p>
-                                    <p>이미지2</p>
-                                    <p>이미지3</p>
-    
-                                    <br/><br/><br/><br/>
-                                    <div class="form-group recruite-btn">
-                                       <button type="submit" class="theme-btn btn-style-one"><span class="btn-title newFont">모집하기</span></button>
-                                    </div>
-                                </form>
-                            </div>
+	    <!--Form Column-->
+	    <div class="donate-form">
+	    <div class="recuruit-header"><h1 class="newFont centersetting">봉사활동 모집하기</h1></div>
+<!-- 	     <div class="form-column <!--col-lg-6 col-md-12 col-sm-12 new-font open-pj-form "> -->
+			<div class="recuruit-Main">
+	                 <form method="post" action="contact.html">
+	                     <span>봉사활동명</span>
+	                     <input type="text" name="#" required><br/>
+	                     <span>봉사 활동 소개</span>
+	                     <textarea></textarea><br/>
+	                     <span>봉사 지역</span><br/>
+	                     <select>
+	                         <option>전국</option>
+	                         <option>서울</option>
+	                         <option>경기인천</option>
+	                         <option>강원</option>
+	                         <option>대구경북</option>
+	                         <option>광주전라</option>
+	                         <option>울산부산경남</option>
+	                         <option>대전세종충남</option>
+	                         <option>제주</option>
+	                         <option>비대면</option>
+	                     </select>
+	                     <br/>
+	
+	                     <span>장소</span>
+	                     <input type="text" name="#" required><br/>
+	
+	                     <span>모집인원</span>
+	                     <input type="text" name="#" required><br/>
+	                     <hr>
+	
+	                     <span>모집종료일</span>
+	                     <input type="date" name="#" required><br/>
+	                     <hr>
+	                     <span>봉사시작 일시</span>
+	                     <input type="datetime-local" name="#" required><br/>
+	                     <hr>
+	                     <span>봉사종료 일시</span>
+	                     <input type="datetime-local" name="#" required><br/>
+	                     <hr>
+	                     <span>모집자(단체)</span><br/>
+	                     <input type="text" name="#" required><br/>
+	                     
+	                     <span>모집자 연락처</span>
+	                     <input type="text" name="#" required><br/>
+	                     
+	                     <span>모집자 이메일</span>
+	                     <input type="text" name="#" required><br/>
+	                     
+	                     <span>봉사 활동 소개 첨부파일  </span>
+	                     <button class="new-btn">첨부파일 등록하기</button><br/><br/>
+	
+	                     <span>첨부파일 목록</span>
+	                     <p></p>
+	                     <p>이미지1</p>
+	                     <p>이미지2</p>
+	                     <p>이미지3</p>
+	
+	                     <br/><br/><br/><br/>
+	                     <div class="form-group recruite-btn">
+	                        <button type="submit" class="theme-btn btn-style-one"><span class="btn-title newFont">모집하기</span></button>
+	                     </div>
+	                 </form>
+	             </div>
+	           </div>
     </section>
 
 		<!-- footer include -->

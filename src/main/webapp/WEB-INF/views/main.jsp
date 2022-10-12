@@ -44,52 +44,56 @@
 	background: rgba(255, 107, 112, .2); /*스크롤바 뒷 배경 색상*/
 }
 /*네비 손잡이*/
-.btn_div{
-	width:50px;
-	height:50px;
-	background-color:white;
-	position:absolute;
-	cursor : pointer;
+.btn_div {
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	position: absolute;
+	cursor: pointer;
 }
 /*네비 포장지*/
-.right_nav{
-	width:250px;
-	height:400px;
-/* 	background-color:blue; */
-	position:fixed;
-	z-index:10;
-	right:-200px;
-	top:30%;
-	transition: all 1s ease ;
+.right_nav {
+	width: 250px;
+	height: 400px;
+	/* 	background-color:blue; */
+	position: fixed;
+	z-index: 10;
+	right: -200px;
+	top: 30%;
+	transition: all 1s ease;
 }
 /*네비 몸통*/
-.click_right_menu{
-	width:200px;
-	height:400px;
-	background-color:white;
-	position:absolute;
-	margin-left:50px;
-	cursor : pointer;
+.click_right_menu {
+	width: 200px;
+	height: 400px;
+	background-color: white;
+	position: absolute;
+	margin-left: 50px;
+	cursor: pointer;
 }
-.click_right_menu li,.click_right_menu a{
-	width:200px;
-	height:80px;
+
+.click_right_menu li, .click_right_menu a {
+	width: 200px;
+	height: 80px;
 	text-align: center;
-	padding-top:30px;
-	border-bottom: 1px solid rgb(229,229,229);
-	color:rgb(100,100,100);
+	padding-top: 30px;
+	border-bottom: 1px solid rgb(229, 229, 229);
+	color: rgb(100, 100, 100);
 	font-family: 'GmarketSansMedium';
-	text-decoration:none;
-	transition: all 1s ease ;
+	text-decoration: none;
+	transition: all 1s ease;
 }
-#main_partenr_text{
-	text-decoration:none;
-	color:rgb(30,30,30);
+
+#main_partenr_text {
+	text-decoration: none;
+	color: rgb(30, 30, 30);
 	font-weight: bold;
 }
 </style>
+<link href="resources/css/popup.css" rel="stylesheet">
 </head>
 
+<!-- <body onLoad="javascript:popupWindow()"> -->
 <body>
 	<!-- 우측 간편 메뉴 시작 -->
 	<div class="right_nav">
@@ -106,17 +110,17 @@
 		</div>
 	</div>
 	<!-- 우측 간편 메뉴 끝  -->
-	
+
 	<div class="page-wrapper">
 		<!-- header include -->
-		<jsp:include page="header.jsp"/>
+		<jsp:include page="header.jsp" />
 
 		<!-- 캐러셀 섹션 -->
 		<!-- Banner Section -->
 		<section class="banner-section style-two slid_fix" id="header_bottom">
 			<div class="banner-carousel love-carousel owl-theme owl-carousel"
 				data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "768" :{ "items" : "1" } , "1000":{ "items" : "1" }}}'>
-				
+
 				<!-- 슬라이드 내용 반복 시작 -->
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
@@ -126,9 +130,7 @@
 							data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
 						<div class="auto-container">
 							<div class="content-box" style="top: -150px">
-								<h2>
-									${event.event_title}
-								</h2>
+								<h2>${event.event_title}</h2>
 							</div>
 						</div>
 					</div>
@@ -143,7 +145,8 @@
 			<div id="main_Partner_div">
 				<div id="Partner_text">
 					<h2>
-						<a id="main_partenr_text" href="partner.do">함께하는<br>파트너 </a>
+						<a id="main_partenr_text" href="partner.do">함께하는<br>파트너
+						</a>
 					</h2>
 				</div>
 				<div id="gradation"></div>
@@ -151,9 +154,9 @@
 					<!-- a태그 안의 img , 파트너 로고 -->
 					<c:forEach items="${partner}" var="partner">
 						<a href="${partner.partner_url}"><img class="lazy-image"
-										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
-										style="height: 360px;" alt=""></a>
+							src="resources/images/resource/image-spacer-for-validation.png"
+							data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+							style="height: 360px;" alt=""></a>
 					</c:forEach>
 				</div>
 				<div id="gradation2"></div>
@@ -171,7 +174,7 @@
 						<h2>인기펀딩</h2>
 					</div>
 				</div>
-				
+
 				<!--Team Carousel-->
 				<div class="team-carousel love-carousel owl-theme owl-carousel"
 					data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 500, "responsive":{ "0" :{ "items": "1" },"600" :{ "items": "1" }, "800" :{ "items" : "2" }, "1024":{ "items" : "3" }, "1366":{ "items" : "3" }}}'>
@@ -208,7 +211,7 @@
 				<!--End Team Carousel-->
 			</div>
 		</section>
-		
+
 		<!-- 마감 임박 봉사 섹션 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
@@ -252,7 +255,7 @@
 									</div>
 								</div>
 							</div>
-						</div>	
+						</div>
 					</c:forEach>
 					<!-- 반복끝 -->
 				</div>
@@ -612,6 +615,20 @@
 		<span class="flaticon-up-arrow"></span>
 	</div>
 
+	<!-- 팝업 시작 -->
+	<form name="notice_form">
+		<div id="divpop1" class="divpop">
+			<div class="popImgDiv">
+				<img class="popImg" src="resources/images/popup/${popup.pop_img}.PNG" />
+			</div>
+			<div class="checkDiv">
+				<input type='checkbox' name='chkbox' id='todaycloseyn' value='Y'>
+				<label for="todaycloseyn"> 오늘 하루 이 창을 열지 않음</label> <a href='#'
+					onclick="javascript:closeWin(1);" id="closeBtn"><B>[닫기]</B></a>
+			</div>
+		</div>
+	</form>
+
 	<script src="resources/js/jquery.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -623,33 +640,34 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
- 	<script> 
- 		setInterval(fnSlide, 2000);
- 		function fnSlide() {
- 			$("#rotation_partner_div").animate(
- 					{
- 						"margin-left" : "-300px"
- 					},
- 					1000,
- 					function() {
- 						$("#rotation_partner_div").css({
- 							"margin-left" : "0px"
- 						});
- 						$("#rotation_partner_div a:first-child").insertAfter(
- 								"#rotation_partner_div a:last-child");
- 					});
- 		};
- 	</script> 
- 	<script>
- 		$(function(){
- 			$(".btn_div").click(function(){
- 				if($(".right_nav").css("right") == "0px"){
- 	 				$(".right_nav").css("right","-200px");
- 				}else{
- 	 				$(".right_nav").css("right","0px");
- 				}
- 			});
- 		});
- 	</script>
+
+	<script>
+		setInterval(fnSlide, 2000);
+		function fnSlide() {
+			$("#rotation_partner_div").animate(
+					{
+						"margin-left" : "-300px"
+					},
+					1000,
+					function() {
+						$("#rotation_partner_div").css({
+							"margin-left" : "0px"
+						});
+						$("#rotation_partner_div a:first-child").insertAfter(
+								"#rotation_partner_div a:last-child");
+					});
+		};
+		
+		$(function() {
+			$(".btn_div").click(function() {
+				if ($(".right_nav").css("right") == "0px") {
+					$(".right_nav").css("right", "-200px");
+				} else {
+					$(".right_nav").css("right", "0px");
+				}
+			});
+		});
+	</script>
+	<script src="resources/js/popup.js"></script>
 </body>
 </html>

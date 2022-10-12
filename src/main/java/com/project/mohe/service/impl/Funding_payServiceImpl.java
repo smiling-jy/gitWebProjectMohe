@@ -45,6 +45,11 @@ public class Funding_payServiceImpl implements Funding_payService {
 		
 		return funding_payDAO.getFunding_payList(vo);
 	}
+
+	@Override
+	public Funding_payVO getPay_no(Funding_payVO vo) {
+		return funding_payDAO.getPay_no(vo);
+	}
 	
 
 }

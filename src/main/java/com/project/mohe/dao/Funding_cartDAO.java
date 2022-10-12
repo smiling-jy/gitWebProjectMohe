@@ -18,9 +18,9 @@ public interface Funding_cartDAO {
 		void deleteFunding_cart(Funding_cartVO vo);
 			
 		// 글 상세 조회
-		EventVO getFunding_cart(Funding_cartVO vo);
+		Funding_cartVO getFunding_cart(Funding_cartVO vo);
 			
 		// 글 목록 조회
 		List<Funding_cartVO> getFunding_cartList(HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		
 }

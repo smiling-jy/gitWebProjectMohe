@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#popImgDiv,#popImgDiv img{
+	width:400px;
+	height:480px;
+}
+.checkDiv{
+	width:400px;
+	heihgt:50px;
+	position:absolute;
+	margin-top:10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.checkDiv label:hover{
+	color:rgb(112,191,187);
+}
+.checkDiv label:mouseout{
+	color:black;
+}
+.checkDiv input{
+	margin-left:10px;
+}
+#closeBtn{
+    margin-left: 100px;
+	text-decoration: none;
+	width: 100px;
+    text-align: rgb(200,200,200);
+}
+.divpop {
+     position: absolute; 
+     z-index:999; 
+     top:150px; 
+     right:150px;
+     width:400px; 
+     height:530px; 
+     display:none;
+     background-color: white;
+}
+.popImg{
+	width:400px;
+	height:480px;
+}

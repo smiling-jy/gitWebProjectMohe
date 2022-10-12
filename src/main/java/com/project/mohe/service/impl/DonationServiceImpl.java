@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.project.mohe.dao.DonationDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.DonationVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.DonationService;
 
 @Service("donationService")
@@ -44,6 +45,11 @@ public class DonationServiceImpl implements DonationService {
 	@Override
 	public List<DonationVO> getDonationList() {
 		return donationDao.getDonationList();
+	}
+
+	@Override
+	public PagingVO getAllcnt() {
+		return donationDao.getAllcnt();
 	}
 	
 }
