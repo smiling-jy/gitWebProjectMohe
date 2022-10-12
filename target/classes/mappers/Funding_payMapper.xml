@@ -19,6 +19,7 @@
 		select *
 		  from funding_pay
 		 where fd_no = #{fd_no}
+	  order by pay_no asc
 	</select>
 	
 	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
@@ -33,4 +34,11 @@
 		   set pay_status = '배송중 / ${pay_status}'
 		 where pay_no = #{pay_no}
 	</update>
+	
+	<!-- 주문번호를 받아서 조회 -->
+	<select id="getPay_no" parameterType="funding_pay" resultType="funding_pay">
+		select * 
+		from funding_pay
+		where pay_no = #{pay_no}
+	</select>
   </mapper>

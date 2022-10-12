@@ -36,8 +36,7 @@ public class Funding_cartServiceImpl implements Funding_cartService {
 
 	@Override
 	public Funding_cartVO getFunding_cart(Funding_cartVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return funding_cartDAO.getFunding_cart(vo);
 	}
 
 	@Override

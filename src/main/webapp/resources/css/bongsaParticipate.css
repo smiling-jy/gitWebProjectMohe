@@ -48,3 +48,11 @@
 .btn-style-one .btn-title:before {
     background-color: rgb(112,191,187) !important;
 }
+
+.donate-form{
+	margin: auto;
+}
+.participate-Main{
+	width: 50%;
+	margin: auto;
+}
