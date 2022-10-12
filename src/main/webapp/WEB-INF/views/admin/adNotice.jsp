@@ -99,7 +99,7 @@
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
-																<th>제목</th>
+																<th width="100px">제목</th>
 																<th>작성자</th>
 																<th>등록일</th>
 																<th>수정 / 삭제</th>
@@ -110,10 +110,10 @@
 															<c:forEach items="${notice}" var="ntc">
 																<tr>
 																	<td style="word-break:break-all">${ntc.notice_no}</td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${ntc.notice_title}</a></td>
-																	<td style="font-size:13px">${ntc.adm_id}</td>
+																	<td style="word-break:break-all"><a href="adUserDetail.do">${ntc.notice_title}</a></td>
+																	<td style="word-break:break-all">${ntc.adm_id}</td>
 																	<td style="word-break:break-all">${ntc.notice_date}</td>
-																	<td><a href="#" class="remove-btn"> <span
+																	<td style="word-break:break-all"><a href="#" class="remove-btn"> <span
 																		class="flaticon-check"></span>
 																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
 																				class="flaticon-delete-1"></span>

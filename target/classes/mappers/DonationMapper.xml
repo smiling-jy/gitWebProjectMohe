@@ -4,16 +4,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="DonationDAO">
+	<!-- 기부 정보 insert-->
 	<insert id="insertDonation" parameterType="donation">
 		INSERT INTO DONATION
 		VALUES(
 		DONATION_DNT_NO_SEQ.NEXTVAL,#{dnt_name},#{dnt_phone},#{dnt_amount},#{dnt_email},sysdate,#{dnt_pay_type})
 	</insert>
+	<!-- 기부 정보 리스트 조회 메인 -->
 	<select id="getDonationList" resultType="donation">
 		select *
 		from donation
 		order by dnt_no desc
 	</select>
+	<!-- 기부 정보 리스트 조회 관리자-->
+	<select id="getAdDonationList" parameterType="page" resultType="donation">
+		select *
+		from donation
+		where dnt_no in(select dnt_no from
+			(select dnt_no,rownum AS rnum from
+				(select dnt_no from donation order by dnt_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by dnt_no desc
+	</select>
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcnt" resultType="page">
+		select count(dnt_no) as totalRecCount from donation
+	</select>
+	<!--  기부 정보 삭제 -->
 	<delete id="deleteDonation" parameterType="donation">
 		delete
 		from donation

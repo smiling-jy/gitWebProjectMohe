@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.PopupDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PopupVO;
 
 
@@ -42,8 +43,13 @@ public class PopupDAOImpl implements PopupDAO {
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(HashMap map) {
-		return mybatis.selectList("PopupDAO.getPopupList");
+	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
+		return mybatis.selectList("PopupDAO.getPopupList",vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt() {
+		return mybatis.selectOne("PopupDAO.getAllcnt");
 	}
 
 
