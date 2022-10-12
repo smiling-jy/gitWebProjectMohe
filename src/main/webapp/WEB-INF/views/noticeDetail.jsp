@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>모해 MOHE | 후기 읽기</title>
+<title>모해 MOHE | 공지 읽기</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
