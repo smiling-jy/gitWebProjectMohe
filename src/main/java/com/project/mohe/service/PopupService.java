@@ -3,6 +3,7 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PopupVO;
 
 public interface PopupService {
@@ -20,5 +21,8 @@ public interface PopupService {
 	PopupVO getPopup(PopupVO vo);
 			
 	// 글 목록 조회
-	List<PopupVO> getPopupList(HashMap map);
+	List<PopupVO> getPopupList(PagingVO vo,HashMap map);
+	
+	// 페이징을 위한 메소드
+	PagingVO getAllcnt();
 }
