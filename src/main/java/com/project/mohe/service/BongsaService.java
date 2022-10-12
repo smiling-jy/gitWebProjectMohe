@@ -21,4 +21,7 @@ public interface BongsaService {
 			
 	// 글 목록 조회
 	List<BongsaVO> getBongsaList(HashMap map);
+	
+	
+	BongsaVO getParticipateInfo(BongsaVO vo);
 }

@@ -31,4 +31,11 @@ public class BongsaVO {
 	private String user_email;
 	// 관리자 페이지에서 승인/취소에 쓰일 변수
 	private String bs_judg;
+	// 참여하기 페이지에서 사용
+	private String user_name; //참여자 이름
+	private String user_phone; //참여자 연락처
+	private int pUser_no; // 봉사참여자 회원번호
+	
+	
+	
 }

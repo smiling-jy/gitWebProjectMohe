@@ -42,10 +42,15 @@ public class BongsaServiceImpl implements BongsaService {
 
 	@Override
 	public List<BongsaVO> getBongsaList(HashMap map) {
-		System.out.println("서비스진입");
 		return bongsaDao.getBongsaList(map);
 	}
 	
 	
+	@Override
+	public BongsaVO getParticipateInfo(BongsaVO vo) {
+		//봉사 상세 페이지 출력
+		
+		return bongsaDao.getParticipateInfo(vo);
+	}
 
 }

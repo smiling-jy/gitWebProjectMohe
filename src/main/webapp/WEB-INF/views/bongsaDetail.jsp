@@ -162,12 +162,11 @@
 								</div>
 							</div>
 							<div>
-								<a href="bongsaParticipate.do" class="theme-btn btn-style-one"><span
-									class="btn-title cs-btn">참여하기</span></a> <a href="#"
-									class="theme-btn btn-style-one"><span
-									class="btn-title cs-btn">공유</span></a> <a href="#"
-									class="theme-btn btn-style-one"><span
-									class="btn-title cs-btn">♥</span></a>
+								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span
+									class="btn-title cs-btn">참여하기</span></a> 
+									<a href="#"class="theme-btn btn-style-one">
+									<span class="btn-title cs-btn">공유</span></a> 
+									<a href="#"class="theme-btn btn-style-one"><span class="btn-title cs-btn">♥</span></a>
 							</div>
 						</aside>
 					</div>
