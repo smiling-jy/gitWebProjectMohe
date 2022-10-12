@@ -67,15 +67,8 @@
 			</div> <!-- 지역 카테고리 끝 -->
 
 			<div class="auto-container">
-
-<!-- 				모집하기 버튼
-				<div class="donate-link">
-					<a href="bongsaRecruite.do" class="theme-btn btn-style-one"><span
-						class="btn-title newFont">모집하기</span></a>
-				</div>모집하기 버튼 끝  -->
 				
-				
-			<!-- 검색창 -->
+			<!-- 검색창 , 모집하기-->
 			<!-- 검색창 위치 css로 이동 필요-->
 			<div class=" new-font bongsa-search-box">
 				<a href="bongsaRecruite.do" class="theme-btn btn-style-one link-box">
@@ -429,9 +422,9 @@
 				</div>
 			</div>
 		</section>
-		<div class="bs-more">
-			<button class="bs-more-btn">더보기</button>
-		</div>
+<!-- 		<div class="bs-more"> -->
+<!-- 			<button class="bs-more-btn">더보기</button> -->
+<!-- 		</div> -->
 
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
