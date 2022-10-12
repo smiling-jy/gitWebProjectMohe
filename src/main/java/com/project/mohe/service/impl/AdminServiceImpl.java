@@ -94,10 +94,10 @@ public class AdminServiceImpl implements AdminService {
 	public PagingVO getAllcnt() {
 		return adminDao.getAllcnt();
 	}
-	
+
 	@Override
-	public List<UserInfoVO> adGetUserList(HashMap map) {
-		return userInfoDao.getUserInfoList(map);
+	public List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map) {
+		return userInfoDao.getAdUserInfoList(vo,map);
 	}
 	
 	@Override

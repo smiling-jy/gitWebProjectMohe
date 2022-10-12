@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.UserInfoDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.UserInfoService;
 
@@ -54,6 +55,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public List<UserInfoVO> getUserInfoList(HashMap map) {
 		return userInfoDao.getUserInfoList(map);
+	}
+
+	@Override
+	public PagingVO getAllcnt() {
+		return userInfoDao.getAllcnt();
 	}
 
 	

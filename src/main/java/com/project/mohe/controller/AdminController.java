@@ -17,6 +17,7 @@ import com.project.mohe.service.AdminService;
 import com.project.mohe.service.DonationService;
 import com.project.mohe.service.PagingService;
 import com.project.mohe.service.PopupService;
+import com.project.mohe.service.UserInfoService;
 
 @Controller
 @RequestMapping("/admin/")
@@ -29,6 +30,8 @@ public class AdminController {
 	private DonationService domainService;
 	@Autowired
 	private PopupService popupService;
+	@Autowired
+	private UserInfoService userInfoService;
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -54,8 +57,15 @@ public class AdminController {
 	}
 	// 회원 목록 띄우기
 	@RequestMapping("adUserList.do")
-	public void getUserList(HashMap map,Model model) {	
-		model.addAttribute("userList",adminService.adGetUserList(map));
+	public void getUserList(PagingVO vo,HashMap map,Model model) {	
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(userInfoService.getAllcnt().getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("userList",adminService.adGetUserList(vo,map));
 	}
 	// 회원 상세 페이지
 	@RequestMapping("adUserDetail.do")
