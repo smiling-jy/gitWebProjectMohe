@@ -11,14 +11,13 @@ public interface UserInfoDAO {
 		//이메일 중복체크 기능 구현
 		UserInfoVO emailCheck( UserInfoVO vo);
 		
-		// 회원가입기능 구현
-		int userInsert( UserInfoVO vo);
+		// 회원가입
+		void insertUserInfo(UserInfoVO vo);
 		
 		// 로그인 확인 기능
-		UserInfoVO loginCheck(UserInfoVO vo);
+		UserInfoVO emailLogin(UserInfoVO vo);
 		
 		// 글 등록
-		void insertUserInfo(UserInfoVO vo);
 				
 			
 		// 글 상세 조회

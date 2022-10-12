@@ -11,14 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
+import com.project.mohe.service.PagingService;
 
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private PagingService pagingService;
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -27,8 +31,15 @@ public class AdminController {
 	}
 	// 관리자 목록 띄우기
 	@RequestMapping("adminList.do")
-	public void getAdminList(HashMap map,Model model) {	
-		model.addAttribute("adminList",adminService.getAdminList(map));
+	public void getAdminList(PagingVO vo,HashMap map,Model model) {	
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(adminService.getAllcnt().getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("adminList",adminService.getAdminList(vo,map,model));
 	}
 	// 관리자 상세 목록 띄우기
 	@RequestMapping("adminDetail.do")

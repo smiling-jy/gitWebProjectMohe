@@ -14,7 +14,7 @@
 		insert into funding_pj(FD_NO,FD_CATEGORY,FD_TITLE,FD_CONTENT,FD_RECEIVER
 								,FD_GOALS,FD_STARTDATE,FD_ENDDATE,FD_HOSTNAME
 								,FD_HOST_PHONE,FD_HOST_EMAIL,FD_IMG_CNT
-								,FD_SATATUS,FD_READ_CNT,FD_PRICE,USER_NO)
+								,FD_STATUS,FD_READ_CNT,FD_PRICE,USER_NO)
 				values(FD_PJ_SEQ.nextval , #{fd_category}, #{fd_title} ,#{fd_content} ,#{fd_receiver}
 						, #{fd_goals}, #{fd_startdate}, #{fd_enddate}, #{fd_hostname}, #{fd_host_phone}
 						, #{fd_host_email} , #{fd_img_cnt} , '진행중'
@@ -31,7 +31,7 @@
                         		  from funding_pay
                     		  group by fd_no) pay
   		 where pj.fd_no = pay.fd_no(+)
-  		   and pj.fd_satatus = '진행중'
+  		   and pj.fd_status = '진행중'
   		  <![CDATA[and pj.fd_startdate <= sysdate]]>
   		  <![CDATA[and pj.fd_enddate > sysdate]]>
   		<if test="fd_category != null">
@@ -56,7 +56,7 @@
   	<select id="getFdApprovalList" resultType="funding_pj">
   		select *
   		from funding_pj
-  		where fd_satatus = '대기중'
+  		where fd_status = '대기중'
   		order by fd_no desc
   	</select>
   	
@@ -82,20 +82,20 @@
   	<!-- 관리자가 펀딩 프로젝트 승인 --> <!-- 보람님 오류날까봐 그냥 뒀는데 나중에 펀딩 업데이트할때 수정해서 이걸로 써주셔용 -->
   	<update id="updateFunding_pj" parameterType="funding_pj">
   		update funding_pj
-  		   set fd_satatus = '진행중'
+  		   set fd_status = '진행중'
   		 where fd_no = #{fd_no}
   	</update>
   	
   	<!-- 관리자가 펀딩 프로젝트 승인 -->
   	<update id="okFdUpdate" parameterType="funding_pj">
   		update funding_pj
-  		   set fd_satatus = '진행중'
+  		   set fd_status = '진행중'
   		 where fd_no = #{fd_no}
   	</update>
   	 <!-- 관리자가 펀딩 프로젝트 반려함 -->
   	<update id="noFdUpdate" parameterType="funding_pj">
   		update funding_pj
-  		   set fd_satatus = '불가함'
+  		   set fd_status = '불가함'
   		 where fd_no = #{fd_no}
   	</update>
   	<!-- 펀딩 삭제 -->
@@ -137,7 +137,7 @@
                     		  group by fd_no) pay
   		 where pj.fd_no = pay.fd_no(+)
 		   and pj.user_no = #{user_no}
-		   and pj.fd_satatus = '진행중'
+		   and pj.fd_status = '진행중'
  		   <![CDATA[and pj.fd_startdate <= sysdate]]>
  		   <![CDATA[and pj.fd_enddate > sysdate]]>
 		order by pj.fd_no desc

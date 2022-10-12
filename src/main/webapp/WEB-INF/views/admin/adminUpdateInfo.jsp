@@ -129,13 +129,6 @@
 																			<div class="field-label" id="email_message"
 																				style="text-align: right;"></div>
 																		</div>
-																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
-																			<div class="field-label">Email</div>
-																			<input type="email" id="adm_email" name="adm_email"
-																				value="${admin.adm_email}">
-																			<div class="field-label" id="email_message"
-																				style="text-align: right;"></div>
-																		</div>
 																		<div
 																			class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 																			<div class="field-label">주소</div>
