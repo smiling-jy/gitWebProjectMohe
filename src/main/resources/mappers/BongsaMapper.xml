@@ -78,6 +78,17 @@
   	
   	<!-- 참여하기페이지 보여주기 -->
   	
+  	
+  	<select id="getParticipateInfo" parameterType="bongsa" resultType="bongsa">
+
+  	select b.bs_title,u.user_name, u.user_phone, u.user_email
+	from (select bs_title, bs_no from bongsa where bs_no=#{bs_no}) b, (select user_name, user_phone, user_email from userinfo where user_no =#{pUser_no}) u
+  	</select>
+  	
+  	
+  	
+  	
+  	
   	<!-- 봉사 삭제 -->
 	<delete id="deleteBongsa" parameterType="bongsa">
 		delete 
