@@ -45,6 +45,12 @@ public class NoticeServiceImpl implements NoticeService{
 		  
 	      return noticeDAO.getNoticeList(map);
 	}
+
+	@Override
+	public NoticeVO movePage(NoticeVO vo) {
+		System.out.println("==============movePage serviceimpl");
+		return noticeDAO.movePage(vo);
+	}
 	
 	
 	

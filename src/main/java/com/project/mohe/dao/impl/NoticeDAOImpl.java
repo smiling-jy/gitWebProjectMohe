@@ -52,4 +52,12 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return mybatis.selectList("NoticeDAO.getNoticeList");
 	}
 
+	@Override
+	public NoticeVO movePage(NoticeVO vo) {
+		System.out.println("==============movePage daoimpl");
+		return mybatis.selectOne("NoticeDAO.movePage", vo);
+	}
+
+	
+	
 }
