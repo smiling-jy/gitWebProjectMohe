@@ -10,17 +10,18 @@
            	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end,u.user_email
     	FROM BONGSA b,userinfo u
 		<where>
+			bs_ing = '진행중'
 			<!-- 지역별 검색 -->
 	 		<if test="bs_region != null">
-	 			bs_region = #{bs_region}  and b.user_no = u.user_no
+	 			and bs_region = #{bs_region}  and b.user_no = u.user_no
 	 		</if>
 	 		<!-- 키워드 검색-->
 		 	<if test="searchKeyword != null">
-  				${searchCondition} like '%${searchKeyword}%'  and b.user_no = u.user_no
+  				and ${searchCondition} like '%${searchKeyword}%'  and b.user_no = u.user_no
   			</if>
 	 		<!--검색을 하지않았을때 기본 조인값-->
 		 	<if test="searchKeyword == null and bs_region == null">
-  				b.user_no = u.user_no
+  				and b.user_no = u.user_no
   			</if>
 		</where> 
 	ORDER BY BS_NO DESC

@@ -38,32 +38,33 @@
 
 		<!-- header include -->
 		<jsp:include page="headerRed.jsp" />
+		
+		
+		
 		<!--Donate Section-->
-		<section class="donate-section ">
-			<!--Form Column-->
-			<div
-				class="form-column col-lg-6 col-md-12 col-sm-12 new-font open-pj-form">
-				<div class="donate-form">
-					<div class="recuruit-header">
-						<h1 class="newFont centersetting">봉사활동 참여하기</h1>
+		<section class="donate-section">
+			<div class="donate-form">
+				<div class="participate-header"><h1 class="newFont centersetting">봉사활동 참여하기</h1></div>
+				<!--Form Column-->
+				<div class="participate-Main">
+						<form method="post" action="contact.html">
+							<span>참여 봉사활동명</span><br /> <input type="text" name="#" required
+								value="${bongsa.bs_title}"><br /> <span>이름</span><br /> <input
+								type="text" name="#" required value="${bongsa.user_name}"><br /> <span>연락처</span><br />
+							<input type="text" name="#" required value="${bongsa.user_phone}"><br />
+	
+							<span>이메일</span><br /> <input type="text" name="#" required
+								value="${bongsa.user_email}"><br /> <span>- 위의 내용과 개인정보가
+								다를 경우 회원정보를 수정하여 주시기 바랍니다.</span><br />
+							<br />
+							<br />
+							<div class="form-group">
+								<button type="submit" class="theme-btn btn-style-one">
+									<span class="btn-title newFont">참여하기</span>
+								</button>
+							</div>
+						</form>
 					</div>
-					<form method="post" action="contact.html">
-						<span>참여 봉사활동명</span><br /> <input type="text" name="#" required
-							value="한마음 달리기"><br /> <span>이름</span><br /> <input
-							type="text" name="#" required value="김나나"><br /> <span>연락처</span><br />
-						<input type="text" name="#" required value="010-9999-8888"><br />
-
-						<span>이메일</span><br /> <input type="text" name="#" required
-							value="aaaa@naver.com"><br /> <span>- 위의 내용과 개인정보가
-							다를 경우 회원정보를 수정하여 주시기 바랍니다.</span><br />
-						<br />
-						<br />
-						<div class="form-group">
-							<button type="submit" class="theme-btn btn-style-one">
-								<span class="btn-title newFont">참여하기</span>
-							</button>
-						</div>
-					</form>
 				</div>
 		</section>
 

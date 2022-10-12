@@ -40,11 +40,22 @@
 	width: 100%;
 }
 
-.donate-section{
-	text-align: center;
+.donate-form{
+	margin: auto;
+}
+.recuruit-Main{
+	width: 50%;
+	margin: auto;
+}
+
+.btn-style-one .btn-title{
+    background-color: rgb(254,74,43) !important; 
 }
 
 
+.btn-style-one .btn-title:before {
+    background-color: rgb(112,191,187) !important;
+}
 
 
 
