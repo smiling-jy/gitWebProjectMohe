@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,24 +84,33 @@
 						</tr>
 					
 						<!-- 이벤트 탭 화면 -->
-						<tr>
-							<td colspan="5" class="table-gap">
+					
+						<tr class="table-gap">
 							
-							</td>
 						</tr>
+				
 						<tr>
 							<td colspan="5" class="eventView-td">
 								<div class="panel" id="panel-1">
+									<img src="resources/images/event/EventThumbnail_1.PNG">
+									<br><br>
 									<img src="resources/images/event/EVENTIMG1.png">
 								</div>
 								<div class="panel" id="panel-2">
-									이벤트 view TEST 2
+									<img src="resources/images/event/EventThumbnail_2.PNG">
+									<br><br>
+									<img src="resources/images/event/EVENTIMG2.png">
 								</div>
 								<div class="panel" id="panel-3">
-									이벤트 view TEST 3
+									<img src="resources/images/event/EventThumbnail_3.PNG">
+									<br><br>
+									<img src="resources/images/event/EVENTIMG3.png">
+									<img src="resources/images/event/EVENTIMG3-2.png">
 								</div>
-								<div class="panel" id="panel-3">
-									이벤트 view TEST 4
+								<div class="panel" id="panel-4">
+									<img src="resources/images/event/EventThumbnail_4.PNG">
+									<br><br>
+									<img src="resources/images/event/EVENTIMG4.png">
 								</div>
 								<div class="panel" id="panel-3">
 									이벤트 view TEST 5
