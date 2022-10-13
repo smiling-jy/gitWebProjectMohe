@@ -21,9 +21,8 @@ public interface AdminDAO {
 		AdminVO getAdminDetail(AdminVO vo);
 		
 		// 글의 카운트 조회
-		PagingVO getAllcnt();
+		PagingVO getAllcnt(PagingVO vo);
 		
 		// 글 목록 조회
-		List<AdminVO> getAdminList(PagingVO vo,HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		List<AdminVO> getAdminList(PagingVO vo);
 }

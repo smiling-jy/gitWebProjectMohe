@@ -84,15 +84,15 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getAdminList(PagingVO vo,HashMap map) {
-		return adminDao.getAdminList(vo,map);
+	public List<AdminVO> getAdminList(PagingVO vo) {
+		return adminDao.getAdminList(vo);
 	}
 	
 
 	// 관리자 페이징을 위한 행 조회
 	@Override
-	public PagingVO getAllcnt() {
-		return adminDao.getAllcnt();
+	public PagingVO getAllcnt(PagingVO vo) {
+		return adminDao.getAllcnt(vo);
 	}
 
 	@Override

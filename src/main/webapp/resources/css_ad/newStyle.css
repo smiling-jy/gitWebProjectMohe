@@ -111,6 +111,8 @@
     font-size: 30px;
     font-weight: bold;
     color: rgb(81,81,81);
+    width:200px;
+    display:inline-block;
 }
 .no_padding{
     padding:30px 0px !important;
@@ -176,3 +178,4 @@
 #paging a{
 	margin:0 10px;
 }
+

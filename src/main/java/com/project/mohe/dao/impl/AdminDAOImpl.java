@@ -38,7 +38,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 	
 	@Override
-	public List<AdminVO> getAdminList(PagingVO vo,HashMap map) {
+	public List<AdminVO> getAdminList(PagingVO vo) {
 		return mybatis.selectList("AdminDAO.getAdminList",vo);
 	}
 
@@ -49,8 +49,8 @@ public class AdminDAOImpl implements AdminDAO {
 
 	// 테이블의 데이터 갯수를 조회한다
 	@Override
-	public PagingVO getAllcnt() {
-		return mybatis.selectOne("AdminDAO.getAllcnt");
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("AdminDAO.getAllcnt",vo);
 	}
 
 }
