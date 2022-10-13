@@ -34,10 +34,10 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 관리자 리스트
-	List<AdminVO> getAdminList(PagingVO vo,HashMap map);
+	List<AdminVO> getAdminList(PagingVO vo);
 	
 	// 관리자 페이징을 위한 행 조회
-	PagingVO getAllcnt();
+	PagingVO getAllcnt(PagingVO vo);
 
 	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);

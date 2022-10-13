@@ -1,6 +1,7 @@
 package com.project.mohe.controller;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,15 +41,15 @@ public class AdminController {
 	}
 	// 관리자 목록 띄우기
 	@RequestMapping("adminList.do")
-	public void getAdminList(PagingVO vo,HashMap map,Model model) {	
+	public void getAdminList(PagingVO vo,Model model) {	
 		// 페이징을 위한 테이블 행값 받아오기
-		vo.setTotalRecCount(adminService.getAllcnt().getTotalRecCount());
+		vo.setTotalRecCount(adminService.getAllcnt(vo).getTotalRecCount());
 		// 페이징 처리 
 		vo = pagingService.doPaging(vo);
 		// 페이지값 저장하기
 		model.addAttribute("page",vo);
 		// 페이징을 토대로한 리스트 목록 불러오기
-		model.addAttribute("adminList",adminService.getAdminList(vo,map));
+		model.addAttribute("adminList",adminService.getAdminList(vo));
 	}
 	// 관리자 상세 목록 띄우기
 	@RequestMapping("adminDetail.do")
