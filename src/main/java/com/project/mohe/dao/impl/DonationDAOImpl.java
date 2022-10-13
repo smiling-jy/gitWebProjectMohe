@@ -22,9 +22,7 @@ public class DonationDAOImpl implements DonationDAO {
 
 	@Override
 	public void insertDonation(DonationVO vo) {
-		System.out.println("donation insert 접근");
 		mybatis.insert("DonationDAO.insertDonation",vo);
-		System.out.println("donation insert 완료");
 		
 	}
 
@@ -52,13 +50,13 @@ public class DonationDAOImpl implements DonationDAO {
 	}
 
 	@Override
-	public List<DonationVO> getAdDonationList(PagingVO vo,HashMap map) {
+	public List<DonationVO> getAdDonationList(PagingVO vo) {
 		return mybatis.selectList("DonationDAO.getAdDonationList",vo);
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return mybatis.selectOne("DonationDAO.getAllcnt");
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("DonationDAO.getAllcnt",vo);
 	}
 	
 

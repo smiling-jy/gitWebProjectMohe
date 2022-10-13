@@ -75,11 +75,11 @@ public interface AdminService {
 	List<ReviewVO> getReviewList(HashMap map);
 	
 	//기부 리스트
-	List<DonationVO> getDonationList(PagingVO vo,HashMap map);
+	List<DonationVO> getDonationList(PagingVO vo);
 	
 	//공지 리스트
 	List<NoticeVO> getNoticeList(HashMap map);
 	
 	//팝업 리스트
-	List<PopupVO> getPopupList(PagingVO vo,HashMap map);
+	List<PopupVO> getPopupList(PagingVO vo);
 }

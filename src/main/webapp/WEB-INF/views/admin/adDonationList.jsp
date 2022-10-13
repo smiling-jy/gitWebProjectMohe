@@ -77,8 +77,8 @@
 						<div id="search">
 							<form name="search" action="adDonationList.do" method="post">
 								<select name="select">
-									<option value="dnt_name">이름</option>
-									<option value="dnt_phone">핸드폰</option>
+									<option value="dnt_name">기부자명</option>
+									<option value="dnt_phone">연락처</option>
 								</select>
 								<input type="search" name="stext" value="${page.stext}" placeholder="Search...">
 								<button type="submit">
@@ -142,18 +142,41 @@
 						<div id="paging">
 							<c:choose>
 								<c:when test="${page.groupNo-1 > 0 }">
-									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}"> ◀ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">	
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}"> ◀ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ◀  </span>
 								</c:otherwise>
 							</c:choose>
-							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
-								<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
-							</c:forEach>
+							<c:choose>
+								<c:when test="${page.stext ne null}">
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 							<c:choose>
 								<c:when test="${page.endPageNo < page.pageTotalCount }">
-									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}"> ▶ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}"> ▶ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ▶ </span>

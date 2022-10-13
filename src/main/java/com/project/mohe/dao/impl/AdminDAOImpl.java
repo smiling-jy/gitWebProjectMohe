@@ -50,6 +50,7 @@ public class AdminDAOImpl implements AdminDAO {
 	// 테이블의 데이터 갯수를 조회한다
 	@Override
 	public PagingVO getAllcnt(PagingVO vo) {
+		System.out.println(vo);
 		return mybatis.selectOne("AdminDAO.getAllcnt",vo);
 	}
 
