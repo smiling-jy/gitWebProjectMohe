@@ -21,8 +21,9 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 
 	@Override
 	public void insertVolunteer(VolunteerVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("insertVolun DAO 입구");
+		mybatis.insert("VolunteerDAO.insertVolunteer",vo);
+		System.out.println("insertVolun DAO 출구");
 	}
 
 	@Override

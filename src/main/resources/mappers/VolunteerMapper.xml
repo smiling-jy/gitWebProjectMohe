@@ -4,5 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="VolunteerDAO">
+  
+  <insert id="insertVolunteer" parameterType="volunteer">
+INSERT INTO VOLUNTEER (
+VOLUN_NO,
+VT_BS_NAME,
+VT_TITLE,
+VT_PLACE,
+VT_RECRUIT_START,
+VT_RECRUIT_END,
+VT_WORK_START,
+VT_WORK_END,
+VT_ING,
+VT_NAME,
+VT_USER_PHONE,
+VT_USER_EMAIL,
+BS_NO,
+USER_NO)
+VALUES (volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
+'2022-05-28','2022-05-29','2022-06-08','2022-06-09',
+1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
+  </insert>
+  
+  
+  
+  
 
   </mapper>
