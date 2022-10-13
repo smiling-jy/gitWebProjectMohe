@@ -51,30 +51,6 @@
 		<!-- side include -->
 		<jsp:include page="adSideMenu.jsp" />
 
-		<!-- top navigation -->
-		<div class="top_nav">
-			<div class="nav_menu" style="margin-bottom: 0px;">
-				<nav class="nav navbar-nav">
-					<ul class=" navbar-right">
-						<li class="nav-item dropdown open" style="padding-left: 15px;">
-							<a href="javascript:;" class="user-profile dropdown-toggle"
-							aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown"
-							aria-expanded="false"> LOGIN </a>
-							<div class="dropdown-menu dropdown-usermenu pull-right"
-								aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="javascript:;"> Profile</a> <a
-									class="dropdown-item" href="javascript:;"> <span
-									class="badge bg-red pull-right">50%</span> <span>Settings</span>
-								</a> <a class="dropdown-item" href="javascript:;">Help</a> <a
-									class="dropdown-item" href="login.do"><i
-									class="fa fa-sign-out pull-right"></i> Log Out</a>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- /top navigation -->
 		<!-- 컨텐츠 section -->
 		<div class="col-md-push-9 right_col content_right" role="main">
 			<div class="">

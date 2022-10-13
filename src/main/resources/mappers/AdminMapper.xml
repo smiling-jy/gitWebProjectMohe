@@ -58,10 +58,9 @@
 		where adm_no = #{adm_no}
 	</update>
 	<!-- 관리자 로그인 -->
-	<select id="adminLogin" parameterType="userInfo"
-		resultType="int">
+	<select id="adminLogin" parameterType="admin" resultType="admin">
 		select *
 		from admin
-		where adm_id = #{user_email} and adm_pass = #{user_password}
+		where adm_id = #{adm_id} and adm_pass = #{adm_pass}
 	</select>
 </mapper>
