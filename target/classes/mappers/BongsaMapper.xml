@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="BongsaDAO">
 	<!-- 목록보기 -->
@@ -76,19 +76,31 @@
   		where bs_no=#{bs_no}
   	</select>
   	
-  	<!-- 참여하기페이지 보여주기 -->
-  	
-  	
   	<select id="getParticipateInfo" parameterType="bongsa" resultType="bongsa">
+	select 
+	BS_NO,
+	VT_BS_NAME,
+	VT_TITLE,
+	VT_PLACE,
+	VT_RECRUIT_START,
+	VT_RECRUIT_END,
+	VT_WORK_START,
+	VT_WORK_END,
+	USER_NO, 
+	VT_NAME,
+	VT_USER_PHONE,
+	VT_USER_EMAIL
+	from 
+	(select BS_NO,BS_TITLE VT_TITLE ,BS_PLACE VT_PLACE ,BS_RECRUIT_START VT_RECRUIT_START,
+	BS_RECRUIT_END VT_RECRUIT_END, BS_WORK_START VT_WORK_START, BS_WORK_END VT_WORK_END,
+	BS_NAME VT_BS_NAME  from bongsa where bs_no=#{bs_no}), 
+	(select user_name VT_NAME, user_phone VT_USER_PHONE, 
+	user_email VT_USER_EMAIL, USER_NO from userinfo where user_no =#{pUser_no})
 
-  	select b.bs_title,u.user_name, u.user_phone, u.user_email
-	from (select bs_title, bs_no from bongsa where bs_no=#{bs_no}) b, (select user_name, user_phone, user_email from userinfo where user_no =#{pUser_no}) u
+
   	</select>
   	
-  	
-  	
-  	
-  	
+
   	<!-- 봉사 삭제 -->
 	<delete id="deleteBongsa" parameterType="bongsa">
 		delete 
@@ -102,23 +114,6 @@
 		where <![CDATA[rownum <= 10]]>
 	</select>
   	
-  	
-  	
-  	
-  	
-  	
-	
-	
-	
-	
-<!-- 	 <insert id="insertBongsa" parameterType="bongsa" > -->
-<!--   		Insert Into bongsa (BS_NO, BS_TITLE, BS_CONTENT,  -->
-<!--   		BS_REGIONBS_PLACE, BS_RECRUIT_START, BS_RECRUIT_END, BS_WORK_START,  -->
-<!--   		BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, BS_ING, BS_NAME, BS_PHONE,  -->
-<!--   		BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, BS_READ_CNT, USER_NO) -->
-<!--   		values (BONGSA_PJ_SEQ.nextval, #{title}, #{writer}, #{content}, sysdate, 0) -->
-<!--   	</insert> -->
-	
-	
+
 
   </mapper>

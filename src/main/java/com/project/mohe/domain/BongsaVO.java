@@ -1,5 +1,7 @@
 package com.project.mohe.domain;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -10,10 +12,10 @@ public class BongsaVO {
 	private String bs_content;
 	private String bs_region;
 	private String bs_place;
-	private String bs_recruit_start;
-	private String bs_recruit_end;
-	private String bs_work_start;
-	private String bs_work_end;
+	private Date bs_recruit_start;
+	private Date bs_recruit_end;
+	private Date bs_work_start;
+	private Date bs_work_end;
 	private int bs_goal_cnt;
 	private int bs_success_cnt;
 	private String bs_ing; //진행 or 완료
@@ -35,6 +37,21 @@ public class BongsaVO {
 	private String user_name; //참여자 이름
 	private String user_phone; //참여자 연락처
 	private int pUser_no; // 봉사참여자 회원번호
+	
+	//봉사 참여할 때
+	private int volun_no;
+	private String vt_bs_name;
+	private String vt_title;
+	private String vt_place;
+	private String vt_recruit_start;
+	private String vt_recruit_end;
+	private String vt_work_start;
+	private String vt_work_end;
+	private int vt_ing;
+	private String vt_name;
+	private String vt_user_phone;
+	private String vt_user_email;
+	
 	
 	
 	

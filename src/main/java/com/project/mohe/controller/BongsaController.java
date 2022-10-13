@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.BongsaVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.BongsaService;
 import com.project.mohe.service.UserInfoService;
 
@@ -20,7 +20,6 @@ import com.project.mohe.service.UserInfoService;
 public class BongsaController {
 	@Autowired
 	private BongsaService bongsaService;
-	private UserInfoService userInfoService;
 	
 	//헤더의 봉사 클릭시 봉사 리스트 페이지로 이동 - 봉사메인페이지
 	@RequestMapping("bongsaMain.do")
@@ -46,7 +45,7 @@ public class BongsaController {
 	}
 	 
 	
-	//봉사세부내역페이지에서 참여하기를 클릭스 폼 추력
+	//봉사세부내역페이지에서 참여하기를 클릭시 폼 추력
 	@RequestMapping("bongsaParticipate.do")
 	public String bongsaParticipate(Model model, BongsaVO vo, HttpServletRequest request) {
 		
@@ -64,6 +63,8 @@ public class BongsaController {
 		
 		return "bongsaParticipate";
 	}
+	
+
 	
 	
 	//모집하기 페이지
