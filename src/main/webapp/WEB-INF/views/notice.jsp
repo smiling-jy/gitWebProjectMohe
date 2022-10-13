@@ -62,7 +62,7 @@
 						<!--Title Column-->
 
 						<!--공지사항 게시판!! 더보기 형식이 아닌 제목 클릭시 본문 페이지로 이동~~-->
-						<div class="content-column col-lg-10 col-md-12 col-sm-12" id="notice-content">
+						<div class="content-column col-lg-8 col-md-10 col-sm-10" id="notice-content">
 							<div id="new-search-box">
 								<input type="search" name="search-field" value=""
 									placeholder="검색" required>
@@ -81,7 +81,7 @@
 											<span class="icon fa fa-user"></span>
 											${notice.adm_id} | ${notice.notice_date}</div>
 										</td>
-										</tr>
+									</tr>
 									</table>
 										<hr style="border: solid 1px lightgrey;">
 										 </div><!--class="inner" 끝-->	
