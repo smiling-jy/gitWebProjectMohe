@@ -38,6 +38,7 @@
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 </head>
+</head>
 
 <body class="nav-md">
 	<div class="container body">

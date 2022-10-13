@@ -52,5 +52,10 @@ public class PopupDAOImpl implements PopupDAO {
 		return mybatis.selectOne("PopupDAO.getAllcnt");
 	}
 
+	@Override
+	public PopupVO getMainPopup() {
+		return mybatis.selectOne("PopupDAO.getMainPopup");
+	}
+
 
 }

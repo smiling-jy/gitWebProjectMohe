@@ -84,13 +84,15 @@
 										<ul class="accordion-box clearfix">
 											<!--Block-->
 											<li class="accordion block active-block">
-												<div class="acc-btn active">Q. 추석 연휴기간 펀딩상품 배송은 어떻게
+												<div class="acc-btn active">Q. 펀딩상품 배송일정은 어떻게
 													되나요?</div>
 												<div class="acc-content current">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">펀딩 프로젝트의 발송 예정일은 총 3단계로 나뉘어요.<br>
+																			N월 초 : 매월 1~10일<br>
+																			N월 중 : 매월 11~20일<br>
+																			N월 말 : 매월 21~말일<br>
+																			메이커님이 약속한 발송 예정일을 프로젝트 리워드 카드에서 확인해 보세요.</div>
 													</div>
 												</div>
 											</li>
@@ -100,12 +102,15 @@
 												<div class="acc-btn">Q. 취소된 프로젝트의 펀딩금 반환은 어떻게 이루어 지나요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text">
+														<p>받아본 리워드에 문제가 있거나 발송 예정일에 맞춰 배송이 되지 않았다면 펀딩금 반환을 신청할 수 있어요.
+																펀딩금 반환은 마이페이지 에서 반환을 원하는 프로젝트를 선택하여 신청할 수 있고, 메이커가 확인 후 반환이 진행돼요.
+																</p>
+																<p>※ 함께 읽어 주세요!</p>
+																<p>리워드 교환, A/S는 [메이커에게 문의하기]로 메이커님께 직접 문의해 주세요.
+																신청 내용이 분명하지 않거나 펀딩금 반환 대상이 아니면 거절될 수 있어요.
+																펀딩금 반환 신청시 카드 결제 취소가 진행되며, 리워드가 발송되지 않아요.
+																카드 결제 취소는 카드사에 따라 약 2-5 영업일이 걸려요.</p></div>
 													</div>
 												</div>
 											</li>
@@ -115,40 +120,27 @@
 												<div class="acc-btn">Q. 후원금은 펀딩금액의 몇 퍼센트 비율인가요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text"><p>
+																	10% 입니다.
+														</p></div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. 펀딩 상품 교환은 어떻게 이루어지나요?</div>
+												<div class="acc-btn">Q. 펀딩 프로젝트는 어떻게 시작하나요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text"><p>
+														마이페이지에서 이용하실 수 있으며 안내에 따라 양식을 작성해주시면 됩니다.
+														
+														</p></div>
 													</div>
 												</div>
 											</li>
 
-											<!--Block-->
-											<li class="accordion block">
-												<div class="acc-btn">Q. What is the main cause in your
-													list?</div>
-												<div class="acc-content">
-													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
-													</div>
-												</div>
-											</li>
+				
 
 										</ul>
 									</div>
@@ -158,29 +150,24 @@
 										<ul class="accordion-box clearfix">
 											<!--Block-->
 											<li class="accordion block active-block">
-												<div class="acc-btn active">Q. What is the Cancelation
-													Period?</div>
+												<div class="acc-btn active">Q. 봉사활동 신청은 어떻게 하나요?</div>
 												<div class="acc-content current">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">
+														참여 하고 싶은 봉사활동 프로젝트에 참가 신청을 하신뒤, 간단한 신청서를 작성합니다.<br>
+														봉사 프로젝트에 참가하신 후 진행 사항은 고객님의 카카오톡으로 전송됩니다.
+														</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
+												<div class="acc-btn">Q. 봉사활동 확인서를 영문으로 발급 받을 수 있나요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text"> 모해 웹사이트 자체적으로 봉사활동 영문확인서 발급은 불가합니다.<br>
+														이는 각 지역 자원봉사센터로 발급을 요청하셔야 합니다.</div>
 													</div>
 												</div>
 											</li>
@@ -206,58 +193,46 @@
 										<ul class="accordion-box clearfix">
 											<!--Block-->
 											<li class="accordion block active-block">
-												<div class="acc-btn active">Q. What is the Cancelation
-													Period?</div>
+												<div class="acc-btn active">Q. 익명으로 후원할 수 있을까요?</div>
 												<div class="acc-content current">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text"><p>후원자님께서 익명으로 후원을 원하시는 경우 가능합니다.
+														<br>이 경우에는 저희 모해 후원계좌로 직접 입금해주시면 됩니다. 하지만 익명으로 후원금을
+														보내시는 경우에는 후원자님의 기본 정보를 확인할 수 없기에 기부금 영수증 발급이 불가하오니 이점 참고해주세요.
+														</p>
+														*모해 후원계좌 : ㅇㅇ은행 xxxxxx-xx-xxxxxx 
+														</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
+												<div class="acc-btn">Q. 후원금 납부 방법은 어떤게 있나요? </div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text">QR코드를 이용해 간편하게 카카오페이와 계좌이체로 납부 가능합니다.</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
+												<div class="acc-btn">Q. 물품 후원도 가능한가요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text">물품 후원은 각 봉사단체의 내부 규정 및 수요처의 필요에 따라 가능합니다.<br>
+														식품 또는 의약품의 경우 6개월 이상 유통기한이 남아 이는 제품만 가능합니다.</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is the main cause in your
-													list?</div>
+												<div class="acc-btn">Q. 모해 웹사이트는 후원금으로만 운영되나요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">펀딩 성공 금액에 따른 수수료, 정기 후원금과 함께 운영됩니다.</div>
 													</div>
 												</div>
 											</li>
@@ -270,123 +245,47 @@
 										<ul class="accordion-box clearfix">
 											<!--Block-->
 											<li class="accordion block active-block">
-												<div class="acc-btn active">Q. What is the Cancelation
-													Period?</div>
+												<div class="acc-btn active">Q. 모해에서 탈퇴하고 싶어요.</div>
 												<div class="acc-content current">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">마이페이지에서 탈퇴 버튼을 누르시면 됩니다.</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
+												<div class="acc-btn">Q. 모해 로고를 사용해도 될까요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
+														<div class="text">모해의 로고는 임의로 사용하실 수 없습니다.</div>
 													</div>
 												</div>
 											</li>
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is the main cause in your
-													list?</div>
+												<div class="acc-btn">Q. SNS이벤트 참여를 했는데 상품을 받지 못했어요.</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">QnA화면 하단의 메일주소로 보내주시면 빠르게 답변 드리겠습니다.</div>
 													</div>
 												</div>
 											</li>
 
 										</ul>
 									</div>
+								 </div>
 
-									<!--Tab-->
-									<div class="tab" id="tab-5">
-										<ul class="accordion-box clearfix">
-											<!--Block-->
-											<li class="accordion block active-block">
-												<div class="acc-btn active">Q. What is the Cancelation
-													Period?</div>
-												<div class="acc-content current">
-													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
-													</div>
-												</div>
-											</li>
-
-											<!--Block-->
-											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
-												<div class="acc-content">
-													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
-													</div>
-												</div>
-											</li>
-
-											<!--Block-->
-											<li class="accordion block">
-												<div class="acc-btn">Q. What is the main cause in your
-													list?</div>
-												<div class="acc-content">
-													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
-													</div>
-												</div>
-											</li>
-
-											<!--Block-->
-											<li class="accordion block">
-												<div class="acc-btn">Q. What is minimum amount to
-													donate?</div>
-												<div class="acc-content">
-													<div class="content">
-														<div class="text">Minim veniam, quis nostrud
-															exercitation ullamco laboris nisi ut aliquip ex ea
-															commodo consequat. Duis aute irure dolor in in voluptate
-															velit esse cillum dolore eu fugiat nulla pariatur.
-															Excepteur sint occaecat cupidatat non proident, sunt in
-															culpa qui officia deserunt.</div>
-													</div>
-												</div>
-											</li>
-
-										</ul>
-									</div>
-
-								</div>
+							 </div>
 
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 			<br>
-			<h5 style="text-align: center">◀ [1] [2] [3] [4] [5] ▶</h5>
+<!-- 			<h5 style="text-align: center">◀ [1] [2] [3] [4] [5] ▶</h5> -->
 			<br>
 			<!--운영자에게 이메일 보내기-->
 			<br>

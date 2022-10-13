@@ -18,6 +18,10 @@ public interface Funding_payService {
 			 
 	// 글 상세 조회
 	Funding_payVO getFunding_pay(Funding_payVO vo);
+	
+	// 배송상태 변경 후 ajax로 화면 전환하기 위한 select
+	Funding_payVO getPay_no(Funding_payVO vo);
+
 			
 	// 글 목록 조회
 	List<Funding_payVO> getFunding_payList(Funding_payVO vo);

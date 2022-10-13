@@ -22,6 +22,9 @@ public interface PopupDAO {
 			
 		// 글 목록 조회
 		List<PopupVO> getPopupList(PagingVO vo,HashMap map);
+	
+		// 메인에 띄울 유효한 팝업 하나
+		PopupVO getMainPopup();
 		
 		// 페이징을 위한 메소드
 		PagingVO getAllcnt();

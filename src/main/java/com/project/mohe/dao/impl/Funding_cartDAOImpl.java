@@ -37,9 +37,8 @@ public class Funding_cartDAOImpl implements Funding_cartDAO {
 	}
 
 	@Override
-	public EventVO getFunding_cart(Funding_cartVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Funding_cartVO getFunding_cart(Funding_cartVO vo) {
+		return mybatis.selectOne("Funding_cartDAO.getFunding_cart", vo);
 	}
 
 	@Override
