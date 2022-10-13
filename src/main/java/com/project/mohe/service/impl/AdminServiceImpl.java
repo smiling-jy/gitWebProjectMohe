@@ -3,6 +3,8 @@ package com.project.mohe.service.impl;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -56,8 +58,6 @@ public class AdminServiceImpl implements AdminService {
 	private PopupDAO popupDao;
 	@Autowired
 	private Funding_payDAO funding_payDao;
-	@Autowired
-	private BongsaDAO BongsaDao;
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -84,15 +84,15 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getAdminList(PagingVO vo,HashMap map) {
-		return adminDao.getAdminList(vo,map);
+	public List<AdminVO> getAdminList(PagingVO vo) {
+		return adminDao.getAdminList(vo);
 	}
 	
 
 	// 관리자 페이징을 위한 행 조회
 	@Override
-	public PagingVO getAllcnt() {
-		return adminDao.getAllcnt();
+	public PagingVO getAllcnt(PagingVO vo) {
+		return adminDao.getAllcnt(vo);
 	}
 
 	@Override
@@ -136,8 +136,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<DonationVO> getDonationList(PagingVO vo,HashMap map) {
-		return donationDao.getAdDonationList(vo,map);
+	public List<DonationVO> getDonationList(PagingVO vo) {
+		return donationDao.getAdDonationList(vo);
 	}
 	
 	@Override
@@ -146,8 +146,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
-		return popupDao.getPopupList(vo,map);
+	public List<PopupVO> getPopupList(PagingVO vo) {
+		return popupDao.getPopupList(vo);
 	}
 
 	@Override
@@ -176,13 +176,16 @@ public class AdminServiceImpl implements AdminService {
 	public void judgBsUpdate(BongsaVO vo) {
 		if(vo.getBs_judg().equals("ok")) {
 			// 신청 수락이면
-			BongsaDao.okBsUpdate(vo);
+			bongsaDao.okBsUpdate(vo);
 		}else {
 			// 신청 거부면
-			BongsaDao.noBsUpdate(vo);
+			bongsaDao.noBsUpdate(vo);
 		}
 	}
+	// 관리자 로그인 확인
+	@Override
+	public AdminVO adminLogin(AdminVO vo) {
+		return adminDao.adminLogin(vo);
+	}
 
-
-	
 }

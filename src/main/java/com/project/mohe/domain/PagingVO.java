@@ -21,6 +21,9 @@ public class PagingVO {
 	private int firstPageNo; 			  // 페이징그룹의 시작번호
 	private int endPageNo; 				  // 페이징그룹의 시작번호
 	
+	// 검색기능을 위해 같이 사용하는 변수
+	private String select;				// 컬럼명
+	private String stext;				// 검색어
 	
 	public PagingVO() {
 		this.countPerPage = 5;

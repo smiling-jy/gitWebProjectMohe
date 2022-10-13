@@ -3,8 +3,9 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -34,13 +35,16 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 관리자 리스트
-	List<AdminVO> getAdminList(PagingVO vo,HashMap map);
+	List<AdminVO> getAdminList(PagingVO vo);
 	
 	// 관리자 페이징을 위한 행 조회
-	PagingVO getAllcnt();
+	PagingVO getAllcnt(PagingVO vo);
 
 	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);
+	
+	// 관리자 로그인 확인
+	AdminVO adminLogin(AdminVO vo);
 	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map);
@@ -75,11 +79,11 @@ public interface AdminService {
 	List<ReviewVO> getReviewList(HashMap map);
 	
 	//기부 리스트
-	List<DonationVO> getDonationList(PagingVO vo,HashMap map);
+	List<DonationVO> getDonationList(PagingVO vo);
 	
 	//공지 리스트
 	List<NoticeVO> getNoticeList(HashMap map);
 	
 	//팝업 리스트
-	List<PopupVO> getPopupList(PagingVO vo,HashMap map);
+	List<PopupVO> getPopupList(PagingVO vo);
 }

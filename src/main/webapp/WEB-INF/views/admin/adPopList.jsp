@@ -37,6 +37,7 @@
 	type="image/x-icon">
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+<link href="../resources/css_ad/newStyle2.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -44,37 +45,28 @@
 		<!-- side include -->
 		<jsp:include page="adSideMenu.jsp" />
 
-		<!-- top navigation -->
-		<div class="top_nav">
-			<div class="nav_menu" style="margin-bottom: 0px;">
-				<nav class="nav navbar-nav">
-					<ul class=" navbar-right">
-						<li class="nav-item dropdown open" style="padding-left: 15px;">
-							<a href="javascript:;" class="user-profile dropdown-toggle"
-							aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown"
-							aria-expanded="false"> LOGIN </a>
-							<div class="dropdown-menu dropdown-usermenu pull-right"
-								aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="javascript:;"> Profile</a> <a
-									class="dropdown-item" href="javascript:;"> <span
-									class="badge bg-red pull-right">50%</span> <span>Settings</span>
-								</a> <a class="dropdown-item" href="javascript:;">Help</a> <a
-									class="dropdown-item" href="login.do"><i
-									class="fa fa-sign-out pull-right"></i> Log Out</a>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- /top navigation -->
 		<!-- 컨텐츠 section -->
 		<div class="col-md-push-9 right_col content_right" role="main">
 			<div class="">
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
-					<div class="text_size_title">팝업 목록</div>
-					<hr>
+					<!-- 서치 부분 시작 -->
+					<div>
+						<div class="text_size_title">팝업 목록</div>
+						<div id="search">
+							<form name="search" action="adPopList.do" method="post">
+								<select name="select">
+									<option value="pop_title">제목</option>
+								</select>
+								<input type="search" name="stext" value="${page.stext}" placeholder="Search...">
+								<button type="submit">
+									<span class="icon flaticon-search-1"></span>
+								</button>
+							</form>
+						</div>
+						<hr>
+					</div>
+					<!-- 서치 부분 끝 -->
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
@@ -131,22 +123,46 @@
 						</section>
 						<!-- End Cart Section-->
 						<!-- 테이블 끝 -->
+
 						<!-- 페이징 부분 -->
 						<div id="paging">
 							<c:choose>
 								<c:when test="${page.groupNo-1 > 0 }">
-									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">	
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}"> ◀ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ◀  </span>
 								</c:otherwise>
 							</c:choose>
-							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
-								<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
-							</c:forEach>
+							<c:choose>
+								<c:when test="${page.stext ne null}">
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 							<c:choose>
 								<c:when test="${page.endPageNo < page.pageTotalCount }">
-									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}"> ▶ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ▶ </span>

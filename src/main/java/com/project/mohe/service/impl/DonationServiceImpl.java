@@ -48,8 +48,8 @@ public class DonationServiceImpl implements DonationService {
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return donationDao.getAllcnt();
+	public PagingVO getAllcnt(PagingVO vo) {
+		return donationDao.getAllcnt(vo);
 	}
 	
 }

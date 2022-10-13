@@ -18,7 +18,7 @@
 		<typeAlias type="com.project.mohe.domain.ReviewVO" alias="review"/>
 		<typeAlias type="com.project.mohe.domain.UserInfoVO" alias="userInfo"/>
 		<typeAlias type="com.project.mohe.domain.Volunteer_cartVO" alias="volunteer_cart"/>
-		<typeAlias type="com.project.mohe.domain.VolunteerVO" alias="Volunteer"/>
+		<typeAlias type="com.project.mohe.domain.VolunteerVO" alias="volunteer"/>
 		<typeAlias type="com.project.mohe.domain.PopupVO" alias="popup"/>
 		<typeAlias type="com.project.mohe.domain.PagingVO" alias="page"/>
 	</typeAliases>

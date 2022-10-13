@@ -10,15 +10,28 @@
 		from admin
 		where adm_no in(select adm_no from
 			(select adm_no,rownum AS rnum from
-				(select adm_no from admin order by adm_no desc))
+				(select adm_no 
+				from admin 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%'
+		  			</if>
+  				</where>
+				order by adm_no desc))
 			where 
 				<![CDATA[rnum >= #{firstRow}]]> and 
 				<![CDATA[rnum <= #{endRow})]]>
 		order by adm_no desc
 	</select>
 	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
-	<select id="getAllcnt" resultType="page">
-		select count(adm_no) as totalRecCount from admin
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(adm_no) as totalRecCount 
+		from admin
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'
+  			</if>
+		</where>
 	</select>
 	<!-- 관리자 세부 정보 조회 -->
 	<select id="getAdminDetail" parameterType="admin"
@@ -45,10 +58,9 @@
 		where adm_no = #{adm_no}
 	</update>
 	<!-- 관리자 로그인 -->
-	<select id="adminLogin" parameterType="userInfo"
-		resultType="int">
+	<select id="adminLogin" parameterType="admin" resultType="admin">
 		select *
 		from admin
-		where adm_id = #{user_email} and adm_pass = #{user_password}
+		where adm_id = #{adm_id} and adm_pass = #{adm_pass}
 	</select>
 </mapper>
