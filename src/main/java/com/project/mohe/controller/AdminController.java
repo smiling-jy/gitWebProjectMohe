@@ -28,7 +28,7 @@ public class AdminController {
 	@Autowired
 	private PagingService pagingService;
 	@Autowired
-	private DonationService domainService;
+	private DonationService donationService;
 	@Autowired
 	private PopupService popupService;
 	@Autowired
@@ -124,15 +124,15 @@ public class AdminController {
 	}
 	// 기부 목록
 	@RequestMapping("adDonationList.do")
-	public void getDonationList(PagingVO vo,HashMap map,Model model) {
+	public void getDonationList(PagingVO vo,Model model) {
 		// 페이징을 위한 테이블 행값 받아오기
-		vo.setTotalRecCount(domainService.getAllcnt().getTotalRecCount());
+		vo.setTotalRecCount(donationService.getAllcnt(vo).getTotalRecCount());
 		// 페이징 처리 
 		vo = pagingService.doPaging(vo);
 		// 페이지값 저장하기
 		model.addAttribute("page",vo);
 		// 페이징을 토대로한 리스트 목록 불러오기
-		model.addAttribute("donation",adminService.getDonationList(vo,map)); 
+		model.addAttribute("donation",adminService.getDonationList(vo)); 
 	}
 	// 공지 리스트
 	@RequestMapping("adNotice.do")
@@ -141,15 +141,15 @@ public class AdminController {
 	}
 	// 팝업 리스트
 	@RequestMapping("adPopList.do")
-	public void getPopupList(PagingVO vo,HashMap map,Model model) {
+	public void getPopupList(PagingVO vo,Model model) {
 		// 페이징을 위한 테이블 행값 받아오기
-		vo.setTotalRecCount(popupService.getAllcnt().getTotalRecCount());
+		vo.setTotalRecCount(popupService.getAllcnt(vo).getTotalRecCount());
 		// 페이징 처리 
 		vo = pagingService.doPaging(vo);
 		// 페이지값 저장하기
 		model.addAttribute("page",vo);
 		// 페이징을 토대로한 리스트 목록 불러오기
-		model.addAttribute("popup",adminService.getPopupList(vo,map)); 
+		model.addAttribute("popup",adminService.getPopupList(vo)); 
 	}
 
 	

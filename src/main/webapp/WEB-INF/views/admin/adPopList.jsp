@@ -147,22 +147,46 @@
 						</section>
 						<!-- End Cart Section-->
 						<!-- 테이블 끝 -->
+
 						<!-- 페이징 부분 -->
 						<div id="paging">
 							<c:choose>
 								<c:when test="${page.groupNo-1 > 0 }">
-									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}"> ◀ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">	
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}"> ◀ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ◀  </span>
 								</c:otherwise>
 							</c:choose>
-							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
-								<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
-							</c:forEach>
+							<c:choose>
+								<c:when test="${page.stext ne null}">
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 							<c:choose>
 								<c:when test="${page.endPageNo < page.pageTotalCount }">
-									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}"> ▶ </a>
+									<c:choose>
+										<c:when test="${page.stext ne null}">
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}"> ▶ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
 									<span> ▶ </span>

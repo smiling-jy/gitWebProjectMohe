@@ -24,8 +24,8 @@ public interface DonationDAO {
 		List<DonationVO> getDonationList();
 
 		// 관리자 페이지에서 리스트 조회
-		List<DonationVO> getAdDonationList(PagingVO vo,HashMap map);
+		List<DonationVO> getAdDonationList(PagingVO vo);
 		
 		// 페이징을 위한 메소드 
-		PagingVO getAllcnt();
+		PagingVO getAllcnt(PagingVO vo);
 }
