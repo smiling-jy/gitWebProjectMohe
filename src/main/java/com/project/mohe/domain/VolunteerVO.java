@@ -1,6 +1,10 @@
 package com.project.mohe.domain;
 
+import java.sql.Date;
+
 import lombok.Data;
+
+
 
 @Data
 public class VolunteerVO {
@@ -10,10 +14,10 @@ public class VolunteerVO {
 	private String vt_bs_name;
 	private String vt_title;
 	private String vt_place;
-	private String vt_recruit_start;
-	private String vt_recruit_end;
-	private String vt_work_start;
-	private String vt_work_end;
+	private Date vt_recruit_start;
+	private Date vt_recruit_end;
+	private Date vt_work_start;
+	private Date vt_work_end;
 	private int vt_ing;
 	private String vt_name;
 	private String vt_user_phone;
