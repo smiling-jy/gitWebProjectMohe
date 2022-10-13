@@ -1,13 +1,10 @@
 package com.project.mohe.service.impl;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.dao.BongsaDAO;
@@ -96,42 +93,42 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map) {
-		return userInfoDao.getAdUserInfoList(vo,map);
+	public List<UserInfoVO> adGetUserList(PagingVO vo) {
+		return userInfoDao.getAdUserInfoList(vo);
 	}
 	
 	@Override
-	public List<EventVO> adGetEventList(HashMap map) { 
-		return eventDao.getEventList(map);
+	public List<EventVO> adGetEventList(PagingVO vo) { 
+		return eventDao.getAdEventList(vo);
 	}
 
 	@Override
-	public List<Funding_pjVO> adGetFdList(HashMap map) {
-		return funding_pjDao.getFunding_pjList(map);
+	public List<Funding_pjVO> adGetFdList(PagingVO vo) {
+		return new ArrayList<Funding_pjVO>();// funding_pjDao.getFunding_pjList(vo);
 	}
 
 	@Override
-	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
-		return funding_pjDao.getFdApprovalList(map);
+	public List<Funding_pjVO> getFdApprovalList(PagingVO vo) {
+		return new ArrayList<Funding_pjVO>();// funding_pjDao.getFdApprovalList(vo);
 	}
 
 	@Override
-	public List<BongsaVO> getBsList(HashMap map) {
-		return bongsaDao.getBongsaList(map);
+	public List<BongsaVO> getBsList(PagingVO vo) {
+		return new ArrayList<BongsaVO>();// bongsaDao.getBongsaList(vo);
 	}
 
 	@Override
-	public List<BongsaVO> getBsApprovalList(HashMap map) {
-		return bongsaDao.getBsApprovalList(map);
+	public List<BongsaVO> getBsApprovalList(PagingVO vo) {
+		return new ArrayList<BongsaVO>();// bongsaDao.getBsApprovalList(vo);
 	}
 
 	@Override
-	public List<PartnerVO> getPartnerList(HashMap map) {
-		return partnerDao.getPartnerList(map);
+	public List<PartnerVO> getPartnerList(PagingVO vo) {
+		return partnerDao.getAdPartnerList(vo);
 	}
 
 	@Override
-	public List<ReviewVO> getReviewList(HashMap map) {
+	public List<ReviewVO> getReviewList(PagingVO vo) {
 		return reviewDao.getReviewList();
 	}
 
@@ -141,8 +138,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	public List<NoticeVO> getNoticeList(HashMap map) {
-		return noticeDao.getNoticeList(map);
+	public List<NoticeVO> getNoticeList(PagingVO vo) {
+		return noticeDao.getAdNoticeList(vo);
 	}
 
 	@Override

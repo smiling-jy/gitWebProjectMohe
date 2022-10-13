@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface EventService {
 	// CRUD 기능 구현
@@ -21,4 +22,10 @@ public interface EventService {
 			
 	// 글 목록 조회
 	List<EventVO> getEventList(HashMap map);
+	
+	// 페이징을 위한 메소드
+	PagingVO getAllcnt(PagingVO vo);
+	
+	// 페이징 된 리스트 조회
+	List<EventVO> getAdEventList(PagingVO vo);
 }

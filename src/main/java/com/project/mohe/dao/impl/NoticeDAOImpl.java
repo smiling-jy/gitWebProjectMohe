@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.NoticeDAO;
 import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PagingVO;
 
 @Repository("noticeDAO")
 public class NoticeDAOImpl implements NoticeDAO {
@@ -56,6 +57,16 @@ public class NoticeDAOImpl implements NoticeDAO {
 	public NoticeVO movePage(NoticeVO vo) {
 		System.out.println("==============movePage daoimpl");
 		return mybatis.selectOne("NoticeDAO.movePage", vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("NoticeDAO.getAllcnt",vo);
+	}
+
+	@Override
+	public List<NoticeVO> getAdNoticeList(PagingVO vo) {
+		return mybatis.selectList("NoticeDAO.getAdNoticeList",vo);
 	}
 
 	
