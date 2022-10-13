@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.EventDAO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 
 
 @Repository("eventDAO")
@@ -44,6 +45,16 @@ public class EventDAOImpl implements EventDAO {
 	@Override
 	public List<EventVO> getEventList(HashMap map) {
 		return mybatis.selectList("EventDAO.getEventList");
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("EventDAO.getAllcnt",vo);
+	}
+
+	@Override
+	public List<EventVO> getAdEventList(PagingVO vo) {
+		return mybatis.selectList("EventDAO.getAdEventList",vo);
 	}
 
 

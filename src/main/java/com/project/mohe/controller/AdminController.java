@@ -1,7 +1,5 @@
 package com.project.mohe.controller;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,7 +16,10 @@ import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 import com.project.mohe.service.DonationService;
+import com.project.mohe.service.EventService;
+import com.project.mohe.service.NoticeService;
 import com.project.mohe.service.PagingService;
+import com.project.mohe.service.PartnerService;
 import com.project.mohe.service.PopupService;
 import com.project.mohe.service.UserInfoService;
 
@@ -35,6 +36,12 @@ public class AdminController {
 	private PopupService popupService;
 	@Autowired
 	private UserInfoService userInfoService;
+	@Autowired
+	private EventService eventService;
+	@Autowired
+	private NoticeService noticeService;
+	@Autowired
+	private PartnerService partnerService;
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -88,22 +95,22 @@ public class AdminController {
 	}
 	// 회원 목록 띄우기
 	@RequestMapping("adUserList.do")
-	public String getUserList(PagingVO vo,HashMap map,Model model,HttpServletRequest request) {	
+	public String getUserList(PagingVO vo,Model model,HttpServletRequest request) {	
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// 페이징을 위한 테이블 행값 받아오기
-		vo.setTotalRecCount(userInfoService.getAllcnt().getTotalRecCount());
+		vo.setTotalRecCount(userInfoService.getAllcnt(vo).getTotalRecCount());
 		// 페이징 처리 
 		vo = pagingService.doPaging(vo);
 		// 페이지값 저장하기
 		model.addAttribute("page",vo);
 		// 페이징을 토대로한 리스트 목록 불러오기
-		model.addAttribute("userList",adminService.adGetUserList(vo,map));
+		model.addAttribute("userList",adminService.adGetUserList(vo));
 		return "/admin/adUserList";
 	}
 	// 회원 상세 페이지
 	@RequestMapping("adUserDetail.do")
-	public String adUserDetail(HashMap map,Model model,UserInfoVO vo,HttpServletRequest request) {
+	public String adUserDetail(Model model,UserInfoVO vo,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";	
 		model.addAttribute("userDetail",adminService.adUserDetail(vo));
@@ -111,26 +118,33 @@ public class AdminController {
 	}
 	// 이벤트 목록 띄우기
 	@RequestMapping("adEventList.do")
-	public String getEventList(HashMap map,Model model,HttpServletRequest request) {	
+	public String getEventList(PagingVO vo,Model model,HttpServletRequest request) {	
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("eventList",adminService.adGetEventList(map));
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(eventService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("eventList",adminService.adGetEventList(vo));
 		return "/admin/adEventList";
 	}
 	// 승인된 펀딩 목록
 	@RequestMapping("adFdList.do")
-	public String getFundingList(HashMap map,Model model,HttpServletRequest request) {
+	public String getFundingList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("fdList",adminService.adGetFdList(map)); 
+		model.addAttribute("fdList",adminService.adGetFdList(vo)); 
 		return "/admin/adFdList";
 	}
 	// 승인되지 않은 펀딩 목록
 	@RequestMapping("adFdApproval.do")
-	public String getFdApprovalList(HashMap map,Model model,HttpServletRequest request) {
+	public String getFdApprovalList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("fdApproval",adminService.getFdApprovalList(map)); 
+		model.addAttribute("fdApproval",adminService.getFdApprovalList(vo)); 
 		return "/admin/adFdApproval";
 	}
 	// 펀딩 승인,비승인 업데이트
@@ -144,18 +158,18 @@ public class AdminController {
 	}
 	// 승인된 봉사 목록
 	@RequestMapping("adVtList.do")
-	public String getBsList(HashMap map,Model model,HttpServletRequest request) {
+	public String getBsList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("bsList",adminService.getBsList(map)); 
+		model.addAttribute("bsList",adminService.getBsList(vo)); 
 		return "/admin/adVtList";
 	}
 	// 승인되지 않은 봉사 목록
 	@RequestMapping("adVtApproval.do")
-	public String getBsApprovalList(HashMap map,Model model,HttpServletRequest request) {
+	public String getBsApprovalList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("bsApproval",adminService.getBsApprovalList(map)); 
+		model.addAttribute("bsApproval",adminService.getBsApprovalList(vo)); 
 		return "/admin/adVtApproval";
 	}
 	// 펀딩 승인,비승인 업데이트
@@ -169,18 +183,25 @@ public class AdminController {
 	}
 	// 파트너쉽 목록
 	@RequestMapping("adPartnerList.do")
-	public String getPartnerList(HashMap map,Model model,HttpServletRequest request) {
+	public String getPartnerList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("partner",adminService.getPartnerList(map)); 
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(partnerService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("partner",adminService.getPartnerList(vo)); 
 		return "/admin/adPartnerList";
 	}
 	// 리뷰 목록
 	@RequestMapping("adReviewList.do")
-	public String getReviewList(HashMap map,Model model,HttpServletRequest request) {
+	public String getReviewList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("review",adminService.getReviewList(map)); 
+		model.addAttribute("review",adminService.getReviewList(vo)); 
 		return "/admin/adReviewList";
 	}
 	// 기부 목록
@@ -200,10 +221,17 @@ public class AdminController {
 	}
 	// 공지 리스트
 	@RequestMapping("adNotice.do")
-	public String getNoticeList(HashMap map,Model model,HttpServletRequest request) {
+	public String getNoticeList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("notice",adminService.getNoticeList(map)); 
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(noticeService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("notice",adminService.getNoticeList(vo)); 
 		return "/admin/adNotice";
 	}
 	// 팝업 리스트

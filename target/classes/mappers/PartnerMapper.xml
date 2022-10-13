@@ -10,6 +10,35 @@
 		from partner
 		order by partner_no
 	</select>
+	<!-- 파트너 정보 리스트 조회 -->
+	<select id="getAdPartnerList" parameterType="page" resultType="partner">
+		select *
+		from partner
+		where partner_no in(select partner_no from
+			(select partner_no,rownum AS rnum from
+				(select partner_no 
+				from partner 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%'
+		  			</if>
+  				</where>
+				order by partner_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by partner_no desc
+	</select>
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(partner_no) as totalRecCount 
+		from partner
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'
+  			</if>
+		</where>
+	</select>
 	<!-- 파트너 삭제 -->
 	<delete id="deleteBongsa" parameterType="partner">
 		delete 
