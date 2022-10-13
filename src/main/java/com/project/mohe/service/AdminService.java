@@ -3,8 +3,9 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -41,6 +42,9 @@ public interface AdminService {
 
 	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);
+	
+	// 관리자 로그인 확인
+	AdminVO adminLogin(AdminVO vo);
 	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map);

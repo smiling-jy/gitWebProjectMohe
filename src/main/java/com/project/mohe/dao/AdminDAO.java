@@ -25,4 +25,7 @@ public interface AdminDAO {
 		
 		// 글 목록 조회
 		List<AdminVO> getAdminList(PagingVO vo);
+		
+		// 관리자 로그인 확인
+		AdminVO adminLogin(AdminVO vo);
 }
