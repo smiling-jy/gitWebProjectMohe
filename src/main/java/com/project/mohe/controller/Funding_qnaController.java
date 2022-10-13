@@ -58,19 +58,17 @@ public class Funding_qnaController {
 	@RequestMapping(value = "qnalist.do")
 	@ResponseBody
 	public List<Funding_qnaVO> getHost_qnaList(Funding_qnaVO qna) {
-		System.out.println("자바 answerSave 클래스 접근 ");
-		System.out.println("qna.getFd_no() >> "+qna.getFd_no());
 		List<Funding_qnaVO> reQan = funding_qnaService.getHost_qnaList(qna);
-		System.out.println(reQan);
 		return reQan;
 	}
 	
 	
 	// 주최자 답변 등록
-	@RequestMapping("answerSave.do")
-	public String answerSave(Funding_qnaVO qna) {
+	@RequestMapping(value = "answerSave.do")
+	@ResponseBody
+	public List<Funding_qnaVO> answerSave(Funding_qnaVO qna) {
 		funding_qnaService.updateFunding_qna(qna);
-		return "redirect:/fundingHost.do";
+		return funding_qnaService.getHost_qnaList(qna);
 	}
 	
 	

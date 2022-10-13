@@ -36,4 +36,11 @@
   		 where fd_no = #{fd_no}
 		   and qna_no = #{qna_no}
   	</update>
+  	
+  	<select id="getFunding_qna" parameterType="funding_qna" resultType="funding_qna">
+  		select *
+  		  from FUNDING_QNA
+  		 where fd_no = #{fd_no}
+		   and qna_no = #{qna_no}
+  	</select>
   </mapper>

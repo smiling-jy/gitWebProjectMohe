@@ -38,8 +38,7 @@ public class Funding_qnaDAOImpl implements Funding_qnaDAO {
 
 	@Override
 	public Funding_qnaVO getFunding_qna(Funding_qnaVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("Funding_qnaDAO.getFunding_qna", vo);
 	}
 
 	@Override

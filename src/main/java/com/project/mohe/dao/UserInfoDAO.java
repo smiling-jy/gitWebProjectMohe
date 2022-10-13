@@ -3,6 +3,9 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.ui.Model;
+
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 
 public interface UserInfoDAO {
@@ -26,7 +29,14 @@ public interface UserInfoDAO {
 		// 글 목록 조회
 		List<UserInfoVO> getUserInfoList(HashMap map);
 		
+		// 유저 페이징 리스트
+		List<UserInfoVO> getAdUserInfoList(PagingVO vo,HashMap map);
+		
+		// 페이징을 위한 메소드
+		PagingVO getAllcnt(); 
+		
 		// 회원 탈퇴,정지 업데이트
+
 		void updateOutDate(UserInfoVO vo);
 		
 }

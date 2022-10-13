@@ -43,7 +43,7 @@ public interface AdminService {
 	AdminVO getAdminDetail(AdminVO vo);
 	
 	// 회원 목록 리스트
-	List<UserInfoVO> adGetUserList(HashMap map);
+	List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map);
 	
 	// 회원 상세 페이지
 	UserInfoVO adUserDetail(UserInfoVO vo);
