@@ -104,12 +104,12 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Funding_pjVO> adGetFdList(PagingVO vo) {
-		return new ArrayList<Funding_pjVO>();// funding_pjDao.getFunding_pjList(vo);
+		return funding_pjDao.getAdFunding_pjList(vo);
 	}
 
 	@Override
 	public List<Funding_pjVO> getFdApprovalList(PagingVO vo) {
-		return new ArrayList<Funding_pjVO>();// funding_pjDao.getFdApprovalList(vo);
+		return funding_pjDao.getFdApprovalList(vo);
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<ReviewVO> getReviewList(PagingVO vo) {
-		return reviewDao.getReviewList();
+		return null;//reviewDao.getReviewList(vo);
 	}
 
 	@Override

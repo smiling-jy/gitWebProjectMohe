@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface Funding_pjService {
 	// CRUD 기능 구현
@@ -27,4 +28,10 @@ public interface Funding_pjService {
 	
 	// 진행중인 프로젝트 목록 조회
 	List<Funding_pjVO> getOngoing_pjlist(HashMap map);
+	
+	// 승인펀딩 페이징을 위한 메소드
+	PagingVO getAllcntOk(PagingVO vo);
+	
+	// 미승인펀딩 페이징을 위한 메소드
+	PagingVO getAllcntNo(PagingVO vo);
 }

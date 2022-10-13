@@ -15,12 +15,15 @@ import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
+import com.project.mohe.service.BongsaService;
 import com.project.mohe.service.DonationService;
 import com.project.mohe.service.EventService;
+import com.project.mohe.service.Funding_pjService;
 import com.project.mohe.service.NoticeService;
 import com.project.mohe.service.PagingService;
 import com.project.mohe.service.PartnerService;
 import com.project.mohe.service.PopupService;
+import com.project.mohe.service.ReviewService;
 import com.project.mohe.service.UserInfoService;
 
 @Controller
@@ -42,6 +45,12 @@ public class AdminController {
 	private NoticeService noticeService;
 	@Autowired
 	private PartnerService partnerService;
+	@Autowired
+	private Funding_pjService funding_pjService;
+	@Autowired
+	private BongsaService bongsaService;
+	@Autowired
+	private ReviewService reviewService;
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -136,6 +145,13 @@ public class AdminController {
 	public String getFundingList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(funding_pjService.getAllcntOk(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("fdList",adminService.adGetFdList(vo)); 
 		return "/admin/adFdList";
 	}
@@ -144,6 +160,13 @@ public class AdminController {
 	public String getFdApprovalList(PagingVO vo,Model model,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(funding_pjService.getAllcntNo(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("fdApproval",adminService.getFdApprovalList(vo)); 
 		return "/admin/adFdApproval";
 	}
