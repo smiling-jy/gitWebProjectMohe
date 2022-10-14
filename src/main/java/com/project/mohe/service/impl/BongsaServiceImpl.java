@@ -18,8 +18,9 @@ public class BongsaServiceImpl implements BongsaService {
 
 	@Override
 	public void insertBongsa(BongsaVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("insertBongsa 서비스 입구");
+		bongsaDao.insertBongsa(vo);
+		System.out.println("insertBongsa 서비스 출구");
 	}
 
 	@Override

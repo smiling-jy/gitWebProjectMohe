@@ -62,8 +62,8 @@
 								<div class="image-box">
 									<figure class="image">
 										<img class="lazy-image"
-											src="resources/images/resource/image-spacer-for-validation.png"
-											data-src="resources/images/resource/1_${pj.fd_img_name}" alt="">
+											src="resources/files/funding/${pj.fd_img_name}/title.png"
+											data-src="resources/files/funding/${pj.fd_img_name}/title.png" alt="타이틀 이미지">
 									</figure>
 								</div>
 								<div class="donate-info">
@@ -81,8 +81,17 @@
 								</div>
 								<!-- 첨부파일 영역 -->
 								<div class="lower-content">
+									<br/>
+									<p class="contentp">
+										이 프로젝트는 <strong>${pj.fd_receiver}</strong> 를 후원합니다.
+									</p>
+									<br/>
+									<p class="contentp">
+										${pj.fd_content}
+									</p>
+									<br/>
 									<c:forEach var="cnt" begin="1" end="${pj.fd_img_cnt}">
-										<img src="resources/images/${cnt}_${pj.fd_img_name}" alt="">
+										<img src="resources/files/funding/${pj.fd_img_name}/${cnt}.png">
 									</c:forEach>
 								</div>
 							</div>

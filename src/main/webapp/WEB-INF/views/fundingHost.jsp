@@ -48,20 +48,15 @@
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 						<div class="our-shop new-font">
 							<div>
-								<h3>성공한 프로젝트</h3>
+								<c:if test="${not empty success_list}">
+									<h3>성공한 프로젝트</h3>
+								</c:if>
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${success_list}" var="pj">
 									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-											<div class="image-box">
-												<figure class="image">
-													<a href="patronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}"><img class="lazy-image"
-														src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
-														data-src="resources/attached_file/funding/${pj.fd_no}/tilte_img.png"
-														alt=""></a>
-												</figure>
-											</div>
-											<div class="lower-content new-font">
+										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">
+				
+											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
 														<div class="bar-inner count-bar" data-percent="100%">
@@ -81,21 +76,16 @@
 								</c:forEach>
 								<!-- 펀딩 블럭 끝 -->
 							</div>
+							<c:if test="${not empty success_list}">
+								<hr/>
+							</c:if>
 							<div>
 								<h3>진행중인 프로젝트</h3>
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${ongoing_list}" var="pj">
 									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-											<div class="image-box">
-												<figure class="image">
-													<a href="cause-single.html"><img class="lazy-image"
-														src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
-														data-src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
-														alt=""></a>
-												</figure>
-											</div>
-											<div class="lower-content new-font">
+										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
 														<div class="bar-inner count-bar" data-percent="${pj.rate}%">
@@ -111,10 +101,10 @@
 												<h5>
 													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font fd_title_qna">${pj.fd_title}</a>
 												</h5>
-												<input type="button" class="a-btn" value="Q&A">
-												<input type="hidden" value="${pj.fd_no}" class="fd_no">
 											</div>
 										</div>
+												<input type="button" class="a-btn" value="Q&A">
+												<input type="hidden" value="${pj.fd_no}" class="fd_no">
 									</div>
 								</c:forEach>
 								<!-- 펀딩 블럭 끝 -->

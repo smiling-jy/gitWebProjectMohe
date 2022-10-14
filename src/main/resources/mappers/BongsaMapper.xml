@@ -67,8 +67,9 @@
 	<select id="getBongsa" parameterType="bongsa" resultType="bongsa">
   		select BS_TITLE, BS_CONTENT, BS_NAME, 
   		BS_NO, BS_REGION, BS_PLACE, BS_IMG_CNT, 
-  		BS_PHONE, BS_WORK_START, BS_SUCCESS_CNT, 
-  		BS_WORK_END, BS_EMAIL, BS_IMG_NAME, 
+  		BS_PHONE,  BS_SUCCESS_CNT, 
+  		to_date(TO_char(BS_WORK_START, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_START,
+  		to_date(TO_char(BS_WORK_END, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_END, BS_EMAIL, BS_IMG_NAME, 
   		BS_GOAL_CNT, USER_NO, BS_READ_CNT, 
   		USER_NO,
   		round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate
@@ -113,6 +114,22 @@
 		from ( select * from bongsa order by bs_recruit_end desc)
 		where <![CDATA[rownum <= 10]]>
 	</select>
+  	
+  	<insert id="insertBongsa" parameterType="bongsa">
+  	INSERT INTO BONGSA(
+  	BS_NO, BS_TITLE, BS_CONTENT, BS_REGION, BS_PLACE, 
+  	BS_RECRUIT_START, BS_RECRUIT_END, BS_WORK_START, BS_WORK_END, 
+  	BS_GOAL_CNT, BS_SUCCESS_CNT, BS_ING, BS_NAME, 
+  	BS_PHONE, BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, BS_READ_CNT, USER_NO)
+  	
+  	VALUES(BONGSA_PJ_SEQ.nextval, #{bs_title}, #{bs_content}, #{bs_region},#{bs_place},
+  	'2022-10-25','2022-10-26','2022-10-28','2022-10-29',
+  	#{bs_goal_cnt},0,'진행중',#{bs_name},
+  	#{bs_phone},#{bs_email}, 2,'첫번쨰',2,#{user_no} 
+  	)
+  	
+  	</insert>
+  	
   	
 
 
