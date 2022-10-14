@@ -66,7 +66,7 @@
                     <h2 style="text-align:center;" >후기 작성하기</h2><br>
                         <div class="billing-column col-lg-6 col-md-12 col-sm-12" style="margin:auto;">
                            
-                            <form action="reviewInsert.do" method="post">
+                            <form action="reviewInsert.do" method="post" enctype="multipart/form-data">
                                 <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <div class="field-label">제목<sup>*</sup></div>
@@ -83,8 +83,8 @@
                                   <!--사진첨부-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <div class="field-label">사진 첨부하기 <sup>*</sup><a href="">[사진첨부]</a></div>
-                                    <input type="text" name="review_img" value="" placeholder="">
-                                    
+                                    <input type="file" name="file" >
+                      
                                 </div>
         
         </div>
@@ -93,7 +93,8 @@
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                         <textarea id="reviewtext" name="review_text" placeholder="본문내용을 입력하세요."></textarea>
                                 </div>
-                            
+                            	
+                            	
                          
                             </div>
                         </div>
