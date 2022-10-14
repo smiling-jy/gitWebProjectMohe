@@ -12,7 +12,9 @@ $(window).scroll(function() {
 
 // 모달창 클릭시 닫음
 $("#close").click(function() {
-	$(".background").removeClass("show")
+	if($("#checkbox1").is(":checked") == true && $("#checkbox2").is(":checked") == true){
+		$(".background").removeClass("show")		
+	}
 })
 
 // 펀딩결제 페이지 수량증가에 따라 총액 변화
