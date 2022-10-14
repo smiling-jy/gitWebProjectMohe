@@ -89,6 +89,12 @@
 	color: rgb(30, 30, 30);
 	font-weight: bold;
 }
+.rating{
+	position:relative;
+	top:-270px;
+	left:20px;
+	width:100px;
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -380,7 +386,7 @@
 		<!-- 리뷰 섹션1 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
-			style="bottom: 0px; padding: 0px; margin-top: 100px">
+			style="bottom: 0px; padding: 0px; padding-top: 100px;">
 
 			<div class="auto-container">
 
@@ -400,15 +406,18 @@
 							<div class="team-block">
 								<div class="inner-box">
 									<figure class="image-box">
-										<a href="getReview.do?review_no=${bestRv.review_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										<a href="getReview.do?review_no=${bestRv.review_no}">
+										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
+									<div class="rating">
+										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+									</div>
 									<div class="lower-box">
 										<div class="content">
 											<h3>
 												<a href="getReview.do?review_no=${bestRv.review_no}">${bestRv.review_title}</a>
 											</h3>
-											<div class="designation">${bestRv.user_name}</div>
+											<div class="designation"><span class="icon fa fa-user"></span> ${bestRv.user_name}</div>
 											<div class="social-links">
 												<ul class="clearfix">
 													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
