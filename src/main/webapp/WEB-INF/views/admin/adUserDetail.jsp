@@ -54,9 +54,9 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg right_btn">
-							<a href="cause-single.do" class="theme-btn btn-style-three">
+							<a href="userEnd.do?user_no=${userDetail.user_no}" class="theme-btn btn-style-three">
 								<span class="btn-title"><h2>사용불가 전환</h2></span>
-							</a> <a href="cause-single.do" class="theme-btn btn-style-one">
+							</a> <a href="adUserUpdateInfo.do?user_no=${userDetail.user_no}" class="theme-btn btn-style-one">
 								<span class="btn-title"><h2>회원정보 수정</h2></span>
 							</a>
 						</div>
@@ -79,36 +79,36 @@
 									<div class="user_info_div">
 										<div class="form-group col-lg-12 col-md-12 col-sm-12">
 											<div class="field-label label_inline">이름</div>
-											<input type="text" name="user_name" value="${userDetail.user_name}">
+											<input type="text" name="user_name" value="${userDetail.user_name}" readonly>
 										</div>
 										<div class="form-group col-lg-12 col-md-12 col-sm-12">
 											<div class="field-label label_inline">연락처</div>
-											<input type="text" name="user_phone" value="${userDetail.user_phone}">
+											<input type="text" name="user_phone" value="${userDetail.user_phone}" readonly>
 										</div>
 										<div
 											class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 											<div class="field-label label_inline">ID</div>
-											<input type="text" name="user_email" value="${userDetail.user_email}">
+											<input type="text" name="user_email" value="${userDetail.user_email}" readonly>
 										</div>
 										<div
 											class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 											<div class="field-label label_inline">등급</div>
-											<input type="text" name="user_rating" value="${userDetail.user_rating}">
+											<input type="text" name="user_rating" value="${userDetail.user_rating}" readonly>
 										</div>
 										<div
 											class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 											<div class="field-label label_inline">주소</div>
-											<input type="text" name="user_addr" value="${userDetail.user_addr}">
+											<input type="text" name="user_addr" value="${userDetail.user_addr}" readonly>
 										</div>
 										<div
 											class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 											<div class="field-label label_inline">회원가입일</div>
-											<input type="text" name="user_indate" value="${userDetail.user_indate}">
+											<input type="text" name="user_indate" value="${userDetail.user_indate}" readonly>
 										</div>
 										<div
 											class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 											<div class="field-label label_inline">회원탈퇴일</div>
-											<input type="text" name="user_outdate" value="${userDetail.user_outdate}">
+											<input type="text" name="user_outdate" value="${userDetail.user_outdate}" readonly>
 										</div>
 									</div>
 								</form>
@@ -134,25 +134,17 @@
 																	<th>NO</th>
 																	<th>제목</th>
 																	<th>주최자</th>
-																	<th>종료일</th>
+																	<th>배송상태</th>
 																</tr>
 															</thead>
 
 															<tbody>
-																<tr>
-																	<td><input type="checkbox" /></td>
-																	<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																	<td class="qty">이지윤</td>
-																	<td class="qty">01045681987</td>
-																	<td class="qty">2022/09/22</td>
-																</tr>
-																
-																<c:forEach items="${payUser}" var="fd">
+																<c:forEach items="${userFdList}" var="fd">
 																	<tr>
 																		<td style="word-break: break-all">${fd.fd_no}</td>
 																		<td style="word-break: break-all"><a href="adUserDetail.do">${fd.fd_title}</a></td>
-																		<td style="word-break: break-all">${fd.fd_host_name}</td>
-																		<td style="font-size: 13px">${fd.pay_date}</td>
+																		<td style="word-break: break-all">${fd.fd_hostname}</td>
+																		<td style="font-size: 13px">${fd.pay_status}</td>
 																	</tr>
 																</c:forEach>
 															</tbody>
@@ -182,29 +174,22 @@
 														<table class="cart-table">
 															<thead class="cart-header">
 																<tr>
-																	<th>Check</th>
-																	<th>ID</th>
-																	<th>이름</th>
-																	<th>핸드폰</th>
-																	<th>가입일</th>
+																	<th>NO</th>
+																	<th>제목</th>
+																	<th>장소</th>
+																	<th>봉사시작일</th>
 																</tr>
 															</thead>
 
 															<tbody>
-																<tr>
-																	<td><input type="checkbox" /></td>
-																	<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																	<td class="qty">이지윤</td>
-																	<td class="qty">01045681987</td>
-																	<td class="qty">2022/09/22</td>
-																</tr>
-																<tr>
-																	<td><input type="checkbox" /></td>
-																	<td class="qty"><a href="#">smigni3@naver.com</a></td>
-																	<td class="qty">이지윤</td>
-																	<td class="qty">01045681987</td>
-																	<td class="qty">2022/09/22</td>
-																</tr>
+																<c:forEach items="${userBsList}" var="bs">
+																	<tr>
+																		<td style="word-break: break-all">${bs.volun_no}</td>
+																		<td style="word-break: break-all"><a href="adUserDetail.do">${bs.vt_title}</a></td>
+																		<td style="word-break: break-all">${bs.vt_place}</td>
+																		<td style="font-size: 13px">${bs.vt_work_start}</td>
+																	</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>
