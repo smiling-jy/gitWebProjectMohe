@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface BongsaDAO {
 	// CRUD 기능 구현
@@ -36,6 +37,20 @@ public interface BongsaDAO {
 		
 		// 참여하기 페이지 
 		BongsaVO getParticipateInfo(BongsaVO vo);
+		
+		//승인된 봉사 페이징 조회
+		PagingVO getAllcntOk(PagingVO vo);
+		
+		//승인된 봉사 페이징 조회
+		PagingVO getAllcntNo(PagingVO vo);		
+		
+		// 페이징 승인 봉사 리스트 조회
+		List<BongsaVO> getAdBsList(PagingVO vo);
+		
+		// 페이징 미승인 봉사 리스트 조회
+		List<BongsaVO> getAdBsApprovalList(PagingVO vo);
+		
+		
 		
 		
 }

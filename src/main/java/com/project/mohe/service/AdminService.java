@@ -75,10 +75,10 @@ public interface AdminService {
 	void judgFdUpdate(Funding_pjVO vo);
 	
 	// 봉사 리스트
-	List<BongsaVO> getBsList(PagingVO vo);
+	List<BongsaVO> getAdBsList(PagingVO vo);
 	
 	// 신청 봉사 리스트
-	List<BongsaVO> getBsApprovalList(PagingVO vo);
+	List<BongsaVO> getAdBsApprovalList(PagingVO vo);
 	
 	void judgBsUpdate(BongsaVO vo);
 	

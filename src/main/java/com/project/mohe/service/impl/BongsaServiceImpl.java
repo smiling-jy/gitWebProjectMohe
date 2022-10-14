@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.BongsaDAO;
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.BongsaService;
 
 @Service("bongsaService")
@@ -52,6 +53,16 @@ public class BongsaServiceImpl implements BongsaService {
 		//봉사 상세 페이지 출력
 		
 		return bongsaDao.getParticipateInfo(vo);
+	}
+
+	@Override
+	public PagingVO getAllcntOk(PagingVO vo) {
+		return bongsaDao.getAllcntOk(vo);
+	}
+
+	@Override
+	public PagingVO getAllcntNo(PagingVO vo) {
+		return bongsaDao.getAllcntNo(vo);
 	}
 
 }

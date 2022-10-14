@@ -197,31 +197,6 @@ public class AdminController {
 		return "/admin/adFdApproval";
 	}
 	// 펀딩 승인,비승인 업데이트
-	@RequestMapping("judgBsUpdate.do")
-	public String judgBsUpdate(BongsaVO vo,Model model,HttpSession session) {
-		// 로그인 하지않은 사람이 접근할 수 없도록
-		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
-		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
-		adminService.judgBsUpdate(vo);
-		return "redirect:/admin/adFdApproval.do";
-	}
-	// 승인된 봉사 목록
-	@RequestMapping("adVtList.do")
-	public String getBsList(PagingVO vo,Model model,HttpSession session) {
-		// 로그인 하지않은 사람이 접근할 수 없도록
-		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("bsList",adminService.getBsList(vo)); 
-		return "/admin/adVtList";
-	}
-	// 승인되지 않은 봉사 목록
-	@RequestMapping("adVtApproval.do")
-	public String getBsApprovalList(PagingVO vo,Model model,HttpSession session) {
-		// 로그인 하지않은 사람이 접근할 수 없도록
-		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
-		model.addAttribute("bsApproval",adminService.getBsApprovalList(vo)); 
-		return "/admin/adVtApproval";
-	}
-	// 펀딩 승인,비승인 업데이트
 	@RequestMapping("judgFdUpdate.do")
 	public String judgFdUpdate(Funding_pjVO vo,Model model,HttpSession session) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
@@ -230,6 +205,46 @@ public class AdminController {
 		adminService.judgFdUpdate(vo);
 		return "redirect:/admin/adFdApproval.do";
 	}
+	// 봉사 승인,비승인 업데이트
+	@RequestMapping("judgBsUpdate.do")
+	public String judgBsUpdate(BongsaVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		adminService.judgBsUpdate(vo);
+		return "redirect:/admin/adBsApproval.do";
+	}
+	// 승인된 봉사 목록
+	@RequestMapping("adBsList.do")
+	public String getBsList(PagingVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(bongsaService.getAllcntOk(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("bsList",adminService.getAdBsList(vo)); 
+		return "/admin/adBsList";
+	}
+	// 승인되지 않은 봉사 목록
+	@RequestMapping("adBsApproval.do")
+	public String getBsApprovalList(PagingVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(bongsaService.getAllcntNo(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
+		model.addAttribute("bsApproval",adminService.getAdBsApprovalList(vo)); 
+		return "/admin/adBsApproval";
+	}
+
 	// 파트너쉽 목록
 	@RequestMapping("adPartnerList.do")
 	public String getPartnerList(PagingVO vo,Model model,HttpSession session) {

@@ -55,8 +55,8 @@
 								<li><a><i class="fa fa-no"></i> 봉사관리 <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a href="adVtList.do">봉사목록</a></li>
-										<li><a href="adVtApproval.do">신청봉사관리</a></li>
+										<li><a href="adBsList.do">봉사목록</a></li>
+										<li><a href="adBsApproval.do">신청봉사관리</a></li>
 									</ul></li>
 								<li><a href="adPartnerList.do"><i class="fa fa-no"></i>
 										파트너쉽관리 <span class="fa fa-chevron-down"></span></a></li>
