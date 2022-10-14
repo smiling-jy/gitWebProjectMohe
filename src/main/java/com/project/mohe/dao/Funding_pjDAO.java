@@ -3,8 +3,8 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
-import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface Funding_pjDAO {
 	// CRUD 기능 구현
@@ -23,14 +23,23 @@ public interface Funding_pjDAO {
 		// 글 목록 조회
 		List<Funding_pjVO> getFunding_pjList(HashMap map);
 		
+		// 페이징펀딩 승인된 리스트
+		List<Funding_pjVO> getAdFunding_pjList(PagingVO vo);
+		
+		// 페이징펀딩 승인안된 리스트
+		List<Funding_pjVO> getFdApprovalList(PagingVO vo);
+		
+		// 통과 펀딩 페이징을 위한 메소드
+		PagingVO getAllcntOk(PagingVO vo);
+		
+		// 미통과 펀딩 페이징을 위한 메소드
+		PagingVO getAllcntNo(PagingVO vo);
+		
 		// 성공한 프로젝트 목록 조회 
 		List<Funding_pjVO> getSuccess_pjList(HashMap map);
 		
 		// 진행중인 프로젝트 목록 조회
 		List<Funding_pjVO> getOngoing_pjlist(HashMap map);
-		
-		// 펀딩 승인안된 리스트
-		List<Funding_pjVO> getFdApprovalList(HashMap map);
 		
 		// 메인에 노출할 인기펀딩 리스트
 		List<Funding_pjVO> getBestFd();
