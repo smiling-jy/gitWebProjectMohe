@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.project.mohe.dao.VolunteerDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
@@ -50,5 +51,10 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 		return null;
 	}
 	
+	//펀딩 성공인원 업데이트 
+	@Override
+	public void incSuccessCnt(VolunteerVO vo){
+		mybatis.update("VolunteerDAO.incSuccessCnt",vo);
+	}
 
 }

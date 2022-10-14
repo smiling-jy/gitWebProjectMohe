@@ -105,13 +105,13 @@
 	    <div class="recuruit-header"><h1 class="newFont centersetting">봉사활동 모집하기</h1></div>
 <!-- 	     <div class="form-column <!--col-lg-6 col-md-12 col-sm-12 new-font open-pj-form "> -->
 			<div class="recuruit-Main">
-	                 <form method="post" action="contact.html">
+	                 <form method="post" action="insertBongsa.do">
 	                     <span>봉사활동명</span>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_title" required><br/>
 	                     <span>봉사 활동 소개</span>
-	                     <textarea></textarea><br/>
+	                     <textarea name="bs_content"></textarea><br/>
 	                     <span>봉사 지역</span><br/>
-	                     <select>
+	                     <select name="bs_region">
 	                         <option>전국</option>
 	                         <option>서울</option>
 	                         <option>경기인천</option>
@@ -126,38 +126,38 @@
 	                     <br/>
 	
 	                     <span>장소</span>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_place" required><br/>
 	
 	                     <span>모집인원</span>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_goal_cnt" required><br/>
 	                     <hr>
 	
+						 <span>모집시작일</span>
+	                     <input type="date" name="bs_recruit_start" required><br/>
+	                     <hr>
 	                     <span>모집종료일</span>
-	                     <input type="date" name="#" required><br/>
+	                     <input type="date" name="bs_recruit_end" required><br/>
 	                     <hr>
 	                     <span>봉사시작 일시</span>
-	                     <input type="datetime-local" name="#" required><br/>
+	                     <input type="datetime-local" name="bs_work_start" required><br/>
 	                     <hr>
 	                     <span>봉사종료 일시</span>
-	                     <input type="datetime-local" name="#" required><br/>
+	                     <input type="datetime-local" name="bs_work_end" required><br/>
 	                     <hr>
 	                     <span>모집자(단체)</span><br/>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_name" required><br/>
 	                     
 	                     <span>모집자 연락처</span>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_phone" required><br/>
 	                     
 	                     <span>모집자 이메일</span>
-	                     <input type="text" name="#" required><br/>
+	                     <input type="text" name="bs_email" required><br/>
 	                     
-	                     <span>봉사 활동 소개 첨부파일  </span>
-	                     <button class="new-btn">첨부파일 등록하기</button><br/><br/>
-	
-	                     <span>첨부파일 목록</span>
-	                     <p></p>
-	                     <p>이미지1</p>
-	                     <p>이미지2</p>
-	                     <p>이미지3</p>
+						<span>타이틀 이미지</span><br />
+						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기"><br/><br/>
+
+						<span>내용 이미지</span><br />						
+						<input type="file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기"><br/>
 	
 	                     <br/><br/><br/><br/>
 	                     <div class="form-group recruite-btn">

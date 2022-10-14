@@ -21,7 +21,7 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public void insertBongsa(BongsaVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("BongsaDAO.insertBongsa",vo);
 		
 	}
 

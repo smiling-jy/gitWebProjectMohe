@@ -22,6 +22,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 	public void insertVolunteer(VolunteerVO vo) {
 		System.out.println("insertVolun 서비스 입구");
 		volunteerDao.insertVolunteer(vo);
+		volunteerDao.incSuccessCnt(vo);
 		System.out.println("insertVolun 서비스 출구");
 	}
 
@@ -47,6 +48,12 @@ public class VolunteerServiceImpl implements VolunteerService {
 	public List<VolunteerVO> getVolunteerList(HashMap map) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void incSuccessCnt(VolunteerVO vo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

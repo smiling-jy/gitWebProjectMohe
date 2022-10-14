@@ -46,10 +46,11 @@ public class UserInfoController {
 	     if (result != null) {
 	         // id와 pass 값이 일치해서 값이 돌아왔다면 로그인성공, session에 id를 올려줌
 	         System.out.println("[ " + result.getUser_email() + " ] 로그인 접속");
+	         System.out.println(result.getUser_no());
 	         session.setAttribute("user", result);
 	         session.setAttribute("sessionTime", new Date());
-	         session.setAttribute("userName", result.getUser_name());
-	         session.setAttribute("userId", result.getUser_email());
+	         session.setAttribute("user_no", result.getUser_no());
+	         session.setAttribute("user_email", result.getUser_email());
 	      }
 
 	      return result != null ? "true" : "false";
@@ -63,9 +64,6 @@ public class UserInfoController {
 		session.removeAttribute("userId");
 		return "redirect:/main.do";
 	}
-
-
-
-
 	
+
 }
