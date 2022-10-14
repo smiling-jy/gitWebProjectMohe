@@ -3,6 +3,8 @@ package com.project.mohe.service.impl;
 import java.util.HashMap;
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +20,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 
 	@Override
 	public void insertVolunteer(VolunteerVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("insertVolun 서비스 입구");
+		volunteerDao.insertVolunteer(vo);
+		System.out.println("insertVolun 서비스 출구");
 	}
 
 	@Override

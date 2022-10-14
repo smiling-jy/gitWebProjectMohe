@@ -23,5 +23,5 @@ public interface DonationService {
 	List<DonationVO> getDonationList();
 	
 	// 페이징 서비스를 위한 메소드
-	PagingVO getAllcnt();
+	PagingVO getAllcnt(PagingVO vo);
 }

@@ -76,5 +76,19 @@
 				<!-- /sidebar menu -->
 			</div>
 		</div>
+		
+		<!-- top navigation -->
+		<div class="top_nav">
+			<div class="nav_menu" style="margin-bottom: 0px;">
+				<nav class="nav navbar-nav">
+					<ul class=" navbar-right">
+						<li class="nav-item dropdown open" style="padding-left: 15px;">
+							<a href="adminLogout.do" > LOGOUT</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- /top navigation -->
 </body>
 </html>

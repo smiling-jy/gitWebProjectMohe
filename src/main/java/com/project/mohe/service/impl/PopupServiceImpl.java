@@ -42,13 +42,13 @@ public class PopupServiceImpl implements PopupService {
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
-		return popupDao.getPopupList(vo,map);
+	public List<PopupVO> getPopupList(PagingVO vo) {
+		return popupDao.getPopupList(vo);
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return popupDao.getAllcnt();
+	public PagingVO getAllcnt(PagingVO vo) {
+		return popupDao.getAllcnt(vo);
 	}
 
 	
