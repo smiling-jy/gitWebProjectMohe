@@ -73,6 +73,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<Funding_payVO> getAdFdDetail(UserInfoVO vo) {
 		return mybatis.selectList("AdminDAO.getAdFdDetail",vo);
 	}
+
+	// 회원 수정페이지
+	@Override
+	public void adUserUpdateInfo(UserInfoVO vo) {
+		mybatis.update("AdminDAO.adUserUpdateInfo",vo);
+	}
 	
 
 }

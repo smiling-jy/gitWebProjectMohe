@@ -34,9 +34,11 @@ public interface AdminDAO {
 		// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 		
 		// 봉사 상세페이지
-		public List<VolunteerVO> getAdBsDetail(UserInfoVO vo);
+		List<VolunteerVO> getAdBsDetail(UserInfoVO vo);
 
 		// 펀딩 상세페이지
-		public List<Funding_payVO> getAdFdDetail(UserInfoVO vo);
+		List<Funding_payVO> getAdFdDetail(UserInfoVO vo);
 		
+		// 회원 수정기능
+		void adUserUpdateInfo(UserInfoVO vo);
 }

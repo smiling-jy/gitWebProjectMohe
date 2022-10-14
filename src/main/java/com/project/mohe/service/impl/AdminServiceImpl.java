@@ -167,11 +167,12 @@ public class AdminServiceImpl implements AdminService {
 		
 		return vo;
 	}
-	// 회원 정보만 불러오는기능
+	// 회원 수정페이지에서 회원 정보만 불러오는기능
 	@Override
-	public UserInfoVO adUserUpdateInfo(UserInfoVO vo) {
+	public UserInfoVO getUserInfo(UserInfoVO vo) {
 		return userInfoDao.getUserInfo(vo);
 	};
+
 	// 펀딩 신청 수락,거부
 	@Override
 	public void judgFdUpdate(Funding_pjVO vo) {
@@ -206,5 +207,13 @@ public class AdminServiceImpl implements AdminService {
 		userInfoDao.updateOutDate(vo);
 		
 	}
+	
+	// 나중에 수정해야하는 애들 
+	
+	// 회원정보 수정기능
+	@Override
+	public void adUserUpdateInfo(UserInfoVO vo) {
+		adminDao.adUserUpdateInfo(vo);
+	};
 
 }
