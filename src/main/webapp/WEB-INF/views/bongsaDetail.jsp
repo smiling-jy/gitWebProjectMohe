@@ -130,37 +130,21 @@
 						</div>
 
 					</div>
-					<!-- 수정 : 사이드바 변경 -->
+					
+					
 					<!--Sidebar Side-->
 					<div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar" id="new-side">
-
-							<!-- Search -->
-							<!-- <div class="sidebar-widget search-box"> -->
-							<!-- <h3 class="sidebar-title">한마음 달리기</h3> -->
-							<!-- <form method="post" action="contact.html">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value="" placeholder="Search..." required>
-                                    <button type="submit"><span class="icon flaticon-search-1"></span></button>
-                                </div>
-                            </form> -->
-							<!-- </div> -->
-
 							<!-- Category Widget -->
 							<div class="sidebar-widget categories">
-								<!-- <h3 class="sidebar-title">Categories</h3>
-                            <div class="text">Lorem ipsum dolor sit amet consectur pisicelit sed do.</div> -->
-								<div class="widget-content">
-									<ul>
-										<li><span>주최 :<span class="bs-name">${bongsa.bs_name}</span></li>
-										<li><span>일시 :<span class="bs-work-start">${bongsa.re_bs_work_start}</span> ~ <br>
-											<span class="bs-work-end" style="margin-left: 50px;">${bongsa.re_bs_work_end}</span></span></li>
-										<li><span>장소 :<span class="bs-place">${bongsa.bs_place}</span></li>
-										<li><span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></li>
-										<li><span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></li>
-									</ul>
-								</div>
+										<span>주최 :<span class="bs-name">${bongsa.bs_name}</span></span><br>
+										<span>일시 :<span class="bs-work-start">${bongsa.re_bs_work_start}</span> ~ <br>
+										<span class="bs-work-end" style="margin-left: 50px;">${bongsa.re_bs_work_end}</span></span><br>
+										<span>장소 :<span class="bs-place">${bongsa.bs_place}</span></span><br>
+										<span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></span><br>
+										<span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></span><br>
 							</div>
+							<!-- 펀딩 찜하기 공유 영역 -->
 							<div>
 								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span
 									class="btn-title cs-btn">참여하기</span></a> 
@@ -186,7 +170,8 @@
 	<div class="scroll-to-top scroll-to-target" data-target="html">
 		<span class="flaticon-up-arrow"></span>
 	</div>
-
+	
+	
 	<script src="resources/js/jquery.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
