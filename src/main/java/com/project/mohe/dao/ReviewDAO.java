@@ -3,6 +3,7 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.ReviewVO;
 
 public interface ReviewDAO {
@@ -28,4 +29,7 @@ public interface ReviewDAO {
 	
 	// 배스트 리뷰 (조회수기준) 리스트
 	List<ReviewVO> getBestReview();
+	
+	//이전글 다음글 
+	ReviewVO movePage(ReviewVO vo);
 }

@@ -107,6 +107,24 @@
                         
                     	<div style="text-align:center;">
                     		<div>
+                    		<div>
+	                         <h5 style="color:grey;">[다음글]</h5>
+		                          <c:choose>
+		                    			<c:when test="${move.next!=9999}">
+				                             <a style="color:black;" href="getNotice.do?notice_no=${move.next}">
+				                             <h5>${move.next_title}</h5></a>
+				                            
+				                        </c:when>
+				                
+				                        <c:when test="${move.next==9999}">
+				                             <a style="color:grey; font-weight:bold;">다음글이 없습니다.</a>
+				                          </c:when>
+			                       </c:choose> 
+	                  		<br>
+	                        <hr style="border: solid 1px lightgrey; width: 50%; margin:auto;">
+	                          <br>
+	                       
+			                   <div>
                     		 <h5 style="color:grey;">[이전글]</h5>
 		                       <c:choose>
 	                    			<c:when test="${move.prev!=9999}">
@@ -119,22 +137,6 @@
 			                          </c:when>
 		                       </c:choose>
 		                     </div> 
-	                  		<br>
-	                        <hr style="border: solid 1px lightgrey; width: 50%; margin:auto;">
-	                          <br>
-	                        <div>
-	                         <h5 style="color:grey;">[다음글]</h5>
-		                          <c:choose>
-		                    			<c:when test="${move.next!=9999}">
-				                             <a style="color:black;" href="getNotice.do?notice_no=${move.next}">
-				                             <h5>${move.next_title}</h5></a>
-				                            
-				                        </c:when>
-				                
-				                        <c:when test="${move.next==9999}">
-				                             <a style="color:grey; font-weight:bold;">다음글이 없습니다.</a>
-				                          </c:when>
-			                       </c:choose>
 	                        </div> 
                        
                     <br><br>

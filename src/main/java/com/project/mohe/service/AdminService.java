@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -50,7 +51,16 @@ public interface AdminService {
 	List<UserInfoVO> adGetUserList(PagingVO vo);
 	
 	// 회원 상세 페이지
-	UserInfoVO adUserDetail(UserInfoVO vo);
+	UserInfoVO adUserDetail(UserInfoVO vo,Model model);
+	
+	// 회원 정보만 불러오는기능
+	UserInfoVO getUserInfo(UserInfoVO vo);
+	
+	// 회원 정보 수정기능
+	void adUserUpdateInfo(UserInfoVO vo);
+	
+	// 회원 사용불가 전환
+	void deleteUserInfo(UserInfoVO vo);
 	
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(PagingVO vo);
