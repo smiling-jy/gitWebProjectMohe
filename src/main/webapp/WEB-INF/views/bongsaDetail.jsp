@@ -153,8 +153,8 @@
 								<div class="widget-content">
 									<ul>
 										<li><span>주최 :<span class="bs-name">${bongsa.bs_name}</span></li>
-										<li><span>일시 :<span class="bs-work-start">${bongsa.bs_work_start}</span> ~ <br>
-											<span class="bs-work-end" style="margin-left: 50px;">${bongsa.bs_work_end}</span></span></li>
+										<li><span>일시 :<span class="bs-work-start">${bongsa.re_bs_work_start}</span> ~ <br>
+											<span class="bs-work-end" style="margin-left: 50px;">${bongsa.re_bs_work_end}</span></span></li>
 										<li><span>장소 :<span class="bs-place">${bongsa.bs_place}</span></li>
 										<li><span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></li>
 										<li><span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></li>

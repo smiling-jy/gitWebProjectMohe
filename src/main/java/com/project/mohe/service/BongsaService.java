@@ -24,4 +24,7 @@ public interface BongsaService {
 	
 	
 	BongsaVO getParticipateInfo(BongsaVO vo);
+	
+	
+	
 }
