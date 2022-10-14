@@ -42,7 +42,7 @@
 			<div class="auto-container">
 				<h1>소개</h1>
 				<ul class="bread-crumb clearfix">
-					<li><a href="infopage2.html">Info</a></li>
+					<li><a href="info2.do">Info</a></li>
 					<li class="active">The Creator</li>
 				</ul>
 			</div>

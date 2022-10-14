@@ -114,13 +114,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<BongsaVO> getBsList(PagingVO vo) {
-		return new ArrayList<BongsaVO>();// bongsaDao.getBongsaList(vo);
+	public List<BongsaVO> getAdBsList(PagingVO vo) {
+		return bongsaDao.getAdBsList(vo);
 	}
 
 	@Override
-	public List<BongsaVO> getBsApprovalList(PagingVO vo) {
-		return new ArrayList<BongsaVO>();// bongsaDao.getBsApprovalList(vo);
+	public List<BongsaVO> getAdBsApprovalList(PagingVO vo) {
+		return bongsaDao.getAdBsApprovalList(vo);
 	}
 
 	@Override

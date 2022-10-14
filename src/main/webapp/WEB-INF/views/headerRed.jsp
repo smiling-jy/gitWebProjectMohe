@@ -23,9 +23,7 @@
 						<div class="logo-box">
 							<div class="logo">
 								<a href="main.do" title="모해공지상세"><img style="top: 20px;"
-									src="resources/images/mohe_logo/main_logo.png" LoveUs - Charity
-									and Fundraising HTML
-									Template" title="LoveUs - Charity and Fundraising HTML Template"></a>
+									src="resources/images/mohe_logo/main_logo.png"></a>
 							</div>
 						</div>
 
@@ -83,7 +81,7 @@
 				<div class="auto-container clearfix">
 					<!--Logo-->
 					<div class="logo pull-left">
-						<a href="mainPage.html" title=""><img
+						<a href="main.do" title=""><img
 							src="resources/images/mohe_logo/logo_garo_color_small.png" alt=""
 							title=""></a>
 					</div>
@@ -108,7 +106,7 @@
 
 				<nav class="menu-box">
 					<div class="nav-logo">
-						<a href="mainPage.html"><img
+						<a href="main.do"><img
 							src="resources/images/mohe_logo/main_logo.png" alt="" title=""></a>
 					</div>
 					<div class="menu-outer">
