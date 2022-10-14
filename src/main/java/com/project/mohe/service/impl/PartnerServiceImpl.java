@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.PartnerDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.service.PartnerService;
 
@@ -43,6 +44,16 @@ public class PartnerServiceImpl implements PartnerService {
 	@Override
 	public List<PartnerVO> getPartnerList(HashMap map) {
 		return partnerDAO.getPartnerList(map);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return partnerDAO.getAllcnt(vo);
+	}
+
+	@Override
+	public List<PartnerVO> getAdPartnerList(PagingVO vo) {
+		return partnerDAO.getAdPartnerList(vo);
 	}
 
 }

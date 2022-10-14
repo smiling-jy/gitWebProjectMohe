@@ -30,10 +30,10 @@ public interface UserInfoDAO {
 		List<UserInfoVO> getUserInfoList(HashMap map);
 		
 		// 유저 페이징 리스트
-		List<UserInfoVO> getAdUserInfoList(PagingVO vo,HashMap map);
+		List<UserInfoVO> getAdUserInfoList(PagingVO vo);
 		
 		// 페이징을 위한 메소드
-		PagingVO getAllcnt(); 
+		PagingVO getAllcnt(PagingVO vo); 
 		
 		// 회원 탈퇴,정지 업데이트
 

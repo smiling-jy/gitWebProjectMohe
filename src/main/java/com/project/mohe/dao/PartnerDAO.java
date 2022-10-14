@@ -3,6 +3,7 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 
 public interface PartnerDAO {
@@ -21,4 +22,10 @@ public interface PartnerDAO {
 			
 		// 글 목록 조회
 		List<PartnerVO> getPartnerList(HashMap map);
+		
+		// 페이징을 위한 메소드
+		PagingVO getAllcnt(PagingVO vo);
+		
+		// 페이징 된 리스트 조회
+		List<PartnerVO> getAdPartnerList(PagingVO vo);
 }

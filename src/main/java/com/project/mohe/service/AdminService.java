@@ -3,8 +3,9 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -34,52 +35,55 @@ public interface AdminService {
 	AdminVO getAdmin(AdminVO vo);
 			
 	// 관리자 리스트
-	List<AdminVO> getAdminList(PagingVO vo,HashMap map);
+	List<AdminVO> getAdminList(PagingVO vo);
 	
 	// 관리자 페이징을 위한 행 조회
-	PagingVO getAllcnt();
+	PagingVO getAllcnt(PagingVO vo);
 
 	// 관리자 상세 리스트
 	AdminVO getAdminDetail(AdminVO vo);
 	
+	// 관리자 로그인 확인
+	AdminVO adminLogin(AdminVO vo);
+	
 	// 회원 목록 리스트
-	List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map);
+	List<UserInfoVO> adGetUserList(PagingVO vo);
 	
 	// 회원 상세 페이지
 	UserInfoVO adUserDetail(UserInfoVO vo);
 	
 	// 이벤트 리스트
-	List<EventVO> adGetEventList(HashMap map);
+	List<EventVO> adGetEventList(PagingVO vo);
 	
 	// 펀딩 리스트
-	List<Funding_pjVO> adGetFdList(HashMap map);
+	List<Funding_pjVO> adGetFdList(PagingVO vo);
 	
 	// 신청 펀딩 리스트
-	List<Funding_pjVO> getFdApprovalList(HashMap map);
+	List<Funding_pjVO> getFdApprovalList(PagingVO vo);
 	
 	// 펀딩 승인,비승인 업데이트
 	void judgFdUpdate(Funding_pjVO vo);
 	
 	// 봉사 리스트
-	List<BongsaVO> getBsList(HashMap map);
+	List<BongsaVO> getBsList(PagingVO vo);
 	
 	// 신청 봉사 리스트
-	List<BongsaVO> getBsApprovalList(HashMap map);
+	List<BongsaVO> getBsApprovalList(PagingVO vo);
 	
 	void judgBsUpdate(BongsaVO vo);
 	
 	// 파트너 리스트
-	List<PartnerVO> getPartnerList(HashMap map);
+	List<PartnerVO> getPartnerList(PagingVO vo);
 	
 	//리뷰 리스트
-	List<ReviewVO> getReviewList(HashMap map);
+	List<ReviewVO> getReviewList(PagingVO vo);
 	
 	//기부 리스트
-	List<DonationVO> getDonationList(PagingVO vo,HashMap map);
+	List<DonationVO> getDonationList(PagingVO vo);
 	
 	//공지 리스트
-	List<NoticeVO> getNoticeList(HashMap map);
+	List<NoticeVO> getNoticeList(PagingVO vo);
 	
 	//팝업 리스트
-	List<PopupVO> getPopupList(PagingVO vo,HashMap map);
+	List<PopupVO> getPopupList(PagingVO vo);
 }

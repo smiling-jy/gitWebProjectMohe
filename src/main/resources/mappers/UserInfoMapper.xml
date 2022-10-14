@@ -36,15 +36,31 @@
 		from userinfo
 		where user_no in(select user_no from
 			(select user_no,rownum AS rnum from
-				(select user_no from userinfo where user_outdate is null order by user_no desc))
+				(select user_no 
+				from userinfo 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%' and user_outdate is null 
+		  			</if>
+		  			<if test="stext == null">
+		  				user_outdate is null 
+		  			</if>
+  				</where>
+				order by user_no desc))
 			where 
 				<![CDATA[rnum >= #{firstRow}]]> and 
 				<![CDATA[rnum <= #{endRow})]]>
 		order by user_no desc
 	</select>
 	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
-	<select id="getAllcnt" resultType="page">
-		select count(user_no) as totalRecCount from userinfo where user_outdate is null
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(user_no) as totalRecCount 
+		from userinfo
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'
+  			</if>
+		</where>
 	</select>
 	<!-- 회원의 상세정보 조회 -->
 	<select id="getUserInfo" parameterType="userInfo"

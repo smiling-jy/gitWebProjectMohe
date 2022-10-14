@@ -54,13 +54,13 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
-	public List<UserInfoVO> getAdUserInfoList(PagingVO vo,HashMap map) {
+	public List<UserInfoVO> getAdUserInfoList(PagingVO vo) {
 		return mybatis.selectList("UserInfoDAO.getAdUserList",vo);
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return mybatis.selectOne("UserInfoDAO.getAllcnt");
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("UserInfoDAO.getAllcnt",vo);
 	}
 
 }
