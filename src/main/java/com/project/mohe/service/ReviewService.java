@@ -21,4 +21,7 @@ public interface ReviewService {
 		
 	// 글 목록 조회
 	List<ReviewVO> getReviewList();
+	
+	//이전글 다음글
+	ReviewVO movePage(ReviewVO vo);
 }

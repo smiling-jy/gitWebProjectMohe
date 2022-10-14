@@ -24,14 +24,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public void updateReview(ReviewVO vo) {
-		System.out.println("=====>>>> DAO updateReview");
 		mybatis.update("ReviewDAO.updateReview", vo);
 		
 	} 
 
 	@Override
 	public void deleteReview(ReviewVO vo) {
-		System.out.println("=====>>>> DAO deleteReview");
 		mybatis.delete("ReviewDAO.deleteReview",vo);
 		
 	}
@@ -44,12 +42,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
+		System.out.println("==============>리뷰 읽기 DAO");
 		return mybatis.selectOne("ReviewDAO.getReview", vo);
 	}
 
 	@Override
 	public List<ReviewVO> getReviewList() {
-		System.out.println("========>리뷰리스트 DAOimpl");
 		return mybatis.selectList("ReviewDAO.getReivewList");
 	}
 	// 배스트 리뷰 리스트
@@ -58,6 +56,15 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return mybatis.selectList("ReviewDAO.getBestReview");
 	}
 
+	//이전글다음글
+	@Override
+	public ReviewVO movePage(ReviewVO vo) {
+		System.out.println("==============>리뷰 이전글다음글 DAO");
+		return mybatis.selectOne("ReviewDAO.movePageReview", vo);
+	}
+
+	
+	
 	
 
 }

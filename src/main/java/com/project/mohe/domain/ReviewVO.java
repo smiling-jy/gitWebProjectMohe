@@ -1,6 +1,10 @@
 package com.project.mohe.domain;
 
+import java.io.IOException;
 import java.util.Date;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -16,4 +20,25 @@ public class ReviewVO {
 	private String user_name;
 	private int review_readcnt;
 	
+	//이전글 다음글을 위한 추가 변수
+	private int next;
+	private int prev;
+	private String next_title;
+	private String prev_title;
+	
+	
+	//파일첨부
+	
+	private String fName; 
+	private String fileExtension;
+	private long fsize;
+	
+	MultipartFile file; //리뷰작성폼jsp에서 name="file"과 동일한 변수명 
+	
+	
+		
 }
+
+
+	
+

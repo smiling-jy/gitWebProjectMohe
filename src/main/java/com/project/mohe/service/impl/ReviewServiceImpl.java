@@ -18,28 +18,28 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void insertReview(ReviewVO vo) {
-		System.out.println("=============>insert서비스");
+		
 		reviewDAO.insertReview(vo);
 		
 	}
 
 	@Override
 	public void updateReview(ReviewVO vo) {
-		System.out.println("=============>업데이트 서비스");
+		
 		reviewDAO.updateReview(vo);
 		
 	} 
 
 	@Override
 	public void deleteReview(ReviewVO vo) {
-		System.out.println("=============>딜리트 서비스");
+	
 		reviewDAO.deleteReview(vo);
 		
 	}
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		
+		System.out.println("==============>리뷰 읽기 service Impl");
 		return reviewDAO.getReview(vo);
 	}
 
@@ -49,4 +49,11 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDAO.getReviewList();
 	}
 
+	@Override
+	public ReviewVO movePage(ReviewVO vo) {
+		System.out.println("==============>리뷰 이전글다음글 service Impl");
+		return reviewDAO.movePage(vo);
+	}
+
+	
 }
