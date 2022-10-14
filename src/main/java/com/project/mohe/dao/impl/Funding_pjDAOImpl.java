@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.Funding_pjDAO;
-import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.PagingVO;
 
 
 @Repository("funding_pjDAO")
@@ -50,10 +50,25 @@ public class Funding_pjDAOImpl implements Funding_pjDAO {
 		return mybatis.selectList("Funding_pjDAO.getFunding_pjList", map);
 	}
 
-	// 펀딩 승인 안된 리스트 
+	// 페이징펀딩 승인된 리스트 
 	@Override
-	public List<Funding_pjVO> getFdApprovalList(HashMap map) {
-		return mybatis.selectList("Funding_pjDAO.getFdApprovalList");
+	public List<Funding_pjVO> getAdFunding_pjList(PagingVO vo) {
+		return mybatis.selectList("Funding_pjDAO.getAdFunding_pjList",vo);
+	}
+	// 페이징펀딩 승인 안된 리스트 
+	@Override
+	public List<Funding_pjVO> getFdApprovalList(PagingVO vo) {
+		return mybatis.selectList("Funding_pjDAO.getFdApprovalList",vo);
+	}
+	// 승인펀딩 페이징에 필요한 메소드
+	@Override
+	public PagingVO getAllcntOk(PagingVO vo) {
+		return mybatis.selectOne("Funding_pjDAO.getAllcntOk",vo);
+	}
+	// 미승인펀딩 페이징에 필요한 메소드
+	@Override
+	public PagingVO getAllcntNo(PagingVO vo) {
+		return mybatis.selectOne("Funding_pjDAO.getAllcntNo",vo);
 	}
 	
 	// 펀딩 승인 업데이트

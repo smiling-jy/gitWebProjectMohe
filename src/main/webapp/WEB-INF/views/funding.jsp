@@ -45,7 +45,7 @@
 					<ul class="bread-crumb clearfix new-font boder">
 						<li><a href="funding.do">전체</a></li>
 						<li><a href="funding.do?fd_category=디자인문구"><img src="resources/images/fd-category/identification.png"><span>문구</span></a></li>
-						<li><a href="funding.do?fd_category=삭퓸"><img src="resources/images/fd-category/sandwich.png"><span>식품</span></a></li>
+						<li><a href="funding.do?fd_category=식품"><img src="resources/images/fd-category/sandwich.png"><span>식품</span></a></li>
 						<li><a href="funding.do?fd_category=패션잡화"><img src="resources/images/fd-category/clothes.png"><span>패션잡화</span></a></li>
 						<li><a href="funding.do?fd_category=홈리빙"><img src="resources/images/fd-category/tent.png"><span>홈 리빙</span> </a></li>
 						<li><a href="funding.do?fd_category=반려동물"><img src="resources/images/fd-category/animal.png"><span>반려동물</span></a></li>
@@ -83,9 +83,9 @@
 									<figure class="image">
 										<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img
 											class="lazy-image img-size"
-											src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
-											data-src="resources/attached_file/funding/${pj.fd_no}/title_img.png"
-											alt=""></a>
+											src="resources/files/funding/${pj.fd_img_name}/title.png"
+											data-src="resources/files/funding/${pj.fd_img_name}/title.png"
+											alt="타이틀 이미지"></a>
 									</figure>
 								</div>
 								<div class="lower-content new-font">

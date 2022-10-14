@@ -81,6 +81,19 @@ img.img-size{
 
 /* 펀딩페이지 상세 */
 
+
+/*후원 멘트*/
+
+div.lower-content p.contentp{
+	text-align: center;
+	font-size: 30px;
+	
+}
+
+div.lower-content p strong{
+	color: rgb(112,191,187);
+}
+
 /* 펀딩하기, 찜, 공유 */
 #funding-div .btn-title{
     padding: 11px 35px;
@@ -243,6 +256,15 @@ img.img-size{
 
 /* 주최자 마이페이지 - 펀딩  */
 
+div.new-inner-box{
+	width: 220px;
+	height: 300px;
+}
+
+div.new-inner-box div.new-con-box{
+	margin-top: 20px;
+}
+
 /* 주최자 마이페이지 프로젝트 제목 컬러 */
 h5 a.black-font{
     color: black;
@@ -297,7 +319,8 @@ div.answer span{
 
 .a-btn{
 	position: absolute;
-	right: 10%;
+	right: 25px;
+	bottom: 5px;
 	/* background-color: rgb(230, 223, 223); */
     color: gray;
     border-radius: 5px;

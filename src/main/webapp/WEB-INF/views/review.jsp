@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +82,7 @@
 								<figure class="image">
 									<a href="event-single.html"><img class="lazy-image"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/review01.png" alt=""></a>
+										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"></a>
 								</figure>
 								<div class="date">
 									25 <span class="month">Aug</span>
@@ -92,12 +93,11 @@
 									<a href="getReview.do?review_no=${review.review_no}"> ${review.review_title} </a>
 								</h3>
 								<ul class="info clearfix">
-									<li><span class="icon far fa-clock">${review.user_name}</span></li>
-									<li><span class="icon fa fa-map-marker-alt"></span> 천안
-										포해피니스</li>
+									<li><span class="icon fa fa-user"></span>${review.user_name}</li>
+									<li><span class="icon far fa-clock"></span>${review.review_date} </li>
 								</ul>
 								<div class="link-box">
-									<a href="event-single.html" class="theme-btn btn-style-two"><span
+									<a href="getReview.do?review_no=${review.review_no}" class="theme-btn btn-style-two"><span
 										class="btn-title">더보기</span></a>
 								</div>
 							</div>
