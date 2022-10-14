@@ -31,25 +31,12 @@
 	text-align: center;
 }
 
-#new-serch-box{
-	text-align: center;
-}
+
 
 #new-banner{
 	padding: 80px;
 }
 
-#new-search-box{
-	border-radius: 3px;
-	border: solid 1px lightgrey;
-	width: 200px;
-	margin-left:750px;
-	margin-bottom: 30px;
-}
-
-/* table, tr, td {
-	border: solid 1px black;
-} */
 
 table{
 	margin-left: 100px;
@@ -132,5 +119,6 @@ table{
 .table-gap{
 	height:27px;
 }
+
 
 

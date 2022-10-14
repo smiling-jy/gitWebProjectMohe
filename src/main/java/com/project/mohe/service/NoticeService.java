@@ -21,7 +21,7 @@ public interface NoticeService {
 		NoticeVO getNotice(NoticeVO vo);
 		
 		// 글 목록 조회
-		List<NoticeVO> getNoticeList(HashMap map);
+		List<NoticeVO> getNoticeList(PagingVO vo);
 		
 		//이전글 다음글
 		NoticeVO movePage(NoticeVO vo);
@@ -31,5 +31,7 @@ public interface NoticeService {
 		
 		// 페이징 된 리스트 조회
 		List<NoticeVO> getAdNoticeList(PagingVO vo);
+		
+		
 }
  

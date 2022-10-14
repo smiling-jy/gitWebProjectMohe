@@ -48,7 +48,7 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 
 	@Override
-	public List<NoticeVO> getNoticeList(HashMap map) {
+	public List<NoticeVO> getNoticeList(PagingVO vo) {
 		
 		return mybatis.selectList("NoticeDAO.getNoticeList");
 	}
