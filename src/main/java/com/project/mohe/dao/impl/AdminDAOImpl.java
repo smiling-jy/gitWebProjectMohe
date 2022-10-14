@@ -1,6 +1,5 @@
 package com.project.mohe.dao.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -9,7 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.VolunteerVO;
 
 
 @Repository("adminDAO")
@@ -57,5 +59,26 @@ public class AdminDAOImpl implements AdminDAO {
 	public AdminVO adminLogin(AdminVO vo) {
 		return mybatis.selectOne("AdminDAO.adminLogin",vo);
 	}
+	
+	// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
+	
+	// 봉사 상세페이지
+	@Override
+	public List<VolunteerVO> getAdBsDetail(UserInfoVO vo) {
+		return mybatis.selectList("AdminDAO.getAdBsDetail",vo);
+	}
+	
+	// 펀딩 상세페이지
+	@Override
+	public List<Funding_payVO> getAdFdDetail(UserInfoVO vo) {
+		return mybatis.selectList("AdminDAO.getAdFdDetail",vo);
+	}
+
+	// 회원 수정페이지
+	@Override
+	public void adUserUpdateInfo(UserInfoVO vo) {
+		mybatis.update("AdminDAO.adUserUpdateInfo",vo);
+	}
+	
 
 }

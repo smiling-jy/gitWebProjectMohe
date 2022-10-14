@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.Funding_pjService;
 
 @Service("Funding_pjService")
@@ -54,6 +55,15 @@ public class Funding_pjServiceImpl implements Funding_pjService {
 	@Override
 	public List<Funding_pjVO> getOngoing_pjlist(HashMap map) {
 		return funding_pjDAO.getOngoing_pjlist(map);
+	}
+
+	@Override
+	public PagingVO getAllcntOk(PagingVO vo) {
+		return funding_pjDAO.getAllcntOk(vo);
+	}
+	@Override
+	public PagingVO getAllcntNo(PagingVO vo) {
+		return funding_pjDAO.getAllcntNo(vo);
 	}
 	
 

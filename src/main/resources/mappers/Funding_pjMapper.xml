@@ -51,29 +51,76 @@
   		
   	</select>
   	
-  	<!-- 페이징 리스트 조회 -->
+  	<!-- 페이징펀딩 통과 리스트 조회 -->
   	<select id="getAdFunding_pjList" parameterType="page" resultType="funding_pj">
 		select *
 		from funding_pj
 		where fd_no in(select fd_no from
 			(select fd_no,rownum AS rnum from
-				(select fd_no from funding_pj order by fd_no desc))
+				(select fd_no 
+				from funding_pj 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%' and fd_status not in ('대기중','불가함')
+		  			</if>
+		  			<if test="stext == null">
+		  				fd_status not in ('대기중','불가함')
+		  			</if>
+  				</where>
+				order by fd_no desc))
 			where 
 				<![CDATA[rnum >= #{firstRow}]]> and 
 				<![CDATA[rnum <= #{endRow})]]>
 		order by fd_no desc
 	</select>
-	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
-	<select id="getAllcnt" resultType="page">
-		select count(fd_no) as totalRecCount from funding_pj
-	</select>
   	<!-- 승인 안된 펀딩 리스트 조회 -->
-  	<select id="getFdApprovalList" resultType="funding_pj">
-  		select *
-  		from funding_pj
-  		where fd_status = '대기중'
-  		order by fd_no desc
+  	<select id="getFdApprovalList" parameterType="page" resultType="funding_pj">
+		select *
+		from funding_pj
+		where fd_no in(select fd_no from
+			(select fd_no,rownum AS rnum from
+				(select fd_no 
+				from funding_pj 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%' and fd_status in ('대기중','불가함')
+		  			</if>
+		  			<if test="stext == null">
+		  				 fd_status in ('대기중','불가함')
+		  			</if>
+  				</where>
+				order by fd_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by fd_no desc
   	</select>
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcntOk" parameterType="page" resultType="page">
+		select count(fd_no) as totalRecCount 
+		from funding_pj
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'and fd_status not in ('대기중','불가함')
+  			</if>
+  			<if test="stext == null">
+  				fd_status not in ('대기중','불가함')
+  			</if>
+		</where>
+	</select>
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcntNo" parameterType="page" resultType="page">
+		select count(fd_no) as totalRecCount 
+		from funding_pj
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'and fd_status in ('대기중','불가함')
+  			</if>
+  			<if test="stext == null">
+  				fd_status in ('대기중','불가함')
+  			</if>
+		</where>
+	</select>
   	
   	<!-- 상세페이지 -->
   	<select id="getFunding_pj" parameterType="funding_pj" resultType="funding_pj">

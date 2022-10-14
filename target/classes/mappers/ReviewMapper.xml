@@ -6,12 +6,14 @@
 <mapper namespace="ReviewDAO">
 	<!-- 리뷰입력 -->
 	<insert id="insertReview" parameterType="review">
+		<selectKey keyProperty="review_no" order="AFTER" resultType="int">
+			SELECT REVIEW_REVIEW_NO_SEQ.currval REVIEW_NO from dual
+		</selectKey>
 		INSERT INTO REVIEW
 		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT, REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
-		USER_NAME, REVIEW_READ_CNT, USER_NO)
-		VALUES
-		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'테스트img',#{review_text},
-		SYSDATE, #{user_name},0,1)
+		USER_NAME, REVIEW_READ_CNT, USER_NO
+		)VALUES
+		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'review_img',#{review_text},SYSDATE, #{user_name},0,2)
 	</insert>
 	<!-- 리뷰 목록 -->
 	<select id="getReivewList" resultType="review">
@@ -25,6 +27,19 @@
 		FROM REVIEW
 		WHERE review_no=#{review_no}
 
+	</select>
+	<!-- 본문에서 이전글 다음글 -->
+	<select id="movePageReview" parameterType="review" resultType="review">
+		select * from (SELECT REVIEW_NO,
+		                LEAD(REVIEW_NO,1,9999) OVER(ORDER BY REVIEW_NO) AS next,
+		                LAG(REVIEW_NO,1,9999) OVER(ORDER BY REVIEW_NO) AS prev,
+		                REVIEW_TITLE,
+		                LEAD(REVIEW_TITLE,1,9999) OVER(ORDER BY REVIEW_NO) AS next_title,
+		                LAG(REVIEW_TITLE,1,9999) OVER(ORDER BY REVIEW_NO) AS prev_title
+		                
+		                FROM  REVIEW
+		                ORDER BY REVIEW_NO DESC)
+                  where review_no=#{review_no}
 	</select>
 	<!-- 리뷰 수정 -->
 	<update id="updateReview" parameterType="review">
