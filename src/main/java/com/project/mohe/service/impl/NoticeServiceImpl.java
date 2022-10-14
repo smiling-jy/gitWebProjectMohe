@@ -37,19 +37,18 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public NoticeVO getNotice(NoticeVO vo) {
-		System.out.println("=========>>공지사항 getNotice 서비스");
 		return noticeDAO.getNotice(vo);
 	}
 
 	@Override
-	public List<NoticeVO> getNoticeList(HashMap map) {
+	public List<NoticeVO> getNoticeList(PagingVO vo) {
 		  
-	      return noticeDAO.getNoticeList(map);
+	      return noticeDAO.getNoticeList(vo);
 	}
 
 	@Override
 	public NoticeVO movePage(NoticeVO vo) {
-		System.out.println("==============movePage serviceimpl");
+		
 		return noticeDAO.movePage(vo);
 	}
 

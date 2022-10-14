@@ -62,11 +62,19 @@
 						<!--Title Column-->
 
 						<!--공지사항 게시판!! 더보기 형식이 아닌 제목 클릭시 본문 페이지로 이동~~-->
-						<div class="content-column col-lg-8 col-md-10 col-sm-10" id="notice-content">
-							<div id="new-search-box">
-								<input type="search" name="search-field" value=""
-									placeholder="검색" required>
-							</div>
+				<div class="content-column col-lg-8 col-md-10 col-sm-10" id="notice-content">
+						<!-- 검색창 -->
+						<div id="notice-search-box">
+							<form name="search" action="notice.do" method="post">
+									<select name="select">
+										<option value="notice_title">제목</option>
+										<option value="notice_text">내용</option>
+									</select>
+								<input type="search" name="stext" value="${page.stext}" placeholder="검색" required>
+								<button type="submit"><span class="icon flaticon-search-1"></span></button>
+							</form>
+						</div>
+								
 							<!-- 게시글 시작 -->
 							<c:forEach items="${noticeList}" var="notice">
 								<div>							
@@ -86,17 +94,57 @@
 										<hr style="border: solid 1px lightgrey;">
 										 </div><!--class="inner" 끝-->	
 										</c:forEach>	
-										
-										<br>
-										<h5 style="text-align: center">◀ [1] [2] [3] [4] [5] ▶</h5>
-										<br>
-									
-									 
-									</div>
-								</div>
-							</div>
-				
-				</section>
+						<!-- 페이징 시작 -->
+						<div id="paging" style="text-align:center;">
+							<c:choose>
+								<c:when test="${page.groupNo-1 > 0 }">
+									<c:choose>
+										<c:when test="${page.stext ne null}">	
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}&&select=${page.select}&&stext=${page.stext}" > ◀ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}" > ◀ </a>
+										</c:otherwise>
+									</c:choose>
+								</c:when>
+								<c:otherwise>
+									<span class="notice-paging"> ◀  </span>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${page.stext ne null}">
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}&&select=${page.select}&&stext=${page.stext}">${i}</a>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+										<a href="?pageNum=${i}&&groupNo=${page.groupNo}" style="font-size:20px;">[${i}]</a>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${page.endPageNo < page.pageTotalCount }">
+									<c:choose>
+										<c:when test="${page.stext ne null}">
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}&&select=${page.select}&&stext=${page.stext}" > ▶ </a>
+										</c:when>
+										<c:otherwise>
+											<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}" > ▶ </a>
+										</c:otherwise>
+									</c:choose>
+								</c:when>
+								<c:otherwise>
+									<span> ▶ </span>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<!-- 페이징 끝 -->
+					</div>
+				</div>
+			</div>
+					
+	</section>
 
 
 		<!-- footer include -->
