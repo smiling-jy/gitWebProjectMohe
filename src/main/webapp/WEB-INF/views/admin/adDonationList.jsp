@@ -43,7 +43,7 @@
 		<jsp:include page="adSideMenu.jsp" />
 
 		<!-- 컨텐츠 section -->
-		<div class="col-md-push-9 right_col content_right" role="main">
+		<div class="col-md-push-9 right_col content_right" role="main" style="min-height: 1400px;">
 			<div class="">
 				<div class="page-title">
 					<!-- 변경 div 시작 -->

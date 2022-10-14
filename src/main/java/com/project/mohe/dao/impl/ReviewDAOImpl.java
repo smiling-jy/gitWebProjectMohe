@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.ReviewDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.ReviewVO;
 
 @Repository("reviewDAO")
@@ -48,7 +49,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public List<ReviewVO> getReviewList() {
-		return mybatis.selectList("ReviewDAO.getReivewList");
+		return mybatis.selectList("ReviewDAO.getReviewList");
 	}
 	// 배스트 리뷰 리스트
 	@Override
@@ -61,6 +62,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 	public ReviewVO movePage(ReviewVO vo) {
 		System.out.println("==============>리뷰 이전글다음글 DAO");
 		return mybatis.selectOne("ReviewDAO.movePageReview", vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("ReviewDAO.getAllcnt",vo);
+	}
+
+	@Override
+	public List<ReviewVO> getAdReviewList(PagingVO vo) {
+		return mybatis.selectList("ReviewDAO.getAdReviewList",vo);
 	}
 
 	

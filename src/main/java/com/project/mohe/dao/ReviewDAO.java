@@ -1,9 +1,8 @@
 package com.project.mohe.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
-import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.ReviewVO;
 
 public interface ReviewDAO {
@@ -32,4 +31,10 @@ public interface ReviewDAO {
 	
 	//이전글 다음글 
 	ReviewVO movePage(ReviewVO vo);
+	
+	//페이징 조회
+	PagingVO getAllcnt(PagingVO vo);
+	
+	//페이징 리스트
+	List<ReviewVO> getAdReviewList(PagingVO vo);
 }
