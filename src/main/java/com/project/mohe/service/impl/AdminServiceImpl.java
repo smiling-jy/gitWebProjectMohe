@@ -130,7 +130,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<ReviewVO> getReviewList(PagingVO vo) {
-		return null;//reviewDao.getReviewList(vo);
+		return reviewDao.getAdReviewList(vo);
 	}
 
 	@Override

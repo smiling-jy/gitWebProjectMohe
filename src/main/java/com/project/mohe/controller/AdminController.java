@@ -250,6 +250,13 @@ public class AdminController {
 	public String getReviewList(PagingVO vo,Model model,HttpSession session) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(reviewService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		model.addAttribute("page",vo);
+		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("review",adminService.getReviewList(vo)); 
 		return "/admin/adReviewList";
 	}
