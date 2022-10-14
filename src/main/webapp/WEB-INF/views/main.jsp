@@ -90,9 +90,10 @@
 	font-weight: bold;
 }
 .rating{
-	position:relative;
-	top:-270px;
-	left:20px;
+	position:absolute;
+	z-index:5;
+ 	top:10px; 
+ 	left:20px; 
 	width:100px;
 }
 </style>
@@ -192,7 +193,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="fundingSingle.do?fd_no=${bestFd.fd_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/funding/${bestFd.fd_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
