@@ -10,12 +10,14 @@ import com.project.mohe.dao.DonationDAO;
 import com.project.mohe.dao.EventDAO;
 import com.project.mohe.dao.Funding_pjDAO;
 import com.project.mohe.dao.PartnerDAO;
+import com.project.mohe.dao.PopupDAO;
 import com.project.mohe.dao.ReviewDAO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.service.MainService;
 
@@ -34,6 +36,8 @@ public class MainServiceImpl implements MainService{
 	private Funding_pjDAO funding_pjDao;
 	@Autowired
 	private EventDAO eventDao;
+	@Autowired
+	private PopupDAO popupDao;
 
 	@Override
 	public List<Funding_pjVO> getFdList() {
@@ -63,6 +67,11 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public List<EventVO> getEventList() {
 		return eventDao.getEventList(null);
+	}
+
+	@Override
+	public PopupVO getMainPopup() {
+		return popupDao.getMainPopup();
 	}
 
 }

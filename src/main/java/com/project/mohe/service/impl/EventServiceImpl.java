@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.EventDAO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.EventService;
 
 @Service("eventService")
@@ -44,6 +45,16 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<EventVO> getEventList(HashMap map) {
 		return eventDAO.getEventList(map);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return eventDAO.getAllcnt(vo);
+	}
+
+	@Override
+	public List<EventVO> getAdEventList(PagingVO vo) {
+		return eventDAO.getAdEventList(vo);
 	}
 
 }

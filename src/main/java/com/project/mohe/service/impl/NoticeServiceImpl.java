@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.NoticeDAO;
 import com.project.mohe.domain.NoticeVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.NoticeService;
 
 @Service("noticeService")
@@ -44,6 +45,22 @@ public class NoticeServiceImpl implements NoticeService{
 	public List<NoticeVO> getNoticeList(HashMap map) {
 		  
 	      return noticeDAO.getNoticeList(map);
+	}
+
+	@Override
+	public NoticeVO movePage(NoticeVO vo) {
+		System.out.println("==============movePage serviceimpl");
+		return noticeDAO.movePage(vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return noticeDAO.getAllcnt(vo);
+	}
+
+	@Override
+	public List<NoticeVO> getAdNoticeList(PagingVO vo) {
+		return noticeDAO.getAdNoticeList(vo);
 	}
 	
 	

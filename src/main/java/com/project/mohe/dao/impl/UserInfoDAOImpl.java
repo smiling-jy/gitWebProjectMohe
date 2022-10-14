@@ -6,8 +6,10 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.project.mohe.dao.UserInfoDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 
 
@@ -49,6 +51,16 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	@Override
 	public void updateOutDate(UserInfoVO vo) {
 		mybatis.delete("UserInfoDAO.updateOutDate",vo);
+	}
+
+	@Override
+	public List<UserInfoVO> getAdUserInfoList(PagingVO vo) {
+		return mybatis.selectList("UserInfoDAO.getAdUserList",vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("UserInfoDAO.getAllcnt",vo);
 	}
 
 }

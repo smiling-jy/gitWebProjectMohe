@@ -39,6 +39,7 @@ public class MainController {
 		model.addAttribute("deadlineBs",mainService.getBsList());
 		model.addAttribute("bestReview",mainService.getReviewList());
 		model.addAttribute("eventList",mainService.getEventList());
+		model.addAttribute("popup",mainService.getMainPopup());
 	}
 
 }

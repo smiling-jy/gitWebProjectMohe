@@ -2,21 +2,40 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="PopupDAO">
+
+<mapper namespace="PopupDAO">
+	<!-- 팝업 정보 리스트 조회 -->
 	<select id="getPopupList" parameterType="page" resultType="popup">
 		select *
 		from popup
 		where pop_no in(select pop_no from
 			(select pop_no,rownum AS rnum from
-				(select pop_no from popup order by pop_no desc))
+				(select pop_no 
+				from popup 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%'
+		  			</if>
+  				</where>
+				order by pop_no desc))
 			where 
 				<![CDATA[rnum >= #{firstRow}]]> and 
 				<![CDATA[rnum <= #{endRow})]]>
 		order by pop_no desc
 	</select>
 	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
-	<select id="getAllcnt" resultType="page">
-		select count(pop_no) as totalRecCount from popup
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(pop_no) as totalRecCount 
+		from popup
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'
+  			</if>
+		</where>
 	</select>
-  </mapper>
+	<select id="getMainPopup" resultType="popup">
+		select *
+		from popup
+		where <![CDATA[pop_end_date > sysdate]]> and pop_use = 'true'
+	</select>
+</mapper>

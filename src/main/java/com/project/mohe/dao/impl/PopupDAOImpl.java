@@ -1,6 +1,5 @@
 package com.project.mohe.dao.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -43,13 +42,18 @@ public class PopupDAOImpl implements PopupDAO {
 	}
 
 	@Override
-	public List<PopupVO> getPopupList(PagingVO vo,HashMap map) {
+	public List<PopupVO> getPopupList(PagingVO vo) {
 		return mybatis.selectList("PopupDAO.getPopupList",vo);
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return mybatis.selectOne("PopupDAO.getAllcnt");
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("PopupDAO.getAllcnt",vo);
+	}
+
+	@Override
+	public PopupVO getMainPopup() {
+		return mybatis.selectOne("PopupDAO.getMainPopup");
 	}
 
 

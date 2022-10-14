@@ -45,7 +45,6 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public List<BongsaVO> getBongsaList(HashMap map) {
-		System.out.println("dao진입");
 		System.out.println("조건 : " + map.get("searchCondition"));// 키인 searchCondition로 value 받기  
 		System.out.println("키워드 : " + map.get("searchKeyword"));
 		System.out.println("지역 : " + map.get("bs_region"));
@@ -77,5 +76,12 @@ public class BongsaDAOImpl implements BongsaDAO {
 	}
 
 	
+	//참여하기 페이지
+	@Override
+	public BongsaVO getParticipateInfo(BongsaVO vo) {
+	
+		return mybatis.selectOne("BongsaDAO.getParticipateInfo",vo);
+	}
+
 
 }

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.BongsaVO;
-import com.project.mohe.domain.Funding_pjVO;
 
 public interface BongsaDAO {
 	// CRUD 기능 구현
@@ -34,5 +33,9 @@ public interface BongsaDAO {
 		
 		// 봉사 비승인 업데이트
 		void noBsUpdate(BongsaVO vo);
+		
+		// 참여하기 페이지 
+		BongsaVO getParticipateInfo(BongsaVO vo);
+		
 		
 }

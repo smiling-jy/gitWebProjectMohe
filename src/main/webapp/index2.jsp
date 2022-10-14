@@ -12,6 +12,7 @@
 	<a href="review.do">리뷰로 가기</a>
 	<a href="partner.do">파트너로 가기</a>
 	<a href="event.do">이벤트 가기</a>
+	<a href="faq.do">문의사항 가기</a>
 	
 </body>
 </html>
