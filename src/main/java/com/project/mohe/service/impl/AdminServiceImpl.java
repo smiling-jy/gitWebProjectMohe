@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.dao.BongsaDAO;
@@ -154,9 +155,23 @@ public class AdminServiceImpl implements AdminService {
 
 	// 유저 상세페이지
 	@Override
-	public UserInfoVO adUserDetail(UserInfoVO vo) {
-		return userInfoDao.getUserInfo(vo);
+	public UserInfoVO adUserDetail(UserInfoVO vo,Model model) {
+		// 유저 정보 가져오기
+		vo = userInfoDao.getUserInfo(vo);
+		
+		// 유저의 참여 봉사리스트 가져와서 model에 저장하기 : 나중에 봉사로 연결
+		model.addAttribute("userBsList",adminDao.getAdBsDetail(vo));
+		
+		// 유저의 참여 펀딩리스트 가져와서 model에 저장하기 : 나중에 봉사로 연결
+		model.addAttribute("userFdList",adminDao.getAdFdDetail(vo));
+		
+		return vo;
 	}
+	// 회원 정보만 불러오는기능
+	@Override
+	public UserInfoVO adUserUpdateInfo(UserInfoVO vo) {
+		return userInfoDao.getUserInfo(vo);
+	};
 	// 펀딩 신청 수락,거부
 	@Override
 	public void judgFdUpdate(Funding_pjVO vo) {
@@ -183,6 +198,13 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public AdminVO adminLogin(AdminVO vo) {
 		return adminDao.adminLogin(vo);
+	}
+
+	// 회원 사용불가 전환
+	@Override
+	public void deleteUserInfo(UserInfoVO vo) {
+		userInfoDao.updateOutDate(vo);
+		
 	}
 
 }

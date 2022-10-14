@@ -122,8 +122,35 @@ public class AdminController {
 	public String adUserDetail(Model model,UserInfoVO vo,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";	
-		model.addAttribute("userDetail",adminService.adUserDetail(vo));
+		// 유저의 정보와, 해당유저와 관련된 봉사,펀딩 정보도 함께 model에 저장해서 불러온다
+		model.addAttribute("userDetail",adminService.adUserDetail(vo,model));
 		return "/admin/adUserDetail";
+	}
+	// 회원 사용불가 전환하기
+	@RequestMapping("userEnd.do")
+	public String deleteUserInfo(UserInfoVO vo,HttpServletRequest request) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 회원탈퇴 날짜가 시스데이트로 업데이트됨
+		adminService.deleteUserInfo(vo);
+		return "redirect:/admin/adUserList.do";
+	}
+	// 회원 정보 수정페이지로 이동하기
+	@RequestMapping("adUserUpdateInfo.do")
+	public String adUserUpdateInfo(Model model,UserInfoVO vo,HttpServletRequest request) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 유저 데이터를 가져옴
+		model.addAttribute("userDetail",adminService.adUserUpdateInfo(vo));
+		return "/admin/adUserUpdateInfo";
+	}
+	// 회원 정보 수정하기
+	@RequestMapping("adUserUpdate.do")
+	public String adUserUpdate(UserInfoVO vo,HttpServletRequest request) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 
+		return null;
 	}
 	// 이벤트 목록 띄우기
 	@RequestMapping("adEventList.do")

@@ -63,4 +63,23 @@
 		from admin
 		where adm_id = #{adm_id} and adm_pass = #{adm_pass}
 	</select>
+	<!--  *********************************************************************옮겨줘야하는 페이지   -->
+	<!--  펀딩 상세페이지  -->
+	<select id="getAdFdDetail" parameterType="userInfo" resultType="funding_pay">
+		select *
+		from funding_pay
+		where user_no = #{user_no}
+	</select>
+	<!--  봉사 상세페이지  -->
+	<select id="getAdBsDetail" parameterType="userInfo" resultType="volunteer">
+		select *
+		from volunteer
+		where user_no = #{user_no}
+	</select>
+	<update id="deleteUserInfo" parameterType="userInfo">
+		update userinfo
+		set
+		user_outdate = sysdate
+		where user_no = #{user_no}
+	</update>
 </mapper>
