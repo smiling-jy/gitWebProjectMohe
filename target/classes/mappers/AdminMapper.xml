@@ -76,10 +76,17 @@
 		from volunteer
 		where user_no = #{user_no}
 	</select>
+	<!-- 회원 사용불가 전환 -->
 	<update id="deleteUserInfo" parameterType="userInfo">
 		update userinfo
 		set
 		user_outdate = sysdate
+		where user_no = #{user_no}
+	</update>
+	<!-- 회원정보수정 등급,전화번호,주소 -->
+	<update id="adUserUpdateInfo" parameterType="userInfo">
+		update userinfo
+		set user_rating = #{user_rating},user_phone = #{user_phone},user_addr = #{user_addr}
 		where user_no = #{user_no}
 	</update>
 </mapper>

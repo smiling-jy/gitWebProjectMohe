@@ -38,7 +38,6 @@
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 </head>
-
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -55,7 +54,7 @@
 					<hr>
 					<div class="content_table_div">
 						<div>
-							<form name="userDetail" action="updateAdmin.do" method="post">
+							<form name="userDetail" action="adUserUpdate.do" method="post">
 								<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
@@ -69,9 +68,8 @@
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> <input
-														type="hidden" name="" value=""> <input type="file"
-														name="img">
+													<img src="../resources/images/imsi_img1.png" /> 
+													<input type="file">
 												</div>
 											</div>
 											<div class="row clearfix">
@@ -81,15 +79,21 @@
 													<input type="text" name="user_name"
 														value="${userDetail.user_name}" readonly>
 												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">아이디</div>
 													<input type="text" name="user_email"
 														value="${userDetail.user_email}" readonly>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">등급</div>
-													<input type="text" name="user_rating"
-														value="${userDetail.user_rating}">
+													<select id="user_rating" name="user_rating">
+														<option value="시민">시민</option>
+														<option value="중수">중수</option>
+														<option value="고수">고수</option>
+														<option value="영웅">영웅</option>
+														<option value="수호신">수호신</option>
+													</select>
+													<input type="hidden" id="rating" value="${userDetail.user_rating}">
 												</div>
 												<div
 													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
@@ -125,7 +129,6 @@
 		</div>
 		<!-- /page content -->
 	</div>
-
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
 	<!-- Bootstrap -->
@@ -167,5 +170,9 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script>
+		var rating = $('#rating').val();
+		$("#user_rating").val(rating).prop("selected", true);
+	</script>
 </body>
 </html>

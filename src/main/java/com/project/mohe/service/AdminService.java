@@ -54,7 +54,10 @@ public interface AdminService {
 	UserInfoVO adUserDetail(UserInfoVO vo,Model model);
 	
 	// 회원 정보만 불러오는기능
-	UserInfoVO adUserUpdateInfo(UserInfoVO vo);
+	UserInfoVO getUserInfo(UserInfoVO vo);
+	
+	// 회원 정보 수정기능
+	void adUserUpdateInfo(UserInfoVO vo);
 	
 	// 회원 사용불가 전환
 	void deleteUserInfo(UserInfoVO vo);

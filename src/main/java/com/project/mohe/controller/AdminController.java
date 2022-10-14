@@ -141,7 +141,7 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// 유저 데이터를 가져옴
-		model.addAttribute("userDetail",adminService.adUserUpdateInfo(vo));
+		model.addAttribute("userDetail",adminService.getUserInfo(vo));
 		return "/admin/adUserUpdateInfo";
 	}
 	// 회원 정보 수정하기
@@ -149,8 +149,9 @@ public class AdminController {
 	public String adUserUpdate(UserInfoVO vo,HttpServletRequest request) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(request.getSession().getAttribute("adm_no") == null) return "/admin/adminLogin";
-		// 
-		return null;
+		// 등급,연락처,주소만 수정가능
+		adminService.adUserUpdateInfo(vo);
+		return "redirect:/admin/adUserDetail.do?user_no="+vo.getUser_no();
 	}
 	// 이벤트 목록 띄우기
 	@RequestMapping("adEventList.do")
