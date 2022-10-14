@@ -47,42 +47,42 @@ public interface AdminService {
 	AdminVO adminLogin(AdminVO vo);
 	
 	// 회원 목록 리스트
-	List<UserInfoVO> adGetUserList(PagingVO vo,HashMap map);
+	List<UserInfoVO> adGetUserList(PagingVO vo);
 	
 	// 회원 상세 페이지
 	UserInfoVO adUserDetail(UserInfoVO vo);
 	
 	// 이벤트 리스트
-	List<EventVO> adGetEventList(HashMap map);
+	List<EventVO> adGetEventList(PagingVO vo);
 	
 	// 펀딩 리스트
-	List<Funding_pjVO> adGetFdList(HashMap map);
+	List<Funding_pjVO> adGetFdList(PagingVO vo);
 	
 	// 신청 펀딩 리스트
-	List<Funding_pjVO> getFdApprovalList(HashMap map);
+	List<Funding_pjVO> getFdApprovalList(PagingVO vo);
 	
 	// 펀딩 승인,비승인 업데이트
 	void judgFdUpdate(Funding_pjVO vo);
 	
 	// 봉사 리스트
-	List<BongsaVO> getBsList(HashMap map);
+	List<BongsaVO> getBsList(PagingVO vo);
 	
 	// 신청 봉사 리스트
-	List<BongsaVO> getBsApprovalList(HashMap map);
+	List<BongsaVO> getBsApprovalList(PagingVO vo);
 	
 	void judgBsUpdate(BongsaVO vo);
 	
 	// 파트너 리스트
-	List<PartnerVO> getPartnerList(HashMap map);
+	List<PartnerVO> getPartnerList(PagingVO vo);
 	
 	//리뷰 리스트
-	List<ReviewVO> getReviewList(HashMap map);
+	List<ReviewVO> getReviewList(PagingVO vo);
 	
 	//기부 리스트
 	List<DonationVO> getDonationList(PagingVO vo);
 	
 	//공지 리스트
-	List<NoticeVO> getNoticeList(HashMap map);
+	List<NoticeVO> getNoticeList(PagingVO vo);
 	
 	//팝업 리스트
 	List<PopupVO> getPopupList(PagingVO vo);

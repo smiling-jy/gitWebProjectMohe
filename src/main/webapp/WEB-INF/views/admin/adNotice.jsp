@@ -92,7 +92,7 @@
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
-																<th width="100px">제목</th>
+																<th width="200px">제목</th>
 																<th>작성자</th>
 																<th>등록일</th>
 																<th>수정 / 삭제</th>

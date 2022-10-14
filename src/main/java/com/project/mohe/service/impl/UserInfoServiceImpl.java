@@ -58,8 +58,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public PagingVO getAllcnt() {
-		return userInfoDao.getAllcnt();
+	public PagingVO getAllcnt(PagingVO vo) {
+		return userInfoDao.getAllcnt(vo);
 	}
 
 	

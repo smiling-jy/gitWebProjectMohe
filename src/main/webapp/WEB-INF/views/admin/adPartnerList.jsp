@@ -56,7 +56,7 @@
 						<div id="search">
 							<form name="search" action="adPartnerList.do" method="post">
 								<select name="select">
-									<option value="partner_name">단체명</option>
+									<option value="partner_name">회사명</option>
 								</select>
 								<input type="search" name="stext" value="${page.stext}" placeholder="Search...">
 								<button type="submit">
@@ -106,8 +106,8 @@
 															<c:forEach items="${partner}" var="ptn">
 																<tr>
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${ptn.partner_no}</a></td>
-																	<td style="word-break:break-all">${ptn.partner_name}</td>
+																	<td style="font-size:13px">${ptn.partner_no}</td>
+																	<td style="word-break:break-all"><a href="adUserDetail.do">${ptn.partner_name}</a></td>
 																	<td style="word-break:break-all">${ptn.partner_url}</td>
 																	<td>
 																		<a href="#" class="remove-btn"> 

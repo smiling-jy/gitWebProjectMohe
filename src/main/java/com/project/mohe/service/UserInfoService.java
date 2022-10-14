@@ -24,6 +24,6 @@ public interface UserInfoService {
 	List<UserInfoVO> getUserInfoList(HashMap map);
 	
 	// 페이징 메소드
-	PagingVO getAllcnt();
+	PagingVO getAllcnt(PagingVO vo);
 
 }
