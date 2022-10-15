@@ -100,13 +100,12 @@
 									<a href="getReview.do?review_no=${review.review_no}" class="theme-btn btn-style-two"><span
 										class="btn-title">더보기</span></a>
 								</div>
-							</div>
-						</div>
-					</div>
+							 </div>
+						 </div>
+					  </div>
 					</c:forEach>
-
-					
-
+				</div>
+			</div>
 		</section>
 
 

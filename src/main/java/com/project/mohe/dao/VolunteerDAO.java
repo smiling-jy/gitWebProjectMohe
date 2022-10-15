@@ -21,5 +21,9 @@ public interface VolunteerDAO {
 			
 		// 글 목록 조회
 		List<VolunteerVO> getVolunteerList(HashMap map);
-		//<BoardVO> 가 <eventVO> 로 되어야하는게 아닌가
+		
+		
+		//참여자 증가 -> 봉사 펀딩 성공인원 증가
+
+		void incSuccessCnt(VolunteerVO vo);
 }

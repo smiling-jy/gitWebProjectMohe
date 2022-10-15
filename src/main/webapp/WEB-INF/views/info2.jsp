@@ -149,7 +149,7 @@
 							<div class="text">재능기부와 기부모금을 동시에 할 수 있는 펀딩 시스템을 제공합니다</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="cause-single.html" class="theme-btn btn-style-one"
+								<a href="funding.do" class="theme-btn btn-style-one"
 									style="margin-right: 50px"> <span class="btn-title">펀딩</span>
 								</a>
 							</div>
@@ -169,7 +169,7 @@
 							</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="cause-single.html" class="theme-btn btn-style-three"
+								<a href="bongsaMain.do" class="theme-btn btn-style-three"
 									style="margin-right: 50px"> <span class="btn-title">봉사</span>
 								</a>
 							</div>
@@ -188,7 +188,7 @@
 							<div class="text">모해와 함께하는 기업에게 제공하는 다양한 해택 알아보기</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="cause-single.html" class="theme-btn btn-style-one"
+								<a href="partner.do" class="theme-btn btn-style-one"
 									style="margin-right: 50px"> <span class="btn-title">파트너쉽</span>
 								</a>
 							</div>
@@ -206,7 +206,7 @@
 							<div class="text">SNS연동으로 다양해진 펀딩과 봉사 후기를 확인하고 싶다면</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="cause-single.html" class="theme-btn btn-style-three"
+								<a href="review.do" class="theme-btn btn-style-three"
 									style="margin-right: 50px"> <span class="btn-title">리뷰</span>
 								</a>
 							</div>

@@ -92,8 +92,8 @@
 																<th>NO</th>
 																<th width="400px">제목</th>
 																<th>주최자</th>
-																<th>마감일</th>
-																<th>달성도</th>
+																<th>지역</th>
+																<th>모집종료일</th>
 																<th width="300px">수정 / 삭제</th>
 															</tr>
 														</thead>
@@ -102,13 +102,14 @@
 															<c:forEach items="${bsList}" var="bs">
 																<tr>
 																	<td style="word-break: break-all">${bs.bs_no}</td>
-																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
-																	<td style="font-size: 13px">${bs.user_email}</td>
-																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
-																	<td style="word-break: break-all">${bs.bs_rate}%</td>
-																	<td><a href="#" class="remove-btn"> 
+																	<td style="word-break: break-all"><a href="adBsDetail.do?bs_no=${bs.bs_no}">${bs.bs_title}</a></td>
+																	<td style="font-size: 13px">${bs.bs_email}</td>
+																	<td style="font-size: 13px">${bs.bs_region}</td>
+																	<td style="word-break: break-all">${bs.bs_recruit_end}</td>
+																	<td><a href="adBsUpdate.do?bs_no=${bs.bs_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" onclick="remove(${bs.bs_no})" class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
@@ -225,5 +226,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script>
+		function remove(bs_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='deleteBs.do?bs_no='+bs_no;
+		}
+	</script>
 </body>
 </html>

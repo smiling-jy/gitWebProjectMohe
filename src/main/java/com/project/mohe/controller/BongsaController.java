@@ -12,9 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.BongsaVO;
-import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.BongsaService;
-import com.project.mohe.service.UserInfoService;
 
 @Controller
 public class BongsaController {
@@ -49,15 +47,18 @@ public class BongsaController {
 	@RequestMapping("bongsaParticipate.do")
 	public String bongsaParticipate(Model model, BongsaVO vo, HttpServletRequest request) {
 		
-		// 유저번호 세션에서 받아오기
-		HttpSession session = request.getSession();
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 2);
-		//System.out.println(session.getAttribute("user_name"));
 		
+		if(request.getSession().getAttribute("user_no") == null) return "loginCheck";
+		
+		// 유저번호 세션에서 받아오기
+		HttpSession session =  request.getSession();
+		System.out.println(session);
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
 		vo.setPUser_no((Integer) session.getAttribute("user_no"));
-		System.out.println("봉사 참여페이지에서의 bs_no:" + vo.getBs_no());
+
+		
 		System.out.println("봉사 참여페이지에서의 접속 puser_no:" + vo.getPUser_no()); 
+		System.out.println("봉사 참여페이지에서의 bs_no:" + vo.getBs_no());
 		
 		model.addAttribute("bongsa", bongsaService.getParticipateInfo(vo));
 		
@@ -67,7 +68,35 @@ public class BongsaController {
 
 	
 	
-	//모집하기 페이지
+	//모집하기 페이지 봉사활동 모집 insert
+	
+	@RequestMapping("insertBongsa.do")
+	public String insertBongsa(BongsaVO vo, HttpServletRequest request) {
+		
+		
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
+		session.setAttribute("user_no", 3);
+		
+		System.out.println("insertBongsa 컨트롤러 입구");
+		
+		bongsaService.insertBongsa(vo);
+		
+		
+		
+	
+		
+		
+	return "redirect:/bongsaMain.do";
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

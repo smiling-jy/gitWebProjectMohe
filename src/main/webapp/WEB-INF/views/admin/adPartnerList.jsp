@@ -70,7 +70,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten">
+							<a href="adPartnerInsert.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a>
 							<div class="emptyDiv"></div>
@@ -107,13 +107,13 @@
 																<tr>
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
 																	<td style="font-size:13px">${ptn.partner_no}</td>
-																	<td style="word-break:break-all"><a href="adUserDetail.do">${ptn.partner_name}</a></td>
-																	<td style="word-break:break-all">${ptn.partner_url}</td>
+																	<td style="word-break:break-all"><a href="adPartnerDetail.do?partner_no=${ptn.partner_no}">${ptn.partner_name}</a></td>
+																	<td style="word-break:break-all"><a href="${ptn.partner_url}">${ptn.partner_url}</a></td>
 																	<td>
-																		<a href="#" class="remove-btn"> 
+																		<a href="adPartnerUpdate.do?partner_no=${ptn.partner_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>
 																		</a>&nbsp;&nbsp;&nbsp; 
-																		<a href="#" class="remove-btn"> 
+																		<a href="#" onclick="remove(${ptn.partner_no})" class="remove-btn"> 
 																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
@@ -231,5 +231,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script>
+		function remove(partner_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='deletePartner.do?partner_no='+partner_no;
+		}
+	</script>
 </body>
 </html>

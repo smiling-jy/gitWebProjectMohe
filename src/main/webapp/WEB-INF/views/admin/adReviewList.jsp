@@ -100,7 +100,7 @@
 														<tbody>
 															<c:forEach items="${review}" var="review">
 																<tr>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${review.review_no}</a></td>
+																	<td style="font-size:13px">${review.review_no}</td>
 																	<td style="font-size:13px"><a href="adUserDetail.do">${review.review_title}</a></td>
 																	<td style="word-break:break-all">${review.review_text}</td>
 																	<td style="word-break:break-all">${review.user_name}</td>
