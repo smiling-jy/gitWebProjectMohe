@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
@@ -41,4 +42,10 @@ public interface AdminDAO {
 		
 		// 회원 수정기능
 		void adUserUpdateInfo(UserInfoVO vo);
+		
+		// 공지 수정기능
+		void adNoticeUpdate(NoticeVO vo);
+		
+		// 공지 추가기능
+		void adNoticeInsert(NoticeVO vo);
 }

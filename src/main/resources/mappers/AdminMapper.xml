@@ -89,4 +89,15 @@
 		set user_rating = #{user_rating},user_phone = #{user_phone},user_addr = #{user_addr}
 		where user_no = #{user_no}
 	</update>
+	<!-- 공지사항 수정 제목,내용 -->
+	<update id="adNoticeUpdate" parameterType="notice">
+		update notice
+		set notice_title = #{notice_title}, notice_text = #{notice_text}
+		where notice_no = #{notice_no}
+	</update>
+	<!-- 공지사항 추가 -->
+	<insert id="adNoticeInsert" parameterType="notice">
+		insert into notice 
+		values(NOTICE_NOTICE_NO_SEQ.nextval,#{notice_title},#{notice_text},1,'noticeIMG23',0,sysdate,#{adm_no})
+	</insert>
 </mapper>

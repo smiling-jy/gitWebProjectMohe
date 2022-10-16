@@ -10,5 +10,6 @@ public class DonationVO {
 	private String dnt_email;
 	private String dnt_indate;
 	private String dnt_pay_type;
+	private String dnt_check;
 	
 }

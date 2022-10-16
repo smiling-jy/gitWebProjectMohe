@@ -208,12 +208,42 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 	
+	@Override
+	public void donationOk(DonationVO vo) {
+		donationDao.donationOk(vo);
+	}
+	
+	@Override
+	public void deleteNotice(NoticeVO vo) {
+		noticeDao.deleteNotice(vo);
+	};
+
+	@Override
+	public NoticeVO adNoticeDetail(NoticeVO vo) {
+		return noticeDao.getNotice(vo);
+	}
+	
 	// 나중에 수정해야하는 애들 
 	
 	// 회원정보 수정기능
 	@Override
 	public void adUserUpdateInfo(UserInfoVO vo) {
 		adminDao.adUserUpdateInfo(vo);
-	};
+	}
+
+	// 공지사항 수정
+	@Override
+	public void adNoticeUpdate(NoticeVO vo) {
+		adminDao.adNoticeUpdate(vo);
+	}
+
+	// 공지사항 추가
+	@Override
+	public void adNoticeInsert(NoticeVO vo) {
+		adminDao.adNoticeInsert(vo);
+	}
+
+
+
 
 }

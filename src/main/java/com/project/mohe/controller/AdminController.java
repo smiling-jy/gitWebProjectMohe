@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
@@ -85,7 +87,8 @@ public class AdminController {
 	@RequestMapping("getAdminLogin.do")
 	public String adminLogin(AdminVO vo,HttpSession session) {
 		// 아이디와 비밀번호가 맞아서 값이 비어있지 않다면
-		if(adminService.adminLogin(vo) != null) {
+		vo = adminService.adminLogin(vo);
+		if(vo != null) {
 			session.setAttribute("adm_no", vo.getAdm_no());
 			return "redirect:/admin/adminMain.do"; 
 		}
@@ -290,6 +293,15 @@ public class AdminController {
 		model.addAttribute("donation",adminService.getDonationList(vo)); 
 		return "/admin/adDonationList";
 	}
+	// 기부리스트 확인 기능
+	@RequestMapping("donationOk.do")
+	public String donationOk(DonationVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 해당 no번호를 가진 기부 데이터를 확인해서 메인에 보이도록 함 
+		adminService.donationOk(vo);
+		return "redirect:/admin/adDoantionList.do";
+	}
 	// 공지 리스트
 	@RequestMapping("adNotice.do")
 	public String getNoticeList(PagingVO vo,Model model,HttpSession session) {
@@ -304,6 +316,53 @@ public class AdminController {
 		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("notice",adminService.getNoticeList(vo)); 
 		return "/admin/adNotice";
+	}
+	// 공지 삭제하기 
+	@RequestMapping("deleteNotice.do")
+	public String deleteNotice(NoticeVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// no를 받아와서 해당 공지 삭제하기
+		adminService.deleteNotice(vo);
+		return "redirect:/admin/adNotice.do";
+	}
+	// 공지 상세페이지
+	@RequestMapping("adNoticeDetail.do")
+	public String adNoticeDetail(NoticeVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// no를 받아와서 상세 정보를 띄움
+		model.addAttribute("notice",adminService.adNoticeDetail(vo));
+		return "/admin/adNoticeDetail";
+	}
+	// 공지 수정페이지로 이동
+	@RequestMapping("adNoticeUpdateInfo.do")
+	public String adNoticeUpdateInfo(NoticeVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// no를 받아와서 상세 정보를 띄움
+		model.addAttribute("notice",adminService.adNoticeDetail(vo));
+		return "/admin/adNoticeUpdateInfo";
+	}
+	// 공지 수정하기
+	@RequestMapping("adNoticeUpdate.do")
+	public String adNoticeUpdate(NoticeVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// no를 받아와서 해당 공지 정보를 수정함
+		adminService.adNoticeUpdate(vo);
+		return "redirect:/admin/adNoticeDetail.do?notice_no="+vo.getNotice_no();
+	}
+	// 공지 추가하기
+	@RequestMapping("adNoticeInsert.do")
+	public String adNoticeInsert(NoticeVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 관리자 정보를 vo에 저장
+		vo.setAdm_no((Integer)session.getAttribute("adm_no"));
+		// 새로운 공지 등록
+		adminService.adNoticeInsert(vo);
+		return"redirect:/admin/adNotice.do";
 	}
 	// 팝업 리스트
 	@RequestMapping("adPopList.do")

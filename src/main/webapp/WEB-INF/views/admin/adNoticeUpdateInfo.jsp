@@ -49,68 +49,36 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">공지사항</a>
+						<a href="adNotice.do">공지사항</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<div class="content_table_div" style="height:950px;">
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
+							<form name="adNoticeUpdate" action="adNoticeUpdate.do" method="post">
 								<!--Form Column-->
-								<div class="form-column col-lg-6 col-md-12 col-sm-12"
-									style="margin-left: 250px">
+								<div class="form-column col-lg-12 col-md-12 col-sm-12">
 									<div class="inner">
 										<div class="donate-form">
-											<h3 style="margin-left:110px;">공지사항 수정</h3>
+											<h3>공지사항 수정</h3>
 											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
-											<hr style="width: 430px; color: white;">
-											<div class="user_pf_div">
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
-											</div>
+											<h2>NO. ${notice.notice_no}</h2>
+											<input type="hidden" value="${notice.notice_no}"
+												name="notice_no" />
+											<hr style="width: 950px; color: white;">
 											<div class="row clearfix">
 
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">제목</div>
+													<input type="text" name="notice_title"
+														value="${notice.notice_title}">
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
-												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
-												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
-												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
+													<div class="field-label">본문</div>
+													<textarea style="height:500px;" name="notice_text">${notice.notice_text}</textarea>
 												</div>
 												<div>
 													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
+														id="update_btn" style="width:950px">
 														<span class="btn-title btn_fix">수정 완료하기</span>
 													</button>
 												</div>
