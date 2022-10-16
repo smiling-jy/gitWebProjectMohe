@@ -28,4 +28,7 @@ public interface DonationDAO {
 		
 		// 페이징을 위한 메소드 
 		PagingVO getAllcnt(PagingVO vo);
+		
+		// 기부 확인하는 메소드
+		void donationOk(DonationVO vo);
 }
