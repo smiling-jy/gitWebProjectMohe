@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.ReviewDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.service.ReviewService;
 
@@ -53,6 +54,11 @@ public class ReviewServiceImpl implements ReviewService{
 	public ReviewVO movePage(ReviewVO vo) {
 		System.out.println("==============>리뷰 이전글다음글 service Impl");
 		return reviewDAO.movePage(vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return reviewDAO.getAllcnt(vo);
 	}
 
 	

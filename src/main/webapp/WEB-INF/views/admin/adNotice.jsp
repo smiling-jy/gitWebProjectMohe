@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +72,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten">
+							<a href="adNoticeInsert.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
@@ -103,13 +104,15 @@
 															<c:forEach items="${notice}" var="ntc">
 																<tr>
 																	<td style="word-break:break-all">${ntc.notice_no}</td>
-																	<td style="word-break:break-all"><a href="adUserDetail.do">${ntc.notice_title}</a></td>
+																	<td style="word-break:break-all"><a href="adNoticeDetail.do?ntc.notice_no=${notice_no}">${ntc.notice_title}</a></td>
 																	<td style="word-break:break-all">${ntc.adm_id}</td>
-																	<td style="word-break:break-all">${ntc.notice_date}</td>
-																	<td style="word-break:break-all"><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																				class="flaticon-delete-1"></span>
+																	<td style="word-break:break-all">${fn:substring(ntc.notice_date,0,10)}</td>
+																	<td style="word-break:break-all">
+																		<a href="adNoticeUpdate.do?ntc.notice_no=${ntc.notice_no}" class="remove-btn"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" onclick="remove(${ntc.notice_no})" class="remove-btn"> 
+																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
 																</tr>
@@ -224,5 +227,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script>
+		function remove(notice_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='deleteNotice.do?notice_no='+notice_no;
+		}
+	</script>
 </body>
 </html>
