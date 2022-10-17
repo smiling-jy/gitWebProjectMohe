@@ -43,11 +43,11 @@
         <div class="auto-container">
             <h1>후기 모음</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="A_notice.html"><h5>공지사항</h5></a></li>
-                <li><a href="B_faq.html"><h5>자주 묻는 질문</a><h5></h5></li>
-                <li><a href="C_event.html"><h5>이벤트</h5></a></li>
-                <li><a href="D_partner.html"><h5>파트너</h5></a></li>
-                <li><a href="E_review.html"><h5>후기 모음</h5></a></li>
+                <li><a href="notice.do"><h5>공지사항</h5></a></li>
+                <li><a href="faq.do"><h5>자주 묻는 질문</a><h5></h5></li>
+                <li><a href="event.do"><h5>이벤트</h5></a></li>
+                <li><a href="partner.do"><h5>파트너</h5></a></li>
+                <li><a href="review.do"><h5>후기 모음</h5></a></li>
             </ul>
         </div>
 
@@ -69,48 +69,47 @@
                             <form action="reviewInsert.do" method="post" enctype="multipart/form-data">
                                 <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">제목<sup>*</sup></div>
+                                    <div class="field-label">제 목</div>
                                     <input type="text" name="review_title" value="" placeholder="제목을 입력하세요">
                                 </div>
                                 
                                 <!--Form Group-->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">작성자 이름<sup>*</sup></div>
-                                    <input type="text" name="user_name" value="" placeholder="">
-                                </div>
-                                
-                           
-                                  <!--사진첨부-->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">사진 첨부하기 <sup>*</sup><a href="">[사진첨부]</a></div>
-                                    <input type="file" name="file" >
-                      
-                                </div>
-        
-        </div>
-        
+                              
+                               
+<!--                                 <div class="form-group col-lg-12 col-md-12 col-sm-12"> -->
+<!--                                     <div class="field-label">작성자</div> -->
+<!--                      			</div> -->
                                  <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea id="reviewtext" name="review_text" placeholder="본문내용을 입력하세요."></textarea>
+                                	<div class="field-label">내 용</div>
+                                     <textarea id="reviewtext" name="review_text" placeholder="본문내용을 입력하세요."></textarea>
                                 </div>
+                                  <!--사진첨부-->
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <div class="field-label">사진 첨부하기</div>
+                                    <input type="file" name="file" >
+                      			</div>
                             	
-                            	
-                         
-                            </div>
-                        </div>
-                    </div>
-                  
-                        
-                </div>
-
-                    <div class="btn-box" style="text-align:center;">
+                     <div class="btn-box" style="text-align:center;">
                         <button type="submit" class="theme-btn btn-style-one place-order"><span class="btn-title">등록하기</span></button>
                         <button type="button" class="theme-btn btn-style-one place-order"><span class="btn-title">작성취소</span></button>
                     </div>
                     <br><br><br>
-             </form>
+            			 </form>     	
+                         
+                            </div>
+                       
+                        </div>
+                       
+                    </div>
+                     
+                        
+                </div>
+
+                 
+             </section>
     </div>
-</section>
+
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 		<!-- Main Footer -->
