@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
@@ -78,6 +79,17 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public void adUserUpdateInfo(UserInfoVO vo) {
 		mybatis.update("AdminDAO.adUserUpdateInfo",vo);
+	}
+
+	// 공지 수정페이지
+	@Override
+	public void adNoticeUpdate(NoticeVO vo) {
+		mybatis.update("AdminDAO.adNoticeUpdate",vo);
+	}
+
+	@Override
+	public void adNoticeInsert(NoticeVO vo) {
+		mybatis.insert("AdminDAO.adNoticeInsert",vo);
 	}
 	
 

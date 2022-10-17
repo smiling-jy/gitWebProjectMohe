@@ -8,12 +8,13 @@
 	<insert id="insertDonation" parameterType="donation">
 		INSERT INTO DONATION
 		VALUES(
-		DONATION_DNT_NO_SEQ.NEXTVAL,#{dnt_name},#{dnt_phone},#{dnt_amount},#{dnt_email},sysdate,#{dnt_pay_type})
+		DONATION_DNT_NO_SEQ.NEXTVAL,#{dnt_name},#{dnt_phone},#{dnt_amount},#{dnt_email},sysdate,#{dnt_pay_type},'미확인')
 	</insert>
-	<!-- 기부 정보 리스트 조회 메인 -->
+	<!-- 기부 정보 리스트 조회 메인, 확인된 기부정보만 노출된다 -->
 	<select id="getDonationList" resultType="donation">
 		select *
 		from donation
+		where dnt_check = '확인'
 		order by dnt_no desc
 	</select>
 	<!-- 기부 정보 리스트 조회 -->
@@ -51,4 +52,10 @@
 		from donation
 		where dnt_no = #{dnt_no}
 	</delete>
+	<!-- 기부 확인 기능 -->
+	<update id="donationOk" parameterType="donation">
+		update donation
+		set dnt_check = '확인'
+		where dnt_no = #{dnt_no}
+	</update>
 </mapper>
