@@ -49,76 +49,50 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">파트너쉽 관리</a>
+						<a href="adReviewList.do">리뷰관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<!-- 버튼시작 -->
+					<div class="link-box btn_tb_mg right_btn"
+						style="position: absolute; margin: 10px; margin-left: 770px;">
+						<a href="#" onclick="remove(${review.review_no})"
+							class="theme-btn btn-style-one"> <span class="btn-title"><h2>리뷰
+									삭제</h2></span>
+						</a>
+					</div>
+					<!-- 버튼끝 -->
+					<div class="content_table_div" style="height:1000px">
+						<h3>리뷰 상세</h3>
+						<hr>
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
-								<!--Form Column-->
-								<div class="form-column col-lg-6 col-md-12 col-sm-12"
-									style="margin-left: 250px">
-									<div class="inner">
-										<div class="donate-form">
-											<h3 style="margin-left:110px;">파트너쉽 수정</h3>
-											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
-											<hr style="width: 430px; color: white;">
-											<div class="user_pf_div">
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
+							<!--Form Column-->
+							<div class="form-column col-lg-12 col-md-12 col-sm-12">
+								<div class="inner">
+									<div class="donate-form">
+										<div style="height: 50px;"></div>
+										<h2>NO. ${review.review_no}</h2>
+										<input type="hidden" value="${review.review_no}" name="adm_no" />
+										<hr style="width: 950px; color: white;">
+										<div class="row clearfix">
+
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">제목</div>
+												<input type="text" name="user_name"
+													value="${review.review_title}" readonly>
 											</div>
-											<div class="row clearfix">
-
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
-												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
-												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
-												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
-												</div>
-												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
-														<span class="btn-title btn_fix">수정 완료하기</span>
-													</button>
-												</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">작성자</div>
+												<input type="text" name="user_name"
+													value="${review.user_name}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">본문</div>
+												<textarea style="height: 500px;" name="notice_text" readonly>${review.review_text}</textarea>
 											</div>
 										</div>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 						<!-- form2 끝-->
 
@@ -173,6 +147,12 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+	</script>
+	<script>
+		function remove(review_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeleteReview.do?review_no='+review_no;
+		}
 	</script>
 </body>
 </html>
