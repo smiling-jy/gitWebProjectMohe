@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +56,7 @@
 								<select name="select">
 									<option value="dnt_name">기부자명</option>
 									<option value="dnt_phone">연락처</option>
+									<option value="dnt_check">기부확인</option>
 								</select>
 								<input type="search" name="stext" value="${page.stext}" placeholder="Search...">
 								<button type="submit">
@@ -90,7 +92,8 @@
 																<th>연락처</th>
 																<th>기부금액</th>
 																<th>기부날짜</th>
-<!-- 																<th>check</th> -->
+																<th>결재유형</th>
+																<th>기부확인</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -99,8 +102,16 @@
 																	<td style="word-break:break-all">${dnt.dnt_name}</td>
 																	<td style="word-break:break-all">${dnt.dnt_phone}</td>
 																	<td style="word-break:break-all">${dnt.dnt_amount}원</td>
-																	<td style="word-break:break-all">${dnt.dnt_indate}</td>
-<!-- 																	<td><a href="#" class="remove-btn">확인</a></td> -->
+																	<td style="word-break:break-all">${fn:substring(dnt.dnt_indate,0,10)}</td>
+																	<td style="word-break:break-all">${dnt.dnt_pay_type}</td>
+																	<c:choose>
+																		<c:when test="${dnt.dnt_check == '미확인'}">
+																			<td><a href="#" onclick="dnt_ok(${dnt.dnt_no})" class="remove-btn">확인</a></td>
+																		</c:when>
+																		<c:otherwise>
+																			<td>${dnt.dnt_check}완료</td>
+																		</c:otherwise>
+																	</c:choose>
 																</tr>
 															</c:forEach>															
 														</tbody>
@@ -213,6 +224,13 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+	<script>
+		function dnt_ok(dnt_no){
+			if(confirm('기부를 확인 하시겠습니까?')){
+				location.href="donationOk.do?dnt_no="+dnt_no;
+			}
+		};
+	</script>
 
 </body>
 </html>
