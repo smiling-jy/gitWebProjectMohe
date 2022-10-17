@@ -134,7 +134,8 @@
 					<div class="slide-item slid_fix">
 						<div class="image-layer lazy-image"></div>
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/images/main-slider/imsi-slider2.png')"></div>
+							data-bg="url('resources/images/event/${event.event_main}.png')"></div>
+							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -150px">
 								<h2>${event.event_title}</h2>
