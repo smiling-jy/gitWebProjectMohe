@@ -31,7 +31,7 @@ public class VolunteerController {
 		System.out.println("insertVolun 컨트롤러 입구");
 		
 		
-		volunteerService.insertVolunteer(vo); //여기에서 오류가난다. 
+		volunteerService.insertVolunteer(vo);
 		System.out.println("insertVolun 출구");
 		
 		
