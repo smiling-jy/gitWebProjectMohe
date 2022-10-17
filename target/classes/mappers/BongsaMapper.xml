@@ -114,6 +114,7 @@
 		from ( select * from bongsa order by bs_recruit_end desc)
 		where <![CDATA[rownum <= 10]]>
 	</select>
+	
   	
   	<insert id="insertBongsa" parameterType="bongsa">
   	INSERT INTO BONGSA(
@@ -129,8 +130,77 @@
   	)
   	
   	</insert>
-  	
-  	
+  	<!-- 승인된 봉사 페이징 리스트 -->
+  	<select id="getAdBsList" parameterType="page" resultType="bongsa">
+		select *
+		from bongsa
+		where bs_no in(select bs_no from
+			(select bs_no,rownum AS rnum from
+				(select bs_no 
+				from bongsa 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%' and bs_ing not in ('대기중','불가함')
+		  			</if>
+		  			<if test="stext == null">
+		  				bs_ing not in ('대기중','불가함')
+		  			</if>
+  				</where>
+				order by bs_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by bs_no desc
+	</select>
+	<!-- 미승인된 봉사 페이징 리스트 -->
+  	<select id="getAdBsApprovalList" parameterType="page" resultType="bongsa">
+		select *
+		from bongsa
+		where bs_no in(select bs_no from
+			(select bs_no,rownum AS rnum from
+				(select bs_no 
+				from bongsa 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%' and bs_ing in ('대기중','불가함')
+		  			</if>
+		  			<if test="stext == null">
+		  				bs_ing in ('대기중','불가함')
+		  			</if>
+  				</where>
+				order by bs_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by bs_no desc
+	</select>
+	<!--승인된 봉사 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcntOk" parameterType="page" resultType="page">
+		select count(bs_no) as totalRecCount 
+		from bongsa
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%' and bs_ing not in ('대기중','불가함')
+  			</if>
+  			<if test="stext == null">
+  				bs_ing not in ('대기중','불가함')
+  			</if>
+		</where>
+	</select>
+	<!--미승인된  페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcntNo" parameterType="page" resultType="page">
+		select count(bs_no) as totalRecCount 
+		from bongsa
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%' and bs_ing in ('대기중','불가함')
+  			</if>
+  			<if test="stext == null">
+  				bs_ing in ('대기중','불가함')
+  			</if>
+		</where>
+	</select>
+
 
 
   </mapper>

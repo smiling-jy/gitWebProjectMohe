@@ -103,7 +103,7 @@
 															<c:forEach items="${fdApproval}" var="fd">
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
-																	<td style="width: 200px"><a href="adUserDetail.do">${fd.fd_title}</a></td>
+																	<td style="width: 200px"><a href="adFdApprovalDetail.do?fd_no=${fd.fd_no}">${fd.fd_title}</a></td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
 																	<td style="font-size: 13px">${fd.fd_startdate}</td>
 																	<td style="font-size: 13px">${fd.fd_enddate}</td>

@@ -78,7 +78,7 @@
 				<div class="auto-container clearfix">
 					<!--Logo-->
 					<div class="logo pull-left">
-						<a href="mainPage.html" title=""><img
+						<a href="main.do" title=""><img
 							src="resources/images/mohe_logo/logo_garo_color_small.png" alt=""
 							title=""></a>
 					</div>
@@ -103,7 +103,7 @@
 
 				<nav class="menu-box">
 					<div class="nav-logo">
-						<a href="mainPage.html"><img
+						<a href="main.do"><img
 							src="resources/images/mohe_logo/main_logo.png" alt="" title=""></a>
 					</div>
 					<div class="menu-outer">
@@ -124,39 +124,6 @@
 			<!-- End Mobile Menu -->
 		</header>
 		<!-- End Main Header -->
-
-		<!--Search Popup-->
-		<div id="search-popup" class="search-popup">
-			<div class="close-search theme-btn">
-				<span class="flaticon-cancel"></span>
-			</div>
-			<div class="popup-inner">
-				<div class="overlay-layer"></div>
-				<div class="search-form">
-					<form method="post" action="mainPage.html">
-						<div class="form-group">
-							<fieldset>
-								<input type="search" class="form-control" name="search-input"
-									value="" placeholder="Search Here" required> <input
-									type="submit" value="Search Now!" class="theme-btn">
-							</fieldset>
-						</div>
-					</form>
-
-					<br>
-					<h3>Recent Search Keywords</h3>
-					<ul class="recent-searches">
-						<li><a href="#">Finance</a></li>
-						<li><a href="#">Idea</a></li>
-						<li><a href="#">Service</a></li>
-						<li><a href="#">Growth</a></li>
-						<li><a href="#">Plan</a></li>
-					</ul>
-
-				</div>
-
-			</div>
-		</div>
 	</div>
 	<!--End pagewrapper-->
 </body>

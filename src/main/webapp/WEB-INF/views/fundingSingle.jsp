@@ -69,9 +69,18 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="${pj.rate}%">
-												<div class="count-text">${pj.rate}%</div>
-											</div>
+											<c:choose>
+												<c:when test="${pj.rate > 100}">
+													<div class="bar-inner count-bar" data-percent="100%">
+														<div class="count-text">${pj.rate}%</div>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
+														<div class="count-text">${pj.rate}%</div>
+													</div>
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 									<div class="donation-count clearfix">

@@ -86,7 +86,8 @@ img.img-size{
 
 div.lower-content p.contentp{
 	text-align: center;
-	font-size: 30px;
+	font-size: 28px;
+	padding: 0 10px;
 	
 }
 
@@ -448,7 +449,7 @@ color: white;
 
 /* 임시 지정 */
 width: 700px;
-height: 700px;
+height: 650px;
 
 /* 초기에 약간 아래에 배치 */
 transform: translate(-50%, -40%);
@@ -472,4 +473,5 @@ transition: all 0.5s;
     position: absolute;
     top: 50px;
     left: 20px;
+    padding: 30px 70px 10px 70px;
 }
