@@ -47,7 +47,7 @@
 						<h1 class="text text-large">로그인</h1>
 						<p class="text text-normal">
 							처음 오셨나요? <span><label class="" for="agree-terms"><a
-									href="/signup" target="_blank">가입하기</a></label></span>
+									href="signUp.do" target="_blank">가입하기</a></label></span>
 						</p>
 					</div>
 					<form id="form_email_login" method="post" name="signin" class="form">
