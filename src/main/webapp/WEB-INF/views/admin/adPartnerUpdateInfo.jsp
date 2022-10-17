@@ -52,47 +52,59 @@
 						<a href="adPartnerList.do">파트너쉽 관리</a>
 					</div>
 					<hr>
-					<!-- 버튼시작 -->
-					<div class="link-box btn_tb_mg right_btn"
-						style="position: absolute; margin: 10px; margin-left: 770px;">
-						<a href="adPartnerUpdateInfo.do?partner_no=${partner.partner_no}"
-							class="theme-btn btn-style-one"> <span class="btn-title"><h2>파트너쉽수정</h2></span>
-						</a>
-					</div>
-					<!-- 버튼끝 -->
-					<div class="content_table_div" style="height: 880px">
+					<div class="content_table_div" style="height: 1000px">
+
 						<div>
-							<h3>파트너쉽 상세보기</h3>
-							<hr style="width: 950px">
-							<!--Form Column-->
-							<div class="form-column col-lg-6 col-md-12 col-sm-12"
-								style="margin-left: 250px">
-								<div class="inner">
-									<div class="donate-form">
-										<div style="height: 50px;"></div>
-										<div class="user_pf_div">
-											<div class="form-group col-lg-12 col-md-12 col-sm-12">
-												<div class="field-label">대표 이미지</div>
-												<img src="../resources/images/imsi_img1.png" />
-											</div>
-										</div>
-										<div class="row clearfix">
-											<div class="form-group col-lg-6 col-md-6 col-sm-6">
-												<div class="field-label">파트너 명</div>
-												<input type="text" name="partner_name"
-													value="${partner.partner_name}" readonly>
-											</div>
-											<div class="form-group col-lg-12 col-md-12 col-sm-12">
-												<div class="field-label">대표 홈페이지 URL</div>
-												<input type="text" name="partner_url"
-													value="${partner.partner_url}" readonly>
+							<h3>파트너쉽 수정하기</h3>
+							<hr style="width:950px">
+							<form name="adPartnerUpdate" action="adPartnerUpdate.do"
+								method="post">
+								<!--Form Column-->
+								<div class="form-column col-lg-6 col-md-12 col-sm-12"
+									style="margin-left: 250px">
+									<div class="inner">
+										<div class="donate-form">
+											<div style="height: 50px;"></div>
+											<h2>NO. ${partner.partner_no}</h2>
+											<input type="hidden" value="${partner.partner_no}"
+												name="partner_no" />
+											<hr style="width: 450px; color: white;">
+											<div class="row clearfix">
+												<div class="donate-form">
+													<div style="height: 50px;"></div>
+													<div class="user_pf_div">
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">대표 이미지</div>
+															<img src="../resources/images/imsi_img1.png" /> <input
+																type="file" name="partner_logo">
+														</div>
+													</div>
+													<div class="row clearfix">
+														<div class="form-group col-lg-6 col-md-6 col-sm-6">
+															<div class="field-label">파트너 명</div>
+															<input type="text" name="partner_name"
+																value="${partner.partner_name}">
+														</div>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">대표 홈페이지 URL</div>
+															<input type="text" name="partner_url"
+																value="${partner.partner_url}" >
+														</div>
+														<div>
+															<button type="submit" class="theme-btn btn-style-one"
+																id="update_btn" style="width: 450px; margin-left:20px;">
+																<span class="btn-title btn_fix">수정 완료하기</span>
+															</button>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 							</form>
 						</div>
+
 						<!-- form2 끝-->
 
 					</div>
