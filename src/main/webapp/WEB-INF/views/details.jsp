@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +70,7 @@
 																<tr>
 																	<th class="prod-column">프로젝트명</th>
 																	<th>&nbsp;</th>
-																	<th class="price">주문번호</th>
+																	<th class="price">목표금액</th>
 																	<th>수량</th>
 																	<th>총액</th>
 																	<th>진행 상태</th>
@@ -79,69 +80,32 @@
 															</thead>
 
 															<tbody>
-																<tr class="pointer" data-toggle="modal"
-																	data-target="#exampleModal">
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-1.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-1.jpg"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
-																		</div>
-																	</td>
-																	<td class="price">0000</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
-																	<td class="sub-total">거절</td>
-																	<td class="sub-total"><a> <i
-																			class="fa fa-search"></i>
-																	</a> / <a> <i class="fa fa-regular fa-comment"></i>
-																	</a></td>
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
-																</tr>
+
+															<c:forEach items="${pj_list}" var="pj">
 																<tr>
 																	<td colspan="2" class="prod-column">
 																		<div class="column-box">
 																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-2.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-2.jpg"
+																				<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image loaded"
+																					src="resources/files/funding/${pj.fd_img_name}/title.png"
+																					data-src="resources/files/funding/${pj.fd_img_name}/title.png"
 																					alt="" data-was-processed="true"></a>
 																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
+																			<h4 class="prod-title">${pj.fd_title}</h4>
 																		</div>
 																	</td>
-																	<td class="price">0000</td>
+																	<td class="price">${pj.fd_goals}</td>
 																	<td class="qty">1</td>
 																	<td class="sub-total">0000</td>
 
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
-																</tr>
-
-																<tr>
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-2.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-2.jpg"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
-																		</div>
+																	<td class="sub-total">${pj.fd_status}</td>
+																	<td class="sub-total">
+																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
 																	</td>
-																	<td class="price">0000</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
-
 																	<td class="remove"><a href="#" class="remove-btn"><span
 																			class="flaticon-delete-1"></span></a></td>
 																</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>
@@ -300,24 +264,36 @@
 		<jsp:include page="footer.jsp" />
 	</div>
 
-</body>
-
-
-
-
-<script src="resources/js/jquery.js"></script>
-<script src="resources/js/mixitup.js"></script>
-<script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/jquery-ui.js"></script>
-<script src="resources/js/jquery.bootstrap-touchspin.js"></script>
-<script src="resources/js/jquery.fancybox.js"></script>
-<script src="resources/js/owl.js"></script>
-<script src="resources/js/appear.js"></script>
-<script src="resources/js/wow.js"></script>
-<script src="resources/js/lazyload.js"></script>
-<script src="resources/js/scrollbar.js"></script>
-<script src="resources/js/script.js"></script>
+	<script src="resources/js/jquery.js"></script>
+	<script src="resources/js/mixitup.js"></script>
+	<script src="resources/js/popper.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="resources/js/jquery.bootstrap-touchspin.js"></script>
+	<script src="resources/js/jquery.fancybox.js"></script>
+	<script src="resources/js/owl.js"></script>
+	<script src="resources/js/appear.js"></script>
+	<script src="resources/js/wow.js"></script>
+	<script src="resources/js/lazyload.js"></script>
+	<script src="resources/js/scrollbar.js"></script>
+	<script src="resources/js/script.js"></script>
+	
+	<script>
+		function insertFunding_cart(fd_no) {
+			$.ajax({
+				type:'get',
+		        url:'insertFunding_cart.do',
+		        data: {'fd_no' : fd_no },
+		        async: false,
+		        success: function(data){
+		        	console.log(data);
+		        },
+		        error: function(request, status, error){
+		        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		        }
+			});
+		}
+	</script>
 
 </body>
 
