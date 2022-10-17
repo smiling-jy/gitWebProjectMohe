@@ -57,7 +57,7 @@ table{
 
 #reviewtext{
 	margin:auto;
-	width: 70%;
+	width: 100% !important;
 	height:500px !important;
 }
 
@@ -165,4 +165,11 @@ div.event-title{
 	color:rgb(112,191,187);
 	font-size:17px;
 	font-weight:bold;
+}
+
+div.billing-detail{
+	font-family: 'GmarketSansMedium';
+	
+	
+	
 }
