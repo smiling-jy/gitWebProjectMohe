@@ -150,6 +150,19 @@ img.event-img-size{
 	height: 100px;
 }
 
-#event-banner{
-	
+div.event-detail{
+	display:"block";
+	text-align:center;
+	font-family: 'GmarketSansMedium';
+	color:rgb(254,74,43);
+	font-size:25px;
+	font-weight:bold;
+}
+
+div.event-title{
+	font-family: 'GmarketSansMedium';
+	text-align:center;
+	color:rgb(112,191,187);
+	font-size:17px;
+	font-weight:bold;
 }

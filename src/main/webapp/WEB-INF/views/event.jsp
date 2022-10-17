@@ -76,7 +76,7 @@
 							</div>
 						</td>
 						<td>
-							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.PNG">
+							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.png">
 						</td>
 						</tr>
 					</table>
