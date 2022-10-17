@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -74,7 +75,7 @@
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>${review.user_name}</li>
-                                    <li> ${review.review_date}</li>
+                                    <li> <fmt:formatDate value="${review.review_date}" pattern="yyyy년 MM월 dd일  hh시mm분"></fmt:formatDate></li>
                                 </ul>
                         
                             </div>

@@ -3,6 +3,7 @@ package com.project.mohe.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -67,10 +68,18 @@ public class ReviewController {
 		
 		//리뷰 리스트 페이지 보기 
 		@RequestMapping("review.do")
-		public void reviewList(Model model) {
-			model.addAttribute("reviewList", reviewService.getReviewList());
+		public String reviewList(Model model, String search, String select ) {
+//			model.addAttribute("reviewList", reviewService.getReviewList());
 			
-		}
+			HashMap map = new HashMap();
+			map.put("search", search);
+			map.put("select", select); 
+			
+			List<ReviewVO> rList=reviewService.getReviewList(map);
+			model.addAttribute("reviewList", rList);
+			
+			return "review";
+	}
 		
 		//리뷰 읽기+ 이전글 다음글
 		@RequestMapping("getReview.do")
