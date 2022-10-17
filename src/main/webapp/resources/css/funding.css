@@ -25,7 +25,9 @@
     color: black;
 }
 
-
+.no-banner .auto-container h1{
+	padding: 0px 100px;
+}
 
 
 @font-face {
@@ -254,6 +256,11 @@ div.lower-content p strong{
 	
 }
 
+#pay_first_td{
+	
+	text-align: left;
+}
+
 
 /* 주최자 마이페이지 - 펀딩  */
 
@@ -331,6 +338,7 @@ div.answer span{
 .a-btn:hover{
 	color: #3cc88f;
 }
+
 
 
 /*후원자리스트 운송장번호 인풋  */
