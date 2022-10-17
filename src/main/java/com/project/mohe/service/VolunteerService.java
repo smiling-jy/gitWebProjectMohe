@@ -21,4 +21,7 @@ public interface VolunteerService {
 			
 	// 글 목록 조회
 	List<VolunteerVO> getVolunteerList(HashMap map);
+	
+	//봉사 펀딩 성공인원 증가 
+	void incSuccessCnt(VolunteerVO vo);
 }

@@ -72,7 +72,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten"> <span
+							<a href="adEventInsert.do" class="theme-btn btn-style-ten"> <span
 								class="btn-title"><h2>추가하기</h2></span>
 							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
 								class="btn-title"><h2>EXCEL 내보내기</h2></span>
@@ -105,7 +105,7 @@
 																<tr>
 																	<td style="font-size: 13px">${event.event_no}</td>
 																	<td style="font-size: 13px"><a
-																		href="adUserDetail.do">${event.event_title}</a></td>
+																		href="adEventDetail.do?event_no=${event.event_no}">${event.event_title}</a></td>
 																	<td style="word-break: break-all">${event.adm_id}</td>
 																	<td style="word-break: break-all"><c:set var="dt1" value="${event.event_stdate}"/>
 																										${fn:substring(dt1,0,10)}  <br>~

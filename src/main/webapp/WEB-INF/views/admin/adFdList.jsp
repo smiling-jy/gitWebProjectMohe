@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,11 +91,11 @@
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
-																<th width="200px">제목</th>
-																<th>모금액</th>
-																<th>달성도</th>
-																<th>남은일자</th>
-																<th width="300px">수정 / 삭제</th>
+																<th width="150px">제목</th>
+																<th width="150px">카테고리</th>
+																<th width="150px">주최자</th>
+																<th width="150px">목표금액</th>
+																<th width="200px">수정 / 삭제</th>
 															</tr>
 														</thead>
 
@@ -103,13 +104,13 @@
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
 																	<td style="font-size: 13px"><a
-																		href="adUserDetail.do">${fd.fd_title}</a></td>
-																	<td style="word-break: break-all">${fd.total_sum}원</td>
-																	<td style="font-size: 13px">${fd.rate}%</td>
-																	<td style="word-break: break-all">${fd.remain_day}일</td>
-																	<td><a href="#" class="remove-btn"> <span
+																		href="adFdDetail.do?fd_no=${fd.fd_no}">${fn:substring(fd.fd_title,0,10)}</a></td>
+																	<td>${fd.fd_category}</td>
+																	<td style="word-break: break-all">${fd.fd_hostname}</td>
+																	<td style="word-break: break-all">${fd.fd_goals}</td>
+																	<td><a href="adFdUpdate.do?fd_no=${fd.fd_no}" class="remove-btn"> <span
 																			class="flaticon-check"></span>
-																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" onclick="remove(${fd.fd_no})" class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
 																	</a></td>
 																</tr>
@@ -226,5 +227,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+	<script>
+		function remove(fd_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='deleteFd.do?fd_no='+fd_no;
+		}
+	</script>
 </body>
 </html>

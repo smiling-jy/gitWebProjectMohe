@@ -56,17 +56,19 @@
 							<input type="hidden" name="vt_work_start" required value="${bongsa.vt_work_start}">
 							<input type="hidden" name="vt_work_end" required value="${bongsa.vt_work_end}">
 							<input type="hidden" name="user_no" required value="${bongsa.user_no}">
-							<input type="hidden" name="volun_no" required value=1>
-							<input type="hidden" name="vt_ing" required value=1>
+<!-- 							<input type="hidden" name="volun_no" required value=1> -->
+<!-- 							<input type="hidden" name="vt_ing" required value=1> -->
 							
-							<span>참여 봉사활동명</span><br /> <input type="text" name="vt_title" required
-								value="${bongsa.vt_title}"><br /> <span>이름</span><br /> <input
-								type="text" name="vt_name" required value="${bongsa.vt_name}"><br /> <span>연락처</span><br />
-							<input type="text" name="vt_user_phone" required value="${bongsa.vt_user_phone}"><br />
+							<span>참여 봉사활동명</span><br /> 
+							<input type="text" name="vt_title" required value="${bongsa.vt_title}" readonly/><br /> 
+							<span>이름</span><br /> 
+							<input type="text" name="vt_name" required value="${bongsa.vt_name}" readonly/><br /> 
+							<span>연락처</span><br />
+							<input type="text" name="vt_user_phone" required value="${bongsa.vt_user_phone}" readonly/><br/>
 	
-							<span>이메일</span><br /> <input type="text" name="vt_user_email" required
-								value="${bongsa.vt_user_email}"><br /> <span>- 위의 내용과 개인정보가
-								다를 경우 회원정보를 수정하여 주시기 바랍니다.</span><br />
+							<span>이메일</span><br /> 
+							<input type="text" name="vt_user_email" required value="${bongsa.vt_user_email}" readonly/><br /> 
+							<span>- 위의 내용과 개인정보가 다를 경우 회원정보를 수정하여 주시기 바랍니다.</span><br />
 							<br />
 							<br />
 							<div class="form-group">

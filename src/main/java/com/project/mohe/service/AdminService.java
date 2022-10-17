@@ -75,10 +75,10 @@ public interface AdminService {
 	void judgFdUpdate(Funding_pjVO vo);
 	
 	// 봉사 리스트
-	List<BongsaVO> getBsList(PagingVO vo);
+	List<BongsaVO> getAdBsList(PagingVO vo);
 	
 	// 신청 봉사 리스트
-	List<BongsaVO> getBsApprovalList(PagingVO vo);
+	List<BongsaVO> getAdBsApprovalList(PagingVO vo);
 	
 	void judgBsUpdate(BongsaVO vo);
 	
@@ -91,8 +91,23 @@ public interface AdminService {
 	//기부 리스트
 	List<DonationVO> getDonationList(PagingVO vo);
 	
+	// 기부 확인 기능
+	void donationOk(DonationVO vo);
+	
 	//공지 리스트
 	List<NoticeVO> getNoticeList(PagingVO vo);
+	
+	//공지 삭제하기 
+	void deleteNotice(NoticeVO vo);
+	
+	//공지 상세페이지
+	NoticeVO adNoticeDetail(NoticeVO vo);
+	
+	//공지 수정페이지
+	void adNoticeUpdate(NoticeVO vo);
+	
+	//공지 추가기능
+	void adNoticeInsert(NoticeVO vo);
 	
 	//팝업 리스트
 	List<PopupVO> getPopupList(PagingVO vo);

@@ -16,7 +16,7 @@
 		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'review_img',#{review_text},SYSDATE, #{user_name},0,2)
 	</insert>
 	<!-- 리뷰 목록 -->
-	<select id="getReivewList" resultType="review">
+	<select id="getReviewList" resultType="review">
 		SELECT * FROM REVIEW
 		ORDER BY REVIEW_NO DESC
 	</select>
@@ -57,5 +57,34 @@
 		select *
 		from ( select * from review order by review_read_cnt desc)
 		where <![CDATA[rownum <= 10]]>
+	</select>
+	<!-- 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(review_no) as totalRecCount 
+		from review
+		<where>
+  			<if test="stext != null">
+  				${select} like '%${stext}%'
+  			</if>
+		</where>
+	</select>
+	<!-- 페이징 리뷰 리스트 -->
+  	<select id="getAdReviewList" parameterType="page" resultType="review">
+		select *
+		from review
+		where review_no in(select review_no from
+			(select review_no,rownum AS rnum from
+				(select review_no 
+				from review 
+				<where>
+		  			<if test="stext != null">
+		  				${select} like '%${stext}%'
+		  			</if>
+  				</where>
+				order by review_no desc))
+			where 
+				<![CDATA[rnum >= #{firstRow}]]> and 
+				<![CDATA[rnum <= #{endRow})]]>
+		order by review_no desc
 	</select>
 </mapper>

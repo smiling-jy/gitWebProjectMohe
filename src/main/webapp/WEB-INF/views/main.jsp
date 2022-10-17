@@ -89,6 +89,13 @@
 	color: rgb(30, 30, 30);
 	font-weight: bold;
 }
+.rating{
+	position:absolute;
+	z-index:5;
+ 	top:10px; 
+ 	left:20px; 
+	width:100px;
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -186,7 +193,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="fundingSingle.do?fd_no=${bestFd.fd_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/funding/${bestFd.fd_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
@@ -380,7 +387,7 @@
 		<!-- 리뷰 섹션1 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
-			style="bottom: 0px; padding: 0px; margin-top: 100px">
+			style="bottom: 0px; padding: 0px; padding-top: 100px; margin-bottom:100px;">
 
 			<div class="auto-container">
 
@@ -400,15 +407,18 @@
 							<div class="team-block">
 								<div class="inner-box">
 									<figure class="image-box">
-										<a href="getReview.do?review_no=${bestRv.review_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										<a href="getReview.do?review_no=${bestRv.review_no}">
+										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
+									<div class="rating">
+										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+									</div>
 									<div class="lower-box">
 										<div class="content">
 											<h3>
 												<a href="getReview.do?review_no=${bestRv.review_no}">${bestRv.review_title}</a>
 											</h3>
-											<div class="designation">${bestRv.user_name}</div>
+											<div class="designation"><span class="icon fa fa-user"></span> ${bestRv.user_name}</div>
 											<div class="social-links">
 												<ul class="clearfix">
 													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
@@ -427,184 +437,6 @@
 				<!--End Team Carousel-->
 			</div>
 		</section>
-
-		<!-- 리뷰 섹션2 -->
-		<!--Team Carousel Section-->
-		<section class="team-carousel-section "
-			style="bottom: 0px; padding: 0px; margin-top: 100px; margin-bottom: 100px;">
-
-			<div class="auto-container">
-
-				<div class="title-box clearfix">
-					<div class="sec-title">
-						<h2>SNS 후기</h2>
-					</div>
-				</div>
-
-				<!--Team Carousel-->
-				<div class="team-carousel love-carousel owl-theme owl-carousel"
-					data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 500, "responsive":{ "0" :{ "items": "1" },"600" :{ "items": "1" }, "800" :{ "items" : "2" }, "1024":{ "items" : "3" }, "1366":{ "items" : "3" }}}'>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide-item">
-						<!--Team Block-->
-						<div class="team-block">
-							<div class="inner-box">
-								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
-								</figure>
-								<div class="lower-box">
-									<div class="content">
-										<h3>
-											<a href="#">Catherine Jones</a>
-										</h3>
-										<div class="designation">Engineer</div>
-										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End Team Carousel-->
-			</div>
-		</section>
-
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>

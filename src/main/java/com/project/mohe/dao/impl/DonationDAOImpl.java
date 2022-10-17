@@ -58,6 +58,11 @@ public class DonationDAOImpl implements DonationDAO {
 	public PagingVO getAllcnt(PagingVO vo) {
 		return mybatis.selectOne("DonationDAO.getAllcnt",vo);
 	}
+
+	@Override
+	public void donationOk(DonationVO vo) {
+		mybatis.update("DonationDAO.donationOk",vo);
+	}
 	
 
 }

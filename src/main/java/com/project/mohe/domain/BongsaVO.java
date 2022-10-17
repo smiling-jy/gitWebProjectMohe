@@ -12,10 +12,10 @@ public class BongsaVO {
 	private String bs_content;
 	private String bs_region;
 	private String bs_place;
-	private Date bs_recruit_start;
-	private Date bs_recruit_end;
-	private Date bs_work_start;
-	private Date bs_work_end;
+	private String bs_recruit_start;
+	private String bs_recruit_end;
+	private String bs_work_start;
+	private String bs_work_end;
 	private int bs_goal_cnt;
 	private int bs_success_cnt;
 	private String bs_ing; //진행 or 완료
@@ -51,6 +51,8 @@ public class BongsaVO {
 	private String vt_name;
 	private String vt_user_phone;
 	private String vt_user_email;
+	private String re_bs_work_end;
+	private String re_bs_work_start;
 	
 	
 	

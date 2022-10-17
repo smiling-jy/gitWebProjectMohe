@@ -102,7 +102,7 @@
 																<tr>
 																	<td style="word-break: break-all">${bs.bs_no}</td>
 																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
-																	<td style="font-size: 13px">${bs.user_email}</td>
+																	<td style="font-size: 13px">${bs.bs_email}</td>
 																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
 																	<td>
 																		<a href="#" class="remove-btn bs_judg_ok"> 

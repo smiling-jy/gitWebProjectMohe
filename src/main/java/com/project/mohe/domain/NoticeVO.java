@@ -25,4 +25,5 @@ public class NoticeVO {
 	private String next_title;
 	private String prev_title;
 	
+	
 }
