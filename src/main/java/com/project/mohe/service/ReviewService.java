@@ -5,11 +5,12 @@ import java.util.List;
 
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.ReviewVO;
+import com.project.mohe.domain.UserInfoVO;
 
 public interface ReviewService {
 	// CRUD 기능 구현
 	// 글 등록
-	void insertReview(ReviewVO vo);
+	void insertReview(UserInfoVO user_vo,ReviewVO vo);
 			
 	// 글 수정
 	void updateReview(ReviewVO vo);

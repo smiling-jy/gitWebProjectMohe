@@ -5,11 +5,13 @@
 
 <mapper namespace="EventDAO">
 	<!-- 이벤트 리스트 출력 -->
-	<select id="getEventList" resultType="event">
+	<select id="getEventList" parameterType="map" resultType="event">
 		select event.*,admin.adm_id
 		from event,admin
 		where event.adm_no = admin.adm_no
+		
 		order by event_no desc
+			
 	</select> 
 	<select id="getAdEventList" parameterType="page" resultType="event">
 		select event.*,admin.adm_id

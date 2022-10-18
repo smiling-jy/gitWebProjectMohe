@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.ReviewDAO;
+import com.project.mohe.dao.UserInfoDAO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.ReviewVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.ReviewService;
 
 @Service("reviewService")
@@ -16,10 +18,16 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	@Autowired
 	private ReviewDAO reviewDAO;
-
+	@Autowired
+	private UserInfoDAO userinfoDAO;
+	
+	
 	@Override
-	public void insertReview(ReviewVO vo) {
-		
+	public void insertReview(UserInfoVO user_vo,ReviewVO vo) {
+		//user_vo에 userinfo에 저장된 값을 넣어줌
+		user_vo=userinfoDAO.getUserInfo(user_vo);
+		//reviewVO의 username에 userinfo에서 가져온 username을 넣어줌
+		vo.setUser_name(user_vo.getUser_name());
 		reviewDAO.insertReview(vo);
 		
 	}
@@ -40,7 +48,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		System.out.println("==============>리뷰 읽기 service Impl");
 		return reviewDAO.getReview(vo);
 	}
 
@@ -52,7 +59,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public ReviewVO movePage(ReviewVO vo) {
-		System.out.println("==============>리뷰 이전글다음글 service Impl");
 		return reviewDAO.movePage(vo);
 	}
 

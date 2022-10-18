@@ -10,14 +10,14 @@
 			SELECT REVIEW_REVIEW_NO_SEQ.currval REVIEW_NO from dual
 		</selectKey>
 		INSERT INTO REVIEW
-		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT, REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
-		REVIEW_READ_CNT, USER_NO
+		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT,REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
+		REVIEW_READ_CNT, USER_NO,USER_NAME
 		)VALUES
-		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'이거저장어떻게하냐',#{review_text},SYSDATE,
-		0,#{user_no})
+		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'REVIEW_IMG',#{review_text},SYSDATE,
+		0,#{user_no},#{user_name})
 	</insert>
 	<!-- 리뷰 목록+검색 -->
-	<select id="getReviewList" parameterType="hashmap" resultType="review">
+	<select id="getReviewList" parameterType="map" resultType="review">
 		SELECT review.*, userinfo.user_name
     	  FROM review, userinfo
     	 WHERE review.user_no = userinfo.user_no
@@ -26,7 +26,7 @@
 				${select} like '%${search}%'
 			</if>
 		</where>
-		ORDER BY REVIEW_NO DESC
+		ORDER BY review_no DESC
 	</select>
 	<!-- 리뷰 읽기 -->
 	<select id="getReview" parameterType="review" resultType="review">

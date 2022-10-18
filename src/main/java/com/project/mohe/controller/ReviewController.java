@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.mohe.domain.ReviewVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.ReviewService;
 
 @Controller
@@ -33,17 +34,13 @@ public class ReviewController {
 		
 		//리뷰 작성
 		@RequestMapping("reviewInsert.do")
-		public String reviewInsert(ReviewVO vo,MultipartFile file,HttpServletRequest request) {
+		public String reviewInsert(UserInfoVO user_vo,ReviewVO vo,MultipartFile file,HttpServletRequest request) {
 			
-			// 유저번호,이름 세션에서 받아오기
+			// user_no 세션에서 받아오기
 			HttpSession session = request.getSession();
-			vo.setUser_no((Integer) session.getAttribute("user_no"));
-			vo.setUser_name((String)session.getAttribute("user_name"));
-		
-//			vo.setReview_img_cnt(vo.getReview_img().length());
-//			System.out.println("============리뷰컨트롤러 : "+vo.getReview_img_cnt());
+			user_vo.setUser_no((Integer) session.getAttribute("user_no"));
 			
-			reviewService.insertReview(vo);
+			reviewService.insertReview(user_vo,vo);
 			
 			//이미지첨부
 			file=vo.getFile();
@@ -79,8 +76,8 @@ public class ReviewController {
 		//리뷰 리스트 페이지 보기 
 		@RequestMapping("review.do")
 		public String reviewList(Model model, String search, String select ) {
-//			model.addAttribute("reviewList", reviewService.getReviewList());
-			
+
+			//검색
 			HashMap map = new HashMap();
 			map.put("search", search);
 			map.put("select", select); 
