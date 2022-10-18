@@ -60,8 +60,8 @@ public class UserInfoController {
 	public String userLogOut(HttpSession session) {
 		session.removeAttribute("user");
 		session.removeAttribute("sessionTime");
-		session.removeAttribute("userName");
-		session.removeAttribute("userId");
+		session.removeAttribute("user_email");
+		session.removeAttribute("user_no");
 		return "redirect:/main.do";
 	}
 	

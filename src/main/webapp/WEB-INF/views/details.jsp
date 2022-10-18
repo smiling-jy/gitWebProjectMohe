@@ -74,7 +74,7 @@
 																	<th>수량</th>
 																	<th>총액</th>
 																	<th>진행 상태</th>
-																	<th>작업</th>
+																	<th>리뷰작성</th>
 																	<th>&nbsp;</th>
 																</tr>
 															</thead>
@@ -96,14 +96,13 @@
 																	</td>
 																	<td class="price">${pj.fd_goals}</td>
 																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
+																	<td class="sub-total">${pj.fd_price}</td>
 
 																	<td class="sub-total">${pj.fd_status}</td>
 																	<td class="sub-total">
-																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
+<%-- 																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
+																		<a href="reviewWriting.do" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
 																	</td>
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
 																</tr>
 																</c:forEach>
 															</tbody>
@@ -142,7 +141,7 @@
 																	<th>장소</th>
 																	<th>활동일자</th>
 																	<th>진행 상태</th>
-																	<th>작업</th>
+																	<th>리뷰작성</th>
 																	<th>&nbsp;</th>
 																</tr>
 															</thead>
@@ -164,11 +163,10 @@
 																	<td class="qty">1</td>
 																	<td class="sub-total">0000</td>
 																	<td class="sub-total">거절</td>
-																	<td class="sub-total"><a> <i
-																			class="fa fa-search"></i>
-																	</a> / <i class="fa-solid fa-pencil"></i></td>
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
+																	<td class="sub-total">
+<%-- 																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
+																		<a href="reviewWriting.do" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
+																	</td>
 																</tr>
 																<tr>
 																	<td colspan="2" class="prod-column">
@@ -204,8 +202,6 @@
 																	<td class="price">0000</td>
 																	<td class="qty">1</td>
 																	<td class="sub-total">0000</td>
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
 																</tr>
 															</tbody>
 														</table>
