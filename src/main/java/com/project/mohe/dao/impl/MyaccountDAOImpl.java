@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.MyaccountDAO;
+import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.Funding_cartVO;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
@@ -36,5 +37,11 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 	@Override
 	public List<Funding_pjVO> getFunding_cartList(UserInfoVO vo) {
 		return mybatis.selectList("MyaccountDAO.getFunding_cartList", vo);
+	}
+
+	@Override
+	public List<BongsaVO> getBonsa_cartList(UserInfoVO vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

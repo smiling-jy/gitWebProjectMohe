@@ -71,8 +71,8 @@
 								value="${user.user_info}" /></textarea>
 					</div>
 					<div class="donate-link">
-						<button type="submit" class="theme-btn btn-style-one place-order">
-							<span class="btn-title">수정하기</span>
+						<button type="submit" class="theme-btn btn-style-one btn-block">
+							<span class="btn-title text-center">수정하기</span>
 						</button>
 						<!--                   <a href="donate.html" class="theme-btn btn-style-one btn-block"> -->
 						<!--                      <span class="btn-title text-center">변경하기</span> -->

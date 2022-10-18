@@ -21,5 +21,6 @@
 		<typeAlias type="com.project.mohe.domain.VolunteerVO" alias="volunteer"/>
 		<typeAlias type="com.project.mohe.domain.PopupVO" alias="popup"/>
 		<typeAlias type="com.project.mohe.domain.PagingVO" alias="page"/>
+		<typeAlias type="com.project.mohe.domain.StatusVO" alias="status"/>
 	</typeAliases>
 </configuration>

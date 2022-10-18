@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.Funding_cartVO;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
@@ -81,8 +82,10 @@ public class MyaccountController {
 	public String getFunding_cartList(Model model, HttpSession session) {
 		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
 		List<Funding_pjVO> pj_list = myaccountService.getFunding_cartList(user);
-
+		List<BongsaVO> bs_list = myaccountService.getBonsa_cartList(user);
+		
 		model.addAttribute("pj_list", pj_list);
+		model.addAttribute("bs_list", bs_list);
 		return "shoppingBasket";
 	}
 }

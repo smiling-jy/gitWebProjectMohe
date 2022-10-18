@@ -61,11 +61,35 @@
 									<section class="wrapper">
 										<div class="row clearfix">
 
+										
+											 <!--Sidebar Side-->
+                                            <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+                                                <aside class="sidebar shop-sidebar">
+
+
+                                                    <!-- Price Filters -->
+                                                    <div class="sidebar-widget price-filters rangeslider-widget">
+
+                                                        <!-- Category Widget -->
+                                                        <div class="sidebar-widget categories">
+                                                            <div class="widget-content">
+                                                                <ul>
+                                                                    <li class="current"><a
+                                                                            href="details.html">펀딩참여내역</a></li>
+                                                                    <li><a href="details.html">봉사참여내역</a></li>
+                                                                    <li><a href="shoppingBasket.html">찜하기</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </aside>
+                                            </div>
+											
+
 
 
 											<div class="our-shop">
-
-
 												<div class="row clearfix">
 													<c:forEach items="${pj_list}" var="pj">
 														<!-- 펀딩 블럭 -->
@@ -83,9 +107,18 @@
 																<div class="lower-content new-font">
 																	<div class="progress-box">
 																		<div class="bar">
-																			<div class="bar-inner count-bar" data-percent="${pj.rate}%">
-																				<div class="count-text">${pj.rate}%</div>
-																			</div>
+																			<c:choose>
+																				<c:when test="${pj.rate > 100}">
+																					<div class="bar-inner count-bar" data-percent="100%">
+																						<div class="count-text">${pj.rate}%</div>
+																					</div>
+																				</c:when>
+																				<c:otherwise>
+																					<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
+																						<div class="count-text">${pj.rate}%</div>
+																					</div>
+																				</c:otherwise>
+																			</c:choose>
 																		</div>
 																	</div>
 																	<div class="donation-count clearfix">
@@ -112,8 +145,6 @@
 												</div>
 
 											</div>
-
-
 
 										</div>
 									</section>

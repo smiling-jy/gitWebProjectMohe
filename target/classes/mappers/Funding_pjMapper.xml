@@ -42,7 +42,7 @@
   		</if>
   		<choose>
   			<when test="select != null">
-  				order by pj.${select} desc
+  				order by ${select} desc
   			</when>
   			<otherwise>
   				order by pj.fd_no desc

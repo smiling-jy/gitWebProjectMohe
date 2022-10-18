@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="MyaccountDAO">
+ 
+ 	<update id="updateInfo">
+      UPDATE userinfo
+      SET user_name=#{user_name}, user_phone=#{user_phone}, user_info=#{user_info}, user_img=#{user_img}
+      WHERE user_no=#{user_no}
+   </update>
+   
+   <select id="getAdFunding_pjList" resultType="funding_pay">
+   		select pay.fd_no, pj.fd_goals ,pay.pay_no, pay.fd_title , pj.fd_img_name, pay.pay_total, pj.fd_status
+		  from funding_pay pay , funding_pj pj
+  		 where pay.fd_no = pj.fd_no
+  		   and pay.user_no = #{user_no}
+   </select>
+   
+   <insert id="insertFunding_cart">
+   		insert into funding_cart (fc_no,fc_date_time,user_no,fd_no) values (FD_CART_SEQ.nextval,SYSDATE,#{user_no},#{fd_no})
+   </insert>
+   
+   <select id="getFunding_cartList" resultType="funding_pj">
+   		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0), pj.fd_img_name
+       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+               , pj.fd_status
+		  from funding_pj pj , (select fd_no , sum(pay_total) total_sum 
+                        		  from funding_pay
+                    		  group by fd_no) pay , funding_cart cart
+  		 where pj.fd_no = pay.fd_no(+)
+  		   and pj.fd_no = cart.fd_no
+  		   and cart.user_no = #{user_no}
+   </select>
+   
+ </mapper>
