@@ -28,4 +28,19 @@ public class StatusDaoImpl implements StatusDAO{
 		return mybatis.selectOne("StatusDAO.getBsStatus");
 	}
 
+	@Override
+	public StatusVO getNewFdCnt() {
+		return mybatis.selectOne("StatusDAO.getNewFdCnt");
+	}
+
+	@Override
+	public StatusVO getNewBsCnt() {
+		return mybatis.selectOne("StatusDAO.getNewBsCnt");
+	}
+
+	@Override
+	public StatusVO getNewDntCnt() {
+		return mybatis.selectOne("StatusDAO.getNewDntCnt");
+	}
+
 }
