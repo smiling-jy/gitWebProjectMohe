@@ -81,12 +81,8 @@ public class Funding_pjController {
 		// 타이틀 이미지 있는지 확인하는 조건문
 		if (!pj.getTitle_img().isEmpty()) {
 
-			// 2. 폴더 생성
-
-			// 절대경로 받아오는 메소드
-			String resources = servletContext.getRealPath("/resources/attached_file/funding");
-			// 절대경로 + 지정한 폴더이름으로 폴더 생성
-			Path directoryPath = Paths.get(resources + "/" + folder_name);
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name);
 
 			try {
 				// 폴더 생성 메소드
@@ -100,7 +96,7 @@ public class Funding_pjController {
 			// 타이틀 이미지 저장
 			String fname = pj.getTitle_img().getOriginalFilename();
 			String fileExtension = fname.substring(fname.lastIndexOf("."));
-			File f = new File(resources + "/" + folder_name + "/" + "title_img" + fileExtension);
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name + "/" + "title" + fileExtension);
 
 			try {
 				// 파일저장 메소드
@@ -123,7 +119,7 @@ public class Funding_pjController {
 					fname = pj.getFile()[i].getOriginalFilename();
 					fileExtension = fname.substring(fname.lastIndexOf("."));
 
-					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
+					f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/" + folder_name + "/" + i + fileExtension);
 
 					try {
 						// 파일저장
