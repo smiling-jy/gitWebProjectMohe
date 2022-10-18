@@ -43,7 +43,7 @@
 		<div class="sidebar-page-container">
 			<div class="page-banner no-banner">
 				<div class="auto-container new-font">
-					<h1>${pj.fd_title}</h1>
+					<h1 id="title_gu">${pj.fd_title}</h1>
 					<ul class="bread-crumb clearfix new-font info-qna">
 						<li class="active">소개</li>
 						<li><a href="fundingQna.do?fd_no=${pj.fd_no}">문의</a></li>
@@ -122,14 +122,22 @@
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">
-								<a href="fundingPay.do?fd_no=${pj.fd_no}"
-									class="theme-btn btn-style-one link-box"><span
-									class="btn-title new-font new-btn-title">펀딩하기</span></a>
+							<c:choose>
+								<c:when test="${pj.remain_day < 0}">					
+									<span class="btn-title new-font new-btn-title">종료된 펀딩입니다.</span>
+								</c:when>
+								<c:otherwise>
+									<a href="fundingPay.do?fd_no=${pj.fd_no}"
+										class="theme-btn btn-style-one link-box">
+									<span class="btn-title new-font new-btn-title">펀딩하기</span></a>
 									<button class="funding-btn" id="jjim">♥</button>
 									<input type="hidden" name="fd_no" value="${pj.fd_no}">
 									<button class="funding-btn" id="gongu">
-									<span class="flaticon-share"></span>
-								</button>
+										<span class="flaticon-share"></span>
+									</button>
+									<input type="hidden" value="${pj.fd_img_name}">
+								</c:otherwise>
+							</c:choose>	
 							</div>
 						</aside>
 					</div>
@@ -158,6 +166,8 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 	<script src="resources/js/funding.js"></script>
 
 </body>

@@ -16,16 +16,17 @@ import com.project.mohe.service.NoticeService;
 public class Funding_cartController {
 	@Autowired
 	private Funding_cartService funding_cartService;
-	
+		
 	//찜 목록 중복확인 후 추가
 	@RequestMapping(value ="jjimSave.do" , produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String jjimSave(Funding_cartVO vo, HttpServletRequest request) {
+	public String jjimSave(Funding_cartVO vo , HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
+		if(session.getAttribute("user_no") == null) {
+			return "로그인하세요";
+		}	
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		
 		String result = "찜목록에 추가되었습니다.";
 		// 중복확인
 		if(funding_cartService.getFunding_cart(vo) != null) {
@@ -35,8 +36,6 @@ public class Funding_cartController {
 		}else {
 			funding_cartService.insertFunding_cart(vo);
 		}
-		System.out.println(vo);
-		System.out.println(result);
 		return result;		
 	}
 }

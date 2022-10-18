@@ -47,7 +47,7 @@
 						<h1 class="text text-large">로그인</h1>
 						<p class="text text-normal">
 							처음 오셨나요? <span><label class="" for="agree-terms"><a
-									href="/signup" target="_blank">가입하기</a></label></span>
+									href="signUp.do" target="_blank">가입하기</a></label></span>
 						</p>
 					</div>
 					<form id="form_email_login" method="post" name="signin" class="form">
@@ -86,8 +86,8 @@
 							</a>
 						</div>
 						<div class="method-control">
-							<a href="#" class="method-action"> <i
-								class="ion ion-logo-facebook"></i> <span>카카오로 로그인</span>
+							<a href="javascript:void(0)" class="method-action" id="kakaoLogin"> <i
+								class="ion ion-logo-facebook" ></i> <span>카카오로 로그인</span>
 							</a>
 						</div>
 						<div class="method-control">
@@ -124,6 +124,10 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	
+	<!-- API 로그인 -->
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="resources/js/apiLogin.js"></script>
 
 	<script type="text/javascript">
 		function btnEamillogin() {
@@ -164,6 +168,8 @@
 					})
 		}
 	</script>
+	
+
 
 
 </body>

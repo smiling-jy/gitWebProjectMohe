@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 
 public interface EventDAO {
@@ -19,6 +20,9 @@ public interface EventDAO {
 			
 		// 글 상세 조회
 		EventVO getEvent(EventVO vo);
+		
+		// 이전글 다음글
+		EventVO movePage(EventVO vo);
 			
 		// 글 목록 조회
 		List<EventVO> getEventList(HashMap map);
