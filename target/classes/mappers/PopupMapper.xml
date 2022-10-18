@@ -38,4 +38,10 @@
 		from popup
 		where <![CDATA[pop_end_date > sysdate]]> and pop_use = 'true'
 	</select>
+	<!-- 팝업 삭제 -->
+	<delete id="deletePopup" parameterType="popup">
+		delete 
+		from popup
+		where pop_no = #{pop_no}
+	</delete>
 </mapper>

@@ -14,4 +14,13 @@ public interface StatusDAO {
 	// 봉사 총 참여인원을 불러오는 메소드
 	StatusVO getBsStatus();
 	
+	// 미승인 펀딩수 불러오는 메소드
+	StatusVO getNewFdCnt();
+	
+	// 미승인 봉사수 불러오는 메소드
+	StatusVO getNewBsCnt();
+	
+	// 확인전 기부수 불러오는메소드
+	StatusVO getNewDntCnt();
+	
 }

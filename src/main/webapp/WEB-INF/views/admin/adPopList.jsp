@@ -104,10 +104,12 @@
 																	<td style="word-break:break-all"><a href="adUserDetail.do">${pop.pop_title}</a></td>
 																	<td style="font-size:13px">${pop.pop_start_date}</td>
 																	<td style="font-size:13px">${pop.pop_end_date}</td>
-																	<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																				class="flaticon-delete-1"></span>
+																	<td>
+																		<a href="#" class="remove-btn"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" onclick="remove(${pop.pop_no})" class="remove-btn"> 
+																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
 																</tr>
@@ -224,5 +226,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script src='../resources/js_ad/excelTables.js'></script>		<script>
+		function remove(pop_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeletePopup.do?pop_no='+pop_no;
+		}
+	</script>
 </body>
 </html>

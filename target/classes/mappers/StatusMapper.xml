@@ -19,5 +19,22 @@
 		select sum(dnt_amount)/10000 as allDonate
 		from donation
 	</select>
-	
+	<!-- 대기펀딩수 조회 -->
+	<select id="getNewFdCnt" resultType="status">
+		select count(fd_no) as fdNewCnt
+		from funding_pj
+		where fd_status = '대기중'
+	</select>
+	<!-- 대기봉사수 조회 -->
+	<select id="getNewBsCnt" resultType="status">
+		select count(bs_no) as bsNewCnt
+		from bongsa
+		where bs_ing = '대기중'
+	</select>
+	<!-- 확인필요 기부수 조회 -->
+	<select id="getNewDntCnt" resultType="status">
+		select count(dnt_no) as dntNewCnt
+		from donation
+		where dnt_check = '미확인'
+	</select>
 </mapper>
