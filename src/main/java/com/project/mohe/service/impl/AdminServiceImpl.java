@@ -223,6 +223,17 @@ public class AdminServiceImpl implements AdminService {
 		return noticeDao.getNotice(vo);
 	}
 	
+	// 리뷰 상세보기
+	@Override
+	public ReviewVO getReview(ReviewVO vo) {
+		return reviewDao.getReview(vo);
+	}
+	// 리뷰 삭제하기
+	@Override
+	public void adDeleteReview(ReviewVO vo) {
+		reviewDao.deleteReview(vo);
+	}
+	
 	// 나중에 수정해야하는 애들 
 	
 	// 회원정보 수정기능
@@ -242,7 +253,29 @@ public class AdminServiceImpl implements AdminService {
 	public void adNoticeInsert(NoticeVO vo) {
 		adminDao.adNoticeInsert(vo);
 	}
+	
+	// 파트너 상세정보 불러오기
+	@Override
+	public PartnerVO adGetPartner(PartnerVO vo) {
+		return adminDao.adGetPartner(vo);
+	}
 
+	// 파트너 추가하기
+	@Override
+	public void adPartnerInsert(PartnerVO vo) {
+		adminDao.adPartnerInsert(vo);
+	}
+	
+	// 파트너정보 수정하기
+	@Override
+	public void adPartnerUpdate(PartnerVO vo) {
+		adminDao.adPartnerUpdate(vo);
+	}
+
+	@Override
+	public void adDeletePartner(PartnerVO vo) {
+		partnerDao.deletePartner(vo);
+	}
 
 
 

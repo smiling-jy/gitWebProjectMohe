@@ -14,6 +14,8 @@ import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 import com.project.mohe.service.BongsaService;
@@ -263,6 +265,50 @@ public class AdminController {
 		model.addAttribute("partner",adminService.getPartnerList(vo)); 
 		return "/admin/adPartnerList";
 	}
+	// 파트너쉽 등록하기 
+	@RequestMapping("adPartnerInsert.do")
+	public String adPartnerInsert(PartnerVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//임시 파트너 이미지 이름을 적용
+		vo.setPartner_logo("partner"+vo.getPartner_no());
+		// vo로 받아온 정보를 db에 저장한다 
+		adminService.adPartnerInsert(vo);
+		return "redirect:/admin/adPartnerList.do";
+	}
+	// 파트너쉽 상세보기 
+	@RequestMapping("adPartnerDetail.do")
+	public String adPartnerDetail(PartnerVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		model.addAttribute("partner",adminService.adGetPartner(vo));
+		return "/admin/adPartnerDetail";
+	}
+	// 파트너쉽 수정 페이지 이동
+	@RequestMapping("adPartnerUpdateInfo.do")
+	public String adPartnerUpdateInfo(PartnerVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		model.addAttribute("partner",adminService.adGetPartner(vo));
+		return "/admin/adPartnerUpdateInfo";
+	}
+	// 파트너쉽 수정 하기
+	@RequestMapping("adPartnerUpdate.do")
+	public String adPartnerUpdate(PartnerVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		adminService.adPartnerUpdate(vo);
+		return "redirect:/admin/adPartnerDetail.do?partner_no="
+				+ ""+vo.getPartner_no();
+	}
+	// 파트너쉽 삭제하기
+	@RequestMapping("adDeletePartner.do")
+	public String adDeletePartner(PartnerVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		adminService.adDeletePartner(vo);
+		return "redirect:/admin/adPartnerList.do";
+	}
 	// 리뷰 목록
 	@RequestMapping("adReviewList.do")
 	public String getReviewList(PagingVO vo,Model model,HttpSession session) {
@@ -277,6 +323,24 @@ public class AdminController {
 		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("review",adminService.getReviewList(vo)); 
 		return "/admin/adReviewList";
+	}
+	// 리뷰 상세페이지
+	@RequestMapping("adReviewDetail.do")
+	public String adReviewDetail(ReviewVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 해당 리뷰의 no를 넘겨받아 상세조회
+		model.addAttribute("review",adminService.getReview(vo));
+		return "/admin/adReviewDetail";
+	}
+	//리뷰 삭제하기
+	@RequestMapping("adDeleteReview.do")
+	public String adDeleteReview(ReviewVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 해당 리뷰의 no를 넘겨받아 삭제
+		adminService.adDeleteReview(vo);
+		return "redirect:/admin/adReviewList.do";
 	}
 	// 기부 목록
 	@RequestMapping("adDonationList.do")

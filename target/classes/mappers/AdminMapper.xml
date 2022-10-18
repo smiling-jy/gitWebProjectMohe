@@ -100,4 +100,21 @@
 		insert into notice 
 		values(NOTICE_NOTICE_NO_SEQ.nextval,#{notice_title},#{notice_text},1,'noticeIMG23',0,sysdate,#{adm_no})
 	</insert>
+	<!-- 파트너쉽 추가 -->
+	<insert id="adPartnerInsert" parameterType="partner">
+		insert into partner
+		values(PARTNER_PARTNER_NO_SEQ.nextval,#{partner_name},#{partner_logo},#{partner_url},PARTNER_PARTNER_NO_SEQ.currval)
+	</insert>
+	<!-- 파트너쉽 수정 이름,url만 우선 수정-->
+	<update id="adPartnerUpdate" parameterType="partner">
+		update partner
+		set partner_name = #{partner_name},partner_url = #{partner_url}
+		where partner_no = #{partner_no}
+	</update>
+	<!--  파트너쉽 상세보기 -->
+	<select id="adGetPartner" parameterType="partner" resultType="partner">
+		select *
+		from partner
+		where partner_no = #{partner_no}
+	</select>
 </mapper>
