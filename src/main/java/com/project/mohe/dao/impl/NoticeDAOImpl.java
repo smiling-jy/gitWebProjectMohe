@@ -43,7 +43,6 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public NoticeVO getNotice(NoticeVO vo) {
-		System.out.println("=========>>공지사항 getNotice DAO");
 		return mybatis.selectOne("NoticeDAO.getNotice",vo);
 	}
 
@@ -55,7 +54,6 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public NoticeVO movePage(NoticeVO vo) {
-		System.out.println("==============movePage daoimpl");
 		return mybatis.selectOne("NoticeDAO.movePage", vo);
 	}
 

@@ -38,8 +38,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public EventVO getEvent(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return eventDAO.getEvent(vo);
 	}
 
 	@Override
@@ -56,5 +55,12 @@ public class EventServiceImpl implements EventService {
 	public List<EventVO> getAdEventList(PagingVO vo) {
 		return eventDAO.getAdEventList(vo);
 	}
+
+	@Override
+	public EventVO movePage(EventVO vo) {
+		return eventDAO.movePage(vo);
+	}
+	
+	
 
 }
