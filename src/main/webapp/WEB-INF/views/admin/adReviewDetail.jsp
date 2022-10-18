@@ -49,49 +49,50 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adPartnerList.do">파트너쉽 관리</a>
+						<a href="adReviewList.do">리뷰관리</a>
 					</div>
 					<hr>
 					<!-- 버튼시작 -->
 					<div class="link-box btn_tb_mg right_btn"
 						style="position: absolute; margin: 10px; margin-left: 770px;">
-						<a href="adPartnerUpdateInfo.do?partner_no=${partner.partner_no}"
-							class="theme-btn btn-style-one"> <span class="btn-title"><h2>파트너쉽수정</h2></span>
+						<a href="#" onclick="remove(${review.review_no})"
+							class="theme-btn btn-style-one"> <span class="btn-title"><h2>리뷰
+									삭제</h2></span>
 						</a>
 					</div>
 					<!-- 버튼끝 -->
-					<div class="content_table_div" style="height: 880px">
+					<div class="content_table_div" style="height:1000px">
+						<h3>리뷰 상세</h3>
+						<hr>
 						<div>
-							<h3>파트너쉽 상세보기</h3>
-							<hr style="width: 950px">
 							<!--Form Column-->
-							<div class="form-column col-lg-6 col-md-12 col-sm-12"
-								style="margin-left: 250px">
+							<div class="form-column col-lg-12 col-md-12 col-sm-12">
 								<div class="inner">
 									<div class="donate-form">
 										<div style="height: 50px;"></div>
-										<div class="user_pf_div">
-											<div class="form-group col-lg-12 col-md-12 col-sm-12">
-												<div class="field-label">대표 이미지</div>
-												<img src="../resources/images/imsi_img1.png" />
-											</div>
-										</div>
+										<h2>NO. ${review.review_no}</h2>
+										<input type="hidden" value="${review.review_no}" name="adm_no" />
+										<hr style="width: 950px; color: white;">
 										<div class="row clearfix">
-											<div class="form-group col-lg-6 col-md-6 col-sm-6">
-												<div class="field-label">파트너 명</div>
-												<input type="text" name="partner_name"
-													value="${partner.partner_name}" readonly>
+
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">제목</div>
+												<input type="text" name="user_name"
+													value="${review.review_title}" readonly>
 											</div>
 											<div class="form-group col-lg-12 col-md-12 col-sm-12">
-												<div class="field-label">대표 홈페이지 URL</div>
-												<input type="text" name="partner_url"
-													value="${partner.partner_url}" readonly>
+												<div class="field-label">작성자</div>
+												<input type="text" name="user_name"
+													value="${review.user_name}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">본문</div>
+												<textarea style="height: 500px;" name="notice_text" readonly>${review.review_text}</textarea>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							</form>
 						</div>
 						<!-- form2 끝-->
 
@@ -146,6 +147,12 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+	</script>
+	<script>
+		function remove(review_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeleteReview.do?review_no='+review_no;
+		}
 	</script>
 </body>
 </html>

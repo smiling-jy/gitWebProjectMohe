@@ -56,8 +56,8 @@
 								<div class="image-box">
 									<figure class="image">
 										<img class="lazy-image"
-											src="resources/images/mohe_logo/bongsaMain/s1.jpg"
-											data-src="" alt="">
+											src="resources/files/bongsa/${bongsa.bs_img_name}/title.jpg"
+											data-src="resources/files/bongsa/${bongsa.bs_img_name}/title.jpg" alt="타이틀 이미지">
 									</figure>
 								</div>
 								<div class="donate-info">
@@ -74,57 +74,22 @@
 									</div>
 								</div>
 								<div class="lower-content">
-									<div class="text-content">
-										<h6 class="newFont">${bongsa.bs_content}</h6>
-										<br>
-										<div class="image-box">
-											<figure class="image">
-												<img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaDetail/s1_1.png"
-													data-src="" alt="">
-											</figure>
-										</div>
-										<div class="image-box">
-											<figure class="image">
-												<img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaDetail/s1_2.png"
-													data-src="" alt="">
-											</figure>
-										</div>
-										<div class="image-box">
-											<figure class="image">
-												<img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaDetail/s1_3.png"
-													data-src="" alt="">
-											</figure>
-										</div>
-										<div class="image-box">
-											<figure class="image">
-												<img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaDetail/s1_4.png"
-													data-src="" alt="">
-											</figure>
-										</div>
-										<div class="image-box">
-											<figure class="image">
-												<img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaDetail/s1_5.png"
-													data-src="" alt="">
-											</figure>
-										</div>
-										<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation ullamco laboris tnisi ut aliquip commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>
-                                    <p>accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.</p>
-                                    <br>
-                                    <h3>Raise Fund for Healthy Food</h3>
-                                    <p>Accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.</p>
-                                    <ul>
-                                    	<li>Lorem Ipsum is simply printing and typesetting industry.</li>
-                                        <li>When unknow printer took gallery something.</li>
-                                        <li>Lorem Ipsum is simply printing and typesetting industry.</li>
-                                        <li>When unknow printer took gallery something.</li> -->
-										</ul>
-									</div>
-									<!-- <div class="link-box"><a href="donate.html" class="theme-btn btn-style-one"><span class="btn-title">Donate Now</span></a></div> -->
+<!-- 									<div class="text-content"> -->
+<%-- 										<h6 class="newFont">${bongsa.bs_content}</h6> --%>
+<!-- 										<br> -->
+<!-- 									</div> -->
+																	<br/>
+									<br/>
+									<h6 class="newFont">
+										${bongsa.bs_content}
+									</h6>
+									<br/>
+									<c:forEach var="cnt" begin="1" end="${bongsa.bs_img_cnt}">
+										<img src="resources/files/bongsa/${bongsa.bs_img_name}/${cnt}.jpg">
+									</c:forEach>
+								
+								
+								
 								</div>
 							</div>
 						</div>

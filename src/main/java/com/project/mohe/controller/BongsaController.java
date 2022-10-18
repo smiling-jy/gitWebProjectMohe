@@ -1,8 +1,15 @@
 package com.project.mohe.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +25,9 @@ import com.project.mohe.service.BongsaService;
 public class BongsaController {
 	@Autowired
 	private BongsaService bongsaService;
+	
+	@Autowired
+	ServletContext servletContext;
 	
 	//헤더의 봉사 클릭시 봉사 리스트 페이지로 이동 - 봉사메인페이지
 	@RequestMapping("bongsaMain.do")
@@ -67,6 +77,27 @@ public class BongsaController {
 	
 
 	
+	//모집하기 페이지 클릭시 
+	@RequestMapping("bongsaRecruite.do")
+	public String bongsaRecruite(BongsaVO vo, HttpServletRequest request) {
+	
+		
+	if(request.getSession().getAttribute("user_no") == null) return "loginCheck";
+		// 유저번호 세션에서 받아오기
+		HttpSession session =  request.getSession();
+		System.out.println(session);
+		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
+		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		
+		
+		
+		
+		
+		return "bongsaRecruite";
+	}
+	
+	
+	
 	
 	//모집하기 페이지 봉사활동 모집 insert
 	
@@ -74,20 +105,84 @@ public class BongsaController {
 	public String insertBongsa(BongsaVO vo, HttpServletRequest request) {
 		
 		
+		
 		// 유저번호 세션에서 받아오기
-		HttpSession session = request.getSession();
+		HttpSession session =  request.getSession();
+		System.out.println(session);
 		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 3);
+		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		
 		
 		System.out.println("insertBongsa 컨트롤러 입구");
 		
 		bongsaService.insertBongsa(vo);
 		
 		
-		
-	
-		
-		
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getBs_no() + "_이미지";
+
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성
+
+			// 절대경로 받아오는 메소드
+			String resources = servletContext.getRealPath("/resources/attached_file/bongsa");
+			// 절대경로 + 지정한 폴더이름으로 폴더 생성
+			Path directoryPath = Paths.get(resources + "/" + folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File(resources + "/" + folder_name + "/" + "title_img" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+
+			// 내용 이미지 배열 확인 조건문
+			if (vo.getFile().length != 0) {
+
+				// 배열을 담기 위한 반복문
+				for (int i = 0; i < vo.getFile().length; i++) {
+
+					fname = vo.getFile()[i].getOriginalFilename();
+					fileExtension = fname.substring(fname.lastIndexOf("."));
+
+					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
+
+					try {
+						// 파일저장
+						vo.getFile()[i].transferTo(f);
+						System.out.println(i + " 번 파일이 저장되었습니다");
+
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+
+						e.printStackTrace();
+					}
+				} // for_end
+			} // if_end
+		} // if_end
+
 	return "redirect:/bongsaMain.do";
 	}
 	

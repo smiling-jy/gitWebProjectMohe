@@ -2,6 +2,8 @@ package com.project.mohe.domain;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -53,6 +55,10 @@ public class BongsaVO {
 	private String vt_user_email;
 	private String re_bs_work_end;
 	private String re_bs_work_start;
+	
+	// 첨부 파일
+	MultipartFile title_img;
+	MultipartFile[] file;
 	
 	
 	

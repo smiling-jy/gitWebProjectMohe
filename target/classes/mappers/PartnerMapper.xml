@@ -40,7 +40,7 @@
 		</where>
 	</select>
 	<!-- 파트너 삭제 -->
-	<delete id="deleteBongsa" parameterType="partner">
+	<delete id="deletePartner" parameterType="partner">
 		delete 
 		from partner
 		where partner_no = #{partner_no}
