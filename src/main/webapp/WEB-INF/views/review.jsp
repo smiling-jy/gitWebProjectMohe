@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -44,13 +45,11 @@
 			<div class="auto-container">
 				<h1>후기 모음</h1>
 				<ul class="bread-crumb clearfix">
-					<li><a href="notice.html"><h5>공지사항</h5></a></li>
-					<li><a href="faq.html"><h5>자주 묻는 질문</a>
-					<h5></h5></li>
-					<li><a href="event.html"><h5>이벤트</h5></a></li>
-					<li><a href="partner.html"><h5>파트너</h5></a></li>
-					<li class="active"><h5>후기 모음</h5>
-						</a></li>
+					<li><a href="notice.do"><h5>공지사항</h5></a></li>
+					<li><a href="faq.do"><h5>자주 묻는 질문</a>
+					<li><a href="event.do"><h5>이벤트</h5></a></li>
+					<li><a href="partner.do"><h5>파트너</h5></a></li>
+					<li class="active"><h5>후기 모음</h5></li>
 				</ul>
 			</div>
 
@@ -59,33 +58,42 @@
 
 		<!--Events Section-->
 		<section class="events-section">
-			<div id="new-search-box" style="margin-left: 1070px;">
-				<input type="search" name="search-field" value="" placeholder="검색"
-					required>
 				
-			</div>
 			<div class="auto-container">
-			
-			
 			<!-- 후기 작성 임시 링크 !! 나중에 마이페이지에서 제대로 이어주기 (10.04 영민) -->
-					<br>
-					<a href="reviewInsertForm.do">[ 후기작성하기 ]</a>
-					<br>
-
+					
+					<a href="reviewInsertForm.do" class="theme-btn btn-style-one link-box">
+						<span class="btn-title new-btn-title">후기 작성</span></a>
+					<!-- 검색창 -->
+			<div class="search-box">
+					<form action="review.do" method="post">
+						<select name="select">
+							<option value="review_title">제목</option>
+							<option value="review_text">내용</option>
+						</select>
+						<input type="search" name="search" placeholder="Search..." required>
+						<button type="submit">
+							<span class="icon flaticon-search-1"></span>
+						</button>
+					</form>
+			</div>
+					
 				<div class="row clearfix">
 					
-					<!--Event Block-->
+					<!--review Block-->
 					<c:forEach items="${reviewList}" var="review">
 					<div class="event-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 							<div class="image-box">
 								<figure class="image">
-									<a href="event-single.html"><img class="lazy-image"
+									<a href="getReview.do?review_no=${review.review_no}"><img class="lazy-image img-size"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"></a>
+										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+										alt="review IMG"></a>
 								</figure>
 								<div class="date">
-									25 <span class="month">Aug</span>
+									<fmt:formatDate value="${review.review_date}" pattern="dd"></fmt:formatDate>
+									<span class="month">${review.review_date}</span>
 								</div>
 							</div>
 							<div class="lower-content">
@@ -94,7 +102,8 @@
 								</h3>
 								<ul class="info clearfix">
 									<li><span class="icon fa fa-user"></span>${review.user_name}</li>
-									<li><span class="icon far fa-clock"></span>${review.review_date} </li>
+									<li><span class="icon far fa-clock"></span>
+										<fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></li>
 								</ul>
 								<div class="link-box">
 									<a href="getReview.do?review_no=${review.review_no}" class="theme-btn btn-style-two"><span
@@ -103,6 +112,7 @@
 							 </div>
 						 </div>
 					  </div>
+					 
 					</c:forEach>
 				</div>
 			</div>

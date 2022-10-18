@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,86 +42,51 @@
 		<!-- Page Banner Section -->
 		<section class="page-banner" id="new-banner">
 
-			<div class="auto-container">
+			<div class="auto-container" id="event-banner">
 				<h1>이벤트</h1>
 				<ul class="bread-crumb clearfix">
-					<li><a href="notice.html"><h5>공지사항</h5></a></li>
-					<li><a href="faq.html"><h5>자주 묻는 질문</h5></a></li>
-					<li class="active"><h5>이벤트</h5>
-						</a></li>
-					<li><a href="partner.html"><h5>파트너</h5></a></li>
-					<li><a href="review.html"><h5>후기 모음</h5></a></li>
+					<li><a href="notice.do"><h5>공지사항</h5></a></li>
+					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li class="active"><h5>이벤트</h5></li>
+					<li><a href="partner.do"><h5>파트너</h5></a></li>
+					<li><a href="review.do"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
 
 		</section>
+		</div>
 		
-	<section class="gallery-page-section">
-			<div class="tabSet">
-				<!-- 이벤트 탭 버튼 -->
-					<table id="event-table">
+	<section class="faq-section" id="new-faq-section">
+		<div class="auto-container" id="notice-container">
+				<div class="tabs-box">
+	<div class="content-column col-lg-8 col-md-10 col-sm-10" id="event-content">
+			<!-- 이벤트 시작 -->
+			<c:forEach items="${eventList}" var="event">
+				<div>							
+					<table class="more-table">
 						<tr>
-								<td class="event-btn">
-									<a href="#panel-1" class="on">
-									<button class="event-tab">EVENT 1</button></a>
-								</td>
-							
-								<td class="event-btn">
-									<a href="#panel-2">
-									<button class="event-tab">EVENT 2</button></a>
-								</td>
-								<td class="event-btn">
-									<a href="#panel-3">
-									<button class="event-tab">EVENT 3</button></a>
-								</td>
-								<td class="event-btn">
-									<a href="#panel-4">
-									<button class="event-tab">EVENT 4</button></a>
-								</td>
-								<td class="event-btn">
-									<a href="#panel-5">
-									<button class="event-tab">EVENT 5</button></a>
-								</td>
-						</tr>
-					
-						<!-- 이벤트 탭 화면 -->
-						<!-- db뿌리기 다시 생각해봐야함... -->
-						<tr class="table-gap">
-							
-						</tr>
-				
-						<tr>
-							<td colspan="5" class="eventView-td">
-								<div class="panel" id="panel-1">
-									<img src="resources/images/event/EventThumbnail_1.PNG">
-									<br><br>
-									<img src="resources/images/event/EVENTIMG1.png">
-								</div>
-								<div class="panel" id="panel-2">
-									<img src="resources/images/event/EventThumbnail_2.PNG">
-									<br><br>
-									<img src="resources/images/event/EVENTIMG2.png">
-								</div>
-								<div class="panel" id="panel-3">
-									<img src="resources/images/event/EventThumbnail_3.PNG">
-									<br><br>
-									<img src="resources/images/event/EVENTIMG3.png">
-									<img src="resources/images/event/EVENTIMG3-2.png">
-								</div>
-								<div class="panel" id="panel-4">
-									<img src="resources/images/event/EventThumbnail_4.PNG">
-									<br><br>
-									<img src="resources/images/event/EVENTIMG4.png">
-								</div>
-								<div class="panel" id="panel-3">
-									이벤트 view TEST 5
-								</div>
-							</td>
+										
+						<td class="more-td1">
+							<h5><a href="getEvent.do?event_no=${event.event_no}" style="color:black;">
+								${event.event_title}</a></h5>
+							<div class="event-date">
+							이벤트 기간 <span class="icon far fa-clock"></span>
+							<fmt:formatDate value="${event.event_stdate}" dateStyle="short"></fmt:formatDate>
+							 ~ <fmt:formatDate value="${event.event_eddate}" dateStyle="short"></fmt:formatDate>
+							</div>
+						</td>
+						<td>
+							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.PNG">
+						</td>
 						</tr>
 					</table>
-					
-				</div><!-- end class="tabSet" -->
-	</section><!-- end class="event-section"  -->
+					<hr style="border: solid 1px lightgrey;">
+				</div><!--class="inner" 끝-->	
+			</c:forEach>
+	  	</div>	
+	  </div>
+	 </div>
+</section><!-- end class="event-section"  -->
 
 
 	<!-- footer include -->

@@ -48,8 +48,8 @@ public class ReviewController {
 				//원하는 이름으로 저장하기 = 이름+확장자
 				vo.setReview_img("ReviewIMG_"+vo.getReview_no()+fileExtension);
 				//System.out.println("========>> 이미지파일 이름: "+vo.getReview_img());
-				File f = new File("C:\\Users\\human\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"+vo.getReview_img());
-				
+				File f = new File("C:\\Users\\user\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"+vo.getReview_img());
+					//학원컴경로: "C:\\Users\\human\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"
 				try {
 					file.transferTo(f);
 					//System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");

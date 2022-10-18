@@ -16,7 +16,7 @@ public class EventController {
 	private EventService eventService;
 	
 	
-	@RequestMapping("eventList.do")
+	@RequestMapping("event.do")
 	public void eventList(Model model, HashMap map) {
 		model.addAttribute("eventList", eventService.getEventList(map));
 	}
