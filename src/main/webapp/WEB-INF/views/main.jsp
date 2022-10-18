@@ -145,7 +145,7 @@
 							data-bg="url('resources/images/event/${event.event_main}.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
-							<div class="content-box" style="top: -150px">
+							<div class="content-box" style="top: -160px">
 								<h2>${event.event_title}</h2>
 							</div>
 						</div>

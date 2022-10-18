@@ -7,21 +7,23 @@ $('#kakaoLogin').on('click', function() {
 	        Kakao.API.request({
 	          url: '/v2/user/me',
 	          success: function (response) {
+	        	  console.log(response)
 	        	  const email = response.kakao_account.email;
-	        	  $('#user_email').val(email);
-	        	  $('#user_password').val('0000');
-	        	  $('#form_email_login').action ='kakaoLogin.do';
-	        	  $('#form_email_login').submit;
-	        	  
+	        	  const pass = response.id;
+	        	  const name = response.kakao_account.profile.nickname;
+	        	  $('#api_intype').val('kakao');
+	        	  $('#api_emali').val(email);
+	        	  $('#api_pass').val(pass);
+	        	  $('#api_name').val(name);
+	        	  $('#api-form').submit();
 	          },
 	          fail: function (error) {
-	            console.log(error)
+	        	  alert(error)
 	          },
 	        })
 	      },
 	      fail: function (error) {
-	        console.log(error)
+	    	  alert(error)
 	      },
-	    })
+	    })	  
 })
-

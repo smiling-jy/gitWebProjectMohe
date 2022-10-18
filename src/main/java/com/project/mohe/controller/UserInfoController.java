@@ -60,8 +60,29 @@ public class UserInfoController {
 	public String userLogOut(HttpSession session) {
 		session.removeAttribute("user");
 		session.removeAttribute("sessionTime");
-		session.removeAttribute("userName");
-		session.removeAttribute("userId");
+		session.removeAttribute("user_email");
+		session.removeAttribute("user_no");
+		return "redirect:/main.do";
+	}
+	
+	
+	// api 로그인 (최초로그인이라면 가입 후 로그인)
+	@RequestMapping("/apiLogin.do")
+	public String apiLogin(UserInfoVO vo , HttpSession session) {
+		System.out.println("api로그인 접근");
+		System.out.println(vo);
+		
+		UserInfoVO result = userInfoService.emailCheck_Login(vo);
+		if(result == null) {
+			vo.setUser_phone("kakao");
+			userInfoService.insertUserInfo(vo);
+		}
+		result = userInfoService.emailCheck_Login(vo);
+		session.setAttribute("user", result);
+		session.setAttribute("sessionTime", new Date());
+		session.setAttribute("user_no", result.getUser_no());
+		session.setAttribute("user_email", result.getUser_email());
+
 		return "redirect:/main.do";
 	}
 	
