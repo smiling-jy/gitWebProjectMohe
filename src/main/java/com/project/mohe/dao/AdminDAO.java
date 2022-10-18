@@ -6,6 +6,7 @@ import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
 
@@ -48,4 +49,13 @@ public interface AdminDAO {
 		
 		// 공지 추가기능
 		void adNoticeInsert(NoticeVO vo);
+		
+		// 파트너 추가기능
+		void adPartnerInsert(PartnerVO vo);
+		
+		// 파트너 수정기능
+		void adPartnerUpdate(PartnerVO vo);
+		
+		// 파트너 상세 보기
+		PartnerVO adGetPartner(PartnerVO vo);
 }

@@ -47,7 +47,6 @@
 .btn_div {
 	width: 50px;
 	height: 50px;
-	background-color: white;
 	position: absolute;
 	cursor: pointer;
 }
@@ -66,18 +65,22 @@
 .click_right_menu {
 	width: 200px;
 	height: 400px;
-	background-color: white;
+	background-color: rgb(255,255,255,0.7);
 	position: absolute;
 	margin-left: 50px;
 	cursor: pointer;
+	border-radius: 10px;
 }
 
+.click_right_menu li{
+	border-bottom: 1px solid rgb(229, 229, 229);
+	border-radius: 10px;
+}
 .click_right_menu li, .click_right_menu a {
 	width: 200px;
 	height: 80px;
 	text-align: center;
 	padding-top: 30px;
-	border-bottom: 1px solid rgb(229, 229, 229);
 	color: rgb(100, 100, 100);
 	font-family: 'GmarketSansMedium';
 	text-decoration: none;
@@ -96,6 +99,11 @@
  	left:20px; 
 	width:100px;
 }
+.click_right_menu li:hover{
+	background-color:rgb(112,191,187,0.5);
+	color:white;
+	border-radius: 10px;
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -104,15 +112,15 @@
 <body>
 	<!-- 우측 간편 메뉴 시작 -->
 	<div class="right_nav">
-		<div class="btn_div"></div>
+		<div class="btn_div"><img class="image wow fadeInDown" src="resources/images/mohe_logo/logo_hart.png"></div>
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
 				<li><a href="#">My페이지</a></li>
 				<li><a href="#">찜목록</a></li>
-				<li><a href="#">기부하기</a></li>
-				<li><a href="#">리뷰보기</a></li>
-				<li><a href="#">Q&A</a></li>
+				<li><a href="donate.do">기부하기</a></li>
+				<li><a href="review.do">리뷰보기</a></li>
+				<li><a href="faq.do">Q&A</a></li>
 			</ul>
 		</div>
 	</div>
