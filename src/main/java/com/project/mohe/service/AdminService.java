@@ -85,8 +85,26 @@ public interface AdminService {
 	// 파트너 리스트
 	List<PartnerVO> getPartnerList(PagingVO vo);
 	
+	// 파트너 추가
+	void adPartnerInsert(PartnerVO vo);
+	
+	// 파트너 상세보기
+	PartnerVO adGetPartner(PartnerVO vo);
+	
+	// 파트너 정보수정
+	void adPartnerUpdate(PartnerVO vo);
+	
+	// 파트너 삭제
+	void adDeletePartner(PartnerVO vo);
+	
 	//리뷰 리스트
 	List<ReviewVO> getReviewList(PagingVO vo);
+	
+	//리뷰 상세
+	ReviewVO getReview(ReviewVO vo);
+	
+	//리뷰삭제
+	void adDeleteReview(ReviewVO vo);
 	
 	//기부 리스트
 	List<DonationVO> getDonationList(PagingVO vo);
