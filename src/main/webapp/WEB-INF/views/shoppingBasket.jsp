@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,98 +67,38 @@
 
 
 												<div class="row clearfix">
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
-																</figure>
-															</div>
-															<div class="lower-content new-font">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
+													<c:forEach items="${pj_list}" var="pj">
+														<!-- 펀딩 블럭 -->
+														<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
+															<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+																<div class="image-box">
+																	<figure class="image">
+																		<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img
+																			class="lazy-image"
+																			src="resources/files/funding/${pj.fd_img_name}/title.png"
+																			data-src="resources/files/funding/${pj.fd_img_name}/title.png"
+																			alt=""></a>
+																	</figure>
+																</div>
+																<div class="lower-content new-font">
+																	<div class="progress-box">
+																		<div class="bar">
+																			<div class="bar-inner count-bar" data-percent="${pj.rate}%">
+																				<div class="count-text">${pj.rate}%</div>
+																			</div>
 																		</div>
 																	</div>
-																</div>
-																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
-																</div>
-																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
-																</figure>
-															</div>
-															<div class="lower-content new-font">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
-																		</div>
+																	<div class="donation-count clearfix">
+																		<span class="goal"><strong>목표금액:</strong>
+																			${pj.fd_goals }원</span>
 																	</div>
+																	<h3>
+																		<a href="cause-single.html" class="new-font font">${pj.fd_title }</a>
+																	</h3>
 																</div>
-																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
-																</div>
-																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
 															</div>
 														</div>
-													</div>
-
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
-																</figure>
-															</div>
-															<div class="lower-content new-font">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
-																</div>
-																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
-															</div>
-														</div>
-													</div>
+													</c:forEach>
 
 												</div>
 

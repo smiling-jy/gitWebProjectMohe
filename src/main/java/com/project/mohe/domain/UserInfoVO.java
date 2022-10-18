@@ -1,9 +1,12 @@
 package com.project.mohe.domain;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
 public class UserInfoVO {
-	private int user_no;
+	private Integer user_no;
 	private String user_name;
 	private String user_phone;
 	private String user_addr;
@@ -15,5 +18,6 @@ public class UserInfoVO {
 	private String user_indate;
 	private String user_outdate;
 	private String user_rating;
-	
+
+	private MultipartFile user_img_file;
 }

@@ -116,7 +116,7 @@
 						<input type="text" name="fd_host_phone" required>
 
 						<span>창작자 이메일</span><br />
-						<input type="text" name="fd_host_email" required>
+						<input type="email" name="fd_host_email" required>
  
 						<span>타이틀 이미지</span><br />
 						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기"><br />
