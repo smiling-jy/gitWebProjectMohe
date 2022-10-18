@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,9 +102,9 @@
 																<tr>
 																	<td style="font-size:13px">${review.review_no}</td>
 																	<td style="font-size:13px"><a href="adReviewDetail.do?review_no=${review.review_no}">${review.review_title}</a></td>
-																	<td style="word-break:break-all">${fn:substring(review.review_text,0,5)}</td>
+																	<td style="word-break:break-all">${review.review_text}</td>
 																	<td style="word-break:break-all">${review.user_name}</td>
-																	<td style="word-break:break-all">${fn:substring(review.review_date,0,10)}</td>
+																	<td style="word-break:break-all">${review.review_date}</td>
 																	<td>
 																		<a href="#" onclick="remove(${review.review_no})" class="remove-btn"> 
 																			<span class="flaticon-delete-1"></span>
