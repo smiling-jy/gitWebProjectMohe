@@ -30,10 +30,12 @@
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 
-		  <!-- jQuery -->
-	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-	  <!-- iamport.payment.js -->
-	  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 
 <body>
@@ -69,7 +71,7 @@
 							style="margin-left: 250px">
 							<div class="inner">
 								<div class="donate-form">
-									<form name="inputDnt" method="post" action="insertDonation.do">
+									<form name="inputDnt" method="post" action="donation.do">
 										<h2>당신의 기부</h2>
 
 										<div class="form-group">
@@ -104,14 +106,14 @@
 											<h3>기부 방식 선택</h3>
 											<div class="form-group">
 												<div class="clearfix">
-													<div class="radio-block">
+													<div class="radio-block" style="position:relative;top:-5px;">
 														<input type="radio" id="radio-1" name="dnt_pay_type"
-															value="naver"><label for="radio-1"><img
-															src="resources/images/payment/naver_pay_logo.PNG"></label>
+															value="tosspay"><label for="radio-1"><img
+															src="resources/images/payment/toss_pay_logo.jpg" ></label>
 													</div>
 													<div class="radio-block">
 														<input type="radio" id="radio-2" name="dnt_pay_type"
-															value="kakao" checked><label for="radio-2"><img
+															value="kakaopay" checked><label for="radio-2"><img
 															src="resources/images/payment/kakao_pay_logo.PNG"></label>
 													</div>
 												</div>
@@ -129,8 +131,9 @@
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">연락처</div>
-													<input type="text" maxlength="13" id="dnt_phone" name="dnt_phone" value=""
-														placeholder="Phone Number" required>
+													<input type="text" maxlength="13" id="dnt_phone"
+														name="dnt_phone" value="" placeholder="Phone Number"
+														required>
 												</div>
 												<div
 													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
@@ -150,13 +153,13 @@
 												</div>
 											</div>
 										</div>
-										<div class="form-group" style="text-align: center;">
-											<button type="submit" class="theme-btn btn-style-one"
-												id="dnt_btn">
-												<span class="btn-title btn_fix">기부 완료하기</span>
-											</button>
-										</div>
 									</form>
+									<div style="text-align: center;">
+										<button type="button" class="theme-btn btn-style-one"
+											id="dnt_btn">
+											<span class="btn-title btn_fix">기부 완료하기</span>
+										</button>
+									</div>
 								</div>
 
 							</div>
@@ -175,7 +178,7 @@
 	<div class="scroll-to-top scroll-to-target" data-target="html">
 		<span class="flaticon-up-arrow"></span>
 	</div>
-	
+
 	<script src="resources/js/jquery.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -187,164 +190,163 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	  <script>
+	<script>
+		var result = false;
 
-	  var result = false;
-	  
 		$(function() {
 			// 기부 버튼을 눌렀을때
-			$('#dnt_btn').click(
-					function() {
-						if ($.trim($("#dnt_name").val()) == '') {
-							alert("이름을 입력해 주세요.");
-							$("#dnt_name").focus();
-							return;
-						}
-
-						if ($.trim($('#dnt_phone').val()) == '') {
-							alert("연락처를 입력해 주세요.");
-							$('#dnt_phone').focus();
-							return;
-						}
-
-						if ($.trim($('#dnt_email').val()) == '') {
-							alert("이메일을 입력해 주세요.");
-							$('#dnt_email').foucs();
-							return;
-						}
-						// 이메일 검증 진행
-						if(result){
-							// 자료를 전송합니다.
-							//document.inputDnt.submit(); // 결제를위해 잠시막음
-							alert("띠용");
-							payment(); // 결제 호출
-						}else{
-							alert("올바른 형식을 제출해주세요.")
-						}
-					});
-			
-			// 이메일 검증 함수
-			$('#dnt_email').blur(function(){
-				  // 이메일 값 변수 저장
-				  var email = $("#dnt_email").val();
-				  var message = "";
-
-				  // 검증에 사용할 정규식 변수 regExp에 저장
-				  var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-				  if (email.match(regExp) != null) {
-					  // 타입이 맞으면
-				    message = "정상 이메일 형식 입니다"
-					$('#email_message').css("color","green");
-					 result = true;
-				  }
-				  else {
-					message = "정상적인 이메일 형식이 아닙니다"
-					$('#email_message').css("color","red");
-				  }
-				  $('#email_message').text(message);
-				  return result;
-			});
-			
-			// 전화번호 검증 함수
-			$('#dnt_phone').bind("keyup",function(event){
-				var regNumber = /^[0-9]*$/;
-				var temp = $('#dnt_phone').val();
-				
-				if(!regNumber.test(temp)){
-					alert("숫자만 입력해주세요");
-					$('#dnt_phone').val(temp.replace(/[^0-9]/g,""));
+			$('#dnt_btn').click(function() {
+				if ($.trim($("#dnt_name").val()) == '') {
+					alert("이름을 입력해 주세요.");
+					$("#dnt_name").focus();
+					return;
 				}
-				
-				temp.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/\-{1,2}$/g, "");
+
+				if ($.trim($('#dnt_phone').val()) == '') {
+					alert("연락처를 입력해 주세요.");
+					$('#dnt_phone').focus();
+					return;
+				}
+
+				if ($.trim($('#dnt_email').val()) == '') {
+					alert("이메일을 입력해 주세요.");
+					$('#dnt_email').foucs();
+					return;
+				}
+				// 이메일 검증 진행
+				if (result) {
+					// 검증이 완료되면 결제 진행
+					payment(); // 결제 호출
+				} else {
+					alert("올바른 형식을 제출해주세요.")
+				}
 			});
-			
+
+			// 이메일 검증 함수
+			$('#dnt_email')
+					.blur(
+							function() {
+								// 이메일 값 변수 저장
+								var email = $("#dnt_email").val();
+								var message = "";
+
+								// 검증에 사용할 정규식 변수 regExp에 저장
+								var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+								if (email.match(regExp) != null) {
+									// 타입이 맞으면
+									message = "정상 이메일 형식 입니다"
+									$('#email_message').css("color", "green");
+									result = true;
+								} else {
+									message = "정상적인 이메일 형식이 아닙니다"
+									$('#email_message').css("color", "red");
+								}
+								$('#email_message').text(message);
+								return result;
+							});
+
+			// 전화번호 검증 함수
+			$('#dnt_phone').bind(
+					"keyup",
+					function(event) {
+						var regNumber = /^[0-9]*$/;
+						var temp = $('#dnt_phone').val();
+
+						if (!regNumber.test(temp)) {
+							alert("숫자만 입력해주세요");
+							$('#dnt_phone').val(temp.replace(/[^0-9]/g, ""));
+						}
+
+						temp.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g,
+								"$1-$2-$3").replace(/\-{1,2}$/g, "");
+					});
+
 			// 기부금액 변환및 변수전달
 			// 1. 버튼 클릭시 자동 기부금액 전달하는 함수
-			$('input[name=payment-group]').click(function(){
+			$('input[name=payment-group]').click(function() {
 				// 체크된 라디오 벨유값을 토탈값에 전달한다
 				var pay = $('input[name=payment-group]:checked').val();
 				// div 보이는 값에 적용
-				$('strong').text(pay+"원");
+				$('strong').text(pay + "원");
 				// hidden 값에 적용
 				$('#dnt_amount').val(pay);
 				// 직접입금 금액은 비어있도록 적용
 				$('input[name=other-payment]').val("");
 			});
 			//2. 직접 입력한 금액이 있으면 그 금액을 전달
-			$('input[name=other-payment]').change(function(){
+			$('input[name=other-payment]').change(function() {
 				// 입력한 기부금액의 값을 받아옴
 				var inputPay = $('input[name=other-payment]').val();
 				// div 보이는 값에 적용
-				$('strong').text(inputPay+"원");
+				$('strong').text(inputPay + "원");
 				// hidden 값에 적용
 				$('#dnt_amount').val(inputPay);
 			});
-			
-			<%if(request.getParameter("result") != null){%>
-				// 기부를 정상적으로 완료했다면
-				alert("기부가 완료되었습니다.");
-			<%}%>
+	<%if (request.getParameter("result") != null) {%>
+		// 기부를 정상적으로 완료했다면
+			alert("기부가 완료되었습니다.");
+	<%}%>
+		var IMP = window.IMP; // 생략가능
+			IMP.init('imp28267552'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+			var msg;
 
-	        var IMP = window.IMP; // 생략가능
-	        IMP.init('imp28267552'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-	        var msg;
-            
-            function payment(){
-                dnt_amount = $('#dnt_amount').val();
-                dnt_email = $('#dnt_email').val();
-                dnt_name = $('#dnt_name').val();
-                dnt_tel = $('#dnt_phone').val();
-                
-            	 IMP.request_pay({
- 		            pg : 'kakaopay',
- 		            pay_method : 'card',
- 		            merchant_uid : 'merchant_' + new Date().getTime(),
- 		            name : '기부결제',
- 		            amount : dnt_amount,
- 		            buyer_email : dnt_email,
- 		            buyer_name : dnt_name,
- 		            buyer_tel : dnt_tel
- 		            //m_redirect_url : 'http://www.naver.com'
- 		        }, function(rsp) {
- 		            if ( rsp.success ) {
- 		                //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
- 		                jQuery.ajax({
- 		                    url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
- 		                    type: 'POST',
- 		                    dataType: 'json',
- 		                    data: {
- 		                        imp_uid : rsp.imp_uid
- 		                        //기타 필요한 데이터가 있으면 추가 전달
- 		                    }
- 		                }).done(function(data) {
- 		                    //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
- 		                    if ( everythings_fine ) {
- 		                        msg = '결제가 완료되었습니다.';
- 		                        msg += '\n고유ID : ' + rsp.imp_uid;
- 		                        msg += '\n상점 거래ID : ' + rsp.merchant_uid;
- 		                        msg += '\결제 금액 : ' + rsp.paid_amount;
- 		                        msg += '카드 승인번호 : ' + rsp.apply_num;
- 		                        
- 		                        alert(msg);
- 		                    } else {
- 		                        //[3] 아직 제대로 결제가 되지 않았습니다.
- 		                        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
- 		                    }
- 		                });
- 		                //성공시 이동할 페이지
- 		                alert("삐융");
- 		                document.inputDnt.submit();
- 		            } else {
- 		                msg = '결제에 실패하였습니다.';
- 		                msg += '에러내용 : ' + rsp.error_msg;
- 		                alert(msg);
- 		            }
- 		        });
-            };
-	       
-	        
-		});
+			function payment() {
+				dnt_amount = $('#dnt_amount').val();
+				dnt_email = $('#dnt_email').val();
+				dnt_name = $('#dnt_name').val();
+				dnt_tel = $('#dnt_phone').val();
+				dnt_pay_type = $('input[name=dnt_pay_type]:checked').val();
+				
+				if(dnt_pay_type == 'tosspay'){
+					// 토스 간편 결제
+					IMP.request_pay({
+						pg : dnt_pay_type,
+						pay_method : 'tosspay',
+						merchant_uid : 'merchant_' + new Date().getTime(),
+						name : '기부결제',
+						amount : dnt_amount,
+						buyer_email : dnt_email,
+						buyer_name : dnt_name,
+						buyer_tel : dnt_tel
+					}, function(rsp) { //팝업 방식으로 진행 또는 결제 프로세스 시작 전 오류가 발생할 경우 호출되는 callback
+					    if ( rsp.success ) {
+							//성공시 이동할 페이지
+							alert("결제에 성공하셨습니다.");
+							document.inputDnt.submit();
+					    } else {
+					        var msg = '결제에 실패하였습니다.';
+					        msg += '에러내용 : ' + rsp.error_msg;
+
+					        alert(msg);
+					    }
+					});
+				}else{
+					// 카카오 페이 결제
+					IMP.request_pay({
+						pg : dnt_pay_type,
+						pay_method : 'card',
+						merchant_uid : 'merchant_' + new Date().getTime(),
+						name : '기부결제',
+						amount : dnt_amount,
+						buyer_email : dnt_email,
+						buyer_name : dnt_name,
+						buyer_tel : dnt_tel
+					}, function(rsp) {
+						if (rsp.success) {
+							//성공시 이동할 페이지
+							alert("결제에 성공하셨습니다.");
+							document.inputDnt.submit();
+						} else {
+							msg = '결제에 실패하였습니다.';
+							msg += '에러내용 : ' + rsp.error_msg;
+							alert(msg);
+						}
+					}); // request_pay 종료
+				} // if-else 종료
+			}; // payment() 함수 종료
+
+		});// $(function(){}) 종료
 	</script>
 </body>
 </html>
