@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +76,8 @@
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>${review.user_name}</li>
-                                    <li> <fmt:formatDate value="${review.review_date}" pattern="yyyy년 MM월 dd일  hh시mm분"></fmt:formatDate></li>
+                                    <li>작성날짜: <fmt:formatDate value="${review.review_date}" pattern="yyyy. MM. dd / hh:mm"></fmt:formatDate></li>
+                               		<li>조회수 : ${review.review_read_cnt}</li>
                                 </ul>
                         
                             </div>
@@ -98,15 +100,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="post-meta" style="text-align:right;">
-                            <ul class="clearfix">
-                                <li><a href="goUpdate.do?review_no=${review.review_no}"> 수정 </a></li>
-                                <li><a href="deleteReview.do?review_no=${review.review_no}"> 삭제 </a></li>
-                            </ul>
-                    
-                        </div>
-                        
-                         <hr style="border: solid 1px lightgrey">
+                         <!-- 작성자 본인 확인 -->
+							<c:if test="${sessionScope.user_no eq review.user_no}">
+	                       		<a href="goUpdate.do?review_no=${review.review_no}"> 수정 </a>
+	                            <a href="deleteReview.do?review_no=${review.review_no}"> 삭제 </a>
+	                         </c:if>
+	                  	<hr style="border: solid 1px lightgrey">
                          <br><br>
                     <div style="text-align:center;">
                     		 <div>

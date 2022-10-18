@@ -104,6 +104,7 @@
 									<li><span class="icon fa fa-user"></span>${review.user_name}</li>
 									<li><span class="icon far fa-clock"></span>
 										<fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></li>
+									<li> 조회수 : ${review.review_read_cnt}</li>
 								</ul>
 								<div class="link-box">
 									<a href="getReview.do?review_no=${review.review_no}" class="theme-btn btn-style-two"><span

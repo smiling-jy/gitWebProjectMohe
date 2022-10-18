@@ -53,13 +53,13 @@
 
 		<!--FAQs Section-->
 		<section class="faq-section">
-			<div class="auto-container">
+			
 				<div class="tabs-box">
-					<div class="row clearfix">
+
 						<!--Title Column-->
 						<div class="title-column">
 
-							<div class="inner">
+							<div class="faq-inner">
 
 								<ul class="tab-buttons">
 									<li class="tab-btn active-btn" style="font-size: 20px"
@@ -70,13 +70,18 @@
 								</ul>
 							</div>
 						</div>
-
-						<!--Content Column-->
+						<div class="auto-container">
+						    <!--Content Column-->
 						<div class="content-column col-lg-10 col-md-12 col-sm-12">
-							<div id="new-search-box">
-								<input type="search" name="search-field" value=""
-									placeholder="검색" required>
-							</div>
+						    <!-- 운영자에게 메일보내기&검색하기 -->
+         					<div class="auto-container" id="admin-email">
+          			  			<div id="admin-email-inner">
+              						 <h4 style="text-align: center; color: white; display: inline;">
+              								 무엇이든 문의하세요</h4>
+              			 			<img src="resources/images/mohe_logo/main_logo.png">
+              						 <h4 style="text-align: center; color: white; display: inline;">mohe@naver.com</h4>
+								</div>
+        		 		</div>
 							<div class="inner">
 								<div class="tabs-content">
 									<!--Tab-->
@@ -121,7 +126,7 @@
 												<div class="acc-content">
 													<div class="content">
 														<div class="text"><p>
-																	10% 입니다.
+																	후원금은 전체 펀딩 성공 금액의 50% 입니다.
 														</p></div>
 													</div>
 												</div>
@@ -139,10 +144,7 @@
 													</div>
 												</div>
 											</li>
-
-				
-
-										</ul>
+									</ul>
 									</div>
 
 									<!--Tab-->
@@ -282,28 +284,13 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			</div>
-			<br>
-<!-- 			<h5 style="text-align: center">◀ [1] [2] [3] [4] [5] ▶</h5> -->
-			<br>
-			<!--운영자에게 이메일 보내기-->
-			<br>
-			<div class="auto-container" id="admin-email">
-				<div class="inner clearfix" id="admin-email-inner">
-					<h4 style="text-align: center; color: white; display: inline;">무엇이든
-						문의하세요</h4>
-					<img src="resources/images/mohe_logo/main_logo.png">
-					<h4 style="text-align: center; color: white; display: inline;">mohe@naver.com</h4>
-
-				</div>
-			</div>
-			<!-- </section> -->
-		</section>
+		
 
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
-	</div>
+
 	<!--End pagewrapper-->
 
 	<!--Scroll to top-->

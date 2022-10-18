@@ -42,6 +42,7 @@ public class ReviewController {
 			
 			reviewService.insertReview(user_vo,vo);
 			
+			
 			//이미지첨부
 			file=vo.getFile();
 			String fName=vo.getFName();
@@ -75,7 +76,7 @@ public class ReviewController {
 		
 		//리뷰 리스트 페이지 보기 
 		@RequestMapping("review.do")
-		public String reviewList(Model model, String search, String select ) {
+		public String reviewList(Model model, String search, String select) {
 
 			//검색
 			HashMap map = new HashMap();
@@ -103,12 +104,13 @@ public class ReviewController {
 		
 		//수정페이지로 이동
 		@RequestMapping("goUpdate.do")
-		public String goUpdate(ReviewVO vo,Model model) {
-			//수정하고자 하는 게시글의 내용을 출력해야함 따라서 해당 게시물의 내용을 가져오는 서비스 메소드를 호출
+		public String goUpdate(ReviewVO vo,Model model,HttpSession session) {
 			model.addAttribute("review", reviewService.getReview(vo));
-			
 			return "reviewUpdate";
 		}
+			
+			
+		
 		
 		//수정
 		@RequestMapping("updateReview.do")
