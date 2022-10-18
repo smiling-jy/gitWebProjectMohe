@@ -60,6 +60,35 @@
 								<main class="gallery-item-two mix mix-1 main">
 									<section class="wrapper">
 										<div class="row clearfix">
+
+										
+											 <!--Sidebar Side-->
+                                            <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+                                                <aside class="sidebar shop-sidebar">
+
+
+                                                    <!-- Price Filters -->
+                                                    <div class="sidebar-widget price-filters rangeslider-widget">
+
+                                                        <!-- Category Widget -->
+                                                        <div class="sidebar-widget categories">
+                                                            <div class="widget-content">
+                                                                <ul>
+                                                                    <li class="current"><a
+                                                                            href="details.html">펀딩참여내역</a></li>
+                                                                    <li><a href="details.html">봉사참여내역</a></li>
+                                                                    <li><a href="shoppingBasket.html">찜하기</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </aside>
+                                            </div>
+											
+
+
+
 											<div class="our-shop">
 												<div class="row clearfix">
 													<c:forEach items="${pj_list}" var="pj">
@@ -116,8 +145,6 @@
 												</div>
 
 											</div>
-
-
 
 										</div>
 									</section>
