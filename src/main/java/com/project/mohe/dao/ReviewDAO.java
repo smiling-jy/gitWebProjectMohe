@@ -1,5 +1,6 @@
 package com.project.mohe.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.PagingVO;
@@ -24,7 +25,7 @@ public interface ReviewDAO {
 	ReviewVO getReview(ReviewVO vo);
 		
 	// 글 목록 조회
-	List<ReviewVO> getReviewList();
+	List<ReviewVO> getReviewList(HashMap map);
 	
 	// 배스트 리뷰 (조회수기준) 리스트
 	List<ReviewVO> getBestReview();

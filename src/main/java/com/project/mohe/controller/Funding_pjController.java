@@ -20,13 +20,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.Funding_pjService;
+import com.project.mohe.service.UserInfoService;
 
 @Controller
 public class Funding_pjController {
 	@Autowired
 	private Funding_pjService funding_pjService;
-
+	
 	@Autowired
 	ServletContext servletContext;
 
@@ -50,10 +52,15 @@ public class Funding_pjController {
 		return "fundingSingle";
 	}
 
-	// 펀딩주최하기 클릭시 페이지 단순 이동
+	// 펀딩주최하기 클릭시 로그인 체크 후 이동
 	@RequestMapping("openfunding.do")
-	public void openFunding() {
-
+	public String openFunding(HttpServletRequest request) {
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user_no") == null) {
+			return "loginCheck";
+		}
+		return "openfunding";
 	}
 
 	// Funding_pjVO 테이블에 insert
@@ -62,9 +69,6 @@ public class Funding_pjController {
 
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
 
 		pj.setUser_no((Integer) session.getAttribute("user_no"));
 
@@ -148,10 +152,6 @@ public class Funding_pjController {
 	public String fundingHost(Model model, HttpServletRequest request) {
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-					
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
-		
 		HashMap map = new HashMap();
 		map.put("user_no", (Integer) session.getAttribute("user_no"));
 		model.addAttribute("success_list", funding_pjService.getSuccess_pjList(map));

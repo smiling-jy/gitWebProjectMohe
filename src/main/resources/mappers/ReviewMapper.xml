@@ -11,18 +11,25 @@
 		</selectKey>
 		INSERT INTO REVIEW
 		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT, REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
-		USER_NAME, REVIEW_READ_CNT, USER_NO
+		REVIEW_READ_CNT, USER_NO
 		)VALUES
-		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'review_img',#{review_text},SYSDATE, #{user_name},0,2)
+		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'이거저장어떻게하냐',#{review_text},SYSDATE,
+		0,#{user_no})
 	</insert>
-	<!-- 리뷰 목록 -->
-	<select id="getReviewList" resultType="review">
-		SELECT * FROM REVIEW
+	<!-- 리뷰 목록+검색 -->
+	<select id="getReviewList" parameterType="hashmap" resultType="review">
+		SELECT review.*, userinfo.user_name
+    	  FROM review, userinfo
+    	 WHERE review.user_no = userinfo.user_no
+		<where>
+			<if test="search != null">
+				${select} like '%${search}%'
+			</if>
+		</where>
 		ORDER BY REVIEW_NO DESC
 	</select>
 	<!-- 리뷰 읽기 -->
-	<select id="getReview" parameterType="review"
-		resultType="review">
+	<select id="getReview" parameterType="review" resultType="review">
 		SELECT *
 		FROM REVIEW
 		WHERE review_no=#{review_no}

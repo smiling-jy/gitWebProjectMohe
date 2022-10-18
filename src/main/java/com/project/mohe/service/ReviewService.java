@@ -1,5 +1,6 @@
 package com.project.mohe.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.PagingVO;
@@ -20,7 +21,7 @@ public interface ReviewService {
 	ReviewVO getReview(ReviewVO vo); 
 		
 	// 글 목록 조회
-	List<ReviewVO> getReviewList();
+	List<ReviewVO> getReviewList(HashMap map);
 	
 	//이전글 다음글
 	ReviewVO movePage(ReviewVO vo);

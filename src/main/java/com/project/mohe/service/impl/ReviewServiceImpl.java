@@ -45,9 +45,9 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List<ReviewVO> getReviewList() {
+	public List<ReviewVO> getReviewList(HashMap map) {
 		
-		return reviewDAO.getReviewList();
+		return reviewDAO.getReviewList(map);
 	}
 
 	@Override

@@ -46,5 +46,25 @@
 		from event
 		where event_no = #{event_no}
 	</delete>
+	<!-- 이벤트 본문읽기 -->
+	<select id="getEvent" parameterType="event" resultType="event">
+		select *
+		  from event
+		 where event_no=#{event_no}
+	</select>
+	<!-- 이벤트 본문에서 이전글 다음글 -->
+	<select id="movePage" parameterType="event" resultType="event">
+		select * from (SELECT EVENT_NO,
+		                LEAD(EVENT_NO,1,9999) OVER(ORDER BY EVENT_NO) AS next,
+		                LAG(EVENT_NO,1,9999) OVER(ORDER BY EVENT_NO) AS prev,
+		                EVENT_TITLE,
+		                LEAD(EVENT_TITLE,1,9999) OVER(ORDER BY EVENT_NO) AS next_title,
+		                LAG(EVENT_TITLE,1,9999) OVER(ORDER BY EVENT_NO) AS prev_title
+		                
+		                FROM event
+		                ORDER BY EVENT_NO DESC)
+                 where event_no=#{event_no}
+	</select>
+	
 	
 </mapper>
