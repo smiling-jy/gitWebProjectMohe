@@ -61,16 +61,8 @@
 	
 											<tbody>
 												<tr>
-													<td colspan="2" class="prod-column">
-														<div class="column-box">
-															<figure class="prod-thumb">
-																<a href="#"><img class="lazy-image"
-																	src="resources/images/resource/image-spacer-for-validation.png"
-																	data-src="resources/images/resource/products/prod-thumb-1.jpg"
-																	alt=""></a>
-															</figure>
-															<h4 class="prod-title">${pj.fd_title}</h4>
-														</div>
+													<td colspan="2" id="pay_first_td">
+														${pj.fd_title}
 													</td>
 													<td class="price"><span>${pj.fd_price}</span>원</td>
 													<td class="qty"><input class="quantity-spinner"
@@ -92,14 +84,11 @@
 												<div>
 													<span>연락처</span><br /> <input type="text" name="pay_pn_phone" required>
 												</div>
-												<div>
-													<span>이메일</span><br /> <input type="text" name="pay_pn_email" required>
-												</div>
 	
 												<span>배송지</span><br />
 												<div>
 												<!-- api 가능하다면 ㄱㄱ -->
-													<span>주소</span><br /> <input type="text" name="addr1" required>
+													<span>주소</span><br /> <input type="text" name="addr1" id="addr" required>
 												</div>
 												<div>
 													<span>상세주소</span><br /> <input type="text" name="addr2" required>
@@ -143,7 +132,10 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<!-- 주소 API -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="resources/js/funding.js"></script>
+
 
 </body>
 </html>

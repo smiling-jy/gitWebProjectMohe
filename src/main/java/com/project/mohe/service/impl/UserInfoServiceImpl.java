@@ -48,8 +48,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Override
 	public UserInfoVO getUserInfo(UserInfoVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return userInfoDao.getUserInfo(vo);
 	}
 
 	@Override

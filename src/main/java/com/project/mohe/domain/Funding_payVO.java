@@ -12,7 +12,10 @@ public class Funding_payVO {
 	private int user_no;
 	private String fd_title;
 	private String fd_hostname;
+	private String fd_img_name;
+	private int fd_goals;
 	private int fd_price;
+	private String fd_status;
 	private int pay_count;
 	private int pay_total;
 	private String pay_pn_name;
