@@ -71,31 +71,28 @@
                             	<input name="review_no" type=hidden value="${review.review_no}"/>
                                 <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">제목<sup>*</sup></div>
+                                    <div class="field-label">제목</div>
                                     <input type="text" name="review_title" value="${review.review_title}">
                                 </div>
                                 
                                 <!--Form Group-->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">작성자 이름<sup>*</sup></div>
-                                    <input type="text" name="user_name" value="${review.user_name}">
-                                </div>
-                                
-                           
-                                  <!--사진첨부-->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-label">사진 첨부하기 <sup>*</sup><a href="">[사진첨부]</a></div>
-                                    <input type="text" name="review_img" value="">
-                                    
-                                </div>
-        
-        </div>
+                              <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <div class="field-label">작성자 : ${review.user_name} </div>
+                     			</div>
+                              </div>
         
                                  <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea id="reviewtext" name="review_text">${review.review_text}</textarea>
+                                	<div class="field-label">내 용</div>
+                                     <textarea id="reviewtext" name="review_text">${review.review_text}</textarea>
                                 </div>
-                            
+                                <div class="btn-box" style="text-align:center;">
+                        			<button type="submit" class="theme-btn btn-style-one place-order"><span class="btn-title">수정하기</span></button>
+                         </form>
+                    </div>
+                   
+                    <br><br><br>
+             
                          
                             </div>
                         </div>
@@ -104,12 +101,7 @@
                         
                 </div>
 
-                    <div class="btn-box" style="text-align:center;">
-                        <button type="submit" class="theme-btn btn-style-one place-order"><span class="btn-title">수정하기</span></button>
-                        
-                    </div>
-                    <br><br><br>
-             </form>
+                
     </div>
 </section>
 		<!-- footer include -->

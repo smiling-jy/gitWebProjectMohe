@@ -60,6 +60,7 @@
 								<main class="gallery-item-two mix mix-1 main">
 									<section class="wrapper">
 										<div class="row clearfix">
+
 										
 											 <!--Sidebar Side-->
                                             <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
@@ -87,9 +88,8 @@
 											
 
 
+
 											<div class="our-shop">
-
-
 												<div class="row clearfix">
 													<c:forEach items="${pj_list}" var="pj">
 														<!-- 펀딩 블럭 -->
@@ -107,9 +107,18 @@
 																<div class="lower-content new-font">
 																	<div class="progress-box">
 																		<div class="bar">
-																			<div class="bar-inner count-bar" data-percent="${pj.rate}%">
-																				<div class="count-text">${pj.rate}%</div>
-																			</div>
+																			<c:choose>
+																				<c:when test="${pj.rate > 100}">
+																					<div class="bar-inner count-bar" data-percent="100%">
+																						<div class="count-text">${pj.rate}%</div>
+																					</div>
+																				</c:when>
+																				<c:otherwise>
+																					<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
+																						<div class="count-text">${pj.rate}%</div>
+																					</div>
+																				</c:otherwise>
+																			</c:choose>
 																		</div>
 																	</div>
 																	<div class="donation-count clearfix">

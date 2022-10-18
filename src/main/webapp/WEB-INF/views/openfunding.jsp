@@ -119,10 +119,10 @@
 						<input type="email" name="fd_host_email" required>
  
 						<span>타이틀 이미지</span><br />
-						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기"><br />
+						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기" required><br />
 
 						<span>내용 이미지</span><br />						
-						<input type="file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기"><br />
+						<input type="file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기" required><br />
 						
 						<!-- <span>첨부파일 목록</span>
 

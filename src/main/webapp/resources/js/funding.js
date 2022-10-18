@@ -19,7 +19,8 @@ $("#close").click(function() {
 
 // 펀딩결제 페이지 수량증가에 따라 총액 변화
 $("button.btn-default").on("click",function(){	
-    $(".sub-total span").text(Number($("input[name=pay_count]").val())*Number($("td.price span").text()))
+    $(".sub-total span").text(Number($("#cnt-pay").val())*Number($("td.price span").text()))
+    $('input[name=pay_count]').val($(".sub-total span").text);
 })
 
 
@@ -218,6 +219,8 @@ $('#gongu').on("click",function(){
 		      },
 		    });
 })
+
+
 
 
 

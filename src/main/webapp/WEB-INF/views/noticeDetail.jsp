@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -50,10 +51,10 @@
        
 				<ul class="bread-crumb clearfix">
 					<li class="active"><h5>공지사항</h5></li>
-					<li><a href="faq.html"><h5>자주 묻는 질문</h5></a></li>
-					<li><a href="event.html"><h5>이벤트</h5></a></li>
-					<li><a href="partner.html"><h5>파트너</h5></a></li>
-					<li><a href="review.html"><h5>후기 모음</h5></a></li>
+					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li><a href="event.do"><h5>이벤트</h5></a></li>
+					<li><a href="partner.do"><h5>파트너</h5></a></li>
+					<li><a href="review.do"><h5>후기 모음</h5></a></li>
 				</ul>
         </div>
 
@@ -76,7 +77,7 @@
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>왜안뜨니${notice.adm_id}</li>
-                                    <li> ${notice.notice_date}</li>
+                                    <li>  <fmt:formatDate value="${notice.notice_date}" pattern="yyyy년 MM월 dd일  hh시mm분"></fmt:formatDate></li>
                                 </ul>
                         
                             </div>

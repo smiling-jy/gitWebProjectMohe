@@ -11,6 +11,7 @@ import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
 
@@ -86,10 +87,26 @@ public class AdminDAOImpl implements AdminDAO {
 	public void adNoticeUpdate(NoticeVO vo) {
 		mybatis.update("AdminDAO.adNoticeUpdate",vo);
 	}
-
+	// 공지사항 추가하기
 	@Override
 	public void adNoticeInsert(NoticeVO vo) {
 		mybatis.insert("AdminDAO.adNoticeInsert",vo);
+	}
+	// 파트너 추가하기
+	@Override
+	public void adPartnerInsert(PartnerVO vo) {
+		mybatis.insert("AdminDAO.adPartnerInsert",vo);
+	}
+
+	//파트너 수정하기
+	@Override
+	public void adPartnerUpdate(PartnerVO vo) {
+		mybatis.update("AdminDAO.adPartnerUpdate",vo);
+	}
+	// 파트너 상세보기
+	@Override
+	public PartnerVO adGetPartner(PartnerVO vo) {
+		return mybatis.selectOne("AdminDAO.adGetPartner",vo);
 	}
 	
 
