@@ -25,7 +25,13 @@ public class Funding_payController {
 	
 	// 결제 하기
 	@RequestMapping("fundingPay.do")
-	public String fundingPay(Funding_pjVO pj, Model model) {
+	public String fundingPay(Funding_pjVO pj, Model model , HttpServletRequest request) {
+		
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user_no") == null) {
+			return "loginCheck";
+		}	
 		// 펀딩 프로젝트 vo의 데이터 넘겨주기 	
 		model.addAttribute("pj",pjService.getFunding_pj(pj));
 		return "fundingPay";
@@ -35,9 +41,6 @@ public class Funding_payController {
 	public String paySave(Funding_payVO pay, HttpServletRequest re) {
 		// 유저번호 세션에서 받아오기
 		HttpSession session = re.getSession();
-		
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
 		
 		pay.setUser_no((Integer) session.getAttribute("user_no"));
 		
@@ -69,9 +72,6 @@ public class Funding_payController {
 	@RequestMapping(value = "statusUpdate.do")
 	@ResponseBody
 	public List<Funding_payVO> statusUpdate(Funding_payVO pay) {
-		System.out.println("결제번호 : "+pay.getPay_no());
-		System.out.println("프젝번호 : "+pay.getFd_no());
-		System.out.println("배송번호 : "+pay.getPay_status());
 		funding_payService.updateFunding_pay(pay);
 		return funding_payService.getFunding_payList(pay);
 //		"redirect:/patronList.do?fd_no="+pay.getFd_no();
