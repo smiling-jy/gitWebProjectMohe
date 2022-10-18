@@ -40,6 +40,14 @@ public class MainController {
 		model.addAttribute("bestReview",mainService.getReviewList());
 		model.addAttribute("eventList",mainService.getEventList());
 		model.addAttribute("popup",mainService.getMainPopup());
+		model.addAttribute("status",mainService.getStatus());
+		
+	}
+	
+	@RequestMapping("info2.do")
+	public void veiwInfo2(Model model) {
+		// status 정보 불러오기
+		model.addAttribute("status",mainService.getStatus());
 	}
 
 }
