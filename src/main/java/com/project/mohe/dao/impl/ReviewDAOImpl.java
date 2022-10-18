@@ -48,8 +48,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<ReviewVO> getReviewList() {
-		return mybatis.selectList("ReviewDAO.getReviewList");
+	public List<ReviewVO> getReviewList(HashMap map) {
+		return mybatis.selectList("ReviewDAO.getReviewList",map);
 	}
 	// 배스트 리뷰 리스트
 	@Override

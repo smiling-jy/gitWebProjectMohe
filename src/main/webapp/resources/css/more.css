@@ -15,7 +15,7 @@
 
  h1,h2,h3,h4,h5,h6 {font-family: 'GmarketSansMedium'; }
 
-.tabs-box .tab-buttons .tab-btn{font-family: 'GmarketSansMedium';}
+.tabs-box .tab-buttons .tab-btn {font-family: 'GmarketSansMedium';}
 
 .accordion-box .block .acc-btn{	font-family: 'GmarketSansMedium';}
 
@@ -57,7 +57,7 @@ table{
 
 #reviewtext{
 	margin:auto;
-	width: 70%;
+	width: 100% !important;
 	height:500px !important;
 }
 
@@ -67,7 +67,7 @@ table{
    height:500px !important;
 }
 
-.notice-table{
+.more-table{
 /*    border: solid black 1px; */
    padding: 10px;
 /*    width: 120%; */
@@ -78,7 +78,12 @@ table{
    margin:auto;
 }
 
-.notice-td1{
+#event-content{
+	margin:auto;
+	
+}
+
+.more-td1{
  	width:80%;
 }
 
@@ -120,5 +125,51 @@ table{
 	height:27px;
 }
 
+/*리뷰 썸네일 사이즈 고정*/
+img.img-size{
+	width: 323.9px;
+	height: 300px;
+}
 
+/*리뷰 검색창*/
+div.search-box{
+	font-family: 'GmarketSansMedium';
+	text-align:right;
+}
 
+/*이벤트게시판 제목 부분*/
+div.event-date{
+	font-family: 'GmarketSansMedium';
+	color: navy;
+	font-size:15px;
+	font-weight:bold;
+}
+
+img.event-img-size{
+	width: 150px;
+	height: 100px;
+}
+
+div.event-detail{
+	display:"block";
+	text-align:center;
+	font-family: 'GmarketSansMedium';
+	color:rgb(254,74,43);
+	font-size:25px;
+	font-weight:bold;
+}
+
+div.event-title{
+	font-family: 'GmarketSansMedium';
+	text-align:center;
+	color:rgb(112,191,187);
+	font-size:17px;
+	font-weight:bold;
+}
+
+div.billing-detail{
+	font-family: 'GmarketSansMedium';
+	
+	
+	
+}

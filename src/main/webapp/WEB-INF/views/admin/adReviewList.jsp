@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,12 +102,12 @@
 															<c:forEach items="${review}" var="review">
 																<tr>
 																	<td style="font-size:13px">${review.review_no}</td>
-																	<td style="font-size:13px"><a href="adUserDetail.do">${review.review_title}</a></td>
-																	<td style="word-break:break-all">${review.review_text}</td>
+																	<td style="font-size:13px"><a href="adReviewDetail.do?review_no=${review.review_no}">${review.review_title}</a></td>
+																	<td style="word-break:break-all">${fn:substring(review.review_text,0,5)}</td>
 																	<td style="word-break:break-all">${review.user_name}</td>
-																	<td style="word-break:break-all">${review.review_date}</td>
+																	<td style="word-break:break-all">${fn:substring(review.review_date,0,10)}</td>
 																	<td>
-																		<a href="#" class="remove-btn"> 
+																		<a href="#" onclick="remove(${review.review_no})" class="remove-btn"> 
 																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
@@ -222,6 +223,11 @@
 	<script src="../resources/js/script.js"></script>
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
-	<script src='../resources/js_ad/excelTables.js'></script>
+	<script src='../resources/js_ad/excelTables.js'></script>		<script>
+		function remove(review_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeleteReview.do?review_no='+review_no;
+		}
+	</script>
 </body>
 </html>

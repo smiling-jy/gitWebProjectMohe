@@ -70,7 +70,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="adPartnerInsert.do" class="theme-btn btn-style-ten">
+							<a href="adPartnerInsertInfo.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a>
 							<div class="emptyDiv"></div>
@@ -110,7 +110,7 @@
 																	<td style="word-break:break-all"><a href="adPartnerDetail.do?partner_no=${ptn.partner_no}">${ptn.partner_name}</a></td>
 																	<td style="word-break:break-all"><a href="${ptn.partner_url}">${ptn.partner_url}</a></td>
 																	<td>
-																		<a href="adPartnerUpdate.do?partner_no=${ptn.partner_no}" class="remove-btn"> 
+																		<a href="adPartnerUpdateInfo.do?partner_no=${ptn.partner_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>
 																		</a>&nbsp;&nbsp;&nbsp; 
 																		<a href="#" onclick="remove(${ptn.partner_no})" class="remove-btn"> 
@@ -234,7 +234,7 @@
 		<script>
 		function remove(partner_no){
 			var result = confirm("정말로 삭제 하시겠습니까?")
-			if(result) location.href='deletePartner.do?partner_no='+partner_no;
+			if(result) location.href='adDeletePartner.do?partner_no='+partner_no;
 		}
 	</script>
 </body>

@@ -13,11 +13,11 @@
 		</selectKey>
 		insert into funding_pj(FD_NO,FD_CATEGORY,FD_TITLE,FD_CONTENT,FD_RECEIVER
 								,FD_GOALS,FD_STARTDATE,FD_ENDDATE,FD_HOSTNAME
-								,FD_HOST_PHONE,FD_HOST_EMAIL,FD_IMG_CNT
+								,FD_HOST_PHONE,FD_HOST_EMAIL,FD_IMG_CNT , FD_IMG_NAME
 								,FD_STATUS,FD_READ_CNT,FD_PRICE,USER_NO)
 				values(FD_PJ_SEQ.nextval , #{fd_category}, #{fd_title} ,#{fd_content} ,#{fd_receiver}
 						, #{fd_goals}, #{fd_startdate}, #{fd_enddate}, #{fd_hostname}, #{fd_host_phone}
-						, #{fd_host_email} , #{fd_img_cnt} , '진행중'
+						, #{fd_host_email} , #{fd_img_cnt} , FD_PJ_SEQ.nextval , '진행중'
 						, #{fd_read_cnt} , #{fd_price} , #{user_no})
 	</insert>
   
@@ -42,7 +42,7 @@
   		</if>
   		<choose>
   			<when test="select != null">
-  				order by pj.${select} desc
+  				order by ${select} desc
   			</when>
   			<otherwise>
   				order by pj.fd_no desc

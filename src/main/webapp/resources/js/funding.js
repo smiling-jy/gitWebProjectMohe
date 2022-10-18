@@ -19,7 +19,8 @@ $("#close").click(function() {
 
 // 펀딩결제 페이지 수량증가에 따라 총액 변화
 $("button.btn-default").on("click",function(){	
-    $(".sub-total span").text(Number($("input[name=pay_count]").val())*Number($("td.price span").text()))
+    $(".sub-total span").text(Number($("#cnt-pay").val())*Number($("td.price span").text()))
+    $('input[name=pay_count]').val($(".sub-total span").text);
 })
 
 
@@ -135,19 +136,91 @@ $('.transport_btn').on("click",function(){
 
 // 찜클릭 비동기 통신
 $('#jjim').on("click",function(){
-	 $.ajax({
-	        type:'get',
-	        url:'jjimSave.do',
-	        data : {'fd_no' : $(this).next().val()},
-	        async: true, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
-	        contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
-	        success : function(data){
-	        	alert(data);
-	        },
-	        error :function(request, status, error){		 //요청 실패시 에러 확인을 위함
-	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	        }
-	    })
+		$.ajax({
+			type:'get',
+			url:'jjimSave.do',
+			data : {'fd_no' : $(this).next().val()},
+			async: true, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
+			contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
+			success : function(data){
+				if(data == '로그인하세요'){
+					alert(data);
+					location.href='loginCheck.do';
+				}else {
+					alert(data);					
+				}
+			},
+			error :function(request, status, error){		 //요청 실패시 에러 확인을 위함
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		})
 })
+
+
+// 주소 api
+$('#addr').on("click",function(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                $('#addr').val(extraAddr);
+            
+            } else {
+            	$('#addr').val("");
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            $('#addr').val(data.zonecode);
+            $('#addr').val(addr);
+            // 커서를 상세주소 필드로 이동한다.
+            $('#addr').focus();
+        }
+    }).open();
+})
+
+// 카카오톡 공유하기 api
+Kakao.init('d979258f63314ea5bad35903ff604cbf');
+
+$('#gongu').on("click",function(){
+	   Kakao.Share.sendDefault({
+		      objectType: 'text',
+		      text:
+		        $('#title_gu').text(),  
+		      link: {
+		        webUrl: 'http://localhost:8080/basic/fundingSingle.do?fd_no='+$(this).prev().val(),
+		      },
+		    });
+})
+
+
+
 
 

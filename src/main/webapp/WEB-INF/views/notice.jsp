@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,14 +43,14 @@
 				<h1>공지 사항</h1>
 				<ul class="bread-crumb clearfix">
 					<li class="active"><h5>공지사항</h5></li>
-					<li><a href="faq.html"><h5>자주 묻는 질문</h5></a></li>
-					<li><a href="event.html"><h5>이벤트</h5></a></li>
-					<li><a href="partner.html"><h5>파트너</h5></a></li>
-					<li><a href="review.html"><h5>후기 모음</h5></a></li>
+					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li><a href="event.do"><h5>이벤트</h5></a></li>
+					<li><a href="partner.do"><h5>파트너</h5></a></li>
+					<li><a href="review.do"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
-
-		</section>
+	</section>
+	</div>
 		<!--End Banner Section -->
 
 		<!--FAQs Section-->
@@ -64,36 +65,39 @@
 						<!--공지사항 게시판!! 더보기 형식이 아닌 제목 클릭시 본문 페이지로 이동~~-->
 				<div class="content-column col-lg-8 col-md-10 col-sm-10" id="notice-content">
 						<!-- 검색창 -->
-						<div id="notice-search-box">
+						<div class="search-box">
 							<form name="search" action="notice.do" method="post">
 									<select name="select">
 										<option value="notice_title">제목</option>
 										<option value="notice_text">내용</option>
 									</select>
-								<input type="search" name="stext" value="${page.stext}" placeholder="검색" required>
+								<input type="search" name="stext" value="${page.stext}" placeholder="Search..." required>
 								<button type="submit"><span class="icon flaticon-search-1"></span></button>
 							</form>
 						</div>
+						<!-- 검색창 -->
+	
 								
 							<!-- 게시글 시작 -->
 							<c:forEach items="${noticeList}" var="notice">
 								<div>							
-									<table class="notice-table">
+									<table class="more-table">
 									<tr>
-										<td class="notice-td1">
-											<h5><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
-											${notice.notice_title}</a></h5>
+										
+										<td class="more-td1">
+											<h3><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
+											${notice.notice_title}</a></h3>
 										</td>
 										<td>
 											<div style="color:grey; font-size:13px;">
 											<span class="icon fa fa-user"></span>
-											${notice.adm_id} | ${notice.notice_date}</div>
+											administrator | <fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate></div>
 										</td>
 									</tr>
 									</table>
 										<hr style="border: solid 1px lightgrey;">
-										 </div><!--class="inner" 끝-->	
-										</c:forEach>	
+								</div><!--class="inner" 끝-->	
+							</c:forEach>	
 						<!-- 페이징 시작 -->
 						<div id="paging" style="text-align:center;">
 							<c:choose>

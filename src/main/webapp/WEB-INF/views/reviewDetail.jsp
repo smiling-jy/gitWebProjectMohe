@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -47,10 +48,10 @@
         <div class="auto-container">
             <h1>후기 모음</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="A_notice.html"><h5>공지사항</h5></a></li>
-                <li><a href="B_faq.html"><h5>자주 묻는 질문</a><h5></h5></li>
-                <li><a href="C_event.html"><h5>이벤트</h5></a></li>
-                <li><a href="D_partner.html"><h5>파트너</h5></a></li>
+                <li><a href="notice.do"><h5>공지사항</h5></a></li>
+                <li><a href="faq.do"><h5>자주 묻는 질문</a><h5></h5></li>
+                <li><a href="event.do"><h5>이벤트</h5></a></li>
+                <li><a href="partner.do"><h5>파트너</h5></a></li>
                 <li class="active"><h5>후기 모음</h5></a></li>
             </ul>
         </div>
@@ -74,13 +75,14 @@
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>${review.user_name}</li>
-                                    <li> ${review.review_date}</li>
+                                    <li> <fmt:formatDate value="${review.review_date}" pattern="yyyy년 MM월 dd일  hh시mm분"></fmt:formatDate></li>
                                 </ul>
                         
                             </div>
                             <hr style="border: solid 1px lightgrey">
                             <br>
                             <div class="content">
+                            	<img src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png">
                                 ${review.review_text}
                             </div>
                         </div>
