@@ -35,6 +35,7 @@
 </head>
 
 <body class="page-loaded bg-color-sky">
+
 	<!-- header include -->
 	<jsp:include page="header.jsp" />
 
@@ -206,6 +207,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+
 
 
 </body>
