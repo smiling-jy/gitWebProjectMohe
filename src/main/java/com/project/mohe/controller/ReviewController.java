@@ -3,7 +3,9 @@ package com.project.mohe.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
-		
+		//로그인체크
 		@RequestMapping("reviewInsertForm.do")
 		public String reviewInsertForm(HttpSession session) {
 			 if(session.getAttribute("user_no") == null) return "loginCheck";
@@ -31,7 +33,15 @@ public class ReviewController {
 		
 		//리뷰 작성
 		@RequestMapping("reviewInsert.do")
-		public String reviewInsert(ReviewVO vo,MultipartFile file) {
+		public String reviewInsert(ReviewVO vo,MultipartFile file,HttpServletRequest request) {
+			
+			// 유저번호,이름 세션에서 받아오기
+			HttpSession session = request.getSession();
+			vo.setUser_no((Integer) session.getAttribute("user_no"));
+			vo.setUser_name((String)session.getAttribute("user_name"));
+		
+//			vo.setReview_img_cnt(vo.getReview_img().length());
+//			System.out.println("============리뷰컨트롤러 : "+vo.getReview_img_cnt());
 			
 			reviewService.insertReview(vo);
 			
@@ -48,7 +58,7 @@ public class ReviewController {
 				//원하는 이름으로 저장하기 = 이름+확장자
 				vo.setReview_img("ReviewIMG_"+vo.getReview_no()+fileExtension);
 				//System.out.println("========>> 이미지파일 이름: "+vo.getReview_img());
-				File f = new File("C:\\Users\\user\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"+vo.getReview_img());
+				File f = new File("C:\\Users\\human\\git\\gitWebProjectMohe\\src\\\\main\\webapp\\resources\\reviewUploadFile\\"+vo.getReview_img());
 					//학원컴경로: "C:\\Users\\human\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"
 				try {
 					file.transferTo(f);
@@ -61,16 +71,25 @@ public class ReviewController {
 				}
 				
 			}
+			
 			return "redirect:/review.do";
 		}
 		
 		
 		//리뷰 리스트 페이지 보기 
 		@RequestMapping("review.do")
-		public void reviewList(Model model) {
-			model.addAttribute("reviewList", reviewService.getReviewList());
+		public String reviewList(Model model, String search, String select ) {
+//			model.addAttribute("reviewList", reviewService.getReviewList());
 			
-		}
+			HashMap map = new HashMap();
+			map.put("search", search);
+			map.put("select", select); 
+			
+			List<ReviewVO> rList=reviewService.getReviewList(map);
+			model.addAttribute("reviewList", rList);
+			
+			return "review";
+	}
 		
 		//리뷰 읽기+ 이전글 다음글
 		@RequestMapping("getReview.do")

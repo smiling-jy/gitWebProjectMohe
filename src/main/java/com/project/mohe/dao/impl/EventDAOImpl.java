@@ -38,8 +38,7 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public EventVO getEvent(EventVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("EventDAO.getEvent", vo);
 	}
 
 	@Override
@@ -55,6 +54,11 @@ public class EventDAOImpl implements EventDAO {
 	@Override
 	public List<EventVO> getAdEventList(PagingVO vo) {
 		return mybatis.selectList("EventDAO.getAdEventList",vo);
+	}
+
+	@Override
+	public EventVO movePage(EventVO vo) {
+		return mybatis.selectOne("EventDAO.movePage", vo);
 	}
 
 

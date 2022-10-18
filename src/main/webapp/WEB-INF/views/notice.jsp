@@ -85,8 +85,8 @@
 									<tr>
 										
 										<td class="more-td1">
-											<h5><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
-											${notice.notice_title}</a></h5>
+											<h3><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
+											${notice.notice_title}</a></h3>
 										</td>
 										<td>
 											<div style="color:grey; font-size:13px;">
