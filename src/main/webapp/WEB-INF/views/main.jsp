@@ -116,8 +116,8 @@
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
-				<li><a href="#">My페이지</a></li>
-				<li><a href="#">찜목록</a></li>
+				<li><a href="myAccount.do">My페이지</a></li>
+				<li><a href="shoppingBasket.do">찜목록</a></li>
 				<li><a href="donate.do">기부하기</a></li>
 				<li><a href="review.do">리뷰보기</a></li>
 				<li><a href="faq.do">Q&A</a></li>
@@ -334,40 +334,40 @@
 						<div class="row clearfix">
 
 							<!--Column-->
-							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="0ms"
 									data-wow-duration="1500ms">
 									<div class="content">
 										<div class="count-outer count-box">
-											<span class="count-text" data-speed="3000" data-stop="90">0</span>
+											<span class="count-text" data-speed="3000" data-stop="${status.fdJoinCnt}">0</span>
 										</div>
-										<div class="counter-title">Project Complate</div>
+										<div class="counter-title">펀딩 참여인원 <br></div>
 									</div>
 								</div>
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="300ms"
 									data-wow-duration="1500ms">
 									<div class="content">
 										<div class="count-outer count-box alternate">
-											<span class="count-text" data-speed="3000" data-stop="216">0</span>
+											<span class="count-text" data-speed="3000" data-stop="${status.bsJoinCnt}">0</span>
 										</div>
-										<div class="counter-title">Satisfied Clients</div>
+										<div class="counter-title">봉사 참여인원  <br></div>
 									</div>
 								</div>
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-5 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="600ms"
 									data-wow-duration="1500ms">
 									<div class="content">
 										<div class="count-outer count-box">
-											<span class="count-text" data-speed="2000" data-stop="35">0</span>
+											<span class="count-text" data-speed="3000" data-stop="${status.allDonate}">0</span>
 										</div>
-										<div class="counter-title">Experienced Staff</div>
+										<div class="counter-title">총 기부 금액<br></div>
 									</div>
 								</div>
 							</div>
@@ -378,13 +378,14 @@
 									data-wow-duration="1500ms">
 									<div class="content">
 										<div class="count-outer count-box">
-											<span class="count-text" data-speed="2000" data-stop="15">0</span>
+											<span class="count-text" data-speed="3000" data-stop="${status.allFdPrice}">0</span>
 										</div>
-										<div class="counter-title">Awards Win</div>
+										<div class="counter-title">참여 금액<br><span style="font-size:10px; color:rgb(120,130,140);">※기부금액과 참여금액은 만 단위로 표기됩니다</span></div>
+										
 									</div>
 								</div>
 							</div>
-
+							<!-- 수치 div끝 -->
 						</div>
 					</div>
 				</div>
