@@ -12,5 +12,9 @@ public class StatusVO {
 	private int bsJoinCnt; // 봉사 참여인원
 	private long allDonate; //총 기부금액
 	private long allFdPrice; // 펀딩 총 참여 금액
+	
+	private int fdNewCnt; // 승인대기 펀딩수
+	private int bsNewCnt; // 승인대기 봉사수
+	private int dntNewCnt; // 확인대기 기부
 
 }

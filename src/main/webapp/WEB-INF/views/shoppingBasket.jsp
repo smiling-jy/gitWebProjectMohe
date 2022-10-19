@@ -30,6 +30,7 @@
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
+<link href="resources/css/cart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -61,89 +62,89 @@
 									<section class="wrapper">
 										<div class="row clearfix">
 
-										
-											 <!--Sidebar Side-->
-                                            <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
-                                                <aside class="sidebar shop-sidebar">
+
+											<!--Sidebar Side-->
+											<div
+												class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+												<aside class="sidebar shop-sidebar">
 
 
-                                                    <!-- Price Filters -->
-                                                    <div class="sidebar-widget price-filters rangeslider-widget">
+													<!-- Price Filters -->
+													<div
+														class="sidebar-widget price-filters rangeslider-widget">
 
-                                                        <!-- Category Widget -->
-                                                        <div class="sidebar-widget categories">
-                                                            <div class="widget-content">
-                                                                <ul>
-                                                                    <li class="current"><a
-                                                                            href="details.html">펀딩참여내역</a></li>
-                                                                    <li><a href="details.html">봉사참여내역</a></li>
-                                                                    <li><a href="shoppingBasket.html">찜하기</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+														<!-- Category Widget -->
+														<div class="sidebar-widget categories">
+															<div class="widget-content">
+																<ul>
+																	<li class="current"><a href="details.html">펀딩참여내역</a></li>
+																	<li><a href="details.html">봉사참여내역</a></li>
+																	<li><a href="shoppingBasket.html">찜하기</a></li>
+																</ul>
+															</div>
+														</div>
 
-                                                    </div>
-                                                </aside>
-                                            </div>
-											
+													</div>
+												</aside>
+											</div>
+
 
 
 
 											<div class="our-shop">
 												<div class="row clearfix">
 													<c:forEach items="${pj_list}" var="pj">
-														<!-- 펀딩 블럭 -->
-														<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-															<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+														<div
+															class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+															<div class="inner-box wow fadeInUp new-inner-box"
+																data-wow-delay="0ms">
 																<div class="image-box">
 																	<figure class="image">
 																		<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img
-																			class="lazy-image"
+																			class="lazy-image img-size"
 																			src="resources/files/funding/${pj.fd_img_name}/title.png"
 																			data-src="resources/files/funding/${pj.fd_img_name}/title.png"
-																			alt=""></a>
+																			alt="타이틀 이미지"></a>
 																	</figure>
 																</div>
-																<div class="lower-content new-font">
+																<div class="lower-content new-font new-con-box">
 																	<div class="progress-box">
 																		<div class="bar">
-																			<c:choose>
-																				<c:when test="${pj.rate > 100}">
-																					<div class="bar-inner count-bar" data-percent="100%">
-																						<div class="count-text">${pj.rate}%</div>
-																					</div>
-																				</c:when>
-																				<c:otherwise>
-																					<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
-																						<div class="count-text">${pj.rate}%</div>
-																					</div>
-																				</c:otherwise>
-																			</c:choose>
+																		<c:choose>
+																			<c:when test="${pj.rate > 100}">
+																				<div class="bar-inner count-bar" data-percent="100%">
+																					<div class="count-text">${pj.rate}%</div>
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
+																					<div class="count-text">${pj.rate}%</div>
+																				</div>
+																			</c:otherwise>
+																		</c:choose>
 																		</div>
 																	</div>
 																	<div class="donation-count clearfix">
-																		<span class="goal"><strong>목표금액:</strong>
-																			${pj.fd_goals }원</span>
+																	<c:choose>
+																			<c:when test="${pj.remain_day < 0}">
+																				<span class="d-day">종료되었습니다.</span>
+																			</c:when>
+																			<c:otherwise>
+																				<span class="d-day"><strong>${pj.remain_day}</strong>일남음</span>
+																			</c:otherwise>
+																		</c:choose>
 																	</div>
-																	<h3>
-																		<a href="cause-single.html" class="new-font font">${pj.fd_title }</a>
-																	</h3>
+																	<h5>
+																		<a href="fundingSingle.do?fd_no=${pj.fd_no}"
+																			class="new-font black-font fd_title">${pj.fd_title}</a>
+																	</h5>
 																</div>
+															<a href="deleteFdCart.do?fd_no=${pj.fd_no}" class="del-btn">삭제</a>
 															</div>
 														</div>
 													</c:forEach>
 
 												</div>
-
-												<div class="pagination-box">
-													<ul class="styled-pagination text-center">
-														<li><a href="#" class="active">1</a></li>
-														<li><a href="#">2</a></li>
-														<li><a href="#">3</a></li>
-														<li><a href="#"><span class="fa fa-angle-right"></span></a></li>
-													</ul>
-												</div>
-
 											</div>
 
 										</div>
@@ -152,137 +153,48 @@
 
 								<main class="gallery-item-two mix mix-2 main">
 									<section class="wrapper">
-										<div class="row clearfix">
-
-
-											<div class="our-shop">
-
-
-												<div class="row clearfix">
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
+										<div class="our-shop">
+											<div class="row clearfix">
+												<c:forEach items="${bs_list}" var="bongsa">
+													<div class="cause-block col-lg-4 col-md-6 col-sm-12">
 														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 															<div class="image-box">
 																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
+																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
 																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
+																		data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
 																</figure>
 															</div>
-															<div class="lower-content new-font">
+															<div class="donate-info">
 																<div class="progress-box">
 																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
+																		<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
+																			<div class="count-text">${bongsa.bs_rate}%</div>
 																		</div>
 																	</div>
 																</div>
 																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
+																	<span class="raised"><strong>모집인원:</strong><span
+																		class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
+																			신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 																</div>
+															</div>
+															<div class="lower-content ">
 																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
+																	<a href="bongsaDetail.do" class="bs-title new-font">${bongsa.bs_title}</a>
+																</h3>																									
 															</div>
+															<a href="deleteBsCart.do?bs_no=${bongsa.bs_no}" class="del-btn">삭제</a>
 														</div>
-													</div>
-
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
-																</figure>
-															</div>
-															<div class="lower-content new-font">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
-																</div>
-																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-
-													<!-- 펀딩 블럭 -->
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12 ">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="cause-single.html"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg"
-																		alt=""></a>
-																</figure>
-															</div>
-															<div class="lower-content new-font">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="70%">
-																			<div class="count-text">70%</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="donation-count clearfix">
-																	<span class="goal"><strong>목표금액:</strong>
-																		8,000,000원</span>
-																</div>
-																<h3>
-																	<a href="cause-single.html" class="new-font font">저소득층
-																		여성을 돕는 유기농 생리대</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-
-												</div>
-
-												<div class="pagination-box">
-													<ul class="styled-pagination text-center">
-														<li><a href="#" class="active">1</a></li>
-														<li><a href="#">2</a></li>
-														<li><a href="#">3</a></li>
-														<li><a href="#"><span class="fa fa-angle-right"></span></a></li>
-													</ul>
-												</div>
-
+													</div> 
+												</c:forEach>
 											</div>
-
-
-
 										</div>
 									</section>
 								</main>
-
 							</div>
-
 						</div>
-
-
-
-
-
-
 					</div>
-
-
 				</div>
 			</div>
 		</div>

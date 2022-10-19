@@ -21,6 +21,7 @@
 
 
 #admin-email{
+	
 	text-align: center;
 	padding : 30px;
 	background-color: mediumaquamarine;
@@ -170,6 +171,12 @@ div.event-title{
 div.billing-detail{
 	font-family: 'GmarketSansMedium';
 	
-	
-	
 }
+
+/*문의사항*/
+li.accordion{
+	font-family: 'GmarketSansMedium';
+}
+
+
+

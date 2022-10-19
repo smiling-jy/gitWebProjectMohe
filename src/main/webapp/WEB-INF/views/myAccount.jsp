@@ -81,7 +81,7 @@
 																		<i class="fas fa-solid fa-coins"></i>
 																	</div>
 																	<h4>참여 펀딩</h4>
-																	<a href="details.do" class="over-link" target="_blank"
+																	<a href="details.do" class="over-link" target="_self"
 																		rel="nofollow"> </a>
 																</div>
 															</div>
@@ -104,7 +104,7 @@
 																			</div>
 																			<h4>참여 봉사</h4>
 																			<a href="details.html" class="over-link"
-																				target="_blank" rel="nofollow"> </a>
+																				target="_self" rel="nofollow"> </a>
 																		</div>
 																	</div>
 																</div>
@@ -127,7 +127,7 @@
 																		</div>
 																		<h4>찜 목록</h4>
 																		<a href="shoppingBasket.do" class="over-link"
-																			target="_blank" rel="nofollow"> </a>
+																			target="_self" rel="nofollow"> </a>
 																	</div>
 																</div>
 															</div>
