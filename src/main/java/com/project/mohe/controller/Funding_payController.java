@@ -41,20 +41,12 @@ public class Funding_payController {
 	public String paySave(Funding_payVO pay, HttpServletRequest re) {
 		// 유저번호 세션에서 받아오기
 		HttpSession session = re.getSession();
-		
 		pay.setUser_no((Integer) session.getAttribute("user_no"));
-		
-		// 결제 api와 연결 가능하다면 연결
+		// 총액
 		pay.setPay_total(pay.getFd_price() * pay.getPay_count());
-		
 		// 주소
 		pay.setPay_pn_addr(pay.getAddr1()+"/"+pay.getAddr2());
-		
-		System.out.println(pay);
-		
 		funding_payService.insertFunding_pay(pay);
-		
-		
 		
 		// 마이페이지 완성되면 마이페이지로 이동되게 수정
 		return "redirect:/fundingSingle.do?fd_no="+pay.getFd_no();
@@ -74,6 +66,5 @@ public class Funding_payController {
 	public List<Funding_payVO> statusUpdate(Funding_payVO pay) {
 		funding_payService.updateFunding_pay(pay);
 		return funding_payService.getFunding_payList(pay);
-//		"redirect:/patronList.do?fd_no="+pay.getFd_no();
 	}
 }

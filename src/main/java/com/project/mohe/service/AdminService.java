@@ -63,6 +63,18 @@ public interface AdminService {
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(PagingVO vo);
 	
+	// 이벤트 삭제
+	void adDeleteEvent(EventVO vo);
+	
+	// 이벤트 추가
+	void adEventInsert(EventVO vo);
+	
+	// 이벤트 상세보기
+	EventVO adGetEvent(EventVO vo);
+	
+	// 이벤트 수정하기
+	void adEventUpdate(EventVO vo);
+	
 	// 펀딩 리스트
 	List<Funding_pjVO> adGetFdList(PagingVO vo);
 	
@@ -131,6 +143,16 @@ public interface AdminService {
 	//팝업 삭제
 	void adDeletePopup(PopupVO vo);
 	
+	// 팝업 생성
+	void adPopupInsert(PopupVO vo);
+	
+	// 팝업 상세보기
+	PopupVO adPopupDetail(PopupVO vo);
+	
+	// 팝업 수정하기
+	void adPopupUpdate(PopupVO vo);
+	
 	// 수치 불러오기
 	StatusVO getStatus();
+	
 }

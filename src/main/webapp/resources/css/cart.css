@@ -33,3 +33,28 @@ body{
 .fd_title{
 	color: black;
 }
+
+.widget-content ul.cart-ul li{
+	list-style: none;
+	list-style-position: initial;
+	font-weight: 600;
+	font-family: 'GmarketSansMedium';
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	margin-left: 15px;
+}
+
+.cart-ul:last-child a.jjimlist{
+	font-size: 20px;
+}
+
+.bg-red {
+	background-color: red !important;
+ }
+ 
+ h1,h2,h3,h4,h5,h6{
+	font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}

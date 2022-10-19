@@ -35,15 +35,14 @@
 
 <body>
 
-	<div class="page-wrapper">
+	<div class="page-wrapper new-font">
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
-
+		<!--Content Side / Blog Sidebar-->
 		<!--Sidebar Page Container-->
 		<div class="sidebar-page-container shop-page">
 			<div class="auto-container">
-				<div class="row clearfix" style="transform: translate(140px, 10px)";>
-					<!--Content Side / Blog Sidebar-->
+				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 
 						<div class="mixitup-gallery">
@@ -61,36 +60,6 @@
 								<main class="gallery-item-two mix mix-1 main">
 									<section class="wrapper">
 										<div class="row clearfix">
-
-
-											<!--Sidebar Side-->
-											<div
-												class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
-												<aside class="sidebar shop-sidebar">
-
-
-													<!-- Price Filters -->
-													<div
-														class="sidebar-widget price-filters rangeslider-widget">
-
-														<!-- Category Widget -->
-														<div class="sidebar-widget categories">
-															<div class="widget-content">
-																<ul>
-																	<li class="current"><a href="details.html">펀딩참여내역</a></li>
-																	<li><a href="details.html">봉사참여내역</a></li>
-																	<li><a href="shoppingBasket.html">찜하기</a></li>
-																</ul>
-															</div>
-														</div>
-
-													</div>
-												</aside>
-											</div>
-
-
-
-
 											<div class="our-shop">
 												<div class="row clearfix">
 													<c:forEach items="${pj_list}" var="pj">
@@ -195,10 +164,61 @@
 							</div>
 						</div>
 					</div>
+					<!--Sidebar Side-->
+					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+						<aside class="sidebar shop-sidebar">
+							<div class="sidebar-widget price-filters rangeslider-widget">
+								<div class="input-control d-block">
+									<label for="userName" class="input-label"></label>
+									<div class="profile-user-img margin-auto">
+										<img class="margin-auto profile-user-img-img"
+											src="resources/images/mohe_logo/img_no_profile.png"
+											alt="profile-user-img" style="max-width: 130px">
+									</div>
+								</div>
+								<h3 class="sidebar-title new-font">
+									<c:out value="${sessionScope.user.user_name}" />
+									님(
+									<c:out value="${sessionScope.user.user_rating}" />
+									)
+								</h3>
+								<div class="range-slider-one clearfix">
+									<div class="clearfix">
+										<div class="text-center">
+											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
+												class="btn-title">회원 수정</span></a><br /> <a href="#"
+												class="theme-btn btn-style-one"><span
+												class="btn-title bg-red">회원 탈퇴</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Category Widget -->
+							<div class="sidebar-widget categories">
+								<div class="widget-content">
+									<ul class="cart-ul">
+										<li>펀딩
+											<ul>
+												<li><a href="details.do">펀딩참여목록</a></li>
+												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
+											</ul>
+										</li>
+										<li>봉사
+											<ul>
+												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+											</ul>
+										</li>
+										<li class="current"><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+									</ul>
+								</div>
+							</div>
+						</aside>
+					</div>
 				</div>
 			</div>
 		</div>
-		<!-- End Sidebar Page Container -->
+		
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>

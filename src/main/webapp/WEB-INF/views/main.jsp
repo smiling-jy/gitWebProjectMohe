@@ -135,14 +135,13 @@
 		<section class="banner-section style-two slid_fix" id="header_bottom">
 			<div class="banner-carousel love-carousel owl-theme owl-carousel"
 				data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "768" :{ "items" : "1" } , "1000":{ "items" : "1" }}}'>
-
 				<!-- 슬라이드 내용 반복 시작 -->
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
 					<div class="slide-item slid_fix">
-						<div class="image-layer lazy-image"></div>
+<!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/images/event/${event.event_main}.png')"></div>
+							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.PNG')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
@@ -458,10 +457,11 @@
 	</div>
 
 	<!-- 팝업 시작 -->
-	<form name="notice_form">
+	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/images/popup/${popup.pop_img}.PNG" />
+				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.PNG" />
+				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">
 				<input type='checkbox' name='chkbox' id='todaycloseyn' value='Y'>
@@ -511,5 +511,13 @@
 		});
 	</script>
 	<script src="resources/js/popup.js"></script>
+	<script>
+		$(function(){
+			// 만약 팝업 띄울게 없다면 팝업창을 비활성화시킨다
+			if($('#pop_no').val() == ""){
+				$('#pop_form').css('display','none');
+			}
+		})
+	</script>
 </body>
 </html>

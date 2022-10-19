@@ -1,5 +1,11 @@
 package com.project.mohe.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
+import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
@@ -180,6 +187,182 @@ public class AdminController {
 		// 페이징을 토대로한 리스트 목록 불러오기
 		model.addAttribute("eventList",adminService.adGetEventList(vo));
 		return "/admin/adEventList";
+	}
+	// 이벤트 삭제하기
+	@RequestMapping("adDeleteEvent.do")
+	public String adDeleteEvent(EventVO vo,HttpSession session) {	
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// event_no값을 받아와서 해당 이벤트 데이터를 지우기
+		adminService.adDeleteEvent(vo);
+		return "redirect:/admin/adEventList.do";
+	}
+	// 이벤트 상세보기
+	@RequestMapping("adEventDetail.do")
+	public String adEventDetail(EventVO vo,HttpSession session,Model model) {	
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// event_no값을 받아와서 해당 이벤트 데이터 가져오기
+		model.addAttribute("event",adminService.adGetEvent(vo));
+		return "/admin/adEventDetail";
+	}
+	// 이벤트 수정페이지 이동
+	@RequestMapping("adEventUpdateInfo.do")
+	public String adEventUpdateInfo(EventVO vo,HttpSession session,Model model) {	
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// event_no값을 받아와서 해당 이벤트 데이터 가져오기
+		model.addAttribute("event",adminService.adGetEvent(vo));
+		return "/admin/adEventUpdateInfo";
+	}
+	// 이벤트 수정하기
+	@RequestMapping("adEventUpdate.do")
+	public String adEventUpdate(EventVO vo,HttpSession session,Model model) {	
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// event_no값을 받아와서 해당 이벤트 데이터 가져오기
+		adminService.adEventUpdate(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getEvent_no() + "";
+		// 폴더 이름을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		// 메인이미지 있는지 확인하기
+		if (!vo.getMain_img().isEmpty()) {
+			
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name);
+			
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			// 타이틀 이미지 저장
+			String fname = vo.getMain_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
+			
+			try {
+				// 파일저장 메소드
+				vo.getMain_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+				
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		return "redirect:/admin/adEventList.do";
+	}
+	// 이벤트 추가하기
+	@RequestMapping("adEventInsert.do")
+	public String adEventInsert(EventVO vo,HttpSession session) {	
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 로그인한 관리자의 no를 담은 이벤트 vo값을 form에서 받아와서 db에 저장 
+		vo.setAdm_no((int)session.getAttribute("adm_no"));
+		adminService.adEventInsert(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getEvent_no() + "";
+		// 폴더 이름을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		// 메인이미지 있는지 확인하기
+		if (!vo.getMain_img().isEmpty()) {
+			
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name);
+			
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			// 타이틀 이미지 저장
+			String fname = vo.getMain_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
+			
+			try {
+				// 파일저장 메소드
+				vo.getMain_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+				
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		return "redirect:/admin/adEventList.do";
 	}
 	// 승인된 펀딩 목록
 	@RequestMapping("adFdList.do")
@@ -459,6 +642,113 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		adminService.adDeletePopup(vo);
+		return "redirect:/admin/adPopList.do";
+	}
+	//팝업 상세보기
+	@RequestMapping("adPopupDetail.do")
+	public String adPopupDetail(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// pop_no로 상세 조회하기
+		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		return "/admin/adPopupDetail";
+	}
+	//팝업 수정하기 페이지 이동
+	@RequestMapping("adPopupUpdateInfo.do")
+	public String adPopupUpdateInfo(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// pop_no로 상세 조회하기
+		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		return "/admin/adPopupUpdateInfo";
+	}
+	//팝업 수정하기 
+	@RequestMapping("adPopupUpdate.do")
+	public String adPopupUpdate(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		vo.setPop_img("popupIMG");
+		// vo데이터를 받아와서 수정
+		adminService.adPopupUpdate(vo);
+		// pop_no를 이름으로 사용
+		String folder_name = vo.getPop_no() + "";
+		// 이미지 명을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		return "redirect:/admin/adPopList.do";
+	}
+	// 팝업 추가
+	@RequestMapping("adPopupInsert.do")
+	public String adPopupInsert(PopupVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		vo.setPop_img("popupIMG");
+		// DB저장
+		// form에서 받아온 정보를 db에 저장, pop_no를 불러옴
+		adminService.adPopupInsert(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getPop_no() + "";
+		// 이미지 명을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
 		return "redirect:/admin/adPopList.do";
 	}
 	

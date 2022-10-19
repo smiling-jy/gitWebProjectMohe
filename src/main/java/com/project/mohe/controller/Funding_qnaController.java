@@ -40,7 +40,6 @@ public class Funding_qnaController {
 		if(session.getAttribute("user_no") == null) {
 			return "loginCheck";
 		}
-		
 		qna.setUser_no((Integer) session.getAttribute("user_no"));
 		
 		funding_qnaService.insertFunding_qna(qna);

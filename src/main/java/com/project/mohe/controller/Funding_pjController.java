@@ -39,7 +39,6 @@ public class Funding_pjController {
 		map.put("fd_category", fd_category); // 카테고리
 		map.put("search", search); // 검색어
 		map.put("select", select); // 최신순 , 인기순
-		System.out.println(select);
 		List<Funding_pjVO> pj_list = funding_pjService.getFunding_pjList(map);
 		model.addAttribute("pj_list", pj_list);
 		return "funding";
@@ -69,7 +68,6 @@ public class Funding_pjController {
 
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-
 		pj.setUser_no((Integer) session.getAttribute("user_no"));
 
 		// DB저장

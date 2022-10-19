@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,76 +50,65 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">이벤트 관리</a>
+						<a href="adEventList.do">이벤트 관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<!-- 버튼시작 -->
+					<div class="link-box btn_tb_mg right_btn"
+						style="position: absolute; margin: 10px; margin-left: 770px;">
+						<a href="adEventUpdateInfo.do?event_no=${event.event_no}"
+							class="theme-btn btn-style-one"> <span class="btn-title"><h2>이벤트 수정하기</h2></span>
+						</a>
+					</div>
+					<!-- 버튼끝 -->
+					<div class="content_table_div" style="height: 1000px">
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
-								<!--Form Column-->
-								<div class="form-column col-lg-6 col-md-12 col-sm-12"
-									style="margin-left: 250px">
-									<div class="inner">
-										<div class="donate-form">
-											<h3 style="margin-left:110px;">이벤트 상세보기</h3>
-											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
-											<hr style="width: 430px; color: white;">
-											<div class="user_pf_div">
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
-											</div>
-											<div class="row clearfix">
-
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
-												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
-												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
-												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
-												</div>
-												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
-														<span class="btn-title btn_fix">수정 완료하기</span>
-													</button>
+							<h3>이벤트 상세보기</h3>
+							<hr style="width:950px">
+							<div style="height: 50px;"></div>
+							<div class="user_pf_div" style="width:1200px;margin-left:180px">
+								<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px;">
+									<div class="field-label">타이틀 이미지</div>
+									<img id="title_image" src="../resources/files/event/title/${event.event_no}/eventTitleIMG.PNG"/> 
+								</div>
+								<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px">
+									<div class="field-label">메인 이미지</div>
+									<img id="main_image" src="../resources/files/event/main/${event.event_no}/eventMainIMG.PNG"/> 
+								</div>
+							</div>
+							<!--Form Column-->
+							<div class="form-column col-lg-6 col-md-12 col-sm-12"
+								style="margin-left: 250px">
+								<div class="inner">
+									<div class="donate-form">
+										<div class="row clearfix">
+											<div class="donate-form">
+												<div class="row clearfix">
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">이벤트 제목</div>
+														<input type="text" name="event_title"
+															value="${event.event_title}" readonly>
+													</div>
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">이벤트 내용</div>
+														<textarea name="event_text"readonly>${event.event_text}</textarea>
+													</div>
+													<div class="form-group col-lg-6 col-md-6 col-sm-6">
+														<div class="field-label">이벤트 시작일</div>
+														<input type="date" name="event_stdate"
+															value="${fn:substring(event.event_stdate,0,10)}" readonly>
+													</div>
+													<div class="form-group col-lg-6 col-md-6 col-sm-6">
+														<div class="field-label">이벤트 종료일</div>
+														<input type="date" name="event_eddate"
+															value="${fn:substring(event.event_eddate,0,10)}" readonly>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 						<!-- form2 끝-->
 

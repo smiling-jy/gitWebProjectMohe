@@ -22,14 +22,16 @@
 
 #admin-email{
 	
+	width:90%;
 	text-align: center;
 	padding : 30px;
 	background-color: mediumaquamarine;
+	margin:auto;
 	
 }
 
 #admin-email-inner{
-	text-align: center;
+	
 }
 
 
@@ -62,11 +64,11 @@ table{
 	height:500px !important;
 }
 
-#reviewtext{
-   margin:auto;
-   width: 70%;
-   height:500px !important;
-}
+/* #reviewtext{ */
+/*    margin:auto; */
+/*    width: 70%; */
+/*    height:500px !important; */
+/* } */
 
 .more-table{
 /*    border: solid black 1px; */
@@ -178,5 +180,30 @@ li.accordion{
 	font-family: 'GmarketSansMedium';
 }
 
+/*문의사항 분류 탭*/
+div.faq-inner{
+	padding-top:50px;
+}
 
+/*문의사항 검색창*/
+div.text-box{
+	padding-top:20px;
+}
 
+#search-text{
+	font-family: 'GmarketSansMedium';
+	padding-left:10px;
+	color:grey;
+	width:300px;
+	height:40px;
+	border-radius:10px;
+}
+
+#qna-search-btn{
+	background-color:transparent;
+}
+
+#btn-img{
+	width:40px;
+	height:40px;
+}

@@ -20,13 +20,13 @@ public class EventDAOImpl implements EventDAO {
 	
 	@Override
 	public void insertEvent(EventVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("EventDAO.insertEvent",vo);
 		
 	}
 
 	@Override
 	public void updateEvent(EventVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.update("EventDAO.updateEvent",vo);
 		
 	}
 
