@@ -15,6 +15,7 @@ import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
+import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
@@ -61,6 +62,15 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		return "/admin/"+step;
+	}
+	// 관리자 메인화면 띄우기
+	@RequestMapping("adminMain.do")
+	public String viewMain(Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// status 정보 불러오기
+		model.addAttribute("status",adminService.getStatus());
+		return "/admin/adminMain";
 	}
 	// 관리자 목록 띄우기
 	@RequestMapping("adminList.do")
@@ -443,7 +453,14 @@ public class AdminController {
 		model.addAttribute("popup",adminService.getPopupList(vo)); 
 		return "/admin/adPopList";
 	}
-
+	//팝업삭제
+	@RequestMapping("adDeletePopup.do")
+	public String adDeletePopup(PopupVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		adminService.adDeletePopup(vo);
+		return "redirect:/admin/adPopList.do";
+	}
 	
 	// 관리자 사용불가 전환하기
 	@RequestMapping("adminEnd.do")

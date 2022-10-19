@@ -20,10 +20,12 @@
 	<select id="getReviewList" parameterType="map" resultType="review">
 		SELECT review.*, userinfo.user_name
     	  FROM review, userinfo
-    	 WHERE review.user_no = userinfo.user_no
 		<where>
 			<if test="search != null">
-				${select} like '%${search}%'
+				${select} like '%${search}%' and  review.user_no = userinfo.user_no
+			</if>
+			<if test="search == null">
+				 review.user_no = userinfo.user_no
 			</if>
 		</where>
 		ORDER BY review_no DESC
@@ -33,8 +35,13 @@
 		SELECT *
 		FROM REVIEW
 		WHERE review_no=#{review_no}
-
 	</select>
+	<!-- 조회수증가 -->
+	<update id="getReadCnt" parameterType="review">
+		UPDATE REVIEW
+		   SET review_read_cnt=review_read_cnt +1
+		 WHERE review_no=#{review_no}
+	</update>
 	<!-- 본문에서 이전글 다음글 -->
 	<select id="movePageReview" parameterType="review" resultType="review">
 		select * from (SELECT REVIEW_NO,

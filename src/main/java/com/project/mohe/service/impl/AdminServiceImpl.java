@@ -1,6 +1,5 @@
 package com.project.mohe.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import com.project.mohe.dao.NoticeDAO;
 import com.project.mohe.dao.PartnerDAO;
 import com.project.mohe.dao.PopupDAO;
 import com.project.mohe.dao.ReviewDAO;
+import com.project.mohe.dao.StatusDAO;
 import com.project.mohe.dao.UserInfoDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -28,6 +28,7 @@ import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
+import com.project.mohe.domain.StatusVO;
 import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.AdminService;
 
@@ -56,6 +57,8 @@ public class AdminServiceImpl implements AdminService {
 	private PopupDAO popupDao;
 	@Autowired
 	private Funding_payDAO funding_payDao;
+	@Autowired
+	private StatusDAO statusDao;
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
@@ -275,6 +278,29 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void adDeletePartner(PartnerVO vo) {
 		partnerDao.deletePartner(vo);
+	}
+
+	@Override
+	public StatusVO getStatus() {
+		// 각각의 정보를 취합해서 전달하기 
+		// 펀딩 참여인원, 총 참여금액을 불러오는 메소드
+		StatusVO vo = statusDao.getFdStatus();
+		// 총 기부금액을 불러오는 메소드
+		vo.setAllDonate(statusDao.getDonation().getAllDonate());
+		// 봉사 총 참여인원을 불러오는 메소드
+		vo.setBsJoinCnt(statusDao.getBsStatus().getBsJoinCnt());
+		
+		// 승인 대기펀딩,봉사 기부목록 불러오기
+		vo.setFdNewCnt(statusDao.getNewFdCnt().getFdNewCnt());
+		vo.setBsNewCnt(statusDao.getNewBsCnt().getBsNewCnt());
+		vo.setDntNewCnt(statusDao.getNewDntCnt().getDntNewCnt());
+		
+		return vo;
+	}
+
+	@Override
+	public void adDeletePopup(PopupVO vo) {
+		popupDao.deletePopup(vo);
 	}
 
 
