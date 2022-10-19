@@ -19,14 +19,12 @@ public class PopupDAOImpl implements PopupDAO {
 
 	@Override
 	public void insertPopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.insert("PopupDAO.insertPopup",vo);
 	}
 
 	@Override
 	public void updatePopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.update("PopupDAO.updatePopup",vo);
 	}
 
 	@Override
@@ -37,8 +35,7 @@ public class PopupDAOImpl implements PopupDAO {
 
 	@Override
 	public PopupVO getPopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("PopupDAO.getPopup",vo);
 	}
 
 	@Override
@@ -54,6 +51,16 @@ public class PopupDAOImpl implements PopupDAO {
 	@Override
 	public PopupVO getMainPopup() {
 		return mybatis.selectOne("PopupDAO.getMainPopup");
+	}
+
+	@Override
+	public void setPopupFalse(PopupVO vo) {
+		mybatis.update("PopupDAO.setPopupFalse",vo);
+	}
+
+	@Override
+	public List<PopupVO> timeOutPopup() {
+		return mybatis.selectList("PopupDAO.timeOutPopup");
 	}
 
 

@@ -1,5 +1,11 @@
 package com.project.mohe.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -459,6 +465,113 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		adminService.adDeletePopup(vo);
+		return "redirect:/admin/adPopList.do";
+	}
+	//팝업 상세보기
+	@RequestMapping("adPopupDetail.do")
+	public String adPopupDetail(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// pop_no로 상세 조회하기
+		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		return "/admin/adPopupDetail";
+	}
+	//팝업 수정하기 페이지 이동
+	@RequestMapping("adPopupUpdateInfo.do")
+	public String adPopupUpdateInfo(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// pop_no로 상세 조회하기
+		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		return "/admin/adPopupUpdateInfo";
+	}
+	//팝업 수정하기 
+	@RequestMapping("adPopupUpdate.do")
+	public String adPopupUpdate(PopupVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		vo.setPop_img("popupIMG");
+		// vo데이터를 받아와서 수정
+		adminService.adPopupUpdate(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getPop_no() + "";
+		// 이미지 명을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
+		return "redirect:/admin/adPopList.do";
+	}
+	// 팝업 추가
+	@RequestMapping("adPopupInsert.do")
+	public String adPopupInsert(PopupVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		vo.setPop_img("popupIMG");
+		// DB저장
+		// form에서 받아온 정보를 db에 저장, pop_no를 불러옴
+		adminService.adPopupInsert(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getPop_no() + "";
+		// 이미지 명을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
 		return "redirect:/admin/adPopList.do";
 	}
 	
