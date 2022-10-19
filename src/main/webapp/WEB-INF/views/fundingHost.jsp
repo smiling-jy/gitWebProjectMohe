@@ -159,12 +159,20 @@
 							<!-- Category Widget -->
 							<div class="sidebar-widget categories">
 								<div class="widget-content">
-									<ul id="cart-ul">
-										<li><a href="details.do">펀딩참여내역</a></li>
-										<li><a href="details.do">봉사참여내역</a></li>
-										<li><a href="shoppingBasket.do">찜목록</a></li>
-										<li class="current"><a href="fundingHost.do">펀딩주최MyPage</a></li>
-										<li><a href="bongsaRecruiterMypage.do">봉사주최MyPage</a></li>
+									<ul class="cart-ul">
+										<li>펀딩
+											<ul>
+												<li><a href="details.do">펀딩참여목록</a></li>
+												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+											</ul>
+										</li>
+										<li>봉사
+											<ul>
+												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+											</ul>
+										</li>
+										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
 									</ul>
 								</div>
 							</div>
