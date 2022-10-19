@@ -94,9 +94,9 @@
 							<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 								<div class="image-box">
 									<figure class="image">
-										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
-											src="resources/images/resource/image-spacer-for-validation.png"
-											data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
+										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}">
+										<img class="lazy-image" src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+											alt="타이틀이미지"></a>
 									</figure>
 								</div>
 								<div class="donate-info">

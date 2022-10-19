@@ -21,7 +21,7 @@ public class Volunteer_cartDAOImpl implements Volunteer_cartDAO {
 
 	@Override
 	public void insertVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.insert("Volunteer_cartDAO.insertVolunteer_cart",vo);
 		
 	}
 
@@ -39,8 +39,8 @@ public class Volunteer_cartDAOImpl implements Volunteer_cartDAO {
 
 	@Override
 	public Volunteer_cartVO getVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return mybatis.selectOne("Volunteer_cartDAO.getBongsa_cart",vo);
 	}
 
 	@Override

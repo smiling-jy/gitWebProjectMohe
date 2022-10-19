@@ -48,13 +48,14 @@
 						<!--MixitUp Galery-->
 						<div class="mixitup-gallery">
 							<!--Filter-->
-							<div class="filters clearfix text-start">
+						<!-- 	<div class="filters clearfix text-start">
 								<ul class="filter-tabs filter-btns clearfix">
 									<li class="filter active" data-role="button"
 										data-filter=".mix-1">서포터</li>
 									<li class="filter" data-role="button" data-filter=".mix-2">메이커</li>
 								</ul>
-							</div>
+							</div> -->
+							
 
 							<div class="filter-list">
 								<main class="gallery-item-two mix mix-1 main">
@@ -132,7 +133,6 @@
 																</div>
 															</div>
 														</div>
-
 													</div>
 												</div>
 											</div>

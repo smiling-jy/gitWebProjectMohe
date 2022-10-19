@@ -18,7 +18,7 @@ public class Volunteer_cartServiceImpl implements Volunteer_cartService {
 
 	@Override
 	public void insertVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
+		volunteer_cartDao.insertVolunteer_cart(vo);
 		
 	}
 
@@ -36,8 +36,7 @@ public class Volunteer_cartServiceImpl implements Volunteer_cartService {
 
 	@Override
 	public Volunteer_cartVO getVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return volunteer_cartDao.getVolunteer_cart(vo);
 	}
 
 	@Override
