@@ -40,8 +40,8 @@ public class VolunteerServiceImpl implements VolunteerService {
 
 	@Override
 	public VolunteerVO getVolunteer(VolunteerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return volunteerDao.getVolunteer(vo);
 	}
 
 	@Override
