@@ -231,7 +231,8 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
-		<script src='../resources/js_ad/excelTables.js'></script>		<script>
+	<script src='../resources/js_ad/excelTables.js'></script>		
+	<script>
 		function remove(pop_no){
 			var result = confirm("정말로 삭제 하시겠습니까?")
 			if(result) location.href='adDeletePopup.do?pop_no='+pop_no;

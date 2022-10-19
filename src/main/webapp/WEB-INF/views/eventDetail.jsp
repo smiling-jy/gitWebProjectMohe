@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -79,8 +80,8 @@
                                    <li>
                                     <div class="event-detail">
                                     		기간 <span class="icon far fa-clock"></span>
-										<fmt:formatDate value="${event.event_stdate}" dateStyle="short"></fmt:formatDate>
-											 ~ <fmt:formatDate value="${event.event_eddate}" dateStyle="short"></fmt:formatDate>
+											${fn:substring(event.event_stdate,0,10)}
+											 ~ ${fn:substring(event.event_eddate,0,10)}
 											</div>
 			                        </li>
                                 </ul>
@@ -90,7 +91,7 @@
                             <br>
                             <div class="content">
                             	<div style="text-align:center;"><img id="event-title-logo" src="resources/images/mohe_logo/main_color_logo.png"></div>
-                            	<br><img src="resources/images/event/${event.event_img}.png">
+                            	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.PNG"><br>
                             	 ${event.event_text}
                             </div>
                         </div>
