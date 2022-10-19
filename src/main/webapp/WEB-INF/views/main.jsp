@@ -458,10 +458,11 @@
 	</div>
 
 	<!-- 팝업 시작 -->
-	<form name="notice_form">
+	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/images/popup/${popup.pop_img}.PNG" />
+				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.PNG" />
+				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">
 				<input type='checkbox' name='chkbox' id='todaycloseyn' value='Y'>
@@ -511,5 +512,13 @@
 		});
 	</script>
 	<script src="resources/js/popup.js"></script>
+	<script>
+		$(function(){
+			// 만약 팝업 띄울게 없다면 팝업창을 비활성화시킨다
+			if($('#pop_no').val() == ""){
+				$('#pop_form').css('display','none');
+			}
+		})
+	</script>
 </body>
 </html>

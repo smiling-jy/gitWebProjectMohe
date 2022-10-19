@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.BongsaDAO;
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.BongsaService;
 
@@ -46,6 +47,23 @@ public class BongsaServiceImpl implements BongsaService {
 	public List<BongsaVO> getBongsaList(HashMap map) {
 		return bongsaDao.getBongsaList(map);
 	}
+	
+	@Override
+	public List<BongsaVO> getSuccess_BsList(HashMap map) {
+		return bongsaDao.getSuccess_BsList(map);
+	}
+	
+	
+	@Override
+	public List<BongsaVO> getOngoing_BsList(HashMap map) {
+		return bongsaDao.getOngoing_BsList(map);
+	}
+	
+	@Override 
+	public List<BongsaVO> getbongsaParticipateList(BongsaVO vo){
+		return bongsaDao.getbongsaParticipateList(vo);
+	}
+	
 	
 	
 	@Override

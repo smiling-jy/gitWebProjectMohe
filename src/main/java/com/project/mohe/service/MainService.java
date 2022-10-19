@@ -37,5 +37,8 @@ public interface MainService {
 	
 	//웹사이트 수치 정보
 	StatusVO getStatus();
+	
+	// 기간이 지난 팝업들을 비활성화
+	void timeOutPop();
 
 }

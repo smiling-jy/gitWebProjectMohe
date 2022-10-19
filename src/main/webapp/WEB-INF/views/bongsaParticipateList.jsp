@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,18 +37,7 @@
 
 		<!-- header include -->
 		<jsp:include page="headerRed.jsp" />
-		<!-- Page Banner Section -->
-		<section class="page-banner">
-			<!-- <div class="image-layer lazy-image" data-bg="url('resources/image/background/bg-banner-1.jpg')"></div>
-        <div class="bottom-rotten-curve"></div> -->
-
-			<div class="auto-container" id="list-banner">
-				<!-- <img src="https://happybean-phinf.pstatic.net/20210928_118/1632792079855RYzOm_PNG/PC_2280x500_E7B6A6.png"> -->
-			</div>
-
-		</section>
-		<!--End Banner Section -->
-
+		
 		<!--End Cart Section-->
 		<section class="cart-section">
 			<div class="auto-container">
@@ -55,7 +45,7 @@
 				<div class="cart-outer">
 					<div class="table-column">
 						<div class="inner-column ">
-							<h2 class="newFont">한마음 달리기</h2>
+							<h2 class="newFont">${bongsa.vt_title}</h2>
 							<br />
 							<div class="table-outer">
 								<div class="table-box">
@@ -72,23 +62,14 @@
 										</thead>
 
 										<tbody>
+											<c:forEach items="${bongsaParticipateList}" var="bongsa">
 											<tr>
-												<td><a href="#" class="manage-bser-name">김나나</a></td>
-												<td class="manage-bser-phone">010-9999-8999</td>
-												<td class="manage-bser-email">aaaa@naver.com</td>
+												<td><a href="#" class="manage-bser-name">${bongsa.vt_name}</a></td>
+												<td class="manage-bser-phone">${bongsa.vt_user_phone}</td>
+												<td class="manage-bser-email">${bongsa.vt_user_email}</td>
 
 											</tr>
-											<tr>
-												<td><a href="#" class="manage-bser-name">김나나</a></td>
-												<td class="manage-bser-phone">010-9999-8999</td>
-												<td class="manage-bser-email">aaaa@naver.com</td>
-											</tr>
-
-											<tr>
-												<td><a href="#" class="manage-bser-name">김나나</a></td>
-												<td class="manage-bser-phone">010-9999-8999</td>
-												<td class="manage-bser-email">aaaa@naver.com</td>
-											</tr>
+											</c:forEach>	
 										</tbody>
 									</table>
 								</div>

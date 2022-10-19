@@ -105,7 +105,7 @@
 	    <div class="recuruit-header"><h1 class="newFont centersetting">봉사활동 모집하기</h1></div>
 <!-- 	     <div class="form-column <!--col-lg-6 col-md-12 col-sm-12 new-font open-pj-form "> -->
 			<div class="recuruit-Main">
-	                 <form method="post" action="insertBongsa.do">
+	                 <form method="post" action="insertBongsa.do" enctype="multipart/form-data">
 	                     <span>봉사활동명</span>
 	                     <input type="text" name="bs_title" required><br/>
 	                     <span>봉사 활동 소개</span>
