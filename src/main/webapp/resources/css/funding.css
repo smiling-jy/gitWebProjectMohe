@@ -49,6 +49,12 @@ span{
     font-style:normal;
 }
 
+h1,h2,h3,h4,h5,h6{
+	font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+
 /* 카테고리 폰트 사이즈 */
 ul.new-font{
     font-size: 30px;

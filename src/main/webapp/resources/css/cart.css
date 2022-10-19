@@ -52,3 +52,9 @@ body{
 .bg-red {
 	background-color: red !important;
  }
+ 
+ h1,h2,h3,h4,h5,h6{
+	font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
