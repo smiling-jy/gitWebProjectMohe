@@ -35,7 +35,7 @@
 
 <body>
 
-	<div class="page-wrapper">
+	<div class="page-wrapper new-font">
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
 		<!--Content Side / Blog Sidebar-->
@@ -200,7 +200,7 @@
 										<li>펀딩
 											<ul>
 												<li><a href="details.do">펀딩참여목록</a></li>
-												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
 											</ul>
 										</li>
 										<li>봉사
@@ -209,7 +209,7 @@
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>
-										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+										<li class="current"><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
 									</ul>
 								</div>
 							</div>
