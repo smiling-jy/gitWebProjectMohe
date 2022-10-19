@@ -23,6 +23,11 @@ public class VolunteerController {
 	@ResponseBody
 	public String insertVolunteer(VolunteerVO vo, HttpServletRequest request) {
 
+		
+		
+		
+		
+		
 		//세션에서 user_no 받아오기 
 		HttpSession session =  request.getSession();
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
@@ -35,7 +40,7 @@ public class VolunteerController {
 		
 		//중복확인 
 		if(volunteerService.getVolunteer(vo) != null) { //이전에 참여하기를 누른 적이 있는 경우  
-			result = "이전에 참여 신청이 완료된 봉사활동입니다.";
+			result = "신청이력이 존재합니다.";
 			return result;
 		}else {
 			volunteerService.insertVolunteer(vo); //처음 참여하기를 누른경우
