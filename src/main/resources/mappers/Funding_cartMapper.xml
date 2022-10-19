@@ -17,4 +17,35 @@
   		 where fd_no = #{fd_no}
   		   and user_no = #{user_no}
   	</select>
+
+	<select id="getFunding_cartList" parameterType="map"  resultType="funding_pj">
+		select pj.fd_no , pj.fd_goals , pj.fd_title , nvl(pay.total_sum,0), pj.fd_img_name
+       		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
+      		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
+               , pj.fd_status
+		  from funding_pj pj , (select fd_no , sum(pay_total) total_sum 
+                        		  from funding_pay
+                    		  group by fd_no) pay , funding_cart cart
+  		 where pj.fd_no = pay.fd_no(+)
+  		   and pj.fd_no = cart.fd_no
+  		   and cart.user_no = #{user_no}
+	  order by cart.fc_date_time desc
+	</select>
+	
+	<select id="getBongsa_cartList" parameterType="HashMap" resultType="bongsa">
+		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
+           	   b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end
+    	  FROM BONGSA b,userinfo u, VOLUNTEER_CART cart
+	     where b.user_no = u.user_no
+		   and b.BS_NO = cart.bs_no
+		   and cart.user_no = #{user_no}
+	  order by cart.VC_DATE_TIME desc
+	</select>
+	
+	
+	<delete id="deleteFunding_cart">
+		delete from funding_cart
+		 where fd_no = #{fd_no}
+  		   and user_no = #{user_no}
+	</delete>
   </mapper>

@@ -93,4 +93,17 @@ public class MainServiceImpl implements MainService{
 		return vo;
 	}
 
+	// 기간이 지난 팝업들을 비활성화 시킨다
+	@Override
+	public void timeOutPop() {
+		List<PopupVO> vo = popupDao.timeOutPopup();
+		if(vo != null) {
+			// 기간이 지난 팝업이 존재한다면
+			for(PopupVO pop : vo) {
+				// 리스트 내부에있는 팝업들을 비활성화 시켜준다
+				popupDao.setPopupFalse(pop);
+			}
+		}
+	}
+
 }

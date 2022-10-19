@@ -131,6 +131,16 @@ public interface AdminService {
 	//팝업 삭제
 	void adDeletePopup(PopupVO vo);
 	
+	// 팝업 생성
+	void adPopupInsert(PopupVO vo);
+	
+	// 팝업 상세보기
+	PopupVO adPopupDetail(PopupVO vo);
+	
+	// 팝업 수정하기
+	void adPopupUpdate(PopupVO vo);
+	
 	// 수치 불러오기
 	StatusVO getStatus();
+	
 }

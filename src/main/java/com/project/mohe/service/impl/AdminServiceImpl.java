@@ -303,6 +303,62 @@ public class AdminServiceImpl implements AdminService {
 		popupDao.deletePopup(vo);
 	}
 
+	@Override
+	public void adPopupInsert(PopupVO vo) {
+		// 만약 vo의 값이 true라면, 기존에 true값이 있는지 없는지 확인해서 기존의 값을 업데이트해줘야함
+		if(vo.getPop_use().equals("true")) {
+			PopupVO tvo = popupDao.getMainPopup();
+			if(tvo.getPop_no() == 0) {
+				System.out.println("기존에 활성화된 팝업이 없습니다.");
+				// 팝업트루가 없으면 insert 진행
+				popupDao.insertPopup(vo);
+			}else {
+				// 팝업트루가 있으면 해당 팝업을 비활성화시킴
+				System.out.println("기존에 활성화된 팝업이 있습니다");
+				popupDao.setPopupFalse(tvo);
+				// 트루인 새 팝업을 적용시킴
+				popupDao.insertPopup(vo);
+			}
+		}else {
+			// 새로 만든 팝업의 상태가 false라면 insert 진행
+			popupDao.insertPopup(vo);
+		}
+	}
+
+	@Override
+	public PopupVO adPopupDetail(PopupVO vo) {
+		return popupDao.getPopup(vo);
+	}
+
+	@Override
+	public void adPopupUpdate(PopupVO vo) {
+		// 만약 vo의 값이 true라면, 기존에 true값이 있는지 없는지 확인해서 기존의 값을 업데이트해줘야함
+		if(vo.getPop_use().equals("true")) {
+			PopupVO tvo = popupDao.getMainPopup();
+			if(tvo.getPop_no() == 0) {
+				System.out.println("기존에 활성화된 팝업이 없습니다.");
+				// 팝업트루가 없으면 insert 진행
+				popupDao.updatePopup(vo);
+			}else {
+				// 팝업트루가 있으면 
+				System.out.println("기존에 활성화된 팝업이 있습니다");
+				// 그 트루인 팝업이 수정하는 대상이면
+				if(tvo.getPop_no() == vo.getPop_no()) {
+					// 트루인 새 팝업을 적용시킴
+					popupDao.updatePopup(vo);
+				}else {
+					// 트루인 팝업이 수정하는 대상이 아니면
+					popupDao.setPopupFalse(tvo);
+					// 트루인 새 팝업을 적용시킴
+					popupDao.updatePopup(vo);
+				}
+			}
+		}else {
+			// 새로 만든 팝업의 상태가 false라면 insert 진행
+			popupDao.updatePopup(vo);
+		}
+	}
+
 
 
 }

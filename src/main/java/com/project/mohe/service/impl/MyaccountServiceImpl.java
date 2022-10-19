@@ -40,7 +40,7 @@ public class MyaccountServiceImpl implements MyaccountService {
 	}
 
 	@Override
-	public List<BongsaVO> getBonsa_cartList(UserInfoVO vo) {
+	public List<BongsaVO> getBongsa_cartList(UserInfoVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
