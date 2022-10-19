@@ -40,11 +40,11 @@
 			<div class="auto-container">
 				<h1>자주 묻는 질문</h1>
 				<ul class="bread-crumb clearfix">
-					<li><a href="notice.html"><h5>공지사항</h5></a></li>
-					<li class="active"><h5>자주 묻는 질문</h5></li>
-					<li><a href="event.html"><h5>이벤트</h5></a></li>
-					<li><a href="partner.html"><h5>파트너</h5></a></li>
-					<li><a href="review.html"><h5>후기 모음</h5></a></li>
+					<li><a href="notice.do"><h5>공지사항</h5></a></li>
+					<li class="active"><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li><a href="event.do"><h5>이벤트</h5></a></li>
+					<li><a href="partner.do"><h5>파트너</h5></a></li>
+					<li><a href="review.do"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
 
