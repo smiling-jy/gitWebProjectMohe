@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,12 +85,13 @@
 								${event.event_title}</a></h5>
 							<div class="event-date">
 							이벤트 기간 <span class="icon far fa-clock"></span>
-							<fmt:formatDate value="${event.event_stdate}" dateStyle="short"></fmt:formatDate>
-							 ~ <fmt:formatDate value="${event.event_eddate}" dateStyle="short"></fmt:formatDate>
+							${fn:substring(event.event_stdate,0,10)}
+							 ~ ${fn:substring(event.event_eddate,0,10)}
 							</div>
 						</td>
 						<td>
-							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.png">
+<%-- 							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.png"> --%>
+							<img class="event-img-size" src="resources/files/event/title/${event.event_no}/eventTitleIMG.PNG">
 						</td>
 						</tr>
 					</table>
