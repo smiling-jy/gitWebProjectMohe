@@ -129,5 +129,12 @@
 		<!-- End Main Header -->
 	</div>
 	<!--End pagewrapper-->
+	<script type="text/javascript">
+		function btnLogOut() {
+			if (confirm("로그아웃 하시겠습니까?")) {
+				location.href = "/mohe/logOut.do";
+			}
+		}
+	</script>
 </body>
 </html>
