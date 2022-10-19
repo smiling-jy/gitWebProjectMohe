@@ -60,7 +60,7 @@ ul.new-font{
 }
 
 #funding-div{
-    position:static
+    position:static;
 }
 
 .d-day{
@@ -79,7 +79,9 @@ img.img-size{
 	height: 323.9px;
 }
 
-
+.fd-text-box{
+	height: 90px;
+}
 
 /* 펀딩페이지 상세 */
 
@@ -115,7 +117,7 @@ div.lower-content p strong{
 }
 
 .funding-btn:hover{
-    background-color: rgb(254,74,43);
+    background-color: #25283a;
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1);
@@ -329,9 +331,7 @@ div.answer span{
 	position: absolute;
 	right: 25px;
 	bottom: 5px;
-	/* background-color: rgb(230, 223, 223); */
     color: gray;
-    border-radius: 5px;
     font-size: 12px;
 }
 
@@ -415,7 +415,24 @@ td .new-btn{
     width: 90px;
 }
 
+.bg-red {
+	background-color: red !important;
+ }
+ 
+.widget-content ul#cart-ul li{
+	list-style: none;
+	list-style-position: initial;
+	font-weight: 600;
+	font-family: 'GmarketSansMedium';
+	
+	
+	
+}
+.widget-content ul#cart-ul{
+	margin: 0;
+}
 
+  
 /* 모달 */
 
 .background {
