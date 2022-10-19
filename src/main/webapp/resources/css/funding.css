@@ -49,6 +49,12 @@ span{
     font-style:normal;
 }
 
+h1,h2,h3,h4,h5,h6{
+	font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+
 /* 카테고리 폰트 사이즈 */
 ul.new-font{
     font-size: 30px;
@@ -419,18 +425,21 @@ td .new-btn{
 	background-color: red !important;
  }
  
-.widget-content ul#cart-ul li{
+.widget-content ul.cart-ul li{
 	list-style: none;
 	list-style-position: initial;
 	font-weight: 600;
 	font-family: 'GmarketSansMedium';
-	
-	
-	
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	margin-left: 15px;
 }
-.widget-content ul#cart-ul{
-	margin: 0;
+
+.cart-ul:last-child a.jjimlist{
+	font-size: 20px;
 }
+
 
   
 /* 모달 */
