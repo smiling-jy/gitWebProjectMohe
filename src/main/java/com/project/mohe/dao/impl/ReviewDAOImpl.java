@@ -43,7 +43,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public ReviewVO getReview(ReviewVO vo) {
-		System.out.println("==============>리뷰 읽기 DAO");
+		mybatis.update("ReviewDAO.getReadCnt",vo);
 		return mybatis.selectOne("ReviewDAO.getReview", vo);
 	}
 
@@ -60,7 +60,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 	//이전글다음글
 	@Override
 	public ReviewVO movePage(ReviewVO vo) {
-		System.out.println("==============>리뷰 이전글다음글 DAO");
 		return mybatis.selectOne("ReviewDAO.movePageReview", vo);
 	}
 

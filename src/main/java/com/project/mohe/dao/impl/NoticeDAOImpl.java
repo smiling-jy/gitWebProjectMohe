@@ -43,6 +43,8 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public NoticeVO getNotice(NoticeVO vo) {
+		//조회수증가
+		mybatis.update("NoticeDAO.getReadCnt",vo);
 		return mybatis.selectOne("NoticeDAO.getNotice",vo);
 	}
 
