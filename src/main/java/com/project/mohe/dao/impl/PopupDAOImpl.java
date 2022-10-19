@@ -31,7 +31,7 @@ public class PopupDAOImpl implements PopupDAO {
 
 	@Override
 	public void deletePopup(PopupVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("PopupDAO.deletePopup",vo);
 		
 	}
 

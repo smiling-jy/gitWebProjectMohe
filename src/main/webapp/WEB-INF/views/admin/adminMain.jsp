@@ -57,7 +57,7 @@
 							<h2>승인 대기 펀딩</h2>
 							<hr>
 							<br>
-							<h1>103개</h1>
+							<h1>${status.fdNewCnt}개</h1>
 							<br>
 							<div class="link-box">
 								<a href="adFdApproval.do" class="theme-btn btn-style-one"> <span
@@ -71,7 +71,7 @@
 							<h2>승인 대기 봉사</h2>
 							<hr>
 							<br>
-							<h1>213개</h1>
+							<h1>${status.bsNewCnt}개</h1>
 							<br>
 							<div class="link-box">
 								<a href="adVtApproval.do" class="theme-btn btn-style-three">
@@ -85,7 +85,7 @@
 							<h2>New 기부목록</h2>
 							<hr>
 							<br>
-							<h1>103개</h1>
+							<h1>${status.dntNewCnt}개</h1>
 							<br>
 							<div class="link-box">
 								<a href="adDonationList.do" class="theme-btn btn-style-ten">
@@ -106,7 +106,7 @@
 									<span class="flaticon-hand"></span>
 								</div>
 								<h3>펀딩</h3>
-								<span>10,000명</span>
+								<span>${status.fdJoinCnt}명</span>
 							</div>
 						</div>
 						<!-- status 항목 끝 -->
@@ -118,7 +118,7 @@
 									<span class="flaticon-adoption"></span>
 								</div>
 								<h3>봉사</h3>
-								<span>10,000명</span>
+								<span>${status.bsJoinCnt}명</span>
 							</div>
 						</div>
 						<!-- status 항목 끝 -->
@@ -130,7 +130,7 @@
 									<span class="flaticon-money"></span>
 								</div>
 								<h3>기부</h3>
-								<span>10,000원</span>
+								<span>${status.allDonate}만원</span>
 							</div>
 						</div>
 						<!-- status 항목 끝 -->
@@ -142,7 +142,7 @@
 									<span class="flaticon-group"></span>
 								</div>
 								<h3>참여</h3>
-								<span>10,000명</span>
+								<span>${status.allFdPrice}만원</span>
 							</div>
 						</div>
 					</div>
