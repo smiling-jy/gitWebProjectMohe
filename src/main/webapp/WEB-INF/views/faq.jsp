@@ -56,33 +56,37 @@
 			
 				<div class="tabs-box">
 
-						<!--Title Column-->
-						<div class="title-column">
-
-							<div class="faq-inner">
-
-								<ul class="tab-buttons">
-									<li class="tab-btn active-btn" style="font-size: 20px"
-										data-tab="#tab-1">펀딩</li>
-									<li class="tab-btn" style="font-size: 20px" data-tab="#tab-2">봉사</li>
-									<li class="tab-btn" style="font-size: 20px" data-tab="#tab-3">후원</li>
-									<li class="tab-btn" style="font-size: 20px" data-tab="#tab-4">기타사항</li>
-								</ul>
-							</div>
-						</div>
 						<div class="auto-container">
 						    <!--Content Column-->
-						<div class="content-column col-lg-10 col-md-12 col-sm-12">
+						<div class="content-column col-lg-10 col-md-12 col-sm-12" style="margin:auto;">
 						    <!-- 운영자에게 메일보내기&검색하기 -->
          					<div class="auto-container" id="admin-email">
           			  			<div id="admin-email-inner">
               						 <h4 style="text-align: center; color: white; display: inline;">
               								 무엇이든 문의하세요</h4>
               			 			<img src="resources/images/mohe_logo/main_logo.png">
-              						 <h4 style="text-align: center; color: white; display: inline;">mohe@naver.com</h4>
-								</div>
+              						<h4 style="text-align: center; color: white; display: inline;">mohe@naver.com</h4>
+              					<div class="text-box">
+              						<input type="text" id="search-text" placeholder="질문을 검색하세요">
+									<button type="button" id="qna-search-btn"><img id="btn-img" src="resources/images/icons/search-btn.png"></button>
+              					</div>
+								
+							</div>
         		 		</div>
 							<div class="inner">
+									<!--Title Column-->
+									<div class="title-column">
+			
+										<div class="faq-inner" style="text-align:center;">
+											<ul class="tab-buttons">
+												<li class="tab-btn active-btn" style="font-size: 20px; display:inline;"
+													data-tab="#tab-1">펀딩 &nbsp; &nbsp;</li>
+												<li class="tab-btn" style="font-size: 20px; display:inline;" data-tab="#tab-2">봉사 &nbsp; &nbsp;</li>
+												<li class="tab-btn" style="font-size: 20px; display:inline;" data-tab="#tab-3">후원 &nbsp; &nbsp;</li>
+												<li class="tab-btn" style="font-size: 20px; display:inline;" data-tab="#tab-4">기타사항 &nbsp; &nbsp;</li>
+											</ul>
+										</div>
+									</div>
 								<div class="tabs-content">
 									<!--Tab-->
 									<div class="tab active-tab" id="tab-1">
@@ -309,6 +313,8 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<!-- 검색기능js 연결 -->
+	<script src="resources/js/qna-search.js"></script>
 
 </body>
 </html>
