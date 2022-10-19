@@ -46,11 +46,11 @@ public class Funding_cartController {
 		return result;		
 	}
 	
+	// 찜목록리스트 (펀딩,봉사 둘 다)
 	@RequestMapping("shoppingBasket.do")
 	public String getFunding_cartList(Model model, HttpSession session) {
 		HashMap map = new HashMap();
 		map.put("user_no" ,(Integer)session.getAttribute("user_no"));
-		System.out.println(map);
 		List<Funding_pjVO> pj_list = funding_cartService.getFunding_cartList(map);
 		List<BongsaVO> bs_list = funding_cartService.getBongsa_cartList(map);
 		System.out.println(bs_list);
@@ -59,6 +59,7 @@ public class Funding_cartController {
 		return "shoppingBasket";
 	}
 	
+	// 펀딩찜 삭제
 	@RequestMapping("deleteFdCart.do")
 	public String deleteFdCart(Funding_cartVO vo , HttpServletRequest request) {
 		HttpSession session = request.getSession();
