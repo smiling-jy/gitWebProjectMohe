@@ -29,6 +29,7 @@
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -79,21 +80,29 @@
 						<span class="striped-line"></span>
 					</div>
 					<div class="method">
-						<div class="method-control">
-							<a href="#" class="method-action"> <i
+						<!-- <div class="method-control">
+							<a href="javascript:void(0)" class="method-action" id="gogleLogin"> <i
 								class="fab fa-brands fa-google" style="color: red"></i> <span
 								style="margin-left: 0.3rem;">구글로 로그인</span>
 							</a>
-						</div>
+						</div> -->
 						<div class="method-control">
-							<a href="#" class="method-action"> <i
-								class="ion ion-logo-facebook"></i> <span>카카오로 로그인</span>
+							<a href="javascript:void(0)" class="method-action" id="kakaoLogin"> <i
+								class="ion ion-logo-facebook" ></i> <span>카카오로 로그인</span>
 							</a>
 						</div>
-						<div class="method-control">
+				<!-- 		<div class="method-control">
 							<a href="#" class="method-action"> <i
 								class="ion ion-logo-apple"></i> <span>네이버로 로그인</span>
 							</a>
+						</div> -->
+						<div>
+							<form action="apiLogin.do" id="api-form" method="post">
+								<input type="hidden" name="user_intype" id="api_intype">
+								<input type="hidden" name="user_email" id="api_emali">
+								<input type="hidden" name="user_password" id="api_pass">
+								<input type="hidden" name="user_name" id="api_name">
+							</form>
 						</div>
 					</div>
 				</section>
@@ -124,6 +133,11 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	
+	<!-- API 로그인 -->
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	<script src="resources/js/apiLogin.js"></script>
 
 	<script type="text/javascript">
 		function btnEamillogin() {
@@ -164,6 +178,8 @@
 					})
 		}
 	</script>
+	
+
 
 
 </body>

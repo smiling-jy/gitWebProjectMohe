@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="StatusDAO">
+	<!-- 펀딩 현황 조회 -->
+	<select id="getFdStatus" resultType="status">
+		select count(pay_no) as fdJoinCnt,sum(pay_total)/10000 as allFdPrice
+		from funding_pay
+	</select>
+	<!-- 봉사 현황 조회 -->
+	<select id="getBsStatus" resultType="status">
+		select count(volun_no) as bsJoinCnt
+		from volunteer
+	</select>
+	<!-- 기부 현황 조회 -->
+	<select id="getDonation" resultType="status">
+		select sum(dnt_amount)/10000 as allDonate
+		from donation
+	</select>
+	<!-- 대기펀딩수 조회 -->
+	<select id="getNewFdCnt" resultType="status">
+		select count(fd_no) as fdNewCnt
+		from funding_pj
+		where fd_status = '대기중'
+	</select>
+	<!-- 대기봉사수 조회 -->
+	<select id="getNewBsCnt" resultType="status">
+		select count(bs_no) as bsNewCnt
+		from bongsa
+		where bs_ing = '대기중'
+	</select>
+	<!-- 확인필요 기부수 조회 -->
+	<select id="getNewDntCnt" resultType="status">
+		select count(dnt_no) as dntNewCnt
+		from donation
+		where dnt_check = '미확인'
+	</select>
+</mapper>

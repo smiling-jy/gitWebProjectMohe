@@ -66,9 +66,8 @@
 								<span class="icon flaticon-search-1"></span>
 							</button>
 							<select name="select">
-								<option>선택안함</option>
-								<option value="fd_no">최신순</option>
-								<option value="fd_read_cnt">인기순</option>
+								<option value="pj.fd_no">최신순</option>
+								<option value="rate">인기순</option>
 							</select>
 						</form>
 					</div>	
@@ -109,7 +108,7 @@
 										<span class="goal">목표금액:<strong>
 												${pj.fd_goals}</strong></span><span class="d-day"><strong>${pj.remain_day}</strong>일남음</span>
 									</div>
-									<h3>
+									<h3 class="fd-text-box">
 										<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font">${pj.fd_title}</a>
 									</h3>
 								</div>

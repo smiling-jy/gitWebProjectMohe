@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,19 +38,6 @@
 
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
-		<!-- Page Banner Section -->
-		<section class="page-banner">
-			<!-- <div class="image-layer lazy-image" data-bg="url('resources/images/background/bg-banner-1.jpg')"></div>
-        <div class="bottom-rotten-curve"></div> -->
-
-			<div class="auto-container">
-				<h1>마이페이지</h1>
-
-			</div>
-
-		</section>
-		<!--End Banner Section -->
-
 
 		<!--Sidebar Page Container-->
 		<div class="sidebar-page-container shop-page">
@@ -59,15 +47,51 @@
 					<!--Content Side / Blog Sidebar-->
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 						<div class="our-shop">
+							<c:if test="${not empty success_list}">
+								<div class="shop-upper-box clearfix">
+									<span class="items-label newFont" id="recruiting-list">모집완료한 봉사활동</span>
+								</div>
+							</c:if>
+							<div class="row clearfix">
+								<c:forEach items="${success_list}" var="bongsa">
+									<!--Shop Item-->
+									<div class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+											<div class="image-box">
+												<figure class="image">
+													<a href="bongsaParticipateList.do"><img class="lazy-image"
+														src="resources/images/mohe_logo/bongsaMain/s3.png"
+														data-src="" alt=""></a>
+												</figure>
+											</div>
+											<div class="lower-content ">
+												<h3>
+													<a href="bongsaParticipateList.do?bs_no=${bongsa.bs_no}" class="bs-title newFont"><strong>${bongsa.bs_title}</strong></a>
+														</br>
+													<span class=""><strong>참여인원 : ${bongsa.bs_success_cnt}</strong></span>
+												</h3>
+												<!-- <h5 class="bs-name">수원시의회</h5><br> -->
+												<div>
+													<span class="bs-content">${bongsa.bs_work_start} ~ </span></br>
+													<span> ${bongsa.bs_work_end}</span>
+												</div>
+												<br>
+											</div>
+										</div>
+									</div><!-- shop아이템 종료 -->
+								</c:forEach>	
+							</div>
+
+
 							<div class="shop-upper-box clearfix">
-								<span class="items-label newFont" id="recruiting-list">모집중인
+								<span class="items-label newFont" id="recruited-list">모집중인
 									봉사활동</span>
 							</div>
 
 							<div class="row clearfix">
+								<c:forEach items="${ongoing_list}" var="bongsa">
 								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+								<div class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
 									<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 										<div class="image-box">
 											<figure class="image">
@@ -78,205 +102,51 @@
 										</div>
 										<div class="lower-content ">
 											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
+												<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="bs-title newFont"><strong>${bongsa.bs_title}</strong></a>
+													</br>
+												<span class=""><strong>참여인원 : ${bongsa.bs_success_cnt}</strong></span>
 											</h3>
 											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
 											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
+												<span class="bs-content">${bongsa.bs_work_start} ~ </span></br>
+												<span> ${bongsa.bs_work_end}</span>
 											</div>
 											<br>
 										</div>
 									</div>
-								</div>
-								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp"
-									data-wow-delay="400ms">
-									<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
-											</div>
-											<br>
-										</div>
-									</div>
-								</div>
-
-								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp"
-									data-wow-delay="800ms">
-									<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
-											</div>
-											<br>
-										</div>
-									</div>
-								</div>
+								</div><!-- shop아이템 종료 -->
+							</c:forEach>
 							</div>
 
-
-							<div class="shop-upper-box clearfix">
-								<span class="items-label newFont" id="recruited-list">모집완료한
-									봉사활동</span>
-							</div>
-
-							<div class="row clearfix">
-								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
-									<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
-											</div>
-											<br>
-										</div>
-									</div>
-								</div>
-								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp"
-									data-wow-delay="400ms">
-									<div class="inner-box wow fadeInUp" data-wow-delay="300ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
-											</div>
-											<br>
-										</div>
-									</div>
-								</div>
-
-								<!--Shop Item-->
-								<div
-									class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp"
-									data-wow-delay="800ms">
-									<div class="inner-box wow fadeInUp" data-wow-delay="600ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bonsaDetail.html" class="bs-title newFont">한마음
-													달리기</a>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">2022-05-18 ~ 2022-06-20</span>
-											</div>
-											<br>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="pagination-box">
-								<ul class="styled-pagination text-center">
-									<li><a href="#" class="active">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#"><span class="fa fa-angle-right"></span></a></li>
-								</ul>
-							</div>
 
 						</div>
 					</div>
 
 					<!--Sidebar Side-->
-					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+				<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar shop-sidebar">
 
-							<!-- Search -->
-							<!-- <div class="sidebar-widget search-box">
-                        	<h3 class="sidebar-title">Search</h3>
-                            <form method="post" action="contact.html">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value="" placeholder="Search..." required="">
-                                    <button type="submit"><span class="icon flaticon-search-1"></span></button>
-                                </div>
-                            </form>
-                        </div> -->
-							<div class="supportormaker">
-								<span class="supporter">서포터</span><span>&nbsp;&nbsp;</span><span
-									class="maker">메이커</span>
+					<div class="sidebar-widget price-filters rangeslider-widget">
+						<div class="input-control d-block">
+							<label for="userName" class="input-label"></label>
+							<div class="profile-user-img margin-auto">
+								<img class="margin-auto profile-user-img-img"
+									src="resources/images/mohe_logo/img_no_profile.png"
+									alt="profile-user-img" style="max-width: 130px">
 							</div>
-							<div class="my_picture">
-								<img class="my-lazy-image"
-									src="resources/images/resource/image-spacer-for-validation.png"
-									data-src="resources/images/resource/products/3.png" alt="" /><br />
-								<br />
-								<h3 class="userName">김나나</h3>
+						</div>
+						<h3 class="userName">김나나님</h3>
+															<div class="range-slider-one clearfix">
+						<div class="clearfix">
+							<div class="text-center">
+								<a href="modifyInfo.html" class="theme-btn btn-style-one">
+							<span
+									class="btn-title">회원 수정</span></a> <a href="#"
+									class="theme-btn btn-style-one"><span
+									class="btn-title bg-red">회원 탈퇴</span></a>
 							</div>
-
-							<!-- Category Widget -->
-							<div class="sidebar-widget categories">
-								<div class="widget-content">
-									<ul>
-										<li class="current"><a href="blog-single.html">Education</a></li>
-										<li><a href="blog-single.html">Olympiad</a></li>
-										<li><a href="blog-single.html">Children</a></li>
-										<li><a href="blog-single.html">Animals</a></li>
-										<li><a href="blog-single.html">Donations</a></li>
-										<li><a href="blog-single.html">Causes</a></li>
-									</ul>
-								</div>
-							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 

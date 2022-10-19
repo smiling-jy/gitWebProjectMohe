@@ -88,9 +88,18 @@
 											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
-														<div class="bar-inner count-bar" data-percent="${pj.rate}%">
-															<div class="count-text">${pj.rate}%</div>
-														</div>
+													<c:choose>
+														<c:when test="${pj.rate > 100}">
+															<div class="bar-inner count-bar" data-percent="100%">
+																<div class="count-text">${pj.rate}%</div>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
+																<div class="count-text">${pj.rate}%</div>
+															</div>
+														</c:otherwise>
+													</c:choose>
 													</div>
 												</div>
 												<div class="donation-count clearfix">
@@ -102,9 +111,9 @@
 													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font fd_title_qna">${pj.fd_title}</a>
 												</h5>
 											</div>
-										</div>
 												<input type="button" class="a-btn" value="Q&A">
 												<input type="hidden" value="${pj.fd_no}" class="fd_no">
+										</div>
 									</div>
 								</c:forEach>
 								<!-- 펀딩 블럭 끝 -->
@@ -119,7 +128,7 @@
 					</div>
 
 					<!--Sidebar Side-->
-					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">
 							<div class="sidebar-widget price-filters rangeslider-widget">
 								<div class="input-control d-block">
@@ -130,19 +139,43 @@
 											alt="profile-user-img" style="max-width: 130px">
 									</div>
 								</div>
-								<h3 class="sidebar-title">차미지 님</h3>
+								<h3 class="sidebar-title">
+									<c:out value="${sessionScope.user.user_name}" />
+									님(
+									<c:out value="${sessionScope.user.user_rating}" />
+									)
+								</h3>
 								<div class="range-slider-one clearfix">
 									<div class="clearfix">
 										<div class="text-center">
-											<a href="modifyInfo.html" class="theme-btn btn-style-one"><span
-												class="btn-title">회원 수정</span></a> <a href="#"
+											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
+												class="btn-title">회원 수정</span></a><br /> <a href="#"
 												class="theme-btn btn-style-one"><span
 												class="btn-title bg-red">회원 탈퇴</span></a>
 										</div>
 									</div>
 								</div>
 							</div>
-
+							<!-- Category Widget -->
+							<div class="sidebar-widget categories">
+								<div class="widget-content">
+									<ul class="cart-ul">
+										<li>펀딩
+											<ul>
+												<li><a href="details.do">펀딩참여목록</a></li>
+												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+											</ul>
+										</li>
+										<li>봉사
+											<ul>
+												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+											</ul>
+										</li>
+										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+									</ul>
+								</div>
+							</div>
 						</aside>
 					</div>
 				</div>

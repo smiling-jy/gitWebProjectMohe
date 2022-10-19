@@ -52,7 +52,7 @@
 						<a href="adUserList.do">펀딩 관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<div class="content_table_div" style="height:1130px;">
 						<div>
 							<form name="userDetail" action="adUserUpdate.do" method="post">
 								<!--Form Column-->

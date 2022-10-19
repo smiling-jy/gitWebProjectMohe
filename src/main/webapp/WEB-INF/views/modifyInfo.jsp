@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
 <link href="resources/css/login.css" rel="stylesheet">
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/mohe.checkout.css" rel="stylesheet">
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
@@ -42,35 +42,41 @@
 				<div class="heading">
 					<h4 class="text text-large">회원정보 변경</h4>
 				</div>
-				<form name="signin" class="form">
+				<form name="signin" action="modifyInfoUpdate.do" method="post"
+					enctype="multipart/form-data" class="form">
 					<div class="input-control d-block">
-						<label for="userName" class="input-label">프로필 사진</label>
-
-						<div class="profile-user-img margin-auto">
-							<img class="margin-auto profile-user-img-img"
-								src="resources/images/mohe_logo/img_no_profile.png"
-								alt="profile-user-img">
-						</div>
+						<label for="userName" class="input-label">프로필 사진</label> <input
+							type="file" maxlength="60" size="40" name="user_img_file"
+							value="" />
+							
+							<div class="profile-user-img margin-auto">
+								<img class="margin-auto profile-user-img-img"
+									src="resources/userImgUploadFile/${user.user_img}"
+									alt="profile-user-img">
+							</div>
 					</div>
 					<div class="input-control d-block">
 						<label for="userName" class="input-label">이름</label> <input
-							type="userName" name="userName" id="userName" class="input-field"
-							placeholder="이름">
+							type="text" name="user_name" class="input-field" placeholder="이름"
+							value="<c:out value="${user.user_name}" />" />
 					</div>
 					<div class="input-control d-block">
 						<label for="userPhone" class="input-label">휴대폰번호</label> <input
-							type="userPhone" name="userPhone" id="userPhone"
-							class="input-field" placeholder="핸드폰 번호">
+							type="text" name="user_phone" id="userPhone" class="input-field"
+							value="<c:out value="${user.user_phone}" />">
 					</div>
 					<div class="input-control d-block">
 						<label for="userInfo" class="input-label">소개</label>
-						<textarea type="userInfo" name="userInfo" id="userInfo"
-							class="input-field" placeholder="소개"></textarea>
+						<textarea name="user_info" id="userInfo" class="input-field"><c:out
+								value="${user.user_info}" /></textarea>
 					</div>
 					<div class="donate-link">
-						<a href="donate.html" class="theme-btn btn-style-one btn-block">
-							<span class="btn-title text-center">변경하기</span>
-						</a>
+						<button type="submit" class="theme-btn btn-style-one btn-block">
+							<span class="btn-title text-center">수정하기</span>
+						</button>
+						<!--                   <a href="donate.html" class="theme-btn btn-style-one btn-block"> -->
+						<!--                      <span class="btn-title text-center">변경하기</span> -->
+						<!--                   </a> -->
 					</div>
 				</form>
 			</section>

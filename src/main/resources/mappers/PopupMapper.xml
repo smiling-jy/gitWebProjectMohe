@@ -33,9 +33,50 @@
   			</if>
 		</where>
 	</select>
+	<!-- 유효한 팝업 조회 > 기간이 종료되지않고 활성화 되어있는 팝업들 -->
 	<select id="getMainPopup" resultType="popup">
 		select *
 		from popup
-		where <![CDATA[pop_end_date > sysdate]]> and pop_use = 'true'
+		where <![CDATA[pop_end_date >= sysdate]]> and
+			  <![CDATA[pop_start_date <= sysdate]]> and
+				 pop_use = 'true'
+	</select>
+	<!-- 팝업 삭제 -->
+	<delete id="deletePopup" parameterType="popup">
+		delete 
+		from popup
+		where pop_no = #{pop_no}
+	</delete>
+	<!-- 팝업생성 -->
+	<insert id="insertPopup" parameterType="popup">
+		<selectKey keyProperty="pop_no" order="AFTER" resultType="int">
+			select POPUP_SEQ.currval pop_no from dual
+		</selectKey>
+		insert into popup
+		values(POPUP_SEQ.nextval,#{pop_title},#{pop_img},#{pop_start_date},#{pop_end_date},#{pop_use})
+	</insert>
+	<!-- 팝업의 상태를 false로 바꾸기 -->
+	<update id="setPopupFalse" parameterType="popup">
+		update popup
+		set pop_use = 'false'
+		where pop_no = #{pop_no}
+	</update>
+	<!-- 팝업 정보 수정 -->
+	<update id="updatePopup" parameterType="popup">
+		update popup
+		set pop_title=#{pop_title},pop_start_date=#{pop_start_date},pop_end_date=#{pop_end_date},pop_use=#{pop_use}
+		where pop_no = #{pop_no}
+	</update>
+	<!-- 팝업 조회 -->
+	<select id="getPopup" parameterType="popup" resultType="popup">
+		select *
+		from popup
+		where pop_no = #{pop_no}
+	</select>
+	<!-- 기간이 지났는데, 활성화 되어있는 팝업들을 조회 -->
+	<select id="timeOutPopup" resultType="popup">
+		select *
+		from popup
+		where <![CDATA[pop_end_date < sysdate]]> and pop_use = 'true'
 	</select>
 </mapper>

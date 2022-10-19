@@ -32,14 +32,27 @@ public class MainController {
 	@RequestMapping("main.do")
 	public void viewMain(Model model) {
 		// 메인화면에 필요한 각 데이터 호출 및 모델에 setting
-		// donation 리스트 확인하기
-		model.addAttribute("donation",mainService.getDonationList());
-		model.addAttribute("partner",mainService.getPartnerList());
-		model.addAttribute("bestFdList",mainService.getFdList());
-		model.addAttribute("deadlineBs",mainService.getBsList());
-		model.addAttribute("bestReview",mainService.getReviewList());
-		model.addAttribute("eventList",mainService.getEventList());
-		model.addAttribute("popup",mainService.getMainPopup());
+		try {
+			// 기간이 지난 활성화 팝업 비활성화로 전환하기 
+			mainService.timeOutPop();
+			
+			model.addAttribute("donation",mainService.getDonationList());
+			model.addAttribute("partner",mainService.getPartnerList());
+			model.addAttribute("bestFdList",mainService.getFdList());
+			model.addAttribute("deadlineBs",mainService.getBsList());
+			model.addAttribute("bestReview",mainService.getReviewList());
+			model.addAttribute("eventList",mainService.getEventList());
+			model.addAttribute("status",mainService.getStatus());
+			model.addAttribute("popup",mainService.getMainPopup());
+		}catch(Exception e) {
+			System.out.println("오류"+e);
+		}
+	}
+	
+	@RequestMapping("info2.do")
+	public void veiwInfo2(Model model) {
+		// status 정보 불러오기
+		model.addAttribute("status",mainService.getStatus());
 	}
 
 }

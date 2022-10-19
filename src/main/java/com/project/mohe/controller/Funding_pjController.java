@@ -20,13 +20,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.Funding_pjService;
+import com.project.mohe.service.UserInfoService;
 
 @Controller
 public class Funding_pjController {
 	@Autowired
 	private Funding_pjService funding_pjService;
-
+	
 	@Autowired
 	ServletContext servletContext;
 
@@ -37,7 +39,6 @@ public class Funding_pjController {
 		map.put("fd_category", fd_category); // 카테고리
 		map.put("search", search); // 검색어
 		map.put("select", select); // 최신순 , 인기순
-		System.out.println(select);
 		List<Funding_pjVO> pj_list = funding_pjService.getFunding_pjList(map);
 		model.addAttribute("pj_list", pj_list);
 		return "funding";
@@ -50,10 +51,15 @@ public class Funding_pjController {
 		return "fundingSingle";
 	}
 
-	// 펀딩주최하기 클릭시 페이지 단순 이동
+	// 펀딩주최하기 클릭시 로그인 체크 후 이동
 	@RequestMapping("openfunding.do")
-	public void openFunding() {
-
+	public String openFunding(HttpServletRequest request) {
+		// 유저번호 세션에서 받아오기
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user_no") == null) {
+			return "loginCheck";
+		}
+		return "openfunding";
 	}
 
 	// Funding_pjVO 테이블에 insert
@@ -62,10 +68,6 @@ public class Funding_pjController {
 
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
-
 		pj.setUser_no((Integer) session.getAttribute("user_no"));
 
 		// DB저장
@@ -77,12 +79,8 @@ public class Funding_pjController {
 		// 타이틀 이미지 있는지 확인하는 조건문
 		if (!pj.getTitle_img().isEmpty()) {
 
-			// 2. 폴더 생성
-
-			// 절대경로 받아오는 메소드
-			String resources = servletContext.getRealPath("/resources/attached_file/funding");
-			// 절대경로 + 지정한 폴더이름으로 폴더 생성
-			Path directoryPath = Paths.get(resources + "/" + folder_name);
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name);
 
 			try {
 				// 폴더 생성 메소드
@@ -96,7 +94,7 @@ public class Funding_pjController {
 			// 타이틀 이미지 저장
 			String fname = pj.getTitle_img().getOriginalFilename();
 			String fileExtension = fname.substring(fname.lastIndexOf("."));
-			File f = new File(resources + "/" + folder_name + "/" + "title_img" + fileExtension);
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name + "/" + "title" + fileExtension);
 
 			try {
 				// 파일저장 메소드
@@ -119,7 +117,7 @@ public class Funding_pjController {
 					fname = pj.getFile()[i].getOriginalFilename();
 					fileExtension = fname.substring(fname.lastIndexOf("."));
 
-					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
+					f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/" + folder_name + "/" + i + fileExtension);
 
 					try {
 						// 파일저장
@@ -148,10 +146,6 @@ public class Funding_pjController {
 	public String fundingHost(Model model, HttpServletRequest request) {
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-					
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 1);
-		
 		HashMap map = new HashMap();
 		map.put("user_no", (Integer) session.getAttribute("user_no"));
 		model.addAttribute("success_list", funding_pjService.getSuccess_pjList(map));

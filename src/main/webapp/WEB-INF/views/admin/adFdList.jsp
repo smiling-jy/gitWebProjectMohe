@@ -104,7 +104,7 @@
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
 																	<td style="font-size: 13px"><a
-																		href="adFdDetail.do?fd_no=${fd.fd_no}">${fn:substring(fd.fd_title,0,10)}</a></td>
+																		href="../fundingSingle.do?fd_no=${fd.fd_no}">${fn:substring(fd.fd_title,0,10)}</a></td>
 																	<td>${fd.fd_category}</td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
 																	<td style="word-break: break-all">${fd.fd_goals}</td>

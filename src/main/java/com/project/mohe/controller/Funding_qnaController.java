@@ -34,12 +34,12 @@ public class Funding_qnaController {
 	
 	@RequestMapping("questionSave.do")
 	public String questionSave(Funding_qnaVO qna, HttpServletRequest request) {
+		
 		// 유저번호 세션에서 받아오기
 		HttpSession session = request.getSession();
-		
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no", 2);
-		
+		if(session.getAttribute("user_no") == null) {
+			return "loginCheck";
+		}
 		qna.setUser_no((Integer) session.getAttribute("user_no"));
 		
 		funding_qnaService.insertFunding_qna(qna);

@@ -1,9 +1,6 @@
 package com.project.mohe.service;
 
-import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -18,6 +15,7 @@ import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
+import com.project.mohe.domain.StatusVO;
 import com.project.mohe.domain.UserInfoVO;
 
 @Service
@@ -129,4 +127,20 @@ public interface AdminService {
 	
 	//팝업 리스트
 	List<PopupVO> getPopupList(PagingVO vo);
+	
+	//팝업 삭제
+	void adDeletePopup(PopupVO vo);
+	
+	// 팝업 생성
+	void adPopupInsert(PopupVO vo);
+	
+	// 팝업 상세보기
+	PopupVO adPopupDetail(PopupVO vo);
+	
+	// 팝업 수정하기
+	void adPopupUpdate(PopupVO vo);
+	
+	// 수치 불러오기
+	StatusVO getStatus();
+	
 }

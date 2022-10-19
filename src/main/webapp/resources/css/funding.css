@@ -25,7 +25,9 @@
     color: black;
 }
 
-
+.no-banner .auto-container h1{
+	padding: 0px 100px;
+}
 
 
 @font-face {
@@ -47,6 +49,12 @@ span{
     font-style:normal;
 }
 
+h1,h2,h3,h4,h5,h6{
+	font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+
 /* 카테고리 폰트 사이즈 */
 ul.new-font{
     font-size: 30px;
@@ -58,7 +66,7 @@ ul.new-font{
 }
 
 #funding-div{
-    position:static
+    position:static;
 }
 
 .d-day{
@@ -77,7 +85,9 @@ img.img-size{
 	height: 323.9px;
 }
 
-
+.fd-text-box{
+	height: 90px;
+}
 
 /* 펀딩페이지 상세 */
 
@@ -113,7 +123,7 @@ div.lower-content p strong{
 }
 
 .funding-btn:hover{
-    background-color: rgb(254,74,43);
+    background-color: #25283a;
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1);
@@ -254,6 +264,11 @@ div.lower-content p strong{
 	
 }
 
+#pay_first_td{
+	
+	text-align: left;
+}
+
 
 /* 주최자 마이페이지 - 펀딩  */
 
@@ -322,15 +337,14 @@ div.answer span{
 	position: absolute;
 	right: 25px;
 	bottom: 5px;
-	/* background-color: rgb(230, 223, 223); */
     color: gray;
-    border-radius: 5px;
     font-size: 12px;
 }
 
 .a-btn:hover{
 	color: #3cc88f;
 }
+
 
 
 /*후원자리스트 운송장번호 인풋  */
@@ -407,7 +421,27 @@ td .new-btn{
     width: 90px;
 }
 
+.bg-red {
+	background-color: red !important;
+ }
+ 
+.widget-content ul.cart-ul li{
+	list-style: none;
+	list-style-position: initial;
+	font-weight: 600;
+	font-family: 'GmarketSansMedium';
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	margin-left: 15px;
+}
 
+.cart-ul:last-child a.jjimlist{
+	font-size: 20px;
+}
+
+
+  
 /* 모달 */
 
 .background {

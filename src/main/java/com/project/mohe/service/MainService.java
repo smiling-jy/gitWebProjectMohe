@@ -1,18 +1,15 @@
 package com.project.mohe.service;
 
-import java.util.HashMap;
 import java.util.List;
 
-import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
-import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PartnerVO;
 import com.project.mohe.domain.PopupVO;
 import com.project.mohe.domain.ReviewVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.StatusVO;
 
 public interface MainService {
 	// 각 테이블의 list들 조회 
@@ -37,5 +34,11 @@ public interface MainService {
 
 	//팝업 정보
 	PopupVO getMainPopup();
+	
+	//웹사이트 수치 정보
+	StatusVO getStatus();
+	
+	// 기간이 지난 팝업들을 비활성화
+	void timeOutPop();
 
 }

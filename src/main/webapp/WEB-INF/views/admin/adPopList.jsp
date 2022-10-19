@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,7 @@
 							<form name="search" action="adPopList.do" method="post">
 								<select name="select">
 									<option value="pop_title">제목</option>
+									<option value="pop_use">상태</option>
 								</select>
 								<input type="search" name="stext" value="${page.stext}" placeholder="Search...">
 								<button type="submit">
@@ -70,7 +72,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten">
+							<a href="adPopupInsertInfo.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
@@ -92,8 +94,8 @@
 															<tr>
 																<th>Check</th>
 																<th>제목</th>
-																<th>시작일</th>
-																<th>마감일</th>
+																<th>기간</th>
+																<th>상태</th>
 																<th>수정 / 삭제</th>
 															</tr>
 														</thead>
@@ -101,13 +103,18 @@
 															<c:forEach items="${popup}" var="pop">
 																<tr>
 																	<td><input type="checkbox" /></td>
-																	<td style="word-break:break-all"><a href="adUserDetail.do">${pop.pop_title}</a></td>
-																	<td style="font-size:13px">${pop.pop_start_date}</td>
-																	<td style="font-size:13px">${pop.pop_end_date}</td>
-																	<td><a href="#" class="remove-btn"> <span
-																		class="flaticon-check"></span>
-																		</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn"> <span
-																				class="flaticon-delete-1"></span>
+																	<td style="word-break:break-all"><a href="adPopupDetail.do?pop_no=${pop.pop_no}">${pop.pop_title}</a></td>
+																	<td style="font-size:13px">
+																		<span>${fn:substring(pop.pop_start_date,0,10)}</span> ~ <br>
+																		<span>${fn:substring(pop.pop_end_date,0,10)}</span>
+																	</td>
+																	<td style="font-size:13px">${pop.pop_use}</td>
+																	<td>
+																		<a href="adPopupUpdateInfo.do?pop_no=${pop.pop_no}" class="remove-btn"> 
+																			<span class="flaticon-check"></span>
+																		</a>&nbsp;&nbsp;&nbsp; 
+																		<a href="#" onclick="remove(${pop.pop_no})" class="remove-btn"> 
+																			<span class="flaticon-delete-1"></span>
 																		</a>
 																	</td>
 																</tr>
@@ -224,5 +231,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
+		<script src='../resources/js_ad/excelTables.js'></script>		<script>
+		function remove(pop_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeletePopup.do?pop_no='+pop_no;
+		}
+	</script>
 </body>
 </html>
