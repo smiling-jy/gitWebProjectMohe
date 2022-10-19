@@ -41,13 +41,11 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 
 	@Override
 	public VolunteerVO getVolunteer(VolunteerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("VolunteerDAO.getVolunteer",vo);
 	}
 
 	@Override
 	public List<VolunteerVO> getVolunteerList(HashMap map) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

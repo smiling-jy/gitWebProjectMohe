@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>모해 MOHE | 봉사상세페이지</title>
+<title>모해 MOHE | 봉사상세페이지 너무 짜증나느....</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -40,7 +40,7 @@
 		<jsp:include page="headerRed.jsp" />
 		<!--End Banner Section -->
 		<div class="auto-container bs-detail-name">
-			<h1 class="newFont">${bongsa.bs_title}</h1>
+			<h1 class="newFont" id="titleBs">${bongsa.bs_title}</h1>
 		</div>
 
 		<!--Sidebar Page Container-->
@@ -56,8 +56,7 @@
 								<div class="image-box">
 									<figure class="image">
 										<img class="lazy-image"
-											src="resources/files/bongsa/${bongsa.bs_img_name}/title.jpg"
-											data-src="resources/files/bongsa/${bongsa.bs_img_name}/title.jpg" alt="타이틀 이미지">
+											src="resources/files/bongsa/${bongsa.bs_img_name}/title.png" alt="타이틀 이미지">
 									</figure>
 								</div>
 								<div class="donate-info">
@@ -69,8 +68,8 @@
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>모집인원:</strong>${bongsa.bs_goal_cnt}명</span>
-										<span class="goal"><strong>현재 신청인원:</strong>${bongsa.bs_success_cnt}명</span>
+										<span class="raised"><strong>모집인원: </strong>${bongsa.bs_goal_cnt}명</span>
+										<span class="goal"><strong>현재 신청인원: </strong>${bongsa.bs_success_cnt}명</span>
 									</div>
 								</div>
 								<div class="lower-content">
@@ -84,8 +83,8 @@
 										${bongsa.bs_content}
 									</h6>
 									<br/>
-									<c:forEach var="cnt" begin="1" end="${bongsa.bs_img_cnt}">
-										<img src="resources/files/bongsa/${bongsa.bs_img_name}/${cnt}.jpg">
+									<c:forEach var="cnt" begin="0" end="${bongsa.bs_img_cnt}">
+										<img src="resources/files/bongsa/${bongsa.bs_img_name}/${cnt}.png">
 									</c:forEach>
 								
 								
@@ -113,9 +112,10 @@
 							<div>
 								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span
 									class="btn-title cs-btn">참여하기</span></a> 
-									<a href="#"class="theme-btn btn-style-one">
-									<span class="btn-title cs-btn">공유</span></a> 
-									<a href="#"class="theme-btn btn-style-one"><span class="btn-title cs-btn">♥</span></a>
+									<button class="theme-btn btn-style-one" id="bsJjim"><span class="btn-title cs-btn">♥</span></button>
+									<input type="hidden" name="bs_no" value="${bongsa.bs_no}">
+									<button class="theme-btn btn-style-one" >
+									<span class="btn-title cs-btn" id="bsGongu">공유</span></button> 
 							</div>
 						</aside>
 					</div>
@@ -148,7 +148,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	<script src="resources/js/moving-sidebar.js"></script>
-	<script src="resources/js/bongsadetail.js"></script>
+	<script src="resources/js/bongsa.js"></script>
+	
 </body>
 </html>
