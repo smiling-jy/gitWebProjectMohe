@@ -91,8 +91,10 @@
 										<td>
 											<div style="color:grey; font-size:13px;">
 											<span class="icon fa fa-user"></span>
-											administrator | <fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate></div>
+											administrator | <fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate>
+											</div>
 										</td>
+										<td><div style="color:grey; font-size:13px;">${notice.notice_readcnt}</div></td>
 									</tr>
 									</table>
 										<hr style="border: solid 1px lightgrey;">
