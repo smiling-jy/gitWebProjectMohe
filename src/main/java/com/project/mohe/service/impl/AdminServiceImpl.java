@@ -358,6 +358,28 @@ public class AdminServiceImpl implements AdminService {
 			popupDao.updatePopup(vo);
 		}
 	}
+	// 이벤트 삭제
+	@Override
+	public void adDeleteEvent(EventVO vo) {
+		eventDao.deleteEvent(vo);
+	}
+
+	// 이벤트 추가하기
+	@Override
+	public void adEventInsert(EventVO vo) {
+		eventDao.insertEvent(vo);
+	}
+
+	@Override
+	public EventVO adGetEvent(EventVO vo) {
+		return eventDao.getEvent(vo);
+	}
+
+	@Override
+	public void adEventUpdate(EventVO vo) {
+		eventDao.updateEvent(vo);
+		
+	}
 
 
 
