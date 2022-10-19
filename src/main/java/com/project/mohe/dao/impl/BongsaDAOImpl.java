@@ -11,6 +11,7 @@ import com.project.mohe.dao.BongsaDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PagingVO;
 
 
@@ -24,7 +25,7 @@ public class BongsaDAOImpl implements BongsaDAO {
 	public void insertBongsa(BongsaVO vo) {
 		mybatis.insert("BongsaDAO.insertBongsa",vo);
 		
-	}
+	}   
 
 	@Override
 	public void updateBongsa(BongsaVO vo) {
@@ -43,6 +44,12 @@ public class BongsaDAOImpl implements BongsaDAO {
 	
 		return mybatis.selectOne("BongsaDAO.getBongsa",vo);
 	}
+	
+	
+	@Override
+	public List<BongsaVO> getbongsaParticipateList(BongsaVO vo) {
+		return mybatis.selectList("BongsaDAO.getbongsaParticipateList",vo);
+	}
 
 	@Override
 	public List<BongsaVO> getBongsaList(HashMap map) {
@@ -52,6 +59,19 @@ public class BongsaDAOImpl implements BongsaDAO {
 		return mybatis.selectList("BongsaDAO.getBongsaList", map);
 	}
 	
+	//모집완료한 봉사리스트 조회
+	@Override
+	public List<BongsaVO> getSuccess_BsList(HashMap map) {
+		
+		return mybatis.selectList("BongsaDAO.getSuccess_BsList", map);
+	}
+	
+	//모집중인 봉사리스트 조회
+	@Override
+	public List<BongsaVO> getOngoing_BsList(HashMap map) {
+		
+		return mybatis.selectList("BongsaDAO.getOngoing_BsList", map);
+	}
 	
 	// 봉사 신청 승인 업데이트
 	@Override

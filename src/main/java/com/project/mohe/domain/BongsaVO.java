@@ -29,7 +29,9 @@ public class BongsaVO {
 	private int bs_read_cnt;
 	
 	
-	//db에 없는 변수 
+	//db에 없는 변수들
+	
+
 	private int bs_rate; //인원 모집 달성률
 	// 관리자 페이지에서 user_no로 조인할 주최자 아이디 변수
 	private String user_email;
@@ -57,8 +59,8 @@ public class BongsaVO {
 	private String re_bs_work_start;
 	
 	// 첨부 파일
-	MultipartFile title_img;
-	MultipartFile[] file;
+	private MultipartFile title_img;
+	private MultipartFile[] file;
 	
 	
 	

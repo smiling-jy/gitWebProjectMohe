@@ -72,9 +72,10 @@
 							<br />
 							<br />
 							<div class="form-group">
-								<button type="submit" class="theme-btn btn-style-one">
+								<button type="submit" class="theme-btn btn-style-one" id="paricipate">
 									<span class="btn-title newFont">참여하기</span>
 								</button>
+								<input type="hidden" name="bs_no" value="${bongsa.bs_no}">
 							</div>
 						</form>
 					</div>
@@ -102,6 +103,8 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/bongsa.js"></script>
+	
 
 </body>
 </html>

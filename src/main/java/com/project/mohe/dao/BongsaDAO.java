@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PagingVO;
 
 public interface BongsaDAO {
@@ -19,10 +20,20 @@ public interface BongsaDAO {
 			
 		// 글 상세 조회
 		BongsaVO getBongsa(BongsaVO vo);
-			
+		
+		//완료된 봉사 활동 참가자리스트 조회
+		
+		List<BongsaVO> getbongsaParticipateList(BongsaVO vo);
+		
 		// 글 목록 조회
 		List<BongsaVO> getBongsaList(HashMap map);
 		
+		//모집완료한 봉사 목록 조회
+		List<BongsaVO> getSuccess_BsList(HashMap map);
+		
+		//모집완료한 봉사 목록 조회
+		List<BongsaVO> getOngoing_BsList(HashMap map);
+				
 		// 미승인 봉사 리스트 조회
 		List<BongsaVO> getBsApprovalList(HashMap map);
 		
