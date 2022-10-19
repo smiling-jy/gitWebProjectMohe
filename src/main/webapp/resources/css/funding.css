@@ -419,18 +419,21 @@ td .new-btn{
 	background-color: red !important;
  }
  
-.widget-content ul#cart-ul li{
+.widget-content ul.cart-ul li{
 	list-style: none;
 	list-style-position: initial;
 	font-weight: 600;
 	font-family: 'GmarketSansMedium';
-	
-	
-	
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	margin-left: 15px;
 }
-.widget-content ul#cart-ul{
-	margin: 0;
+
+.cart-ul:last-child a.jjimlist{
+	font-size: 20px;
 }
+
 
   
 /* 모달 */
