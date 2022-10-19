@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- jsp에서 substring 쓸때 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,16 +95,15 @@
 						</div>
 
 					</div>
-					
-					
 					<!--Sidebar Side-->
 					<div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar" id="new-side">
 							<!-- Category Widget -->
 							<div class="sidebar-widget categories">
 										<span>주최 :<span class="bs-name">${bongsa.bs_name}</span></span><br>
-										<span>일시 :<span class="bs-work-start">${bongsa.re_bs_work_start}</span> ~ <br>
-										<span class="bs-work-end" style="margin-left: 50px;">${bongsa.re_bs_work_end}</span></span><br>
+										<span>일시 :<span class="bs-work-start">${fn:substring(bongsa.re_bs_work_start,0,16)}</span> ~ <br>
+										<span class="bs-work-end" style="margin-left: 50px;">${fn:substring(bongsa.re_bs_work_end,0,16)}
+										</span></span><br>
 										<span>장소 :<span class="bs-place">${bongsa.bs_place}</span></span><br>
 										<span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></span><br>
 										<span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></span><br>
@@ -114,8 +114,8 @@
 									class="btn-title cs-btn">참여하기</span></a> 
 									<button class="theme-btn btn-style-one" id="bsJjim"><span class="btn-title cs-btn">♥</span></button>
 									<input type="hidden" name="bs_no" value="${bongsa.bs_no}">
-									<button class="theme-btn btn-style-one" >
-									<span class="btn-title cs-btn" id="bsGongu">공유</span></button> 
+									<button class="theme-btn btn-style-one" id="bsGongu" >
+									<span class="btn-title cs-btn" >공유</span></button> 
 							</div>
 						</aside>
 					</div>
@@ -148,7 +148,8 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 	<script src="resources/js/bongsa.js"></script>
-	
 </body>
 </html>

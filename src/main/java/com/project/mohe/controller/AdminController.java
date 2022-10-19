@@ -171,6 +171,40 @@ public class AdminController {
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// 등급,연락처,주소만 수정가능
 		adminService.adUserUpdateInfo(vo);
+		// user_no를 이름으로 사용
+		String folder_name = vo.getUser_no() + "";
+		// 이미지 명을 pk 로 받음
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getUser_img_file().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/user/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getUser_img_file().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/user/"+folder_name + "/" + "userIMG" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getUser_img_file().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} // if_end
 		return "redirect:/admin/adUserDetail.do?user_no="+vo.getUser_no();
 	}
 	// 이벤트 목록 띄우기
@@ -557,7 +591,7 @@ public class AdminController {
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// 해당 no번호를 가진 기부 데이터를 확인해서 메인에 보이도록 함 
 		adminService.donationOk(vo);
-		return "redirect:/admin/adDoantionList.do";
+		return "redirect:/admin/adDonationList.do";
 	}
 	// 공지 리스트
 	@RequestMapping("adNotice.do")

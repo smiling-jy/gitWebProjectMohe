@@ -236,14 +236,14 @@ public class AdminServiceImpl implements AdminService {
 	public void adDeleteReview(ReviewVO vo) {
 		reviewDao.deleteReview(vo);
 	}
-	
-	// 나중에 수정해야하는 애들 
-	
 	// 회원정보 수정기능
 	@Override
 	public void adUserUpdateInfo(UserInfoVO vo) {
-		adminDao.adUserUpdateInfo(vo);
+		userInfoDao.updateUser(vo);
 	}
+	
+	// 나중에 수정해야하는 애들 
+	
 
 	// 공지사항 수정
 	@Override
