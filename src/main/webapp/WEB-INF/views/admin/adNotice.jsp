@@ -104,7 +104,7 @@
 															<c:forEach items="${notice}" var="ntc">
 																<tr>
 																	<td style="word-break:break-all">${ntc.notice_no}</td>
-																	<td style="word-break:break-all"><a href="adNoticeDetail.do?notice_no=${ntc.notice_no}">${ntc.notice_title}</a></td>
+																	<td style="word-break:break-all"><a href="adNoticeDetail.do?notice_no=${ntc.notice_no}">${fn:substring(ntc.notice_title,0,8)}</a></td>
 																	<td style="word-break:break-all">${ntc.adm_id}</td>
 																	<td style="word-break:break-all">${fn:substring(ntc.notice_date,0,10)}</td>
 																	<td style="word-break:break-all">

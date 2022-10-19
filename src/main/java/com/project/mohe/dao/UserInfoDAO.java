@@ -39,4 +39,7 @@ public interface UserInfoDAO {
 
 		void updateOutDate(UserInfoVO vo);
 		
+		// 회원 정보수정
+		void updateUser(UserInfoVO vo);
+		
 }
