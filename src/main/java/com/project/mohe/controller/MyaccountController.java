@@ -70,22 +70,22 @@ public class MyaccountController {
 		return "details";
 	}
 
-	@RequestMapping("insertFunding_cart.do")
-	@ResponseBody
-	public int insertFunding_cart(Funding_cartVO vo, HttpSession session) {
-		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
-		vo.setUser_no(user.getUser_no());
-		return myaccountService.insertFunding_cart(vo);
-	}
-	
-	@RequestMapping("shoppingBasket.do")
-	public String getFunding_cartList(Model model, HttpSession session) {
-		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
-		List<Funding_pjVO> pj_list = myaccountService.getFunding_cartList(user);
-		List<BongsaVO> bs_list = myaccountService.getBonsa_cartList(user);
-		
-		model.addAttribute("pj_list", pj_list);
-		model.addAttribute("bs_list", bs_list);
-		return "shoppingBasket";
-	}
+//	@RequestMapping("insertFunding_cart.do")
+//	@ResponseBody
+//	public int insertFunding_cart(Funding_cartVO vo, HttpSession session) {
+//		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
+//		vo.setUser_no(user.getUser_no());
+//		return myaccountService.insertFunding_cart(vo);
+//	}
+//	
+//	@RequestMapping("shoppingBasket.do")
+//	public String getFunding_cartList(Model model, HttpSession session) {
+//		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
+//		List<Funding_pjVO> pj_list = myaccountService.getFunding_cartList(user);
+//		List<BongsaVO> bs_list = myaccountService.getBonsa_cartList(user);
+//		
+//		model.addAttribute("pj_list", pj_list);
+//		model.addAttribute("bs_list", bs_list);
+//		return "shoppingBasket";
+//	}
 }
