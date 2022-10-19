@@ -83,4 +83,10 @@ public class BongsaServiceImpl implements BongsaService {
 		return bongsaDao.getAllcntNo(vo);
 	}
 
+	
+	
+	@Override
+	public void increBsImgCnt(BongsaVO vo) {
+		bongsaDao.increBsImgCnt(vo);
+	}
 }

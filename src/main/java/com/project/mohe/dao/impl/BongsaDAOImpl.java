@@ -41,7 +41,6 @@ public class BongsaDAOImpl implements BongsaDAO {
 
 	@Override
 	public BongsaVO getBongsa(BongsaVO vo) {
-	
 		return mybatis.selectOne("BongsaDAO.getBongsa",vo);
 	}
 	
@@ -121,6 +120,14 @@ public class BongsaDAOImpl implements BongsaDAO {
 	@Override
 	public List<BongsaVO> getAdBsApprovalList(PagingVO vo) {
 		return mybatis.selectList("BongsaDAO.getAdBsApprovalList",vo);
+	}
+
+	
+	//봉사 이미지cnt 증가
+	@Override
+	public void increBsImgCnt(BongsaVO vo) {
+		// TODO Auto-generated method stub
+		mybatis.update("BongsaDAO.increBsImgCnt", vo);
 	}
 
 

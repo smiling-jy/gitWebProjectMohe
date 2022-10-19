@@ -34,7 +34,6 @@ function clip(){
 //찜클릭 비동기 통신
 $('#bsJjim').on("click",function(){
 	
-	 alert($(this).next().val());
 	 $.ajax({
 	        type:'get',
 	        url:'bsJjimSave.do',
@@ -49,6 +48,8 @@ $('#bsJjim').on("click",function(){
 	        }
 	    })
 })
+
+
 
 //봉사참여하기 중복확인
 //봉사참여 비동기 통신
@@ -75,17 +76,14 @@ $('#paricipate').on("click",function(){
 Kakao.init('d979258f63314ea5bad35903ff604cbf');
 
 
-
-$('#bsGongu').on("click",function(){	
-	alert('sdfsdfsdf');
-//	   Kakao.Share.sendDefault({
-//		      objectType: 'text',
-//		      text:
-//		        $('#titleBs').text(),  
-//		      link: {
-//		        webUrl: 'http://localhost:8080/basic/bongsaDetail.do?bs_no='+$(this).prev().val(),
-//		      },
-//		    });
+$('#bsGongu').on("click",function(){
+      Kakao.Share.sendDefault({
+            objectType: 'text',
+            text:$('#titleBs').text(),  
+            link: {
+              webUrl: 'http://localhost:8080/basic/bongsaDetail.do?bs_no='+$(this).prev().val(),
+            },
+          })
 })
 
 
