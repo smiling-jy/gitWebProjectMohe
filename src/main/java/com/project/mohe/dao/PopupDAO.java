@@ -28,4 +28,10 @@ public interface PopupDAO {
 		
 		// 페이징을 위한 메소드
 		PagingVO getAllcnt(PagingVO vo);
+		
+		// 팝업창 비활성화하는 메소드
+		void setPopupFalse(PopupVO vo);
+		
+		// 기간이 지난 활성화 메소드를 조회
+		List<PopupVO> timeOutPopup();
 }
