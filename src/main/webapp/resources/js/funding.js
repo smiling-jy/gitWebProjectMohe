@@ -210,16 +210,13 @@ $('#addr').on("click",function(){
 
 // 카카오톡 공유하기 api
 Kakao.init('d979258f63314ea5bad35903ff604cbf');
-
-
+$('#gongu').on("click",function(){
 	   Kakao.Share.sendDefault({
 		      objectType: 'text',
-		      text:
-		        $('#title_gu').text(),  
+		      text:$('#title_gu').text(),  
 		      link: {
 		        webUrl: 'http://localhost:8080/basic/fundingSingle.do?fd_no='+$(this).prev().val(),
 		      },
-		    });
-
-
+		    })
+})
 
