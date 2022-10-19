@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.new-inner-box{
+	height: 450px;
+}
+
+body{
+	font-family: 'GmarketSansMedium';
+}
+
+.new-font{
+    font-family: 'GmarketSansMedium';
+    font-weight: 500;
+    font-style:normal;
+}
+
+.del-btn{
+	position: absolute;
+	bottom: 10px;
+	right: 15px;
+}
+
+.d-day{
+	color: gray;
+}
+
+.fd_title{
+	color: black;
+}

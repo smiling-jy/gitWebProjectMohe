@@ -17,5 +17,5 @@ public interface MyaccountService {
 
 	List<Funding_pjVO> getFunding_cartList(UserInfoVO vo);
 	
-	List<BongsaVO> getBonsa_cartList(UserInfoVO vo);
+	List<BongsaVO> getBongsa_cartList(UserInfoVO vo);
 }
