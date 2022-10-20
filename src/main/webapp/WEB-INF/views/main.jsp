@@ -251,7 +251,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/bongsa/${ddBs.bs_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
@@ -420,7 +420,11 @@
 										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
-										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+										<c:choose>
+											<c:when test="${bestRv.user_rating ne null}">
+												<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+											</c:when>
+										</c:choose>
 									</div>
 									<div class="lower-box">
 										<div class="content">
