@@ -84,8 +84,14 @@ public interface AdminService {
 	// 펀딩 승인,비승인 업데이트
 	void judgFdUpdate(Funding_pjVO vo);
 	
+	// 펀딩 삭제
+	void deleteFd(Funding_pjVO vo);
+	
 	// 봉사 리스트
 	List<BongsaVO> getAdBsList(PagingVO vo);
+	
+	// 봉사 삭제
+	void deleteBs(BongsaVO vo);
 	
 	// 신청 봉사 리스트
 	List<BongsaVO> getAdBsApprovalList(PagingVO vo);
