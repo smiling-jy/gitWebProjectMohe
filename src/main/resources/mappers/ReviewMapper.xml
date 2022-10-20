@@ -11,10 +11,10 @@
 		</selectKey>
 		INSERT INTO REVIEW
 		(REVIEW_NO, REVIEW_TITLE, REVIEW_IMG_CNT,REVIEW_IMG, REVIEW_TEXT, REVIEW_DATE,
-		REVIEW_READ_CNT, USER_NO,USER_NAME
+		REVIEW_READ_CNT, USER_NO,USER_NAME,USER_RATING
 		)VALUES
 		(REVIEW_REVIEW_NO_SEQ.NEXTVAL,#{review_title},0,'REVIEW_IMG',#{review_text},SYSDATE,
-		0,#{user_no},#{user_name})
+		0,#{user_no},#{user_name},#{user_rating})
 	</insert>
 	<!-- 리뷰 목록+검색 -->
 	<select id="getReviewList" parameterType="map" resultType="review">

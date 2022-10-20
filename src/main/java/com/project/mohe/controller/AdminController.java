@@ -437,6 +437,15 @@ public class AdminController {
 		adminService.judgFdUpdate(vo);
 		return "redirect:/admin/adFdApproval.do";
 	}
+	// 펀딩 삭제 
+	@RequestMapping("deleteFd.do")
+	public String deleteFd(Funding_pjVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//fd_no를받아서 해당 데이터를 삭제함
+		adminService.deleteFd(vo);
+		return "redirect:/admin/adFdList.do";
+	}
 	// 봉사 승인,비승인 업데이트
 	@RequestMapping("judgBsUpdate.do")
 	public String judgBsUpdate(BongsaVO vo,Model model,HttpSession session) {
@@ -445,6 +454,15 @@ public class AdminController {
 		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
 		adminService.judgBsUpdate(vo);
 		return "redirect:/admin/adBsApproval.do";
+	}
+	// 봉사 삭제
+	@RequestMapping("deleteBs.do")
+	public String deleteBs(BongsaVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		adminService.deleteBs(vo);
+		return "redirect:/admin/adBsList.do";
 	}
 	// 승인된 봉사 목록
 	@RequestMapping("adBsList.do")

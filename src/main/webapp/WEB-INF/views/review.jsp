@@ -88,7 +88,7 @@
 								<figure class="image">
 									<a href="getReview.do?review_no=${review.review_no}"><img class="lazy-image img-size"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+										data-src="resources/files/review/${review.review_no}/reviewIMG.png"
 										onerror="this.src='resources/images/mohe_logo/logo_mint_big.png'"
 										alt="review IMG"></a>
 								</figure>

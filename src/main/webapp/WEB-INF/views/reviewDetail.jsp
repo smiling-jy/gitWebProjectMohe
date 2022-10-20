@@ -84,9 +84,9 @@
                             <hr style="border: solid 1px lightgrey">
                             <br>
                             <div class="content">
-                            	<img src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+                            	<img src="resources/files/review/${review.review_no}/reviewIMG.png"
                             	   onerror="this.src='resources/images/mohe_logo/logo_mint.png'">
-                                ${review.review_text}
+                                <pre><c:out value="${review.review_text}"></c:out></pre>
                             </div>
                         </div>
                         

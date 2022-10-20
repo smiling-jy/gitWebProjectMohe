@@ -135,12 +135,11 @@ public class ReviewController {
 		
 		//수정
 		@RequestMapping("updateReview.do")
-		public String updateReview(ReviewVO vo,MultipartFile file) {
+		public String updateReview(ReviewVO vo,MultipartFile file,Model model) {
 			
 		reviewService.updateReview(vo);
 			
-
-			//이미지첨부
+		//이미지첨부
 			file=vo.getFile();
 			String fName=vo.getFName();
 			long fsize=vo.getFsize();
@@ -175,7 +174,7 @@ public class ReviewController {
 					
 				try {
 					file.transferTo(f);
-					System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");
+					System.out.println("=====>>리뷰 사진 파일이 수정,저장되었습니다.");
 				
 				} catch (IllegalStateException e) {				
 				e.printStackTrace();

@@ -74,10 +74,8 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-three">
-								<span class="btn-title"><h2>사용불가 전환</h2></span>
-							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
-								class="btn-title"><h2>EXCEL 내보내기</h2></span>
+							<a href="#" class="theme-btn btn-style-one" id="excel_export"> 
+								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
 						<!-- 버튼끝 -->
@@ -94,7 +92,7 @@
 													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
-																<th>Check</th>
+																<th>NO</th>
 																<th>ID</th>
 																<th>이름</th>
 																<th>핸드폰</th>
@@ -106,12 +104,12 @@
 														<tbody>
 															<c:forEach items="${userList}" var="user">
 																<tr>
-																	<td style="word-break:break-all"><input type="checkbox"/></td>
+																	<td style="word-break:break-all">${user.user_no}</td>
 																	<td style="font-size:13px"><a href="adUserDetail.do?user_no=${user.user_no}">${user.user_email}</a></td>
 																	<td style="word-break:break-all">${user.user_name}</td>
 																	<td style="font-size:13px">${user.user_phone}</td>
 																	<td style="word-break:break-all">${user.user_rating}</td>
-																	<td style="font-size:13px">${user.user_indate}</td>
+																	<td style="font-size:13px">${fn:substring(user.user_indate,0,10)}</td>
 																</tr>
 															</c:forEach>
 														</tbody>
