@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +38,6 @@
 	type="image/x-icon">
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
-<style>
-.detail_form{
-	border: 1px solid white;
-    border-radius: 20px;
-    background-color: rgb(148 165 183 / 40%);
-}
-</style>
 </head>
 
 <body class="nav-md">
@@ -74,7 +68,7 @@
 							<div class="div_absol">
 								<h3>관리자 상세 정보</h3>
 								<hr>
-								<form class="detail_form" name="userDetail" action="updateAdmin.do" method="post">
+								<form name="userDetail" action="updateAdmin.do" method="post">
 									<section>
 										<div class="auto-container">
 											<div class="tabs-box">
@@ -93,7 +87,7 @@
 																			<input type="text" id="adm_name" name="adm_name"
 																				value="${admin.adm_name}" readonly>
 																		</div>
-																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
 																			<div class="field-label">아이디</div>
 																			<input type="text" maxlength="13" id="adm_id"
 																				name="adm_id" value="${admin.adm_id}" readonly>
@@ -120,14 +114,14 @@
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">입사일</div>
 																			<input type="email" id="adm_hiredate" name="adm_hiredate"
-																				value="${admin.adm_hiredate}" readonly>
+																				value="${fn:substring(admin.adm_hiredate,0,10)}" readonly>
 																			<div class="field-label" id="email_message"
 																				style="text-align: right;"></div>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">퇴사일</div>
 																			<input type="email" id="adm_enddate" name="adm_enddate"
-																				value="${admin.adm_enddate}" readonly>
+																				value="${fn:substring(admin.adm_enddate,0,10)}" readonly>
 																			<div class="field-label" id="email_message"
 																				style="text-align: right;"></div>
 																		</div>

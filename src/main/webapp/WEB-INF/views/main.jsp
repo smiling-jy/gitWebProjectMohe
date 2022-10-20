@@ -417,13 +417,19 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="getReview.do?review_no=${bestRv.review_no}">
-										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
+										<img src="resources/files/review/${review.review_no}/reviewIMG.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
 										<c:choose>
-											<c:when test="${bestRv.user_rating ne null}">
-												<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+											<c:when test="${bestRv.user_rating eq '시민'}">
+												<img src="resources/images/user_rating/rating_1_100.png" style="width:80px;height:80px">
 											</c:when>
+											<c:when test="${bestRv.user_rating eq '고수'}">
+												<img src="resources/images/user_rating/rating_2_100.png" style="width:80px;height:80px">
+											</c:when>
+											<c:otherwise>
+												<img src="resources/images/user_rating/rating_3_100.png" style="width:80px;height:80px">
+											</c:otherwise>
 										</c:choose>
 									</div>
 									<div class="lower-box">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +76,6 @@
 							<a href="cause-single.do" class="theme-btn btn-style-ten"> <span
 								class="btn-title"><h2>추가하기</h2></span>
 							</a>
-							<div class="emptyDiv" style="width: 480px"></div>
 							<a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
@@ -94,7 +94,7 @@
 													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
-																<th>Check</th>
+																<th>NO</th>
 																<th>ID</th>
 																<th>이름</th>
 																<th>핸드폰</th>
@@ -106,14 +106,13 @@
 														<tbody>
 															<c:forEach items="${adminList}" var="admin">
 																<tr>
-																	<td style="word-break: break-all"><input
-																		type="checkbox" /></td>
-																	<td style="font-size: 13px"><a
-																		href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
+																	<td style="word-break: break-all">${admin.adm_no}</td>
+																	<td style="font-size: 13px">
+																		<a href="adminDetail.do?adm_no=${admin.adm_no}">${admin.adm_id}</a></td>
 																	<td style="word-break: break-all">${admin.adm_name}</td>
 																	<td style="font-size: 13px">${admin.adm_phone}</td>
 																	<td style="word-break: break-all">${admin.adm_dept}</td>
-																	<td style="font-size: 13px">${admin.adm_hiredate}</td>
+																	<td style="font-size: 13px">${fn:substring(admin.adm_hiredate,0,10)}</td>
 																</tr>
 															</c:forEach>
 														</tbody>
