@@ -251,7 +251,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/bongsa/${ddBs.bs_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
