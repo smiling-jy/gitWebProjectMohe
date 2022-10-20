@@ -28,6 +28,11 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 	public List<Funding_payVO> getFunding_pjList(UserInfoVO vo) {
 		return mybatis.selectList("MyaccountDAO.getAdFunding_pjList", vo);
 	}
+	
+	@Override
+	public List<BongsaVO> getBongsa_pjList(UserInfoVO vo) {
+		return mybatis.selectList("MyaccountDAO.getBongs_pjList", vo);
+	}
 
 	@Override
 	public int insertFunding_cart(Funding_cartVO vo) {
