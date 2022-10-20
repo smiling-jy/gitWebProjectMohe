@@ -40,7 +40,7 @@
 		<jsp:include page="headerRed.jsp" />
 		
 		
-		
+		<!-- 테스트 -->
 		<!--Donate Section-->
 		<section class="donate-section">
 			<div class="donate-form">
