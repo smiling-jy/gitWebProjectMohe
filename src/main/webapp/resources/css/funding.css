@@ -158,12 +158,27 @@ div.lower-content p strong{
 
 /* 프로젝트 주체하기 페이지 */
 
+
+
 /* 프로젝트 주최하기 폼 span */
-.open-pj-form form span:not(.btn-title){
+.open-pj-form form span:not(.under-span){
     display: inline-block;
     font-size: 20px;
     margin-top: 30px;
 }
+
+
+.open-fd-from fomr span.under-span{
+	font-size: 14px;
+}
+
+#open-fd-btn{
+	position: absolute;
+	left: 50%;
+	transform:translate(-50%, 0%);
+}
+
+
 /* 첨부파일, 질문하기 버튼 */
 .new-btn{
     background-color: lightgrey;
@@ -172,18 +187,13 @@ div.lower-content p strong{
     margin-left: 10px;
 }
 
-.open-pj-form form span:last-of-type:not(.new-btn-title){
+/* .open-pj-form form span{
     font-size: 25px;
-}
+} */
 /* 폼 가운데 정렬 */
 .open-pj-form{
     position: absolute;
     left: 25%;
-}
-
-/* 오픈펀딩페이지 주최하기버튼 정렬 */
-.open-pj-form form .form-group{
-    margin-left: 250px;
 }
 
 
