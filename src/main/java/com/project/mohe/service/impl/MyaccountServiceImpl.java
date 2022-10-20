@@ -28,6 +28,11 @@ public class MyaccountServiceImpl implements MyaccountService {
 	public List<Funding_payVO> getFunding_pjList(UserInfoVO vo) {
 		return myaccountDAO.getFunding_pjList(vo);
 	}
+	
+	@Override
+	public List<BongsaVO> getBongsa_pjList(UserInfoVO vo) {
+		return myaccountDAO.getBongsa_pjList(vo);
+	}
 
 	@Override
 	public int insertFunding_cart(Funding_cartVO vo) {
