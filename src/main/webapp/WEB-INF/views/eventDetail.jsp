@@ -92,7 +92,7 @@
                             <div class="content">
                             	<div style="text-align:center;"><img id="event-title-logo" src="resources/images/mohe_logo/main_color_logo.png"></div>
                             	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.PNG"><br>
-                            	 ${event.event_text}
+                            	<pre><c:out value="${event.event_text}"/></pre>
                             </div>
                         </div>
                         
