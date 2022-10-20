@@ -135,12 +135,11 @@ public class ReviewController {
 		
 		//수정
 		@RequestMapping("updateReview.do")
-		public String updateReview(ReviewVO vo,MultipartFile file) {
+		public String updateReview(ReviewVO vo,MultipartFile file,Model model) {
 			
 		reviewService.updateReview(vo);
 			
-
-			//이미지첨부
+		//이미지첨부
 			file=vo.getFile();
 			String fName=vo.getFName();
 			long fsize=vo.getFsize();

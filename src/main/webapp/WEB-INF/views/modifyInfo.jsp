@@ -51,7 +51,8 @@
 							
 							<div class="profile-user-img margin-auto">
 								<img class="margin-auto profile-user-img-img"
-									src="resources/userImgUploadFile/${user.user_img}"
+									src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+									onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
 									alt="profile-user-img">
 							</div>
 					</div>

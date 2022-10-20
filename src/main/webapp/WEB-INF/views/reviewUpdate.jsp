@@ -67,7 +67,7 @@
                     
                         <div class="billing-column col-lg-6 col-md-12 col-sm-12" style="margin:auto;">
                            
-                            <form action="updateReview.do" method="post">
+                            <form action="updateReview.do" method="post" enctype="multipart/form-data">
                             	<input name="review_no" type=hidden value="${review.review_no}"/>
                                 <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">

@@ -48,14 +48,13 @@
 						<!--MixitUp Galery-->
 						<div class="mixitup-gallery">
 							<!--Filter-->
-						<!-- 	<div class="filters clearfix text-start">
+							<div class="filters clearfix text-start">
 								<ul class="filter-tabs filter-btns clearfix">
 									<li class="filter active" data-role="button"
 										data-filter=".mix-1">서포터</li>
 									<li class="filter" data-role="button" data-filter=".mix-2">메이커</li>
 								</ul>
-							</div> -->
-							
+							</div>
 
 							<div class="filter-list">
 								<main class="gallery-item-two mix mix-1 main">
@@ -104,7 +103,7 @@
 																				<i class="fas fa-regular fa-handshake"></i>
 																			</div>
 																			<h4>참여 봉사</h4>
-																			<a href="details.html" class="over-link"
+																			<a href="details.do?activeTab=2" class="over-link"
 																				target="_self" rel="nofollow"> </a>
 																		</div>
 																	</div>
@@ -133,6 +132,7 @@
 																</div>
 															</div>
 														</div>
+
 													</div>
 												</div>
 											</div>
@@ -150,7 +150,8 @@
 															<label for="userName" class="input-label"></label>
 															<div class="profile-user-img margin-auto">
 																<img class="margin-auto profile-user-img-img"
-																	src="resources/images/mohe_logo/img_no_profile.png"
+																	src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+																	onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
 																	alt="profile-user-img" style="max-width: 130px">
 															</div>
 														</div>
