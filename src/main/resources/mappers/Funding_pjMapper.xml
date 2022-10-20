@@ -39,6 +39,7 @@
   		</if>
   		<if test="search != null">
   			and pj.fd_title like '%${search}%'
+  			 or pj.fd_content like '%${search}%'
   		</if>
   		<choose>
   			<when test="select != null">
