@@ -22,4 +22,8 @@ public interface MyaccountDAO {
 	List<Funding_pjVO> getFunding_cartList(UserInfoVO vo);
 	
 	List<BongsaVO> getBonsa_cartList(UserInfoVO vo);
+
+	int countAccountByEmail(UserInfoVO vo);
+
+	int resetPassword(UserInfoVO vo);
 }

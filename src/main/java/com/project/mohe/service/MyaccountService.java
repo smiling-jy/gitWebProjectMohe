@@ -20,4 +20,8 @@ public interface MyaccountService {
 	List<Funding_pjVO> getFunding_cartList(UserInfoVO vo);
 	
 	List<BongsaVO> getBongsa_cartList(UserInfoVO vo);
+
+	int countAccountByEmail(UserInfoVO vo);
+
+	int resetPassword(UserInfoVO vo);
 }

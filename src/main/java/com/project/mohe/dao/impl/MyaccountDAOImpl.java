@@ -49,4 +49,14 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int countAccountByEmail(UserInfoVO vo) {
+		return mybatis.selectOne("MyaccountDAO.countAccountByEmail", vo);
+	}
+	
+	@Override
+	public int resetPassword(UserInfoVO vo) {
+		return mybatis.update("MyaccountDAO.resetPassword", vo);
+	}
 }
