@@ -175,7 +175,7 @@ public class ReviewController {
 					
 				try {
 					file.transferTo(f);
-					System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");
+					System.out.println("=====>>리뷰 사진 파일이 수정,저장되었습니다.");
 				
 				} catch (IllegalStateException e) {				
 				e.printStackTrace();
