@@ -10,8 +10,8 @@
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
+<link href="resources/css/cart.css" rel="stylesheet">
 <link href="resources/css/bongsaRecruiterMypage.css" rel="stylesheet">
-
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
