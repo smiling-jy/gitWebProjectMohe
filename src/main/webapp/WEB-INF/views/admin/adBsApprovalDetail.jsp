@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,76 +50,101 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">펀딩 관리</a>
+						<a href="adFdApproval.do">신청 봉사 관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div" style="height:1130px;">
+					<div class="content_table_div" style="overflow:auto;">
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
-								<!--Form Column-->
+<!-- 						 <form method="post" action="insertBongsa.do" enctype="multipart/form-data"> -->
+							<!-- 여기 폼시작 -->
+							<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
 									<div class="inner">
 										<div class="donate-form">
-											<h3 style="margin-left:110px;">펀딩 상세정보</h3>
+											<h3 style="margin-left:110px;">신청 봉사 상세정보</h3>
 											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
+											<h2>NO. ${bs.bs_no}</h2>
 											<hr style="width: 430px; color: white;">
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
+													<div class="field-label">타이틀 사진</div>
+													<img id="title_image" src="../resources/files/bongsa/${bs.bs_img_name}/title.png" /> 
+											</div>
 											</div>
 											<div class="row clearfix">
-
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">봉사활동명</div>
+													<input type="text" name="bs_title" value='${bs.bs_title}' readonly>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
+													<div class="field-label">봉사 활동 소개</div>
+													<textarea name="bs_content"readonly>${bs.bs_content}</textarea>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
+													<div class="field-label">봉사 지역</div>
+													<select name="bs_region"readonly>
+								                         <option>전국</option>
+								                         <option>서울</option>
+								                         <option>경기인천</option>
+								                         <option>강원</option>
+								                         <option>대구경북</option>
+								                         <option>광주전라</option>
+								                         <option>울산부산경남</option>
+								                         <option>대전세종충남</option>
+								                         <option>제주</option>
+								                         <option>비대면</option>
+								                     </select>
+													<input type="hidden" id="bs_region" value="${bs.bs_region}">
 												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">장소</div>
+													<input type="text" name="bs_place" value="${bs.bs_place}" readonly>
 												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">모집인원</div>
+													<input type="text" name="bs_goal_cnt" value="${bs.bs_goal_cnt}" readonly>
 												</div>
-												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
-														<span class="btn-title btn_fix">수정 완료하기</span>
-													</button>
+												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+													<div class="field-label">모집시작일</div>
+													<input type="text" name="bs_recruit_start" value="${fn:substring(bs.bs_recruit_start,0,10)}" readonly>
+												</div>
+												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+													<div class="field-label">모집종료일</div>
+													<input type="text" name="bs_recruit_end" value="${fn:substring(bs.bs_recruit_end,0,10)}" readonly>
+												</div>
+												<hr>
+												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+													<div class="field-label">봉사시작 일시</div>
+													<input type="datetime-local" name="bs_work_start" value="${bs.bs_work_start}" readonly>
+												</div>
+												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+													<div class="field-label">봉사종료 일시</div>
+													<input type="datetime-local" name="bs_work_end" value="${bs.bs_work_end}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">모집자(단체)</div>
+													<input type="text" name="bs_name" value="${bs.bs_name}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">모집자 연락처</div>
+													<input type="text" name="bs_phone" value="${bs.bs_phone}"  readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">모집자 이메일</div>
+													<input type="text" name="bs_email" value="${bs.bs_email}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">내용 이미지</div>
+													<c:forEach var="cnt" begin="1" end="${bs.bs_img_cnt}">
+														<img src="../resources/files/bongsa/${bs.bs_img_name}/${cnt}.png">
+													</c:forEach>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</form>
+<!-- 						</form> -->
 						</div>
 						<!-- form2 끝-->
 
@@ -171,8 +197,8 @@
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
 	<script>
-		var rating = $('#rating').val();
-		$("#user_rating").val(rating).prop("selected", true);
+		var dept = $('#bs_region').val();
+		$("select[name=bs_region]").val(dept).prop("selected", true)
 	</script>
 </body>
 </html>

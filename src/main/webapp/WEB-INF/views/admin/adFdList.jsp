@@ -108,7 +108,7 @@
 																	<td>${fd.fd_category}</td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
 																	<td style="word-break: break-all" class="totalPrice">${fd.fd_goals}</td>
-																	<td><a href="adFdUpdate.do?fd_no=${fd.fd_no}" class="remove-btn"> <span
+																	<td><a href="adFdUpdateInfo.do?fd_no=${fd.fd_no}" class="remove-btn"> <span
 																			class="flaticon-check"></span>
 																	</a>&nbsp;&nbsp;&nbsp; <a href="#" onclick="remove(${fd.fd_no})" class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
