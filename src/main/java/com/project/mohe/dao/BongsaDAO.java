@@ -61,6 +61,9 @@ public interface BongsaDAO {
 		// 페이징 미승인 봉사 리스트 조회
 		List<BongsaVO> getAdBsApprovalList(PagingVO vo);
 		
+		// 봉사 이미지cnt 증가
+		
+		void increBsImgCnt (BongsaVO vo);
 		
 		
 		

@@ -50,7 +50,7 @@
             <h1>공지 사항</h1>
        
 				<ul class="bread-crumb clearfix">
-					<li class="active"><h5>공지사항</h5></li>
+					<li class="active"><a href="notice.do"><h5>공지사항</h5></a></li>
 					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
 					<li><a href="event.do"><h5>이벤트</h5></a></li>
 					<li><a href="partner.do"><h5>파트너</h5></a></li>

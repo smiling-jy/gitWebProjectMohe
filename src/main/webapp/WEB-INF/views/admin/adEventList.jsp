@@ -72,7 +72,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="adEventInsert.do" class="theme-btn btn-style-ten"> <span
+							<a href="adEventInsertInfo.do" class="theme-btn btn-style-ten"> <span
 								class="btn-title"><h2>추가하기</h2></span>
 							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
 								class="btn-title"><h2>EXCEL 내보내기</h2></span>
@@ -104,16 +104,16 @@
 															<c:forEach items="${eventList}" var="event">
 																<tr>
 																	<td style="font-size: 13px">${event.event_no}</td>
-																	<td style="font-size: 13px"><a
-																		href="adEventDetail.do?event_no=${event.event_no}">${event.event_title}</a></td>
+																	<td style="word-break: break-all"><a
+																		href="adEventDetail.do?event_no=${event.event_no}">${fn:substring(event.event_title,0,8)}</a></td>
 																	<td style="word-break: break-all">${event.adm_id}</td>
 																	<td style="word-break: break-all"><c:set var="dt1" value="${event.event_stdate}"/>
 																										${fn:substring(dt1,0,10)}  <br>~
 																										<c:set var="dt2" value="${event.event_eddate}"/>
 																										${fn:substring(dt2,0,10)}</td>
-																	<td><a href="#" class="remove-btn"> <span
+																	<td><a href="adEventUpdateInfo.do?event_no=${event.event_no}" class="remove-btn"> <span
 																			class="flaticon-check"></span>
-																	</a>&nbsp;&nbsp;&nbsp; <a href="#" class="remove-btn">
+																	</a>&nbsp;&nbsp;&nbsp; <a href="#" onclick="remove(${event.event_no})"class="remove-btn">
 																			<span class="flaticon-delete-1"></span>
 																	</a></td>
 																</tr>
@@ -230,6 +230,11 @@
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>
-
+	<script>
+		function remove(event_no){
+			var result = confirm("정말로 삭제 하시겠습니까?")
+			if(result) location.href='adDeleteEvent.do?event_no='+event_no;
+		}
+	</script>
 </body>
 </html>

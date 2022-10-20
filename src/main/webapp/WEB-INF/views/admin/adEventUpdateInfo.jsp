@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,70 +50,61 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">이벤트 관리</a>
+						<a href="adEventList.do">이벤트 관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<div class="content_table_div" style="height: 1100px">
+
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
+							<h3>이벤트 수정하기</h3>
+							<hr style="width:950px">
+							<form action="adEventUpdate.do"method="post" enctype="multipart/form-data">
+								<div style="height: 50px;"></div>
+								<div class="user_pf_div" style="width:1200px;margin-left:180px">
+									<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px;">
+										<div class="field-label">타이틀 이미지</div>
+										<img id="title_image" src="../resources/files/event/title/${event.event_no}/eventTitleIMG.PNG" /> 
+										<input id="event_title_img" accept=".PNG" type="file" name="title_img">
+									</div>
+									<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px">
+										<div class="field-label">메인 이미지</div>
+										<img id="main_image" src="../resources/files/event/main/${event.event_no}/eventMainIMG.PNG" /> 
+										<input id="event_main_img" accept=".PNG" type="file" name="main_img">
+									</div>
+								</div>
 								<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
 									<div class="inner">
 										<div class="donate-form">
-											<h3 style="margin-left:110px;">이벤트 추가하기</h3>
-											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
-											<hr style="width: 430px; color: white;">
-											<div class="user_pf_div">
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
-											</div>
 											<div class="row clearfix">
-
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
-												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
-												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
-												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
-												</div>
-												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
-														<span class="btn-title btn_fix">수정 완료하기</span>
-													</button>
+												<div class="donate-form">
+													<div class="row clearfix">
+														<input type="hidden" name="event_no" value="${event.event_no}">
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">이벤트 제목</div>
+															<input type="text" name="event_title"
+																value="${event.event_title}" required>
+														</div>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">이벤트 내용</div>
+															<textarea name="event_text" required>${event.event_text}</textarea>
+														</div>
+														<div class="form-group col-lg-6 col-md-6 col-sm-6">
+															<div class="field-label">이벤트 시작일</div>
+															<input type="date" name="event_stdate"
+																value="${fn:substring(event.event_stdate,0,10)}" required>
+														</div>
+														<div class="form-group col-lg-6 col-md-6 col-sm-6">
+															<div class="field-label">이벤트 종료일</div>
+															<input type="date" name="event_eddate"
+																value="${fn:substring(event.event_eddate,0,10)}" required>
+														</div>
+														<button type="submit" class="theme-btn btn-style-one"
+															id="update_btn" style="width: 450px; margin-left:20px;">
+															<span class="btn-title btn_fix">이벤트 수정하기</span>
+														</button>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -120,6 +112,7 @@
 								</div>
 							</form>
 						</div>
+
 						<!-- form2 끝-->
 
 					</div>
@@ -173,6 +166,29 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+		
+		// 이벤트 타이틀 프리뷰 기능
+		$('#event_title_img').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("title_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("event_title_img").files[0]);
+		});
+		// 이벤트 메인 프리뷰 기능
+		$('#event_main_img').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("main_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("event_main_img").files[0]);
+		});
 	</script>
 </body>
 </html>

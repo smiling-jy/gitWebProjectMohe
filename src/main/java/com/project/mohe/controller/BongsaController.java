@@ -81,7 +81,7 @@ public class BongsaController {
 	@RequestMapping("bongsaRecruite.do")
 	public String bongsaRecruite(BongsaVO vo, HttpServletRequest request) {
 	
-		
+		//로그인했는지 확인
 	if(request.getSession().getAttribute("user_no") == null) return "loginCheck";
 		// 유저번호 세션에서 받아오기
 		HttpSession session =  request.getSession();
@@ -101,7 +101,7 @@ public class BongsaController {
 	@RequestMapping("insertBongsa.do")
 	public String insertBongsa(BongsaVO vo, HttpServletRequest request) {
 		
-		
+	
 		// 유저번호 세션에서 받아오기
 		HttpSession session =  request.getSession();
 		System.out.println(session);
@@ -109,6 +109,21 @@ public class BongsaController {
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
 				
 		System.out.println("insertBongsa 컨트롤러 입구");
+		
+		
+		String strStart = vo.getBs_work_start();
+		String strEnd = vo.getBs_work_end();
+		
+		char T = 'T';
+		
+		strStart = strStart.replace(String.valueOf(T), " ");
+		strEnd = strEnd.replace(String.valueOf(T), " ");
+		
+		vo.setBs_work_start(strStart);
+		vo.setBs_work_end(strEnd);
+		
+		System.out.println(vo.getBs_work_start());
+		System.out.println(vo.getBs_work_end());
 		
 		bongsaService.insertBongsa(vo);
 		
@@ -128,7 +143,7 @@ public class BongsaController {
 			// 절대경로 받아오는 메소드
 	        String resources = servletContext.getRealPath("/resources/files/bongsa");
 	         // 절대경로 + 지정한 폴더이름으로 폴더 생성
-	     
+	        
 			Path directoryPath = Paths.get("C:/Users/82109/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name);
 
 			try {
@@ -148,7 +163,7 @@ public class BongsaController {
 			try {
 //				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+				System.out.println("타이틀 이미지 파일이 저장되었습니다");
 //
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -166,8 +181,8 @@ public class BongsaController {
 					fname = vo.getFile()[i].getOriginalFilename();
 					fileExtension = fname.substring(fname.lastIndexOf("."));
 
-					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
-					
+					f = new File(resources + "/" + folder_name);
+//					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
 					try {
 						// 파일저장
 						vo.getFile()[i].transferTo(f);
@@ -179,9 +194,18 @@ public class BongsaController {
 
 						e.printStackTrace();
 					}
+					//bs_img_cnt 증가시키기
+					vo.setBs_img_cnt(i);
+					System.out.println(vo.getBs_img_cnt());
 				} // for_end
 			} // if_end
 		} // if_end
+		
+		bongsaService.increBsImgCnt(vo);
+		
+		
+		
+		
 	return "redirect:/bongsaMain.do";
 	}
 	

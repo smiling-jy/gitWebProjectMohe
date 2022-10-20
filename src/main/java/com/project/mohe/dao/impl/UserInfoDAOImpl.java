@@ -63,4 +63,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return mybatis.selectOne("UserInfoDAO.getAllcnt",vo);
 	}
 
+	@Override
+	public void updateUser(UserInfoVO vo) {
+		mybatis.update("UserInfoDAO.updateUser",vo);
+	}
+
 }

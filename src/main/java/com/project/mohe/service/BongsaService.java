@@ -42,6 +42,9 @@ public interface BongsaService {
 	//승인된 봉사 페이징 조회
 	PagingVO getAllcntNo(PagingVO vo);
 
+	//봉사 imgcnt 증가
+	void increBsImgCnt(BongsaVO vo);
+
 
 	
 }
