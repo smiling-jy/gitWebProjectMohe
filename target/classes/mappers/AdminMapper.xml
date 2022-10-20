@@ -50,8 +50,7 @@
 	<!-- 관리자 정보 수정 -->
 	<update id="updateAdmin" parameterType="admin">
 		update admin
-		set adm_name
-		= #{adm_name},
+		set 
 		adm_dept = #{adm_dept},
 		adm_phone = #{adm_phone},
 		adm_adress = #{adm_adress}

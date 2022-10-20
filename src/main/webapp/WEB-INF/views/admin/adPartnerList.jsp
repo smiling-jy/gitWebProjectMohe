@@ -99,7 +99,7 @@
 																<th>NO</th>
 																<th>회사명</th>
 																<th>URL</th>
-																<th width="300px">수정 / 삭제</th>
+																<th width="200px">수정 / 삭제</th>
 															</tr>
 														</thead>
 

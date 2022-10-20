@@ -91,7 +91,7 @@
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
-																<th width="150px">제목</th>
+																<th>제목</th>
 																<th width="150px">카테고리</th>
 																<th width="150px">주최자</th>
 																<th width="150px">목표금액</th>
@@ -104,10 +104,10 @@
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
 																	<td style="font-size: 13px"><a
-																		href="../fundingSingle.do?fd_no=${fd.fd_no}">${fn:substring(fd.fd_title,0,10)}</a></td>
+																		href="../fundingSingle.do?fd_no=${fd.fd_no}" target="_blank">${fn:substring(fd.fd_title,0,10)}</a></td>
 																	<td>${fd.fd_category}</td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
-																	<td style="word-break: break-all">${fd.fd_goals}</td>
+																	<td style="word-break: break-all" class="totalPrice">${fd.fd_goals}</td>
 																	<td><a href="adFdUpdate.do?fd_no=${fd.fd_no}" class="remove-btn"> <span
 																			class="flaticon-check"></span>
 																	</a>&nbsp;&nbsp;&nbsp; <a href="#" onclick="remove(${fd.fd_no})" class="remove-btn">
@@ -232,6 +232,18 @@
 			var result = confirm("정말로 삭제 하시겠습니까?")
 			if(result) location.href='deleteFd.do?fd_no='+fd_no;
 		}
-	</script>
+   	</script>
 </body>
+   	<script>
+	//금액 콤마표시하기
+// 		$(document).ready(function(){
+// 			for(var i=0;i<5;i++){
+// 		        var totalString = $('.totalPrice').eq(i).text();
+// 		        var regex = /[^0-9]/g; 
+// 		        var result = totalString.replace(regex,"");
+// 		        $('.totalPrice').text(Number(result))
+// 		        $('.totalPrice').text((Number(document.getElementById("totalPrice").innerHTML)).toLocaleString('ko-KR'));
+// 			}
+// 		});
+   	</script>
 </html>
