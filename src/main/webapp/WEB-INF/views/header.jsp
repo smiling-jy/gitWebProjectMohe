@@ -136,7 +136,7 @@
 	<script type="text/javascript">
 		function btnLogOut() {
 			if (confirm("로그아웃 하시겠습니까?")) {
-				location.href = "/basic/logOut.do";
+				location.href = "/mohe/logOut.do";
 			}
 		}
 	</script>

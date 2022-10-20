@@ -7,7 +7,12 @@
  
  	<update id="updateInfo">
       UPDATE userinfo
-      SET user_name=#{user_name}, user_phone=#{user_phone}, user_info=#{user_info}, user_img=#{user_img}
+      SET user_name=#{user_name}
+      	  ,user_phone=#{user_phone}
+      	  ,user_info=#{user_info}
+      	  <if test="user_img != null">
+      	  ,user_img=#{user_img}
+      	  </if>
       WHERE user_no=#{user_no}
    </update>
    
@@ -33,6 +38,21 @@
   		 where pj.fd_no = pay.fd_no(+)
   		   and pj.fd_no = cart.fd_no
   		   and cart.user_no = #{user_no}
+   </select>
+   
+   <select id="getBongs_pjList" resultType="bongsa">
+   		select A.BS_TITLE, A.BS_CONTENT, A.BS_NAME, 
+	  		A.BS_NO, A.BS_REGION, A.BS_PLACE, A.BS_IMG_CNT, 
+	  		A.BS_PHONE,  A.BS_SUCCESS_CNT, 
+	  		to_date(TO_char(A.BS_WORK_START, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') AS RE_BS_WORK_START,
+	  		to_date(TO_char(A.BS_WORK_END, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') AS RE_BS_WORK_END,
+	  		A.BS_EMAIL, A.BS_IMG_NAME, A.BS_GOAL_CNT,
+	  		A.BS_READ_CNT,
+	  		round(((A.BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) AS bs_rate,
+	  		A.bs_ing
+  		from BONGSA A INNER JOIN VOLUNTEER B ON (A.BS_NO = A.BS_NO)
+  		where B.USER_NO = #{user_no}
+  		ORDER BY A.BS_NO DESC
    </select>
    
  </mapper>

@@ -76,6 +76,11 @@
 		user_outdate = sysdate
 		where user_no = #{user_no}
 	</update>
+	<update id="updateUser" parameterType="userInfo">
+		update userinfo
+		set	user_phone = #{user_phone},user_addr=#{user_addr},user_rating=#{user_rating}
+		where user_no = #{user_no}
+	</update>
 </mapper>
   
   

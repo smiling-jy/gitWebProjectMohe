@@ -236,14 +236,14 @@ public class AdminServiceImpl implements AdminService {
 	public void adDeleteReview(ReviewVO vo) {
 		reviewDao.deleteReview(vo);
 	}
-	
-	// 나중에 수정해야하는 애들 
-	
 	// 회원정보 수정기능
 	@Override
 	public void adUserUpdateInfo(UserInfoVO vo) {
-		adminDao.adUserUpdateInfo(vo);
+		userInfoDao.updateUser(vo);
 	}
+	
+	// 나중에 수정해야하는 애들 
+	
 
 	// 공지사항 수정
 	@Override
@@ -357,6 +357,38 @@ public class AdminServiceImpl implements AdminService {
 			// 새로 만든 팝업의 상태가 false라면 insert 진행
 			popupDao.updatePopup(vo);
 		}
+	}
+	// 이벤트 삭제
+	@Override
+	public void adDeleteEvent(EventVO vo) {
+		eventDao.deleteEvent(vo);
+	}
+
+	// 이벤트 추가하기
+	@Override
+	public void adEventInsert(EventVO vo) {
+		eventDao.insertEvent(vo);
+	}
+
+	@Override
+	public EventVO adGetEvent(EventVO vo) {
+		return eventDao.getEvent(vo);
+	}
+
+	@Override
+	public void adEventUpdate(EventVO vo) {
+		eventDao.updateEvent(vo);
+	}
+
+	// 펀딩삭제
+	@Override
+	public void deleteFd(Funding_pjVO vo) {
+		funding_pjDao.deleteFunding_pj(vo);
+	}
+
+	@Override
+	public void deleteBs(BongsaVO vo) {
+		bongsaDao.deleteBongsa(vo);
 	}
 
 

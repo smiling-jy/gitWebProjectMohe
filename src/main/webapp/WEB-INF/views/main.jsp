@@ -95,7 +95,7 @@
 .rating{
 	position:absolute;
 	z-index:5;
- 	top:10px; 
+ 	top:0px; 
  	left:20px; 
 	width:100px;
 }
@@ -135,14 +135,13 @@
 		<section class="banner-section style-two slid_fix" id="header_bottom">
 			<div class="banner-carousel love-carousel owl-theme owl-carousel"
 				data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "768" :{ "items" : "1" } , "1000":{ "items" : "1" }}}'>
-
 				<!-- 슬라이드 내용 반복 시작 -->
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
 					<div class="slide-item slid_fix">
-						<div class="image-layer lazy-image"></div>
+<!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/images/event/${event.event_main}.png')"></div>
+							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.PNG')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
@@ -252,7 +251,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/bongsa/${ddBs.bs_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
@@ -392,8 +391,7 @@
 			</div>
 		</section>
 		<!-- End Funfacts Section -->
-
-
+		
 		<!-- 리뷰 섹션1 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
@@ -418,10 +416,20 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="getReview.do?review_no=${bestRv.review_no}">
-										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
+										<img src="resources/files/review/${bestRv.review_no}/reviewIMG.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
-										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+										<c:choose>
+											<c:when test="${bestRv.user_rating eq '시민'}">
+												<img src="resources/images/user_rating/rating_1_100.png" style="width:80px;height:80px">
+											</c:when>
+											<c:when test="${bestRv.user_rating eq '고수'}">
+												<img src="resources/images/user_rating/rating_2_100.png" style="width:80px;height:80px">
+											</c:when>
+											<c:otherwise>
+												<img src="resources/images/user_rating/rating_3_100.png" style="width:80px;height:80px">
+											</c:otherwise>
+										</c:choose>
 									</div>
 									<div class="lower-box">
 										<div class="content">
@@ -447,6 +455,9 @@
 				<!--End Team Carousel-->
 			</div>
 		</section>
+	
+
+
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>

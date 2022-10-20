@@ -24,11 +24,17 @@ public class Volunteer_cartController {
 	@ResponseBody
 	public String bsJjimSave(Volunteer_cartVO vo, HttpServletRequest request) {
 		
-		//세션에서 user_no 받아오기 
+		
+		//로그인 여부 확인
 		HttpSession session = request.getSession();
+		if(session.getAttribute("user_no") == null) {
+			return "로그인하세요";
+		}	
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
 		
-		String result = "찜목록에 추가되었습니다.";
+		//결과값 변수선언
+		String result;
+		
 		// 중복확인
 		if(volunteer_cartService.getVolunteer_cart(vo) != null) {
 			result = "이미 찜목록에 있습니다.";                                                                                                                                                   
@@ -36,7 +42,7 @@ public class Volunteer_cartController {
 					
 		}else {
 			volunteer_cartService.insertVolunteer_cart(vo);
-			
+			result = "찜목록에 추가되었습니다.";
 		}
 		System.out.println(vo);
 		System.out.println(result);

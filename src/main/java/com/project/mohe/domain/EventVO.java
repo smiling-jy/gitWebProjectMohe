@@ -1,6 +1,8 @@
 package com.project.mohe.domain;
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -11,8 +13,8 @@ public class EventVO {
 	private String event_title;
 	private String event_text;
 	private String event_img;
-	private Date event_stdate;
-	private Date event_eddate;
+	private String event_stdate;
+	private String event_eddate;
 	private String event_thumbnail; //게시판에 띄울 썸네일
 	private String event_main; //메인에 나올 이미지
 	
@@ -24,5 +26,8 @@ public class EventVO {
 	private int prev;
 	private String next_title;
 	private String prev_title;
+	
+	MultipartFile title_img; // 이벤트 타이틀 첨부파일 이미지
+	MultipartFile main_img;  // 이벤트 메인 첨부파일 이미지
 	
 }

@@ -46,10 +46,10 @@
 				<h1>후기 모음</h1>
 				<ul class="bread-crumb clearfix">
 					<li><a href="notice.do"><h5>공지사항</h5></a></li>
-					<li><a href="faq.do"><h5>자주 묻는 질문</a>
+					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a>
 					<li><a href="event.do"><h5>이벤트</h5></a></li>
 					<li><a href="partner.do"><h5>파트너</h5></a></li>
-					<li class="active"><h5>후기 모음</h5></li>
+					<li class="active"><a href="review.do"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
 
@@ -88,7 +88,7 @@
 								<figure class="image">
 									<a href="getReview.do?review_no=${review.review_no}"><img class="lazy-image img-size"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+										data-src="resources/files/review/${review.review_no}/reviewIMG.png"
 										onerror="this.src='resources/images/mohe_logo/logo_mint_big.png'"
 										alt="review IMG"></a>
 								</figure>

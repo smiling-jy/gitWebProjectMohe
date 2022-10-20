@@ -84,9 +84,9 @@
                             <hr style="border: solid 1px lightgrey">
                             <br>
                             <div class="content">
-                            	<img src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+                            	<img src="resources/files/review/${review.review_no}/reviewIMG.png"
                             	   onerror="this.src='resources/images/mohe_logo/logo_mint.png'">
-                                ${review.review_text}
+                                <pre><c:out value="${review.review_text}"></c:out></pre>
                             </div>
                         </div>
                         
@@ -102,10 +102,15 @@
                             </div>
                         </div>
                          <!-- 작성자 본인 확인 -->
-							<c:if test="${sessionScope.user_no eq review.user_no}">
-	                       		<a href="goUpdate.do?review_no=${review.review_no}"> 수정 </a>
-	                            <a href="deleteReview.do?review_no=${review.review_no}"> 삭제 </a>
-	                         </c:if>
+                         <input type="hidden" value="${sessionScope.user_no}">
+                         <input type="hidden" value="${review.user_no}">
+                         <div class="post-meta" >
+                            <ul class="clearfix" style="text-align:right;">
+								<c:if test="${sessionScope.user_no eq review.user_no}">
+			                     <li><a href="goUpdate.do?review_no=${review.review_no}"> 수정 </a></li>
+			                     <li><a href="deleteReview.do?review_no=${review.review_no}"> 삭제 </a></li>
+			                    </c:if>
+	                      	</ul>
 	                  	<hr style="border: solid 1px lightgrey">
                          <br><br>
                     <div style="text-align:center;">

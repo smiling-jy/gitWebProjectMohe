@@ -20,7 +20,8 @@
 	VT_USER_PHONE,
 	VT_USER_EMAIL,
 	BS_NO,
-	USER_NO)
+	USER_NO
+	)
 	VALUES (volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
 	'2022-05-20','2022-06-08','2022-06-08','2022-06-09',
 	1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
@@ -31,6 +32,16 @@
   		update bongsa set bs_success_cnt = bs_success_cnt+1 where bs_no=#{bs_no}
   	
   </update>
+  
+  
+  <select id="getVolunteer" parameterType="volunteer" resultType="volunteer">
+  		select * from volunteer where bs_no=#{bs_no} and user_no = #{user_no}
+  </select>
+  
+  
+  
+  
+  
   
 
   </mapper>

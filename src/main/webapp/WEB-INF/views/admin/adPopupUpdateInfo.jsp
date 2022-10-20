@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +71,7 @@
 														<div class="form-group col-lg-12 col-md-12 col-sm-12">
 															<div class="field-label">팝업 이미지</div>
 															<img id="user_image" src="../resources/files/popup/${pop.pop_no}/popupIMG.PNG" /> 
-															<input type="file" name="title_img" id="user_profile_img" accept=".PNG" required>
+															<input type="file" name="title_img" id="user_profile_img" accept=".PNG">
 															<input type="hidden" name="pop_no" value="${pop.pop_no}">
 														</div>
 													</div>
@@ -83,16 +84,12 @@
 														<div class="form-group col-lg-6 col-md-6 col-sm-6">
 															<div class="field-label">팝업 시작일</div>
 															<input type="date" name="pop_start_date"
-																value="${pop.pop_start_date}"  required>
-															<input type="hidden" id="pop_start_date"
-																value="${pop.pop_start_date}">
+																value="${fn:substring(pop.pop_start_date,0,10)}"  required>
 														</div>
 														<div class="form-group col-lg-6 col-md-6 col-sm-6">
 															<div class="field-label">팝업 종료일</div>
 															<input type="date" name="pop_end_date"
-																value="${pop.pop_end_date}"  required>
-															<input type="hidden" id="pop_end_date"
-																value="${pop.pop_end_date}">
+																value="${fn:substring(pop.pop_end_date,0,10)}"  required>
 														</div>
 														<div class="form-group col-lg-12 col-md-12 col-sm-12">
 															<div class="field-label">팝업 개시</div>
@@ -186,12 +183,6 @@
 			// select박스 값 받아오기
 			var use = $('#pop_use').val();
 			$('select[name=pop_use]').val(use).prop("selected",true);
-			// 시작일 값 받아오기
-			var sDate = $('#pop_start_date').val().substring(0,10);
-			$('input[name=pop_start_date]').val(sDate);
-			// 종료일 값 받아오기
-			var eDate = $('#pop_end_date').val().substring(0,10);
-			$('input[name=pop_end_date]').val(eDate);
 		});
 	</script>
 </body>

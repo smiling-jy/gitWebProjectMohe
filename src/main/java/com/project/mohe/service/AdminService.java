@@ -63,6 +63,18 @@ public interface AdminService {
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(PagingVO vo);
 	
+	// 이벤트 삭제
+	void adDeleteEvent(EventVO vo);
+	
+	// 이벤트 추가
+	void adEventInsert(EventVO vo);
+	
+	// 이벤트 상세보기
+	EventVO adGetEvent(EventVO vo);
+	
+	// 이벤트 수정하기
+	void adEventUpdate(EventVO vo);
+	
 	// 펀딩 리스트
 	List<Funding_pjVO> adGetFdList(PagingVO vo);
 	
@@ -72,8 +84,14 @@ public interface AdminService {
 	// 펀딩 승인,비승인 업데이트
 	void judgFdUpdate(Funding_pjVO vo);
 	
+	// 펀딩 삭제
+	void deleteFd(Funding_pjVO vo);
+	
 	// 봉사 리스트
 	List<BongsaVO> getAdBsList(PagingVO vo);
+	
+	// 봉사 삭제
+	void deleteBs(BongsaVO vo);
 	
 	// 신청 봉사 리스트
 	List<BongsaVO> getAdBsApprovalList(PagingVO vo);

@@ -56,8 +56,6 @@
 							<input type="hidden" name="vt_work_start" required value="${bongsa.vt_work_start}">
 							<input type="hidden" name="vt_work_end" required value="${bongsa.vt_work_end}">
 							<input type="hidden" name="user_no" required value="${bongsa.user_no}">
-<!-- 							<input type="hidden" name="volun_no" required value=1> -->
-<!-- 							<input type="hidden" name="vt_ing" required value=1> -->
 							
 							<span>참여 봉사활동명</span><br /> 
 							<input type="text" name="vt_title" required value="${bongsa.vt_title}" readonly/><br /> 

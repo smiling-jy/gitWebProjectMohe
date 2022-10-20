@@ -72,14 +72,7 @@
                                     <div class="field-label">제 목</div>
                                     <input type="text" name="review_title" value="" placeholder="제목을 입력하세요">
                                 </div>
-                                
                                 <!--Form Group-->
-                              
-                               
-<!--                                 <div class="form-group col-lg-12 col-md-12 col-sm-12"> -->
-<!--                                     <div class="field-label">작성자</div> -->
-<!--                      			</div> -->
-                                 <!--Form Group-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                 	<div class="field-label">내 용</div>
                                      <textarea id="reviewtext" name="review_text" placeholder="본문내용을 입력하세요."></textarea>
@@ -89,10 +82,14 @@
                                     <div class="field-label">사진 첨부하기</div>
                                     <input type="file" name="file" >
                       			</div>
+                            	<!-- 세션이 저장되어 있는 유저넘버를 review db로 가지고 가기 -->
+                            	<input type="hidden" name="user_no" value="${sessionScope.user_no}">
                             	
                      <div class="btn-box" style="text-align:center;">
                         <button type="submit" class="theme-btn btn-style-one place-order"><span class="btn-title">등록하기</span></button>
+                        <a href="review.do">
                         <button type="button" class="theme-btn btn-style-one place-order"><span class="btn-title">작성취소</span></button>
+                        </a>
                     </div>
                     <br><br><br>
             			 </form>     	
