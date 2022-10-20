@@ -12,6 +12,8 @@ public interface MyaccountService {
 	public void updateInfo(UserInfoVO vo);
 
 	List<Funding_payVO> getFunding_pjList(UserInfoVO vo);
+	
+	List<BongsaVO> getBongsa_pjList(UserInfoVO vo);
 
 	int insertFunding_cart(Funding_cartVO vo);
 
