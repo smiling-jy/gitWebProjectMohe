@@ -98,7 +98,6 @@
 	(select user_name VT_NAME, user_phone VT_USER_PHONE, 
 	user_email VT_USER_EMAIL, USER_NO from userinfo where user_no =#{pUser_no})
 
-
   	</select>
   	
 
@@ -115,7 +114,7 @@
 		where <![CDATA[rownum <= 10]]>
 	</select>
 	
-  	
+  	<!-- 봉사모집 추가  -->
   	<insert id="insertBongsa" parameterType="bongsa">
   		<selectKey keyProperty="bs_no" order="AFTER" resultType="int">
 			select BONGSA_PJ_SEQ.currval bs_no from dual
@@ -128,11 +127,12 @@
   	BS_PHONE, BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, BS_READ_CNT, USER_NO)
   	
   	VALUES(BONGSA_PJ_SEQ.nextval, #{bs_title}, #{bs_content}, #{bs_region},#{bs_place},
-  	'2022-10-25','2022-10-26','2022-10-28','2022-10-29',
+  	#{bs_recruit_start},#{bs_recruit_end},to_date(#{bs_work_start},'yyyy/mm/dd hh24:mi'),
+  	to_date(#{bs_work_end},'yyyy/mm/dd hh24:mi'),
   	#{bs_goal_cnt},0,'진행중',#{bs_name},
   	#{bs_phone},#{bs_email},#{bs_img_cnt},BONGSA_PJ_SEQ.nextval||'_이미지',1,#{user_no}
   	)
-  	
+
   	</insert>
   	
 
@@ -181,6 +181,7 @@
 				<![CDATA[rnum <= #{endRow})]]>
 		order by bs_no desc
 	</select>
+	
 	<!--승인된 봉사 페이징을위한 그룹번호(즉, 게시글의 총갯수)를 불러오는 조회문 -->
 	<select id="getAllcntOk" parameterType="page" resultType="page">
 		select count(bs_no) as totalRecCount 
@@ -214,17 +215,17 @@
 	<!-- 주최자 마이페이지 모집 완료한 봉사 리스트 -->
 	<select id="getSuccess_BsList" parameterType="map" resultType="bongsa">
 	select 
-	BS_NO, BS_TITLE, BS_SUCCESS_CNT, BS_WORK_START, BS_WORK_END
+	BS_NO, BS_TITLE, BS_CONTENT, BS_WORK_START, BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, USER_NO, round(((BS_SUCCESS_CNT /BS_GOAL_CNT)*100),0) bs_rate
 	from bongsa 
-	where user_no=6 <![CDATA[and BS_RECRUIT_END <= sysdate]]> and bs_ing ='진행중' ORDER BY BS_NO DESC
+	where user_no=#{user_no} <![CDATA[and BS_RECRUIT_END <= sysdate]]> and bs_ing ='진행중' ORDER BY BS_NO DESC
 	</select> 
 		
 	<!-- 주최자 마이페이지 모집 중인 봉사 리스트 -->
 	<select id="getOngoing_BsList" parameterType="map" resultType="bongsa">
 	select 
-	BS_NO, BS_TITLE, BS_SUCCESS_CNT, BS_WORK_START, BS_WORK_END  
+	BS_NO, BS_TITLE, BS_CONTENT, BS_WORK_START, BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, USER_NO, round(((BS_SUCCESS_CNT /BS_GOAL_CNT)*100),0) bs_rate
 	from bongsa 
-	where user_no=6 <![CDATA[and BS_RECRUIT_END > sysdate]]> and bs_ing ='진행중'	 ORDER BY BS_NO DESC 
+	where user_no=#{user_no} <![CDATA[and BS_RECRUIT_END > sysdate]]> and bs_ing ='진행중'	 ORDER BY BS_NO DESC 
 	</select>
 	
 	
@@ -232,12 +233,21 @@
 	<select id="getbongsaParticipateList" parameterType="bongsa" resultType="bongsa">
 	
 	select VT_TITLE, VT_NAME, VT_USER_PHONE, VT_USER_EMAIL
-	from VOLUNTEER
+	from VOLUNTEER 
 	where bs_no=#{bs_no} 
 	
-	
-	
 	</select>
+	
+	
+	<!-- 봉사이미지 cnt 증가 -->
+	<update id="increBsImgCnt" parameterType="bongsa" >
+	
+	update bongsa
+	set bs_img_cnt = #{bs_img_cnt}
+	where bs_no = #{bs_no}
+	
+	</update>
+	
 	
 
   </mapper>

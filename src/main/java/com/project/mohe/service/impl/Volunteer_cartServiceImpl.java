@@ -30,8 +30,7 @@ public class Volunteer_cartServiceImpl implements Volunteer_cartService {
 
 	@Override
 	public void deleteVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
-		
+		volunteer_cartDao.deleteVolunteer_cart(vo);
 	}
 
 	@Override

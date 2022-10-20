@@ -214,11 +214,8 @@ public class BongsaController {
 	public String bongsaRecruiterMypage(Model model, HttpServletRequest request) {
 		
 		// 유저번호 세션에서 받아오기
-		HttpSession session = request.getSession();
-					
+		HttpSession session =  request.getSession();
 		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no",6);
-		
 		HashMap map = new HashMap();
 		map.put("user_no", (Integer) session.getAttribute("user_no"));
 		
@@ -227,6 +224,7 @@ public class BongsaController {
 		
 		return "bongsaRecruiterMypage";
 	}
+	
 	
 	//모집완료된 봉사활동 참가자 리스트 출력
 	@RequestMapping("bongsaParticipateList.do")

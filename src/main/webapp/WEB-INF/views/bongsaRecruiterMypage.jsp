@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- jsp에서 substring 쓸때 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,27 +56,33 @@
 							<div class="row clearfix">
 								<c:forEach items="${success_list}" var="bongsa">
 									<!--Shop Item-->
-									<div class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
-										<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-											<div class="image-box">
-												<figure class="image">
-													<a href="bongsaParticipateList.do"><img class="lazy-image"
-														src="resources/images/mohe_logo/bongsaMain/s3.png"
-														data-src="" alt=""></a>
-												</figure>
-											</div>
-											<div class="lower-content ">
-												<h3>
-													<a href="bongsaParticipateList.do?bs_no=${bongsa.bs_no}" class="bs-title newFont"><strong>${bongsa.bs_title}</strong></a>
-														</br>
-													<span class=""><strong>참여인원 : ${bongsa.bs_success_cnt}</strong></span>
-												</h3>
-												<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-												<div>
-													<span class="bs-content">${bongsa.bs_work_start} ~ </span></br>
-													<span> ${bongsa.bs_work_end}</span>
+								<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+											<div class="lower-content new-font new-con-box">
+												<div class="progress-box">
+													<div class="bar">
+													<c:choose>
+														<c:when test="${bongsa.bs_rate > 100}">
+															<div class="bar-inner count-bar" data-percent="100%">
+																<div class="count-text">${bongsa.bs_rate}%</div>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
+																<div class="count-text">${bongsa.bs_rate}%</div>
+															</div>
+														</c:otherwise>
+													</c:choose>
+													</div>
 												</div>
-												<br>
+												<div class="donation-count clearfix">
+													<span class="goal">참여인원 : ${bongsa.bs_success_cnt}</span><br>
+													<span>${fn:substring(bongsa.bs_work_start,0,16)} ~ </span><br>
+													<span> ${fn:substring(bongsa.bs_work_end,0,16)}</span><br>
+												</div>
+												<h5>
+													<a href="bongsaParticipateList.do?bs_no=${bongsa.bs_no}" class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
+												</h5>
 											</div>
 										</div>
 									</div><!-- shop아이템 종료 -->
@@ -91,31 +98,38 @@
 							<div class="row clearfix">
 								<c:forEach items="${ongoing_list}" var="bongsa">
 								<!--Shop Item-->
-								<div class="shop-item col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
-									<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-										<div class="image-box">
-											<figure class="image">
-												<a href="bonsaDetail.html"><img class="lazy-image"
-													src="resources/images/mohe_logo/bongsaMain/s3.png"
-													data-src="" alt=""></a>
-											</figure>
-										</div>
-										<div class="lower-content ">
-											<h3>
-												<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="bs-title newFont"><strong>${bongsa.bs_title}</strong></a>
-													</br>
-												<span class=""><strong>참여인원 : ${bongsa.bs_success_cnt}</strong></span>
-											</h3>
-											<!-- <h5 class="bs-name">수원시의회</h5><br> -->
-											<div>
-												<span class="bs-content">${bongsa.bs_work_start} ~ </span></br>
-												<span> ${bongsa.bs_work_end}</span>
+								<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+											<div class="lower-content new-font new-con-box">
+												<div class="progress-box">
+													<div class="bar">
+													<c:choose>
+														<c:when test="${bongsa.bs_rate > 100}">
+															<div class="bar-inner count-bar" data-percent="100%">
+																<div class="count-text">${bongsa.bs_rate}%</div>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
+																<div class="count-text">${bongsa.bs_rate}%</div>
+															</div>
+														</c:otherwise>
+													</c:choose>
+													</div>
+												</div>
+												<div class="donation-count clearfix">
+													<span class="goal">모집인원 : ${bongsa.bs_goal_cnt}</span><br>
+													<span class="goal">참여인원 : ${bongsa.bs_success_cnt}</span><br>
+													<span>${fn:substring(bongsa.bs_work_start,0,16)} ~ </span><br>
+													<span> ${fn:substring(bongsa.bs_work_end,0,16)}</span><br>
+												</div>
+												<h5>
+													<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
+												</h5>
 											</div>
-											<br>
 										</div>
-									</div>
-								</div><!-- shop아이템 종료 -->
-							</c:forEach>
+									</div><!-- shop아이템 종료 -->
+								</c:forEach>
 							</div>
 
 
@@ -123,32 +137,56 @@
 					</div>
 
 					<!--Sidebar Side-->
-				<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">
-
-					<div class="sidebar-widget price-filters rangeslider-widget">
-						<div class="input-control d-block">
-							<label for="userName" class="input-label"></label>
-							<div class="profile-user-img margin-auto">
-								<img class="margin-auto profile-user-img-img"
-									src="resources/images/mohe_logo/img_no_profile.png"
-									alt="profile-user-img" style="max-width: 130px">
+							<div class="sidebar-widget price-filters rangeslider-widget">
+								<div class="input-control d-block">
+									<label for="userName" class="input-label"></label>
+									<div class="profile-user-img margin-auto">
+										<img class="margin-auto profile-user-img-img"
+											src="resources/images/mohe_logo/img_no_profile.png"
+											alt="profile-user-img" style="max-width: 130px">
+									</div>
+								</div>
+								<h3 class="sidebar-title">
+									<c:out value="${sessionScope.user.user_name}" />
+									님(
+									<c:out value="${sessionScope.user.user_rating}" />
+									)
+								</h3>
+								<div class="range-slider-one clearfix">
+									<div class="clearfix">
+										<div class="text-center">
+											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
+												class="btn-title">회원 수정</span></a><br /> <a href="#"
+												class="theme-btn btn-style-one"><span
+												class="btn-title bg-red">회원 탈퇴</span></a>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						<h3 class="userName">김나나님</h3>
-															<div class="range-slider-one clearfix">
-						<div class="clearfix">
-							<div class="text-center">
-								<a href="modifyInfo.html" class="theme-btn btn-style-one">
-							<span
-									class="btn-title">회원 수정</span></a> <a href="#"
-									class="theme-btn btn-style-one"><span
-									class="btn-title bg-red">회원 탈퇴</span></a>
+							<!-- Category Widget -->
+							<div class="sidebar-widget categories">
+								<div class="widget-content">
+									<ul class="cart-ul">
+										<li>펀딩
+											<ul>
+												<li><a href="details.do">펀딩참여목록</a></li>
+												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+											</ul>
+										</li>
+										<li>봉사
+											<ul>
+												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+											</ul>
+										</li>
+										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+									</ul>
+								</div>
 							</div>
-						</div>
+						</aside>
 					</div>
-					</div>
-				</div>
 
 				</aside>
 			</div>
@@ -182,6 +220,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/bongsa.js"></script>
 
 
 </body>

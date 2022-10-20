@@ -102,15 +102,24 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
-												<div class="count-text">${bongsa.bs_rate}%</div>
-											</div>
+											<c:choose>
+												<c:when test="${bongsa.bs_rate > 100}">
+													<div class="bar-inner count-bar" data-percent="100%">
+														<div class="count-text">${bongsa.bs_rate}%</div>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
+														<div class="count-text">${bongsa.bs_rate}%</div>
+													</div>
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>모집인원:</strong><span
+										<span class="raised"><strong>모집인원 : </strong><span
 											class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
-												신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
+												신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 									</div>
 								</div>
 								<div class="lower-content ">
