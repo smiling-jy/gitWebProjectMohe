@@ -49,4 +49,14 @@ public class MyaccountServiceImpl implements MyaccountService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int countAccountByEmail(UserInfoVO vo) {
+		return myaccountDAO.countAccountByEmail(vo);
+	}
+	
+	@Override
+	public int resetPassword(UserInfoVO vo) {
+		return myaccountDAO.resetPassword(vo);
+	}
 }
