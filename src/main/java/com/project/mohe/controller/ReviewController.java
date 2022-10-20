@@ -2,6 +2,9 @@ package com.project.mohe.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,31 +39,48 @@ public class ReviewController {
 		@RequestMapping("reviewInsert.do")
 		public String reviewInsert(UserInfoVO user_vo,ReviewVO vo,MultipartFile file,HttpServletRequest request) {
 			
-			// user_no 세션에서 받아오기
+			// 유저넘버 user_no 세션에서 받아오기
 			HttpSession session = request.getSession();
 			user_vo.setUser_no((Integer) session.getAttribute("user_no"));
 			
 			reviewService.insertReview(user_vo,vo);
-			
 			
 			//이미지첨부
 			file=vo.getFile();
 			String fName=vo.getFName();
 			long fsize=vo.getFsize();
 			
+			//리뷰게시글 번호(pk)를 폴더명으로 받아옴
+			String folder_name=vo.getReview_no()+"";
+			
+			//첨부이미지가 있는지 확인
 			if(!file.isEmpty()) {
+				
+				//폴더생성
+				Path directoryPath=Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/review/"+folder_name);
+				
+				try {
+					//폴더생성메소드
+					Files.createDirectories(directoryPath);
+					System.out.println(directoryPath+"디렉토리가 생성되었습니다.");
+					
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+				
+				//이미지저장
 				fName=file.getOriginalFilename();
 				fsize=file.getSize();
 				//확장자 추출 (소문자로 통일)
 				String fileExtension=fName.substring(fName.lastIndexOf(".")).toLowerCase();
-				//원하는 이름으로 저장하기 = 이름+확장자
-				vo.setReview_img("ReviewIMG_"+vo.getReview_no()+fileExtension);
-				//System.out.println("========>> 이미지파일 이름: "+vo.getReview_img());
-				File f = new File("C:\\Users\\human\\git\\gitWebProjectMohe\\src\\\\main\\webapp\\resources\\reviewUploadFile\\"+vo.getReview_img());
-					//학원컴경로: "C:\\Users\\human\\git\\gitWebProjectMohe\\src\\main\\webapp\\resources\\reviewUploadFile\\"
+				//원하는 이름으로 저장하기 = 이름+확장자(이제 필요없는 작업...?)
+				//vo.setReview_img("ReviewIMG_"+vo.getReview_no()+fileExtension);
+			
+				File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/review/"+folder_name + "/" + "reviewIMG" + fileExtension);
+					
 				try {
 					file.transferTo(f);
-					//System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");
+					System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");
 				
 				} catch (IllegalStateException e) {				
 				e.printStackTrace();
@@ -106,6 +126,7 @@ public class ReviewController {
 		@RequestMapping("goUpdate.do")
 		public String goUpdate(ReviewVO vo,Model model,HttpSession session) {
 			model.addAttribute("review", reviewService.getReview(vo));
+			
 			return "reviewUpdate";
 		}
 			
@@ -114,11 +135,58 @@ public class ReviewController {
 		
 		//수정
 		@RequestMapping("updateReview.do")
-		public String updateReview(ReviewVO vo) {
+		public String updateReview(ReviewVO vo,MultipartFile file) {
 			
-			reviewService.updateReview(vo);
-		
+		reviewService.updateReview(vo);
+			
+
+			//이미지첨부
+			file=vo.getFile();
+			String fName=vo.getFName();
+			long fsize=vo.getFsize();
+			
+			//리뷰게시글 번호(pk)를 폴더명으로 받아옴
+			String folder_name=vo.getReview_no()+"";
+			
+			//첨부이미지가 있는지 확인
+			if(!file.isEmpty()) {
+				
+				//폴더생성
+				Path directoryPath=Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/review/"+folder_name);
+				
+				try {
+					//폴더생성메소드
+					Files.createDirectories(directoryPath);
+					System.out.println(directoryPath+"디렉토리가 생성되었습니다.");
+					
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+				
+				//이미지저장
+				fName=file.getOriginalFilename();
+				fsize=file.getSize();
+				//확장자 추출 (소문자로 통일)
+				String fileExtension=fName.substring(fName.lastIndexOf(".")).toLowerCase();
+				//원하는 이름으로 저장하기 = 이름+확장자(이제 필요없는 작업...?)
+				//vo.setReview_img("ReviewIMG_"+vo.getReview_no()+fileExtension);
+			
+				File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/review/"+folder_name + "/" + "reviewIMG" + fileExtension);
+					
+				try {
+					file.transferTo(f);
+					System.out.println("=====>>리뷰 사진 파일이 저장되었습니다.");
+				
+				} catch (IllegalStateException e) {				
+				e.printStackTrace();
+				} catch (IOException e) {
+				e.printStackTrace();
+				}
+				
+			}
+			
 			return "redirect:/review.do";
+		
 		}
 		
 		
