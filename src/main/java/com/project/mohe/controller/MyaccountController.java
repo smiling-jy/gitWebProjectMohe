@@ -144,7 +144,7 @@ public class MyaccountController {
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress("shym@shym.kr"));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(vo.getUser_email()));
-				message.setSubject("[모헤] 임시비밀번호 발급 안내");
+				message.setSubject("[모해] 임시비밀번호 발급 안내");
 
 				String msg = user.getUser_name() + "님 임시 비밀번호를 발급해 드립니다. 임시 비밀번호 : <b>" + generatedString + "</b>";
 
