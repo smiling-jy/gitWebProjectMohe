@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,6 @@
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 </head>
-
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -58,10 +58,9 @@
 						<!--form 구간 시작-->
 						<div class="col-md-12">
 							<div>
-								<h3>관리자 정보 수정하기</h3>
+								<h3>관리자 계정 만들기</h3>
 								<hr>
-								<form class="detail_form" name="userDetail"
-									action="updateAdmin.do" method="post">
+								<form action="adminInsert.do" method="post">
 									<section>
 										<div class="auto-container">
 											<div class="tabs-box">
@@ -72,26 +71,27 @@
 														<div class="inner">
 															<div class="donate-form">
 																<div class="personal-info">
-																	<h2>NO. ${admin.adm_no}</h2>
-																	<input type="hidden" value="${admin.adm_no}" name="adm_no"/>
-																	<hr style="width: 430px; color: white;">
 																	<div class="row clearfix">
-																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
 																			<div class="field-label">성함</div>
-																			<input type="text"
-																				value="${admin.adm_name}" readonly>
+																			<input type="text" name="adm_name"
+																				value="${admin.adm_name}" required>
 																		</div>
 																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
 																			<div class="field-label">아이디</div>
-																			<input type="text" value="${admin.adm_id}" readonly>
+																			<input type="text" value="${admin.adm_id}" name="adm_id" required>
+																		</div>
+																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
+																			<div class="field-label">비밀번호</div>
+																			<input type="password"  name="adm_pass"
+																				value="${admin.adm_pass}" required>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">부서</div>
 																			<select name="adm_dept" required>
-																				<option value="editor">editor</option>
+																				<option value="editor" selected>editor</option>
 																				<option value="master">master</option>
 																			</select>
-																			<input type="hidden" id="adm_dept" value="${admin.adm_dept}">
 																		</div>
 																		<div
 																			class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
@@ -107,20 +107,10 @@
 																			<input type="text" id="adm_adress" name="adm_adress"
 																				value="${admin.adm_adress}" required>
 																		</div>
-																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
-																			<div class="field-label">입사일</div>
-																			<input type="date" id="adm_hiredate" 
-																				name="adm_hiredate" value="${fn:substring(admin.adm_hiredate,0,10)}" readonly>
-																		</div>
-																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
-																			<div class="field-label">퇴사일</div>
-																			<input type="date" id="adm_enddate"
-																				name="adm_enddate" value="${fn:substring(admin.adm_enddate,0,10)}">
-																		</div>
 																		<div>
 																			<button type="submit" class="theme-btn btn-style-one"
 																				id="update_btn">
-																				<span class="btn-title btn_fix">수정 완료하기</span>
+																				<span class="btn-title btn_fix">관리자 추가하기</span>
 																			</button>
 																		</div>
 																	</div>
@@ -186,13 +176,6 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
-	<script>
-		var dept = $('#adm_dept').val();
-		$("select[name=adm_dept]").val(dept).prop("selected", true);
-		// 기본 날자값을 오늘로 정하기
-		document.getElementById('adm_hiredate').value = new Date().toISOString().slice(0,10);
-		// 최소 날자값을 오늘로 정하기
-		document.getElementById('adm_enddate').min = new Date().toISOString().slice(0,10);
-	</script>
+
 </body>
 </html>

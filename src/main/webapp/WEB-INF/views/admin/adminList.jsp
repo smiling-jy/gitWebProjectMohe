@@ -73,7 +73,7 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="cause-single.do" class="theme-btn btn-style-ten"> <span
+							<a href="adminInsertInfo.do" class="theme-btn btn-style-ten"> <span
 								class="btn-title"><h2>추가하기</h2></span>
 							</a>
 							<a href="#" class="theme-btn btn-style-one" id="excel_export">

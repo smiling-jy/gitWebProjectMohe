@@ -49,25 +49,27 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adFdApproval.do">신청 펀딩 관리</a>
+						<a href="adFdList.do">펀딩 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="overflow:auto;">
 						<div>
 							<!-- 여기 폼시작 -->
+							<form method="post" action="adFdUpdate.do" enctype="multipart/form-data">
 							<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
 									<div class="inner">
 										<div class="donate-form">
-											<h3 style="margin-left:110px;">신청 펀딩 상세정보</h3>
+											<h3 style="margin-left:110px;">펀딩 수정하기</h3>
 											<div style="height: 50px;"></div>
-											<h2>NO. ${apFd.fd_no}</h2>
+											<h2>NO. ${fd.fd_no}</h2>
 											<hr style="width: 430px; color: white;">
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">타이틀 사진</div>
-													<img id="title_image" src="../resources/files/funding/${apFd.fd_img_name}/title.png" /> 
+													<img id="title_image" src="../resources/files/funding/${fd.fd_img_name}/title.png" />
+													<input type="file" id="fd_title_image" name="title_img" class="add-file" value="타이틀 이미지 첨부하기" > 
 											</div>
 											</div>
 											<div class="row clearfix">
@@ -80,58 +82,68 @@
 														<option value="홈리빙">홈 리빙</option>
 														<option value="반려동물">반려동물</option>
 													</select>
-													<input type="hidden" id="fd_category" value="${apFd.fd_category}">
+													<input type="hidden" id="fd_category" value="${fd.fd_category}">
+													<input type="hidden" name="fd_no" value="${fd.fd_no}">
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로젝트제목</div>
-													<input type="text" value='${apFd.fd_title}'  name="fd_title" readonly>
+													<input type="text" value='${fd.fd_title}'  name="fd_title" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로젝트 소개</div>
-													<textarea name="fd_content"readonly>${apFd.fd_content}</textarea>
+													<textarea name="fd_content"required>${fd.fd_content}</textarea>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">후원 대상</div>
-													<input type="text" name="fd_receiver" value="${apFd.fd_receiver}" readonly>
+													<input type="text" name="fd_receiver" value="${fd.fd_receiver}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">상품 금액</div>
-													<input type="text" name="fd_price" value="${apFd.fd_price}" readonly>
+													<input type="text" name="fd_price" value="${fd.fd_price}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">목표 금액</div>
-													<input type="text" name="fd_goals" value="${apFd.fd_goals}" readonly>
+													<input type="text" name="fd_goals" value="${fd.fd_goals}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로젝트 시작일</div>
-													<input type="date" name="fd_startdate"  value="${apFd.fd_startdate}"readonly>
+													<input type="date" name="fd_startdate"  value="${fd.fd_startdate}"required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로젝트 종료일</div>
-													<input type="date" name="fd_enddate"  value="${apFd.fd_enddate}"readonly>
+													<input type="date" name="fd_enddate"  value="${fd.fd_enddate}"required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">창작자(상호)</div>
-													<input type="text" name="fd_hostname"  value="${apFd.fd_hostname}"readonly>
+													<input type="text" name="fd_hostname"  value="${fd.fd_hostname}"required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">창작자 연락처</div>
-													<input type="text" name="fd_host_phone" value="${apFd.fd_host_phone}" readonly>
+													<input type="text" name="fd_host_phone" value="${fd.fd_host_phone}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">창작자 이메일</div>
-													<input type="email" name="fd_host_email" value="${apFd.fd_host_email}" readonly>
+													<input type="email" name="fd_host_email" value="${fd.fd_host_email}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">내용 이미지</div>
-													<c:forEach var="cnt" begin="1" end="${apFd.fd_img_cnt}">
-														<img src="../resources/files/funding/${apFd.fd_img_name}/${cnt}.png">
+													<input type="file" name="file" multiple="multiple" id="multi-file" class="add-file" value="내용 이미지 첨부하기" >
+													<img id="main_image" src="">
+													<c:forEach var="cnt" begin="1" end="${fd.fd_img_cnt}">
+														<img class="forIMG" src="../resources/files/funding/${fd.fd_img_name}/${cnt}.png">
 													</c:forEach>
+												</div>
+												<div>
+													<button type="submit" class="theme-btn btn-style-one"
+														id="update_btn">
+														<span class="btn-title btn_fix">수정 완료하기</span>
+													</button>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div><!-- 원래이다음 form있음 -->
+								</div>
+							</form>
 						</div>
 						<!-- form2 끝-->
 
@@ -188,8 +200,8 @@
 		$("select[name=fd_category]").val(dept).prop("selected", true)
 		
 
-		// 회원 프로필 프리뷰 기능
-		$('#user_title_img').change(function(){
+		// 펀딩 타이틀 사진 미리보기
+		$('#fd_title_image').change(function(){
 	        // 파일리더 생성 
 	        var preview = new FileReader();
 	        preview.onload = function (e) {
@@ -197,7 +209,20 @@
 	        	document.getElementById("title_image").src = e.target.result;
 		    };
 		    // input id 값 
-		    preview.readAsDataURL(document.getElementById("user_title_img").files[0]);
+		    preview.readAsDataURL(document.getElementById("fd_title_image").files[0]);
+		});
+		
+		// 회원 프로필 프리뷰 기능
+		$('#multi-file').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("main_image").src = e.target.result;
+	        	$('.forIMG').css("display","none");
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("multi-file").files[0]);
 		});
 	</script>
 </body>

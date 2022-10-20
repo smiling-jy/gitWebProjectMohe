@@ -103,11 +103,11 @@
 															<c:forEach items="${bsList}" var="bs">
 																<tr>
 																	<td style="word-break: break-all">${bs.bs_no}</td>
-																	<td style="word-break: break-all"><a href="bongsaDetail.do?bs_no=${bs.bs_no}" target="_blank">${fn:substring(bs.bs_title,0,7)}</a></td>
+																	<td style="word-break: break-all"><a href="../bongsaDetail.do?bs_no=${bs.bs_no}" target="_blank">${fn:substring(bs.bs_title,0,7)}</a></td>
 																	<td style="word-break: break-all">${bs.bs_email}</td>
 																	<td style="word-break: break-all">${bs.bs_region}</td>
 																	<td style="word-break: break-all">${fn:substring(bs.bs_recruit_start,0,10)} ~<br> ${fn:substring(bs.bs_recruit_end,0,10)}</td>
-																	<td><a href="adBsUpdate.do?bs_no=${bs.bs_no}" class="remove-btn"> 
+																	<td><a href="adBsUpdateInfo.do?bs_no=${bs.bs_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>
 																		</a>&nbsp;&nbsp;&nbsp; 
 																		<a href="#" onclick="remove(${bs.bs_no})" class="remove-btn">
