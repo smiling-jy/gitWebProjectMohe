@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +38,6 @@
 	type="image/x-icon">
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
-<style>
-.detail_form {
-	border: 1px solid white;
-	border-radius: 20px;
-	background-color: rgb(148 165 183/ 40%);
-}
-</style>
 </head>
 
 <body class="nav-md">
@@ -84,24 +78,26 @@
 																	<div class="row clearfix">
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">성함</div>
-																			<input type="text" id="adm_name" name="adm_name"
-																				value="${admin.adm_name}">
+																			<input type="text"
+																				value="${admin.adm_name}" readonly>
 																		</div>
-																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
+																		<div class="form-group col-lg-12 col-md-12 col-sm-12">
 																			<div class="field-label">아이디</div>
-																			<input type="text" maxlength="13" id="adm_id"
-																				name="adm_id" value="${admin.adm_id}">
+																			<input type="text" value="${admin.adm_id}" readonly>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">부서</div>
-																			<input type="text" id="adm_dept" name="adm_dept"
-																				value="${admin.adm_dept}">
+																			<select name="adm_dept" required>
+																				<option value="editor">editor</option>
+																				<option value="master">master</option>
+																			</select>
+																			<input type="hidden" id="adm_dept" value="${admin.adm_dept}">
 																		</div>
 																		<div
 																			class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
 																			<div class="field-label">연락처</div>
 																			<input type="text" id="adm_phone" name="adm_phone"
-																				value="${admin.adm_phone}">
+																				value="${admin.adm_phone}" required>
 																			<div class="field-label" id="email_message"
 																				style="text-align: right;"></div>
 																		</div>
@@ -109,26 +105,20 @@
 																			class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 																			<div class="field-label">주소</div>
 																			<input type="text" id="adm_adress" name="adm_adress"
-																				value="${admin.adm_adress}">
-																			<div class="field-label" id="email_message"
-																				style="text-align: right;"></div>
+																				value="${admin.adm_adress}" required>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">입사일</div>
-																			<input type="text" id="adm_hiredate"
-																				name="adm_hiredate" value="${admin.adm_hiredate}">
-																			<div class="field-label" id="email_message"
-																				style="text-align: right;"></div>
+																			<input type="date" id="adm_hiredate"
+																				name="adm_hiredate" value="${fn:substring(admin.adm_hiredate,0,10)}" required>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">퇴사일</div>
-																			<input type="text" id="adm_enddate"
-																				name="adm_enddate" value="${admin.adm_enddate}">
-																			<div class="field-label" id="email_message"
-																				style="text-align: right;"></div>
+																			<input type="date" id="adm_enddate"
+																				name="adm_enddate" value="${fn:substring(admin.adm_enddate,0,10)}">
 																		</div>
 																		<div>
-																			<button type="submit" class="theme-btn btn-style-five"
+																			<button type="submit" class="theme-btn btn-style-one"
 																				id="update_btn">
 																				<span class="btn-title btn_fix">수정 완료하기</span>
 																			</button>
@@ -196,5 +186,9 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script>
+		var dept = $('#adm_dept').val();
+		$("select[name=adm_dept]").val(dept).prop("selected", true);
+	</script>
 </body>
 </html>
