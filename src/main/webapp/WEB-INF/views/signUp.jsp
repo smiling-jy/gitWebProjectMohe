@@ -100,28 +100,6 @@
 						</a>
 					</div>
 				</form>
-				<div class="striped">
-					<span class="striped-line"></span> <span class="striped-text">Or</span>
-					<span class="striped-line"></span>
-				</div>
-				<div class="method">
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="fab fa-brands fa-google" style="color: red"></i> <span
-							style="margin-left: 0.3rem;">구글로 회원가입</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="#" class="method-action"> <i
-							class="ion ion-logo-facebook"></i> <span>카카오로 회원가입</span>
-						</a>
-					</div>
-					<div class="method-control">
-						<a href="javascript:;" class="method-action"> <i
-							class="ion ion-logo-apple"></i> <span>네이버로 회원가입</span>
-						</a>
-					</div>
-				</div>
 			</section>
 		</div>
 	</main>
