@@ -378,7 +378,17 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void adEventUpdate(EventVO vo) {
 		eventDao.updateEvent(vo);
-		
+	}
+
+	// 펀딩삭제
+	@Override
+	public void deleteFd(Funding_pjVO vo) {
+		funding_pjDao.deleteFunding_pj(vo);
+	}
+
+	@Override
+	public void deleteBs(BongsaVO vo) {
+		bongsaDao.deleteBongsa(vo);
 	}
 
 

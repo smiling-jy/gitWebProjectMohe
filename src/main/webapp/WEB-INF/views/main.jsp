@@ -95,7 +95,7 @@
 .rating{
 	position:absolute;
 	z-index:5;
- 	top:10px; 
+ 	top:0px; 
  	left:20px; 
 	width:100px;
 }
@@ -391,8 +391,7 @@
 			</div>
 		</section>
 		<!-- End Funfacts Section -->
-
-
+		
 		<!-- 리뷰 섹션1 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
@@ -417,7 +416,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="getReview.do?review_no=${bestRv.review_no}">
-										<img src="resources/files/review/${review.review_no}/reviewIMG.png"  style="width:370px;height:300px"alt=""></a>
+										<img src="resources/files/review/${bestRv.review_no}/reviewIMG.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
 										<c:choose>
@@ -456,6 +455,9 @@
 				<!--End Team Carousel-->
 			</div>
 		</section>
+	
+
+
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>
