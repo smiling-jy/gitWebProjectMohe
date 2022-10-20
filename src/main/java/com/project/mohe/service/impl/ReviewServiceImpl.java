@@ -27,7 +27,10 @@ public class ReviewServiceImpl implements ReviewService{
 		//user_vo에 userinfo에 저장된 값을 넣어줌
 		user_vo=userinfoDAO.getUserInfo(user_vo);
 		//reviewVO의 username에 userinfo에서 가져온 username을 넣어줌
+		//user rating도 넣어줌
 		vo.setUser_name(user_vo.getUser_name());
+		vo.setUser_rating(user_vo.getUser_rating());
+		
 		reviewDAO.insertReview(vo);
 		
 	}
