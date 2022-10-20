@@ -420,7 +420,11 @@
 										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
-										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+										<c:choose>
+											<c:when test="${bestRv.user_rating ne null}">
+												<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+											</c:when>
+										</c:choose>
 									</div>
 									<div class="lower-box">
 										<div class="content">
