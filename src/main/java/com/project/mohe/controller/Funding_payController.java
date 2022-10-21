@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.Funding_payService;
 import com.project.mohe.service.Funding_pjService;
 
@@ -66,5 +67,14 @@ public class Funding_payController {
 	public List<Funding_payVO> statusUpdate(Funding_payVO pay) {
 		funding_payService.updateFunding_pay(pay);
 		return funding_payService.getFunding_payList(pay);
+	}
+	
+	
+	@RequestMapping("myFundingList.do")
+	public String myFundingList(UserInfoVO vo , HttpServletRequest request, Model model){
+		HttpSession session = request.getSession();
+		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		model.addAttribute("pay_list", funding_payService.adGetFunding_payList(vo));
+		return "myFundingList";
 	}
 }

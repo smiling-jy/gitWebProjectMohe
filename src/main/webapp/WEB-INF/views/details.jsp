@@ -58,73 +58,7 @@
 					<div class="filter-list">
 
 						<main class="gallery-item-two mix mix-1 main">
-							<section class="wrapper">
-								<div class="row clearfix">
-									<div class="cart-outer m-auto">
-										<div class="table-column">
-											<div class="inner-column">
-
-												<div class="table-outer">
-													<div class="table-box">
-														<table class="cart-table">
-															<thead class="cart-header">
-																<tr>
-																	<th class="prod-column">프로젝트명</th>
-																	<th>&nbsp;</th>
-																	<th class="price">목표금액</th>
-																	<th>수량</th>
-																	<th>총액</th>
-																	<th>진행 상태</th>
-																	<th>리뷰작성</th>
-																	<th>&nbsp;</th>
-																</tr>
-															</thead>
-
-															<tbody>
-
-																<c:forEach items="${pj_list}" var="pj">
-																	<tr>
-																		<td colspan="2" class="prod-column">
-																			<div class="column-box">
-																				<figure class="prod-thumb">
-																					<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img
-																						class="lazy-image loaded"
-																						src="resources/files/funding/${pj.fd_img_name}/title.png"
-																						data-src="resources/files/funding/${pj.fd_img_name}/title.png"
-																						alt="" data-was-processed="true"></a>
-																				</figure>
-																				<h4 class="prod-title">${pj.fd_title}</h4>
-																			</div>
-																		</td>
-																		<td class="price">${pj.fd_goals}</td>
-																		<td class="qty">1</td>
-																		<td class="sub-total">${pj.fd_price}</td>
-
-																		<td class="sub-total">${pj.fd_status}</td>
-																		<td class="sub-total">
-																			<%-- 																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
-																			<a href="reviewWriting.do"
-																			onclick="insertFunding_cart('${pj.fd_no}');"><i
-																				class="fa fa-regular fa-comment"></i></a>
-																		</td>
-																	</tr>
-																</c:forEach>
-															</tbody>
-														</table>
-													</div>
-
-
-												</div>
-											</div>
-										</div>
-
-
-									</div>
-
-
-
-								</div>
-							</section>
+							
 						</main>
 
 						<main class="gallery-item-two mix mix-2 main">
