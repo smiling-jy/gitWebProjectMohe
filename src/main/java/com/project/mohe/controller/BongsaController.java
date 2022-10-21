@@ -127,10 +127,10 @@ public class BongsaController {
 		
 		//파일의 갯수를 불러와서 read_cnt에 저장
 		vo.setBs_img_cnt(vo.getFile().length);
-		// 프로젝트 번호를 폴더명으로 받아옴
-		String folder_name = vo.getBs_no()+"_이미지";
 		
 		bongsaService.insertBongsa(vo);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getBs_no()+"_이미지";
 	
 		// 타이틀 이미지 있는지 확인하는 조건문
 		if (!vo.getTitle_img().isEmpty()) {
