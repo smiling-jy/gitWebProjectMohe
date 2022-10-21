@@ -221,6 +221,18 @@
 			});
 		}
 	</script>
+	
+	<script type="text/javascript">
+		$('.plus')click(function () {
+			
+			$(this).parent().parent().append('<tr class="plus-tr" ><th>수량</th><th>총액</th>'
+												+'<th>배송주소</th><th>&nbsp;</th><th>리뷰작성</th></tr>'
+												+'<tr class="plus-tr" ><td>${pay.pay_count}</td><td>${pay.pay_total}</td>'
+												+'<td colspan="2">${pay.pay_pn_addr}</td><td><a href="reviewWriting.do"
+												+'onclick="insertFunding_cart(\'${pay.fd_no}\');"><i
+												+'class="fa fa-regular fa-comment"></i></a></td></tr>')
+		})
+	</script>
 
 </body>
 

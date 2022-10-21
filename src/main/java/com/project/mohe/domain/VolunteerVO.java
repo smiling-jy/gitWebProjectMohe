@@ -12,6 +12,7 @@ public class VolunteerVO {
 	private int bs_no;
 	private int user_no;
 	private String vt_bs_name;
+	private String bs_img_name;
 	private String vt_title;
 	private String vt_place;
 	private String vt_recruit_start;

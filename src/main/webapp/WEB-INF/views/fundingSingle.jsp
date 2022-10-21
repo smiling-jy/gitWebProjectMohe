@@ -99,7 +99,7 @@
 										${pj.fd_content}
 									</p>
 									<br/>
-									<c:forEach var="cnt" begin="0" end="${pj.fd_img_cnt}">
+									<c:forEach var="cnt" begin="1" end="${pj.fd_img_cnt}">
 										<img src="resources/files/funding/${pj.fd_img_name}/${cnt-1}.png">
 									</c:forEach>
 								</div>

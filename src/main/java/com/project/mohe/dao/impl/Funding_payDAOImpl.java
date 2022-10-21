@@ -1,6 +1,5 @@
 package com.project.mohe.dao.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_payVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.PagingVO;
 
 
 @Repository("funding_payDAO")
@@ -49,13 +48,18 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 	}
 
 	@Override
-	public List<Funding_payVO> adGetFunding_payList(UserInfoVO vo) {
+	public List<Funding_payVO> adGetFunding_payList(PagingVO vo) {
 		return mybatis.selectList("Funding_payDAO.adGetFunding_payList",vo);
 	}
 
 	@Override
 	public Funding_payVO getPay_no(Funding_payVO vo) {
 		return mybatis.selectOne("Funding_payDAO.getPay_no",vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("Funding_payDAO.getAllcnt",vo);
 	}
 
 
