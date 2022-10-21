@@ -32,7 +32,6 @@ $('#fd_enddate').change(
 		var start = new Date($('#fd_startdate').val());
 		var startPlus7d = new Date(start.setDate(start.getDate() + 7))
 		var end = new Date($('#fd_enddate').val());
-		alert(start)
 		if (startPlus7d < end){
 			$('#date_message').text("");
 			d_reslt = true;
@@ -69,11 +68,11 @@ $('#fd_host_email').blur(
 )
 
 
-$('#pay_pn_phone').blur(
+$('#fd_host_phone').blur(
 	function() {
 		// 전화번호 검사
 		var regNumber = /^[0-9]*$/;
-		var temp = $('#pay_pn_phone').val();
+		var temp = $('#fd_host_phone').val();
 
 		if (!regNumber.test(temp) || temp.length != 11) {
 			p_message = "정상적인 전화번호가 아닙니다."
