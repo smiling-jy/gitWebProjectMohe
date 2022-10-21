@@ -24,11 +24,19 @@
 	</select>
 	
 	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
-	<select id="adGetFunding_payList" parameterType="userInfo" resultType="funding_pay">
-		select * 
-		from funding_pay
-		where user_no = #{user_no}
-		order by pay_no desc
+	<select id="adGetFunding_payList" parameterType="page" resultType="funding_pay">
+		select p.fd_no, p.fd_title, p.pay_total, p.pay_count, to_char(p.pay_date, 'yy/mm/dd') date_for_list
+			   , p.pay_status, p.pay_pn_addr , f.fd_img_name , p.fd_hostname
+		 from funding_pay p , funding_pj f
+		where p.fd_no = f.fd_no
+		  and pay_no in(select pay_no from
+				(select pay_no,rownum AS rnum from
+				(select pay_no from funding_pay 
+							  where user_no = ${select}
+						   order by pay_no desc))
+		  where <![CDATA[rnum >= #{firstRow}]]>
+		  and <![CDATA[rnum <= #{endRow})]]>
+		order by p.pay_no desc
 	</select>
 	
 	<update id="updateFunding_pay" parameterType="funding_pay">
@@ -43,4 +51,13 @@
 		  from funding_pay
 		 where pay_no = #{pay_no}
 	</select>
+	
+	<!-- 페이징 -->
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select count(pay_no) as totalRecCount 
+		  from funding_pay
+		 where user_no = ${select}
+	</select>
+	
+	
   </mapper>

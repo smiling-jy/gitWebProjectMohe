@@ -9,24 +9,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.AdminService;
+import com.project.mohe.service.PagingService;
 import com.project.mohe.service.VolunteerService;
 
 @Controller
 public class VolunteerController {
 	@Autowired
 	private VolunteerService volunteerService; 
+	@Autowired
+	private PagingService pagingService;
 	
 	//참여하기 버튼 클릭시 VOLUNTEER 테이블에 추가 
 	@RequestMapping(value ="insertVolunteer.do", produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String insertVolunteer(VolunteerVO vo, HttpServletRequest request) {
-
-		
-		
-		
-		
 		
 		//세션에서 user_no 받아오기 
 		HttpSession session =  request.getSession();
@@ -51,4 +50,23 @@ public class VolunteerController {
 		System.out.println("insertVolunteer 출구 : " + result);
 		return result;
 	}
+	
+	// 참여내역
+	@RequestMapping("myVolunList.do")
+	public String myFundingList(PagingVO vo , HttpServletRequest request, Model model){
+		HttpSession session = request.getSession();
+		vo.setSelect(String.valueOf(session.getAttribute("user_no")));
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(volunteerService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		
+		model.addAttribute("page",vo);		
+		model.addAttribute("vl_list", volunteerService.adGetVolunteerList(vo));
+		System.out.println();
+		return "myVolunList";
+	}
+	
+	
 }

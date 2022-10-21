@@ -165,7 +165,7 @@
 						contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 						success : function(result) {
 							if (result === 'true') {
-								location.href = "/mohe/main.do";
+								location.href = "main.do";
 							} else {
 								alert('이메일 또는 패스워드가 틀립니다.');
 							}

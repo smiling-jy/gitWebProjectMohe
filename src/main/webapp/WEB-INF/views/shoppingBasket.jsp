@@ -205,7 +205,7 @@
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="myVolunList.do">봉사참여목록</a></li>
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>
