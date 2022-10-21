@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,27 +53,28 @@
 											<table class="cart-table">
 												<thead class="cart-header">
 													<tr>
-														<th class="prod-column">프로젝트명</th>
+														<th class="prod-column">후기 제목</th>
 														<th>&nbsp;</th>
-														<th>수량</th>
-														<th>총액</th>
-														<th>진행 상태</th>
-														<th>리뷰작성</th>
+														<th>작성날짜</th>
+														<th>조회수</th>
+														<th>수정&nbsp;/&nbsp;삭제</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach items="${pay_list}" var="pj">
+													<c:forEach items="${myReviewList}" var="review">
 														<tr>
 															<td colspan="2" class="prod-column">
-																<h4 class="prod-title">${pj.fd_title}</h4>
+																<a href="getReview.do?review_no=${review.review_no}" style="color:black;">
+																	<h5 class="prod-title">${review.review_title}</h5>
+																</a>
 															</td>
-															<td>${pj.pay_count}</td>
-															<td>${pj.pay_total}</td>
-															<td>${pj.fd_status}</td>
-															<td class="sub-total">									 																	
-																<a href="reviewWriting.do"
-																onclick="insertFunding_cart('${pj.fd_no}');"><i
-																	class="fa fa-regular fa-comment"></i></a>
+															<td><fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></td>
+															<td>${review.review_read_cnt}</td>
+															<td>
+																<a href="goUpdate.do?review_no=${review.review_no}" class="remove-btn"> <span
+																			class="flaticon-check"></span>
+																</a>&nbsp;&nbsp;&nbsp; <a href="myReviewDelete.do?review_no=${review.review_no}">
+																<span class="flaticon-delete-1"></span></a>
 															</td>
 														</tr>
 													</c:forEach>
@@ -119,7 +121,7 @@
 									<ul class="cart-ul">
 										<li>펀딩
 											<ul>
-												<li class="current"><a href="myFundingList.do">펀딩참여목록</a></li>
+												<li><a href="myFundingList.do">펀딩참여목록</a></li>
 												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
 											</ul>
 										</li>
@@ -132,7 +134,7 @@
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
 										<li>후기
 											<ul>
-												<li><a href="myReviewList.do">나의후기목록</a></li>
+												<li class="current"><a href="myReviewList.do">나의후기목록</a></li>
 											</ul>
 										</li>
 									</ul>

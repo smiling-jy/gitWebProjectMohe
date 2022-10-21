@@ -70,5 +70,10 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDAO.getAllcnt(vo);
 	}
 
+	@Override
+	public List<ReviewVO> getMyReviewList(HashMap map) {
+		return reviewDAO.getMyReview(map);
+	}
+
 	
 }

@@ -93,8 +93,8 @@
                       			</div>
                       			<!-- 세션이 저장되어 있는 유저넘버를 review db로 가지고 가기 -->
                             	<input type="hidden" name="user_no" value="${sessionScope.user_no}">
-                            	<!-- 리뷰모음에서 넘어온 page 값 -->
-                            	<input type="hidden" name="page" value="review">
+                            	<!-- 마이페이지에서 넘어온 page 값 -->
+                            	<input type="hidden" name="page" value="mypage">
                                 <div class="btn-box" style="text-align:center;">
                         			<button type="submit" class="theme-btn btn-style-one place-order"><span class="btn-title">수정하기</span></button>
                          		</div>
