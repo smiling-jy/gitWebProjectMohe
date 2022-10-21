@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<!-- dho..? -->
+	<!--확인-->
 	<div class="page-wrapper newFont">
 
 		<!-- header include -->
