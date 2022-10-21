@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="getBongsa_cartList" parameterType="HashMap" resultType="bongsa">
-		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
+		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT, b.BS_IMG_NAME,
            	   b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end
     	  FROM BONGSA b,userinfo u, VOLUNTEER_CART cart
 	     where b.user_no = u.user_no

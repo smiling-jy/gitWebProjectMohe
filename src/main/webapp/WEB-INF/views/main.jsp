@@ -104,6 +104,9 @@
 	color:white;
 	border-radius: 10px;
 }
+banner-section img { 
+    filter: brightness(50%); 
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -141,7 +144,7 @@
 					<div class="slide-item slid_fix">
 <!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.PNG')"></div>
+							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
@@ -169,8 +172,8 @@
 					<!-- a태그 안의 img , 파트너 로고 -->
 					<c:forEach items="${partner}" var="partner">
 						<a href="${partner.partner_url}"><img class="lazy-image"
-							src="resources/images/resource/image-spacer-for-validation.png"
-							data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+							src="resources/files/partner/${partner.partner_no}/logoIMG.png"
+							data-src="resources/files/partner/${partner.partner_no}/logoIMG.png"
 							style="height: 360px;" alt=""></a>
 					</c:forEach>
 				</div>
@@ -472,7 +475,7 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.PNG" />
+				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" />
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">

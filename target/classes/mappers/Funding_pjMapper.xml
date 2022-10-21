@@ -17,7 +17,7 @@
 								,FD_STATUS,FD_READ_CNT,FD_PRICE,USER_NO)
 				values(FD_PJ_SEQ.nextval , #{fd_category}, #{fd_title} ,#{fd_content} ,#{fd_receiver}
 						, #{fd_goals}, #{fd_startdate}, #{fd_enddate}, #{fd_hostname}, #{fd_host_phone}
-						, #{fd_host_email} , #{fd_img_cnt} , FD_PJ_SEQ.nextval , '진행중'
+						, #{fd_host_email} , #{fd_img_cnt} , FD_PJ_SEQ.nextval , '대기중'
 						, #{fd_read_cnt} , #{fd_price} , #{user_no})
 	</insert>
   
@@ -39,6 +39,7 @@
   		</if>
   		<if test="search != null">
   			and pj.fd_title like '%${search}%'
+  			 or pj.fd_content like '%${search}%'
   		</if>
   		<choose>
   			<when test="select != null">
@@ -132,6 +133,7 @@
                         		  from funding_pay
                     		  group by fd_no) pay
   		 where pj.fd_no = pay.fd_no(+)
+  		   and pj.fd_status != '대기중'
   		   and pj.fd_no = #{fd_no}
   	</select>
   	

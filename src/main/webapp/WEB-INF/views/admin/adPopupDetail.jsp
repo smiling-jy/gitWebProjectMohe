@@ -75,7 +75,7 @@
 													<div class="user_pf_div">
 														<div class="form-group col-lg-12 col-md-12 col-sm-12">
 															<div class="field-label">팝업 이미지</div>
-															<img src="../resources/files/popup/${pop.pop_no}/popupIMG.PNG" /> 
+															<img src="../resources/files/popup/${pop.pop_no}/popupIMG.png" /> 
 														</div>
 													</div>
 													<div class="row clearfix">

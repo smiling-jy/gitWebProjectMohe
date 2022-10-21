@@ -17,10 +17,35 @@
 	text-align: center;
 }
 
+
+
+/* 봉사 메인페이지 썸네일 정보 띄어쓰기 */
+
+/* 썸네일 모집자, 썸네일 모집인원, 모집성공 인원 */
+.bs-name, .bs-goal-cnt, .bs-success-cnt{
+	margin-left: 10px;
+}
+
+/* 썸네일 봉사 제목 */
+.bs-title{
+	font-weight: bold;
+
+}
+
+#bs-regeion-container{
+	text-align: center;
+	margin-bottom: 50px
+}
+
+
 /* 지역 카테고리 정렬*/
 .bs-regeion{
 	position:relative;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-bottom: 1px solid rgba(0,0,0,.08);
+	border-top: 1px solid rgba(0,0,0,.08);
+
 }
 
 .bs-regeion li{
@@ -28,12 +53,12 @@
 	display:inline-block;
 	line-height:30px;
 	margin-left:24px;
-	font-size:25px;
+	font-size:20px;
 	font-weight:300;
+	
 }
 
  .bs-regeion li:before{
-	content:'/';
 	position:absolute;
 	right:-24px;
 	width: 24px;
@@ -60,31 +85,22 @@
 }
 
 /* 지역 카테코리 줄넘김 방지 */
-/* .bs-regeion{
+.bs-regeion{
 	width: max-content;
-} */
+	
+} 
 
 /* 지역별 카테고리 클릭 및 선택시 */
 .bs-regeion> li> a:hover{
 	color: #3cc88f;
 }
 
-/* 봉사 메인페이지 썸네일 정보 띄어쓰기 */
-
-/* 썸네일 모집자, 썸네일 모집인원, 모집성공 인원 */
-.bs-name, .bs-goal-cnt, .bs-success-cnt{
-	margin-left: 10px;
-}
-
-/* 썸네일 봉사 제목 */
-.bs-title{
-	font-weight: bold;
-
-}
-
 #bs-regeion-container{
-	text-align: center;
+	width: max-content;
+	margin-bottom: 100px;
+
 }
+
 
 .bs-more{
 	text-align: center;
@@ -116,12 +132,12 @@
 .bs-search-main{
 	display: inline;
 	float: right;
-	padding-top: 15px;
+	padding-top: 25px;
 	
 }
 
 
 .bongsa-search-box{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 

@@ -22,7 +22,7 @@
 	BS_NO,
 	USER_NO
 	)
-	VALUES (volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
+	VALUES(volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
 	'2022-05-20','2022-06-08','2022-06-08','2022-06-09',
 	1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
   </insert>

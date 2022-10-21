@@ -401,10 +401,15 @@ public class AdminServiceImpl implements AdminService {
 	public void adFdUpdate(Funding_pjVO vo) {
 		adminDao.adFdUpdate(vo);
 	}
-
+	// 봉사 상세보기
 	@Override
 	public BongsaVO adBsDetail(BongsaVO vo) {
 		return adminDao.adBsDetail(vo);
+	}
+	// 봉사 수정하기
+	@Override
+	public void adBsUpdate(BongsaVO vo) {
+		adminDao.adBsUpdate(vo);
 	}
 	
 	

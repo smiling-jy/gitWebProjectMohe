@@ -49,12 +49,12 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">파트너쉽 관리</a>
+						<a href="adPartnerList.do">파트너쉽 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="height:880px">
 						<div>
-							<form name="partnerInsert" action="adPartnerInsert.do" method="post">
+							<form name="partnerInsert" action="adPartnerInsert.do" method="post" enctype="multipart/form-data">
 								<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
@@ -65,9 +65,9 @@
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">대표 이미지</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file" name="partner_logo">
-												</div>
+													<img id="title_image" src="../resources/images/imsi_img1.png" /> 
+													<input type="file" id="partner_title_image" name="logo_img_file" class="add-file" value="타이틀 이미지 첨부하기">
+											</div>
 											</div>
 											<div class="row clearfix">
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
@@ -145,6 +145,18 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+		
+		// 파트너 타이틀 사진 미리보기
+		$('#partner_title_image').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("title_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("partner_title_image").files[0]);
+		});
 	</script>
 </body>
 </html>
