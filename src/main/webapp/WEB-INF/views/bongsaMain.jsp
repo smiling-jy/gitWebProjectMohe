@@ -93,7 +93,8 @@
 								<div class="image-box">
 									<figure class="image">
 										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}">
-										<img class="lazy-image" src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+										<img class="lazy-image img_size" src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+											data-src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
 											alt="타이틀이미지"></a>
 									</figure>
 								</div>
@@ -120,7 +121,7 @@
 												신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 									</div>
 								</div>
-								<div class="lower-content ">
+								<div class="lower-content">
 									<h3>
 										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="bs-title newFont">${bongsa.bs_title}</a>
 									</h3>
@@ -128,7 +129,7 @@
 										<span class="raised"><strong>주최 :</span><span
 											class="bs-name">${bongsa.bs_name}</span></strong>
 									</div>
-									<div>
+									<div class="bs-content-box">
 										<span class="bs-content">${bongsa.bs_content}</span>
 									</div>
 									<br>
