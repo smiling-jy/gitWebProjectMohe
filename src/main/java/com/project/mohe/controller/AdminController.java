@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,8 @@ public class AdminController {
 	private BongsaService bongsaService;
 	@Autowired
 	private ReviewService reviewService;
+	@Autowired
+	ServletContext servletContext;
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -191,7 +194,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getUser_img_file().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/user/"+folder_name + "/" + "userIMG" + fileExtension);
 
 			try {
@@ -276,7 +279,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
 
 			try {
@@ -307,7 +310,7 @@ public class AdminController {
 			
 			// 타이틀 이미지 저장
 			String fname = vo.getMain_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
 			
 			try {
@@ -351,7 +354,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
 
 			try {
@@ -382,7 +385,7 @@ public class AdminController {
 			
 			// 타이틀 이미지 저장
 			String fname = vo.getMain_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
 			
 			try {
@@ -475,7 +478,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = pj.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name + "/" + "title" + fileExtension);
 
 			try {
@@ -578,7 +581,86 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
-		adminService.adBsDetail(vo);
+		System.out.println(vo);
+		String strStart = vo.getBs_work_start();
+		String strEnd = vo.getBs_work_end();
+		
+		char T = 'T';
+		
+		strStart = strStart.replace(String.valueOf(T), " ");
+		strEnd = strEnd.replace(String.valueOf(T), " ");
+		
+		vo.setBs_work_start(strStart);
+		vo.setBs_work_end(strEnd);
+		
+		//파일의 갯수를 불러와서 read_cnt에 저장
+		vo.setBs_img_cnt(vo.getFile().length);
+		System.out.println(vo.getBs_img_cnt()+"이미지 cnt 숫자");
+		// 이미지 이름 저장
+		vo.setBs_img_name(vo.getBs_no()+"_이미지");
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = vo.getBs_no()+"_이미지";
+
+		adminService.adBsUpdate(vo);
+		
+		// 타이틀 이미지 있는지 확인하는 조건문
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!vo.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = vo.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name + "/" + "title" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				vo.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+
+			// 내용 이미지 배열 확인 조건문
+			if (vo.getFile().length != 0) {
+
+				// 배열을 담기 위한 반복문
+				for (int i = 0; i < vo.getFile().length; i++) {
+
+					fname = vo.getFile()[i].getOriginalFilename();
+					fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();
+
+					f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/" + folder_name + "/" + i + fileExtension);
+
+					try {
+						// 파일저장
+						vo.getFile()[i].transferTo(f);
+						System.out.println(i + " 번 파일이 저장되었습니다");
+
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				} // for_end
+			} // if_end
+		} // if_end
+		
 		return "redirect:/admin/adBsList.do";
 	}
 	// 승인된 봉사 목록
@@ -859,7 +941,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
 
 			try {
@@ -904,7 +986,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
 
 			try {

@@ -129,6 +129,7 @@
 													<div class="field-label">내용 이미지</div>
 													<input type="file" name="file" multiple="multiple" id="multi-file" class="add-file" value="내용 이미지 첨부하기" >
 													<img id="main_image" src="">
+													<input type="hidden" name="fd_img_cnt" value="${fd.fd_img_cnt}">
 													<c:forEach var="cnt" begin="1" end="${fd.fd_img_cnt}">
 														<img class="forIMG" src="../resources/files/funding/${fd.fd_img_name}/${cnt}.png">
 													</c:forEach>
@@ -212,7 +213,7 @@
 		    preview.readAsDataURL(document.getElementById("fd_title_image").files[0]);
 		});
 		
-		// 회원 프로필 프리뷰 기능
+		// 펀딩 메인 프리뷰 기능
 		$('#multi-file').change(function(){
 	        // 파일리더 생성 
 	        var preview = new FileReader();
