@@ -153,6 +153,20 @@
 	</select>
 	<!-- 봉사 수정하기 -->
 	<update id="adBsUpdate" parameterType="bongsa">
-		
+		update bongsa
+		set bs_title = #{bs_title},
+			bs_content = #{bs_content},
+			bs_region = #{bs_region},
+			bs_place = #{bs_place},
+			bs_goal_cnt = #{bs_goal_cnt},
+			bs_recruit_start = #{bs_recruit_start},
+			bs_recruit_end = #{bs_recruit_end},
+			bs_work_start = to_date(#{bs_work_start},'yyyy-mm-dd hh24:mi'),
+			bs_work_end = to_date(#{bs_work_end},'yyyy-mm-dd hh24:mi'),
+			bs_name = #{bs_name},
+			bs_phone = #{bs_phone},
+			bs_email = #{bs_email},
+			bs_img_cnt = #{bs_img_cnt}
+		where bs_no = ${bs_no}
 	</update>
 </mapper>

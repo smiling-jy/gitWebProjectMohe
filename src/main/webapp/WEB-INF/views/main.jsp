@@ -104,6 +104,9 @@
 	color:white;
 	border-radius: 10px;
 }
+banner-section img { 
+    filter: brightness(50%); 
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -169,7 +172,7 @@
 					<!-- a태그 안의 img , 파트너 로고 -->
 					<c:forEach items="${partner}" var="partner">
 						<a href="${partner.partner_url}"><img class="lazy-image"
-							src="resources/images/resource/image-spacer-for-validation.png"
+							src="resources/files/partner/${partner.partner_no}/logoIMG.png"
 							data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
 							style="height: 360px;" alt=""></a>
 					</c:forEach>
@@ -472,7 +475,7 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.PNG" />
+				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" />
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">

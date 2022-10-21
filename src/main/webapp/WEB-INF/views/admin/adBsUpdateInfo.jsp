@@ -50,19 +50,19 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adFdApproval.do">신청 봉사 관리</a>
+						<a href="adFdApproval.do">봉사 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="overflow:auto;">
 						<div>
-<!-- 						 <form method="post" action="insertBongsa.do" enctype="multipart/form-data"> -->
+						 <form method="post" action="adBsUpdate.do" enctype="multipart/form-data">
 							<!-- 여기 폼시작 -->
 							<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
 									<div class="inner">
 										<div class="donate-form">
-											<h3 style="margin-left:110px;">신청 봉사 상세정보</h3>
+											<h3 style="margin-left:110px;">봉사 수정하기</h3>
 											<div style="height: 50px;"></div>
 											<h2>NO. ${bs.bs_no}</h2>
 											<hr style="width: 430px; color: white;">
@@ -70,20 +70,22 @@
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">타이틀 사진</div>
 													<img id="title_image" src="../resources/files/bongsa/${bs.bs_img_name}/title.png" /> 
+													<input type="file" id="bs_title_image" name="title_img" class="add-file" value="타이틀 이미지 첨부하기">
+													<input type="hidden" name="bs_no" value="${bs.bs_no}">
 											</div>
 											</div>
 											<div class="row clearfix">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">봉사활동명</div>
-													<input type="text" name="bs_title" value='${bs.bs_title}' readonly>
+													<input type="text" name="bs_title" value='${bs.bs_title}' required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">봉사 활동 소개</div>
-													<textarea name="bs_content"readonly>${bs.bs_content}</textarea>
+													<textarea name="bs_content"required>${bs.bs_content}</textarea>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">봉사 지역</div>
-													<select name="bs_region"readonly>
+													<select name="bs_region"required>
 								                         <option>전국</option>
 								                         <option>서울</option>
 								                         <option>경기인천</option>
@@ -99,52 +101,61 @@
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">장소</div>
-													<input type="text" name="bs_place" value="${bs.bs_place}" readonly>
+													<input type="text" name="bs_place" value="${bs.bs_place}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">모집인원</div>
-													<input type="text" name="bs_goal_cnt" value="${bs.bs_goal_cnt}" readonly>
+													<input type="text" name="bs_goal_cnt" value="${bs.bs_goal_cnt}" required>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">모집시작일</div>
-													<input type="date" name="bs_recruit_start" value="${fn:substring(bs.bs_recruit_start,0,10)}" readonly>
+													<input type="date" name="bs_recruit_start" value="${fn:substring(bs.bs_recruit_start,0,10)}" required>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">모집종료일</div>
-													<input type="date" name="bs_recruit_end" value="${fn:substring(bs.bs_recruit_end,0,10)}" readonly>
+													<input type="date" name="bs_recruit_end" value="${fn:substring(bs.bs_recruit_end,0,10)}" required>
 												</div>
 												<hr>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">봉사시작 일시</div>
-													<input type="datetime-local" name="bs_work_start" value="${bs.bs_work_start}" readonly>
+													<input type="datetime-local" name="bs_work_start" value="${bs.bs_work_start}" required>
 												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">봉사종료 일시</div>
-													<input type="datetime-local" name="bs_work_end" value="${bs.bs_work_end}" readonly>
+													<input type="datetime-local" name="bs_work_end" value="${bs.bs_work_end}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">모집자(단체)</div>
-													<input type="text" name="bs_name" value="${bs.bs_name}" readonly>
+													<input type="text" name="bs_name" value="${bs.bs_name}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">모집자 연락처</div>
-													<input type="text" name="bs_phone" value="${bs.bs_phone}"  readonly>
+													<input type="text" name="bs_phone" value="${bs.bs_phone}"  required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">모집자 이메일</div>
-													<input type="text" name="bs_email" value="${bs.bs_email}" readonly>
+													<input type="text" name="bs_email" value="${bs.bs_email}" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">내용 이미지</div>
+													<input type="file" id="multi-file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기">
+													<img src="" id="main_image">
+													<input type="hidden" name="bs_img_cnt" value="${bs.bs_img_cnt}">
 													<c:forEach var="cnt" begin="1" end="${bs.bs_img_cnt}">
-														<img src="../resources/files/bongsa/${bs.bs_img_name}/${cnt}.png">
+														<img class="forIMG" src="../resources/files/bongsa/${bs.bs_img_name}/${cnt}.png">
 													</c:forEach>
+												</div>
+												<div>
+													<button type="submit" class="theme-btn btn-style-one"
+														id="update_btn">
+														<span class="btn-title btn_fix">수정 완료하기</span>
+													</button>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-<!-- 						</form> -->
+							</form>
 						</div>
 						<!-- form2 끝-->
 
@@ -198,7 +209,32 @@
 	<script src="../resources/js/script.js"></script>
 	<script>
 		var dept = $('#bs_region').val();
-		$("select[name=bs_region]").val(dept).prop("selected", true)
+		$("select[name=bs_region]").val(dept).prop("selected", true);
+		
+		// 봉사 타이틀 사진 미리보기
+		$('#bs_title_image').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("title_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("bs_title_image").files[0]);
+		});
+		
+		// 봉사 메인 프리뷰 기능
+		$('#multi-file').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("main_image").src = e.target.result;
+	        	$('.forIMG').css("display","none");
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("multi-file").files[0]);
+		});
 	</script>
 </body>
 </html>
