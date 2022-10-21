@@ -59,4 +59,9 @@ public class MyaccountServiceImpl implements MyaccountService {
 	public int resetPassword(UserInfoVO vo) {
 		return myaccountDAO.resetPassword(vo);
 	}
+	
+	@Override
+	public int updateUserinfoUserOutdate(UserInfoVO vo) {
+		return myaccountDAO.updateUserinfoUserOutdate(vo);
+	}
 }

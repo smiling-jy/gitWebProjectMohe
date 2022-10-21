@@ -6,7 +6,7 @@
 <mapper namespace="UserInfoDAO">
 	<select id="emailCheck" parameterType="userInfo"
 		resultType="userInfo">
-		SELECT * FROM USERINFO WHERE USER_EMAIL = #{user_email}
+		SELECT * FROM USERINFO WHERE USER_EMAIL = #{user_email} AND USER_OUTDATE IS NULL
 	</select>
 
 	<insert id="insertUserInfo" parameterType="userInfo">
@@ -22,6 +22,7 @@
 		WHERE USER_EMAIL = #{user_email} 
 		AND USER_PASSWORD = #{user_password}
 		AND USER_INTYPE = 'EMAIL'
+		AND USER_OUTDATE IS NULL
 	</select>
 	<!-- end date 즉 회원 탈퇴,정지된 회원을 제외한 회읜의 리스트 -->
 	<select id="getUserList" resultType="userInfo">
@@ -67,7 +68,7 @@
 		resultType="userInfo">
 		select *
 		from userinfo
-		where user_no = #{user_no}
+		where user_no = #{user_no} AND USER_OUTDATE IS NULL
 	</select>
 	<!-- 회원 탈퇴, 사용정지시 outdate 업데이트 -->
 	<update id="updateOutDate" parameterType="userInfo">

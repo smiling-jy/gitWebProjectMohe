@@ -24,4 +24,6 @@ public interface MyaccountService {
 	int countAccountByEmail(UserInfoVO vo);
 
 	int resetPassword(UserInfoVO vo);
+	
+	int updateUserinfoUserOutdate(UserInfoVO vo);
 }

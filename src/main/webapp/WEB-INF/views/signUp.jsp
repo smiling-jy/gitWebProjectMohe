@@ -19,6 +19,8 @@
 	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+	
+<link href="resources/css/cart.css" rel="stylesheet">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,8 +47,7 @@
 		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
-					<h1 class="text text-large">회원가입</h1>
-					<span class="text text-normal">모해에 가입해 봉사와 펀딩 이용해 보세요 </span>
+					<span class="text text-normal">모해에 가입해 봉사와 펀딩을 이용해 보세요 </span>
 				</div>
 				<form id="form_eamil_signUp" action="email/signUp.do" method="post" class="form">
 					<div class="input-control">
@@ -134,6 +135,8 @@
 	
 		function btnEmailCheck() {
 			var user_email = $('#user_email');
+// 			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			
 			if (user_email.val() === "") {
 				alert("이메일을 입력해 주세요.");
 				user_email.focus();
@@ -215,6 +218,7 @@
 			}
 			
 			var user_phone = $('#user_phone');
+// 			var regNumber = /^[0-9]*$/;
 			if (user_phone.val() === "") {
 				alert("핸드폰 번호를 입력해 주세요.");
 				user_phone.focus();

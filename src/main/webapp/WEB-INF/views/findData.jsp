@@ -19,6 +19,8 @@
 	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+	
+<link href="resources/css/cart.css" rel="stylesheet">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,8 +46,8 @@
 		<section class="gallery-page-section">
 			<div class="auto-container">
 				<!--MixitUp Galery-->
+				
 				<div class="mixitup-gallery">
-					<!--Filter-->
 					<div class="filters clearfix">
 						<ul class="filter-tabs filter-btns clearfix">
 							<li class="filter active" data-role="button" data-filter=".mix-1">이메일
@@ -60,7 +62,6 @@
 						<main class="gallery-item-two mix mix-1 main">
 							<section class="wrapper">
 								<div class="heading">
-									<h1 class="text text-large">이메일 찾기</h1>
 									<span class="text text-normal">모해는 이메일을 아이디로 사용합니다. 소유하고
 										계신 계정을 입력해보세요. 가입여부를 확인해드립니다. </span>
 								</div>
@@ -83,7 +84,6 @@
 						<main class="gallery-item-two mix mix-2 main">
 							<section class="wrapper">
 								<div class="heading">
-									<h1 class="text text-large">비밀번호 찾기</h1>
 									<span class="text text-normal">가입하셨던 이메일 계정을 입력하시면,
 										비밀번호를 새로 만들 수 있는 링크를 이메일로 발송해드립니다. </span>
 								</div>

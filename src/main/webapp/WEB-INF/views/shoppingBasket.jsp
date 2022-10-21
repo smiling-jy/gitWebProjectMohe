@@ -129,11 +129,9 @@
 														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 															<div class="image-box">
 																<figure class="image">
-																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img
-																			class="lazy-image img-size"
-																			src="resources/files/funding/${bongsa.bs_img_name}/title.png"
-																			data-src="resources/files/funding/${bongsa.bs_img_name}/title.png"
-																			alt="타이틀 이미지"></a>
+																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
+																		src="resources/images/resource/image-spacer-for-validation.png"
+																		data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
 																</figure>
 															</div>
 															<div class="donate-info">
@@ -145,8 +143,9 @@
 																	</div>
 																</div>
 																<div class="donation-count clearfix">
-																	<span class="raised"><strong>모집인원 : </strong><span class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span>
-																	<span class="raised"><strong>현재 신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
+																	<span class="raised"><strong>모집인원:</strong><span
+																		class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
+																			신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 																</div>
 															</div>
 															<div class="lower-content ">
@@ -173,8 +172,9 @@
 									<label for="userName" class="input-label"></label>
 									<div class="profile-user-img margin-auto">
 										<img class="margin-auto profile-user-img-img"
-											src="resources/images/mohe_logo/img_no_profile.png"
-											alt="profile-user-img" style="max-width: 130px">
+																	src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+																	onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
+																	alt="profile-user-img" style="max-width: 130px">
 									</div>
 								</div>
 								<h3 class="sidebar-title new-font">
@@ -187,7 +187,8 @@
 									<div class="clearfix">
 										<div class="text-center">
 											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
-												class="btn-title">회원 수정</span></a><br /> <a href="#"
+												class="btn-title">회원 수정</span></a><br /> 
+											<a href="javascript:void(0)" onclick="javascript:userOut();"
 												class="theme-btn btn-style-one"><span
 												class="btn-title bg-red">회원 탈퇴</span></a>
 										</div>
@@ -206,7 +207,7 @@
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="myVolunList.do">봉사참여목록</a></li>
+												<li><a href="details.do">봉사참여목록</a></li>
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>
@@ -243,6 +244,29 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	
+	
+	<script>
+		function userOut() {
+			if (confirm("탈퇴 하시겠습니까?")) {
+				$.ajax({
+					type : 'post',
+					url : 'updateUserinfoUserOutdate.do',
+					success : function(result) {
+						if (result > 0) {
+							alert("탈퇴 되었습니다.");
+							location.href = "main.do";
+						} else {
+							alert("탈퇴를 실패 하였습니다.");
+						}
+					},
+					error : function() {
+						alert('error');
+					}
+				});
+			}
+		}
+	</script>
 
 </body>
 
