@@ -9,10 +9,15 @@ $(function(){
 		//연결
 		   Kakao.Share.sendDefault({
 			      objectType: 'text',
-			      text:$('#event-title').text(),  
+			      text:$('#review_title').text(),  
 			      link: {
-			        webUrl: 'http://localhost:8080/mohe/getEvent.do?event_no='+$(this).prev().val(),
+			        webUrl: 'http://localhost:8080/mohe/getReview.do?review_no='+$(this).prev().val(),
 			      },
 			    })
 	})
 })
+		
+		
+		
+
+	

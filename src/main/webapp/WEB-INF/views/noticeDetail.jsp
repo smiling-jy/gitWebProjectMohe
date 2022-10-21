@@ -77,7 +77,7 @@
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>왜안뜨니${notice.adm_id}</li>
-                                    <li>  <fmt:formatDate value="${notice.notice_date}" pattern="yyyy년 MM월 dd일  hh시mm분"></fmt:formatDate></li>
+                                    <li>  <fmt:formatDate value="${notice.notice_date}" pattern="yyyy년 MM월 dd일  HH시mm분"></fmt:formatDate></li>
                                 </ul>
                         
                             </div>
