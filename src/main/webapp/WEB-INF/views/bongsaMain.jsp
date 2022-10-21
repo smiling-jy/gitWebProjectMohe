@@ -122,7 +122,7 @@
 								</div>
 								<div class="lower-content ">
 									<h3>
-										<a href="bongsaDetail.do" class="bs-title newFont">${bongsa.bs_title}</a>
+										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="bs-title newFont">${bongsa.bs_title}</a>
 									</h3>
 									<div class="donation-count clearfix">
 										<span class="raised"><strong>주최 :</span><span
@@ -132,10 +132,6 @@
 										<span class="bs-content">${bongsa.bs_content}</span>
 									</div>
 									<br>
-									<div class="link-box">
-										<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-two"><span
-											class="btn-title">Read More</span></a>
-									</div>
 								</div>
 							</div>
 						</div> 
