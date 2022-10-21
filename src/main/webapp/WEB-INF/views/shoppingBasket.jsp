@@ -129,9 +129,11 @@
 														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
 															<div class="image-box">
 																<figure class="image">
-																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
+																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img
+																			class="lazy-image img-size"
+																			src="resources/files/funding/${bongsa.bs_img_name}/title.png"
+																			data-src="resources/files/funding/${bongsa.bs_img_name}/title.png"
+																			alt="타이틀 이미지"></a>
 																</figure>
 															</div>
 															<div class="donate-info">
@@ -143,9 +145,8 @@
 																	</div>
 																</div>
 																<div class="donation-count clearfix">
-																	<span class="raised"><strong>모집인원:</strong><span
-																		class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
-																			신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
+																	<span class="raised"><strong>모집인원 : </strong><span class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span>
+																	<span class="raised"><strong>현재 신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 																</div>
 															</div>
 															<div class="lower-content ">

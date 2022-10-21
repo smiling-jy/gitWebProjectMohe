@@ -50,17 +50,13 @@
 				<ul class="bs-regeion">
 					<li><a href="bongsaMain.do">전국</a></li>
 					<li><a href="bongsaMain.do?bs_region=서울">서울</a></li>
-					<li><a href="bongsaMain.do?bs_region=경기인천">경기 인천</a></li>
+					<li><a href="bongsaMain.do?bs_region=경기인천">경기•인천</a></li>
 					<li><a href="bongsaMain.do?bs_region=강원">강원</a></li>
-					<li><a href="bongsaMain.do?bs_region=대구경북">대구 경북</a></li>
-				</ul>
-				<!-- </div> -->
-				<!-- <div> -->
-				<ul class="bs-regeion">
-					<li><a href="bongsaMain.do?bs_region=광주전라">광주 전라</a></li>
-					<li><a href="bongsaMain.do?bs_region=울산부산경남">울산 부산 경남</a></li>
-					<li><a href="bongsaMain.do?bs_region=대전세종충남">대전 세종 충남</a></li>
-					<li><a href="bongsaMain.do?bs_region=제주도">제주도</a></li>
+					<li><a href="bongsaMain.do?bs_region=대구경북">대구•경북</a></li>
+					<li><a href="bongsaMain.do?bs_region=광주전라">광주•전라</a></li>
+					<li><a href="bongsaMain.do?bs_region=울산부산경남">울산•부산•경남</a></li>
+					<li><a href="bongsaMain.do?bs_region=대전세종충남">대전•세종•충남</a></li>
+					<li><a href="bongsaMain.do?bs_region=제주도">제주</a></li>
 					<li><a href="bongsaMain.do?bs_region=비대면">비대면</a></li>
 				</ul>
 				
@@ -79,10 +75,12 @@
 			               <select name="searchCondition">
 			                  <option value='bs_title'>봉사명</option>
 			                  <option value='bs_content'>내용</option>
-			                  <option value='bs_name'>주체 </option>                                    
+			                  <option value='bs_name'>주최 </option>                                    
 			               </select> 
 			               <input name="searchKeyword" type="text" placeholder="Search..."/> 
-			               <input type="submit" value="검색"/>
+			               <button type="submit">
+								<span class="icon flaticon-search-1"></span>
+							</button>
 					</form>
 			</div>
 
@@ -102,15 +100,24 @@
 								<div class="donate-info">
 									<div class="progress-box">
 										<div class="bar">
-											<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
-												<div class="count-text">${bongsa.bs_rate}%</div>
-											</div>
+											<c:choose>
+												<c:when test="${bongsa.bs_rate > 100}">
+													<div class="bar-inner count-bar" data-percent="100%">
+														<div class="count-text">${bongsa.bs_rate}%</div>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
+														<div class="count-text">${bongsa.bs_rate}%</div>
+													</div>
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 									<div class="donation-count clearfix">
-										<span class="raised"><strong>모집인원:</strong><span
+										<span class="raised"><strong>모집인원 : </strong><span
 											class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
-												신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
+												신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
 									</div>
 								</div>
 								<div class="lower-content ">

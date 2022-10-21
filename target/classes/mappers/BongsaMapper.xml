@@ -215,17 +215,17 @@
 	<!-- 주최자 마이페이지 모집 완료한 봉사 리스트 -->
 	<select id="getSuccess_BsList" parameterType="map" resultType="bongsa">
 	select 
-	BS_NO, BS_TITLE, BS_SUCCESS_CNT, BS_WORK_START, BS_WORK_END
+	BS_NO, BS_TITLE, BS_CONTENT, BS_WORK_START, BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, USER_NO, round(((BS_SUCCESS_CNT /BS_GOAL_CNT)*100),0) bs_rate
 	from bongsa 
-	where user_no=6 <![CDATA[and BS_RECRUIT_END <= sysdate]]> and bs_ing ='진행중' ORDER BY BS_NO DESC
+	where user_no=#{user_no} <![CDATA[and BS_RECRUIT_END <= sysdate]]> and bs_ing ='진행중' ORDER BY BS_NO DESC
 	</select> 
 		
 	<!-- 주최자 마이페이지 모집 중인 봉사 리스트 -->
 	<select id="getOngoing_BsList" parameterType="map" resultType="bongsa">
 	select 
-	BS_NO, BS_TITLE, BS_SUCCESS_CNT, BS_WORK_START, BS_WORK_END  
+	BS_NO, BS_TITLE, BS_CONTENT, BS_WORK_START, BS_WORK_END, BS_GOAL_CNT, BS_SUCCESS_CNT, USER_NO, round(((BS_SUCCESS_CNT /BS_GOAL_CNT)*100),0) bs_rate
 	from bongsa 
-	where user_no=6 <![CDATA[and BS_RECRUIT_END > sysdate]]> and bs_ing ='진행중'	 ORDER BY BS_NO DESC 
+	where user_no=#{user_no} <![CDATA[and BS_RECRUIT_END > sysdate]]> and bs_ing ='진행중'	 ORDER BY BS_NO DESC 
 	</select>
 	
 	

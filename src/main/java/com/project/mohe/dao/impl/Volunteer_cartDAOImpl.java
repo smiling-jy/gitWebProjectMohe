@@ -33,7 +33,7 @@ public class Volunteer_cartDAOImpl implements Volunteer_cartDAO {
 
 	@Override
 	public void deleteVolunteer_cart(Volunteer_cartVO vo) {
-		// TODO Auto-generated method stub
+		mybatis.delete("Volunteer_cartDAO.deleteVolunteer_cart",vo);
 		
 	}
 
