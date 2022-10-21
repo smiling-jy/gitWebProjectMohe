@@ -146,11 +146,11 @@
 		// 결제페이지
 		var hp_reslt = false;
 		var message = "";
-		$('#fd_host_phone').blur(
+		$('#pay_pn_phone').blur(
 			function() {
 				// 전화번호 검사
 				var regNumber = /^[0-9]*$/;
-				var temp = $('#fd_host_phone').val();
+				var temp = $('#pay_pn_phone').val();
 	
 				if (!regNumber.test(temp) || temp.length != 11) {
 					message = "정상적인 전화번호가 아닙니다."
@@ -159,7 +159,7 @@
 					message = ""
 					hp_reslt = true;
 				}
-				$('#phone_message').text(p_message);
+				$('#phone_message').text(message);
 				return hp_reslt;
 			}
 		)	
