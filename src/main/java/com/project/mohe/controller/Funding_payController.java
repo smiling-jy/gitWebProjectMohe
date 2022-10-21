@@ -1,5 +1,6 @@
 package com.project.mohe.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.Funding_payService;
 import com.project.mohe.service.Funding_pjService;
+import com.project.mohe.service.PagingService;
 
 @Controller
 public class Funding_payController {
@@ -23,6 +25,8 @@ public class Funding_payController {
 	private Funding_payService funding_payService;
 	@Autowired
 	private Funding_pjService pjService;
+	@Autowired
+	private PagingService pagingService;
 	
 	// 결제 하기
 	@RequestMapping("fundingPay.do")
@@ -71,10 +75,18 @@ public class Funding_payController {
 	
 	
 	@RequestMapping("myFundingList.do")
-	public String myFundingList(UserInfoVO vo , HttpServletRequest request, Model model){
+	public String myFundingList(PagingVO vo , HttpServletRequest request, Model model){
 		HttpSession session = request.getSession();
-		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		vo.setSelect(String.valueOf(session.getAttribute("user_no")));
+		// 페이징을 위한 테이블 행값 받아오기
+		vo.setTotalRecCount(funding_payService.getAllcnt(vo).getTotalRecCount());
+		// 페이징 처리 
+		vo = pagingService.doPaging(vo);
+		// 페이지값 저장하기
+		
+		model.addAttribute("page",vo);		
 		model.addAttribute("pay_list", funding_payService.adGetFunding_payList(vo));
+		
 		return "myFundingList";
 	}
 }
