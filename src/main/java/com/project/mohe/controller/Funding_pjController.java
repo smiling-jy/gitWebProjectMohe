@@ -48,6 +48,9 @@ public class Funding_pjController {
 	@RequestMapping("fundingSingle.do")
 	public String fundingSingle(Funding_pjVO pj, Model model) {
 		model.addAttribute("pj", funding_pjService.getFunding_pj(pj));
+		if(funding_pjService.getFunding_pj(pj) == null) {
+			return "wrongApproach";			
+		}
 		return "fundingSingle";
 	}
 

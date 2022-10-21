@@ -49,76 +49,89 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">펀딩 관리</a>
+						<a href="adFdApproval.do">신청 펀딩 관리</a>
 					</div>
 					<hr>
-					<div class="content_table_div">
+					<div class="content_table_div" style="overflow:auto;">
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
-								<!--Form Column-->
+							<!-- 여기 폼시작 -->
+							<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
 									<div class="inner">
 										<div class="donate-form">
 											<h3 style="margin-left:110px;">신청 펀딩 상세정보</h3>
 											<div style="height: 50px;"></div>
-											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
+											<h2>NO. ${apFd.fd_no}</h2>
 											<hr style="width: 430px; color: white;">
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
+													<div class="field-label">타이틀 사진</div>
+													<img id="title_image" src="../resources/files/funding/${apFd.fd_img_name}/title.png" /> 
+											</div>
 											</div>
 											<div class="row clearfix">
-
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">이름</div>
-													<input type="text" name="user_name"
-														value="${userDetail.user_name}" readonly>
+													<div class="field-label">프로젝트 카테고리</div>
+													<select name="fd_category">
+														<option value="디자인문구">디자인문구</option>
+														<option value="식품">식품</option>
+														<option value="패션잡화">패션잡화</option>
+														<option value="홈리빙">홈 리빙</option>
+														<option value="반려동물">반려동물</option>
+													</select>
+													<input type="hidden" id="fd_category" value="${apFd.fd_category}">
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">아이디</div>
-													<input type="text" name="user_email"
-														value="${userDetail.user_email}" readonly>
+													<div class="field-label">프로젝트제목</div>
+													<input type="text" value='${apFd.fd_title}'  name="fd_title" readonly>
 												</div>
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
-														<option value="시민">시민</option>
-														<option value="중수">중수</option>
-														<option value="고수">고수</option>
-														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
-													</select>
-													<input type="hidden" id="rating" value="${userDetail.user_rating}">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">프로젝트 소개</div>
+													<textarea name="fd_content"readonly>${apFd.fd_content}</textarea>
 												</div>
-												<div
-													class="form-group col-lg-6 col-md-6 col-sm-6 form_phone">
-													<div class="field-label">연락처</div>
-
-													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">후원 대상</div>
+													<input type="text" name="fd_receiver" value="${apFd.fd_receiver}" readonly>
 												</div>
-												<div
-													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
-													<div class="field-label">주소</div>
-													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">상품 금액</div>
+													<input type="text" name="fd_price" value="${apFd.fd_price}" readonly>
 												</div>
-												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn">
-														<span class="btn-title btn_fix">수정 완료하기</span>
-													</button>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">목표 금액</div>
+													<input type="text" name="fd_goals" value="${apFd.fd_goals}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">프로젝트 시작일</div>
+													<input type="date" name="fd_startdate"  value="${apFd.fd_startdate}"readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">프로젝트 종료일</div>
+													<input type="date" name="fd_enddate"  value="${apFd.fd_enddate}"readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">창작자(상호)</div>
+													<input type="text" name="fd_hostname"  value="${apFd.fd_hostname}"readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">창작자 연락처</div>
+													<input type="text" name="fd_host_phone" value="${apFd.fd_host_phone}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">창작자 이메일</div>
+													<input type="email" name="fd_host_email" value="${apFd.fd_host_email}" readonly>
+												</div>
+												<div class="form-group col-lg-12 col-md-12 col-sm-12">
+													<div class="field-label">내용 이미지</div>
+													<c:forEach var="cnt" begin="1" end="${apFd.fd_img_cnt}">
+														<img src="../resources/files/funding/${apFd.fd_img_name}/${cnt}.png">
+													</c:forEach>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</form>
+								</div><!-- 원래이다음 form있음 -->
 						</div>
 						<!-- form2 끝-->
 
@@ -171,8 +184,21 @@
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
 	<script>
-		var rating = $('#rating').val();
-		$("#user_rating").val(rating).prop("selected", true);
+		var dept = $('#fd_category').val();
+		$("select[name=fd_category]").val(dept).prop("selected", true)
+		
+
+		// 회원 프로필 프리뷰 기능
+		$('#user_title_img').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("title_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("user_title_img").files[0]);
+		});
 	</script>
 </body>
 </html>
