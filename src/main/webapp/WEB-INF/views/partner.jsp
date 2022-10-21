@@ -69,7 +69,7 @@
 								<figure class="image">
 									<img class="lazy-image"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+										data-src="resources/files/partner/${partner.partner_no}/logoIMG.png"
 										style="height: 340px;" alt="">
 								</figure>
 								<div class="overlay-box">
