@@ -30,10 +30,6 @@
 	
 }
 
-#admin-email-inner{
-	
-}
-
 
 
 #new-banner{
@@ -163,7 +159,7 @@ div.event-detail{
 	font-weight:bold;
 }
 
-div.event-title{
+div.event-ing{
 	font-family: 'GmarketSansMedium';
 	text-align:center;
 	color:rgb(112,191,187);
@@ -207,4 +203,31 @@ div.text-box{
 #btn-img{
 	width:40px;
 	height:40px;
+}
+
+img.share-icon{
+	width:30px;
+	height:30px;
+	margin:5px;
+}
+
+img.share-event{
+	width:100px;
+	height:100px;
+}
+
+#eventKakao{
+	font-family: 'GmarketSansMedium';
+	color:grey;
+}
+
+div.kakao-gongu{
+	font-family: 'GmarketSansMedium';
+	color: grey;
+	font-size:15px;
+	
+}
+
+#Gongu-btn{
+	background-color:transparent;
 }
