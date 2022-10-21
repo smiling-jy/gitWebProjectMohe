@@ -74,3 +74,72 @@ li> span{
 }
 
 
+
+/* 펀딩하기, 찜, 공유 */
+
+#bongsa-div{
+	margin-left: 5px;
+}
+
+#bongsa-div .btn-title{
+    padding: 11px 35px;
+}
+
+#bongsa-div a.btn-style-one span.new-btn-title:hover{
+	background-color:#4B807D;
+}
+
+.bongsa-btn{
+    font-size: 25px;
+    padding: 10px 14px;
+    border-radius: 50px;
+    position: absolute;
+    transition: all 0.3s;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+#bsJjim{
+    left: 190px;
+    bottom: 69px;
+    /* height: 50px; */
+    font-size: 25px;
+    height: 53px;
+    width: 53px;
+    background-color: #FF4640;
+    color: white;
+}
+
+
+#bsJjim:hover{	
+    background-color: #FF908C;
+	color:#FF4640;
+	-webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+}
+
+
+#bsGongu{
+    left: 250px;
+    bottom: 69px;
+    height: 53px;
+    width: 53px;
+	background-color:#6E9FCC;
+	color: white;
+	margin-left: 10px;
+}
+
+#bsGongu:hover{
+	background-color:#385D80;
+	-webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+}

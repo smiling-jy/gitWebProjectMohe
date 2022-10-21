@@ -65,4 +65,10 @@
       WHERE user_email = #{user_email}
    </update>
    
+   <update id="updateUserinfoUserOutdate">
+      UPDATE userinfo
+      SET user_outdate = SYSDATE
+      WHERE user_no = #{user_no}
+   </update>
+   
  </mapper>

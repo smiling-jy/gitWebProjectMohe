@@ -219,6 +219,7 @@
 		    <artifactId>jackson-dataformat-xml</artifactId>
 		    <version>2.9.4</version>
 		</dependency>
+
 		<!-- 비번찾기하면 메일보내줌 -->
 		<dependency>
           <groupId>javax.mail</groupId>

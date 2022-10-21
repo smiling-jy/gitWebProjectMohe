@@ -28,5 +28,8 @@ public class Funding_payVO {
 	// 주소 + 상세주소 합치기 위한 변수
 	private String addr1;
 	private String addr2;
+	
+	// 날짜 출력을 위한 변수
+	private String date_for_list;
 
 }

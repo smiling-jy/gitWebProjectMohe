@@ -96,11 +96,11 @@
 						<input type="text" name="fd_receiver" required>
 
 						<span>상품 금액</span><br />
-						<input type="text" name="fd_price" id="fd_price" required>
+						<input type="text" name="fd_price" id="fd_price" maxlength="10" required>
 						<span id="price_message" class="under-span"></span><br />
 
 						<span>목표 금액</span><br />
-						<input type="text" name="fd_goals" id="fd_goals" required>
+						<input type="text" name="fd_goals" id="fd_goals" maxlength="10" required>
 						<span id="goals_message" class="under-span"></span><br />
 
 						<span>프로젝트 시작일</span><br />

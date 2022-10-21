@@ -3,6 +3,7 @@ package com.project.mohe.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 
 public interface VolunteerDAO {
@@ -26,4 +27,11 @@ public interface VolunteerDAO {
 		//참여자 증가 -> 봉사 펀딩 성공인원 증가
 
 		void incSuccessCnt(VolunteerVO vo);
+		
+		
+		// 마이페이지에서 참여목록 보기
+		List<VolunteerVO> adGetVolunteerList(PagingVO vo);
+		
+		// 페이징
+		PagingVO getAllcnt(PagingVO vo);
 }

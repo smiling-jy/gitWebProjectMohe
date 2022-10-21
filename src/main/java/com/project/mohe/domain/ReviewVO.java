@@ -21,6 +21,9 @@ public class ReviewVO {
 	private int review_read_cnt;
 	private String user_rating;
 	
+	//수정,삭제시 마이페이지or리뷰모음페이지 각각으로 돌아가기위한 변수
+	private String page;
+	
 	//이전글 다음글을 위한 추가 변수
 	private int next;
 	private int prev;

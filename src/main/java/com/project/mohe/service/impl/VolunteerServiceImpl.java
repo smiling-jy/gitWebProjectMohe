@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.VolunteerDAO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.VolunteerService;
 
@@ -54,6 +55,17 @@ public class VolunteerServiceImpl implements VolunteerService {
 	public void incSuccessCnt(VolunteerVO vo) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	
+	@Override
+	public List<VolunteerVO> adGetVolunteerList(PagingVO vo) {
+		return volunteerDao.adGetVolunteerList(vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return volunteerDao.getAllcnt(vo);
 	}
 	
 

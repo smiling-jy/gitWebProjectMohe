@@ -44,45 +44,45 @@
 			<div class="auto-container">
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
-					<c:if test="${empty pay_list}"><p>참여 내역이 없습니다.</p></c:if>
-					<c:if test="${not empty pay_list}">
+					<c:if test="${empty vl_list}"><p>참여 내역이 없습니다.</p></c:if>
+					<c:if test="${not empty vl_list}">
 						<div class="cart-outer m-auto">
 							<div class="table-column">
 								<div class="inner-column">
-									<div class="table-outer">
+									<div class="table-outer new-outer">
 										<div class="table-box">
-											<table class="cart-table new-cart-table">
+											<table class="cart-table " id="new-cart-table">
 												<thead class="cart-header">
 													<tr>
-														<th>날짜</th>
-														<th class="prod-column">프로젝트명</th>
+														<th class="prod-column">활동명</th>
 														<th>&nbsp;</th>
+														<th>주최</th>
 														<th>진행 상태</th>
 														<th>&nbsp;</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach items="${pay_list}" var="pay">
+													<c:forEach items="${vl_list}" var="vl">
 														<tr>
-															<td>${pay.date_for_list}</td>
 															<td>
 																<figure class="prod-thumb title-poto">
-																	<a href="fundingSingle.do.do?fd_no=${pay.fd_no}"><img
+																	<a href="bongsaDetail.do?bs_no=${vl.bs_no}"><img
 																		class="lazy-image loaded"
-																		src="resources/files/funding/${pay.fd_img_name}/title.png"
+																		src="resources/files/bongsa/${vl.bs_img_name}/title.png"
 																		alt="" data-was-processed="true"></a>
 																</figure>															
 															</td>
 															<td class="prod-column title-td">
-																<a href="fundingSingle.do?fd_no=${pay.fd_no}"><span>${pay.fd_title}</span></a>
+																<a href="fundingSingle.do?fd_no=${vl.bs_no}"><span>${vl.vt_title}</span></a>
 															</td>
-															<td>${pay.pay_status}</td>
+															<td>${vl.vt_bs_name}</td>
+															<td>${vl.vt_ing}</td>
 															<td class="sub-total">
 																<button class="plus">상세보기</button>									 																	
-																<input type="hidden" value="${pay.pay_count}">
-																<input type="hidden" value="${pay.pay_total}">
-																<input type="hidden" value="${pay.pay_pn_addr}">
-																<input type="hidden" value="${pay.fd_no}">															
+																<input type="hidden" value="${vl.vt_place}">
+																<input type="hidden" value="${vl.vt_work_start}">
+																<input type="hidden" value="${vl.vt_work_end}">
+																<input type="hidden" value="${vl.bs_no}">															
 															</td>
 														</tr>
 													</c:forEach>
@@ -153,22 +153,17 @@
 									<ul class="cart-ul">
 										<li>펀딩
 											<ul>
-												<li class="current"><a href="myFundingList.do">펀딩참여목록</a></li>
+												<li><a href="myFundingList.do">펀딩참여목록</a></li>
 												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
 											</ul>
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="myVolunList.do">봉사참여목록</a></li>
+												<li class="current"><a href="myVolunList.do">봉사참여목록</a></li>
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
-										<li>후기
-											<ul>
-												<li><a href="myReviewList.do">나의후기목록</a></li>
-											</ul>
-										</li>
 									</ul>
 								</div>
 							</div>
@@ -204,10 +199,10 @@
 	<script type="text/javascript">
 		$(document).on('click', '.plus' , function() {
 			$('.plus-tr').remove()
-			$(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>수량</th><th>총액</th>'
-					+'<th class="prod-column" >배송주소</th><th></th>&nbsp;</tr>'
-					+'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+'</td>'
-					+'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('대기중') == -1 ? '<a href="reviewWriting.do"'
+			$(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>장소</th>'
+					+'<th>일시</th><th>&nbsp;</th><th>&nbsp;</th></tr>'
+					+'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+' ~ </td>'
+					+'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('진행') == -1 ? '<a href="reviewWriting.do"'
 					+' onclick="insertFunding_cart\(\''+$(this).next().next().next().next().val()+'\'\);">후기쓰기</a></td>' : '')+'</tr>')	
 		})
 	</script>

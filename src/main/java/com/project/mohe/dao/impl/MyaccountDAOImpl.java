@@ -59,4 +59,9 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 	public int resetPassword(UserInfoVO vo) {
 		return mybatis.update("MyaccountDAO.resetPassword", vo);
 	}
+	
+	@Override
+	public int updateUserinfoUserOutdate(UserInfoVO vo) {
+		return mybatis.update("MyaccountDAO.updateUserinfoUserOutdate", vo);
+	}
 }

@@ -63,7 +63,7 @@
 									<a href="loginCheck.do" class="theme-btn btn-style-one"><span
 										class="btn-title">Login</span></a>
 										<%} else { %>
-										<a href="myAccount.do" class="theme-btn btn-style-one" style="display: inline-block;">
+										<a href="shoppingBasket.do" class="theme-btn btn-style-one" style="display: inline-block;">
 											<span class="btn-title">MyPage</span>
 										</a>
 										<a href="#" class="theme-btn btn-style-one" style="display: inline-block;" onclick="btnLogOut()">
