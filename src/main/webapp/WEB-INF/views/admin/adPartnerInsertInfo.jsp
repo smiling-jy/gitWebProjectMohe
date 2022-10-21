@@ -49,7 +49,7 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adUserList.do">파트너쉽 관리</a>
+						<a href="adPartnerList.do">파트너쉽 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="height:880px">
@@ -65,8 +65,8 @@
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">대표 이미지</div>
-													<img id="title_image" src="../resources/files/partner/${partner.partner_no}/logoIMG.png" /> 
-													<input type="file" id="partner_title_image" name="title_img" class="add-file" value="타이틀 이미지 첨부하기">
+													<img id="title_image" src="../resources/images/imsi_img1.png" /> 
+													<input type="file" id="partner_title_image" name="logo_img_file" class="add-file" value="타이틀 이미지 첨부하기">
 											</div>
 											</div>
 											<div class="row clearfix">

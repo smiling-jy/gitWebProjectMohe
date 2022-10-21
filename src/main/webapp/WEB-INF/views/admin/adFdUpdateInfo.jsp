@@ -131,7 +131,7 @@
 													<img id="main_image" src="">
 													<input type="hidden" name="fd_img_cnt" value="${fd.fd_img_cnt}">
 													<c:forEach var="cnt" begin="1" end="${fd.fd_img_cnt}">
-														<img class="forIMG" src="../resources/files/funding/${fd.fd_img_name}/${cnt}.png">
+														<img class="forIMG" src="../resources/files/funding/${fd.fd_img_name}/${cnt-1}.png">
 													</c:forEach>
 												</div>
 												<div>
