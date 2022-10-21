@@ -437,6 +437,96 @@ public class AdminController {
 		adminService.judgFdUpdate(vo);
 		return "redirect:/admin/adFdApproval.do";
 	}
+	// 승인대기 펀딩 상세보기
+	@RequestMapping("adFdApprovalDetail.do")
+	public String adFdApprovalDetail(Funding_pjVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//no로 불러오기 
+		model.addAttribute("apFd",adminService.getFdDetail(vo));
+		return "/admin/adFdApprovalDetail";
+	}
+	// 펀딩 수정페이지 이동
+	@RequestMapping("adFdUpdate.do")
+	public String adFdUpdate(Funding_pjVO pj,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//파일의 갯수를 불러와서 read_cnt에 저장
+		pj.setFd_read_cnt(pj.getFile().length);
+		// 수정 정보 저장
+		adminService.adFdUpdate(pj);
+		// 프로젝트 번호를 폴더명으로 받아옴
+		String folder_name = pj.getFd_no() + "";
+
+		// 타이틀 이미지 있는지 확인하는 조건문
+		if (!pj.getTitle_img().isEmpty()) {
+
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name);
+
+			try {
+				// 폴더 생성 메소드
+				Files.createDirectories(directoryPath);
+				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 타이틀 이미지 저장
+			String fname = pj.getTitle_img().getOriginalFilename();
+			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name + "/" + "title" + fileExtension);
+
+			try {
+				// 파일저장 메소드
+				pj.getTitle_img().transferTo(f);
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+
+			// 내용 이미지 배열 확인 조건문
+			if (pj.getFile().length != 0) {
+
+				// 배열을 담기 위한 반복문
+				for (int i = 0; i < pj.getFile().length; i++) {
+
+					fname = pj.getFile()[i].getOriginalFilename();
+					fileExtension = fname.substring(fname.lastIndexOf("."));
+
+					f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/" + folder_name + "/" + i + fileExtension);
+
+					try {
+						// 파일저장
+						pj.getFile()[i].transferTo(f);
+						System.out.println(i + " 번 파일이 저장되었습니다");
+
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+
+						e.printStackTrace();
+					}
+				} // for_end
+			} // if_end
+		} // if_end
+		return "redirect:/admin/adFdList.do";
+	}
+	// 펀딩 수정페이지 이동
+	@RequestMapping("adFdUpdateInfo.do")
+	public String adFdUpdateInfo(Funding_pjVO vo,HttpSession session,Model model) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//no로 불러오기 
+		// 수정 정보 저장
+		model.addAttribute("fd",adminService.getFdDetail(vo));
+		return "/admin/adFdUpdateInfo";
+	}
 	// 펀딩 삭제 
 	@RequestMapping("deleteFd.do")
 	public String deleteFd(Funding_pjVO vo,HttpSession session) {
@@ -457,11 +547,38 @@ public class AdminController {
 	}
 	// 봉사 삭제
 	@RequestMapping("deleteBs.do")
-	public String deleteBs(BongsaVO vo,Model model,HttpSession session) {
+	public String deleteBs(BongsaVO vo,HttpSession session) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
 		adminService.deleteBs(vo);
+		return "redirect:/admin/adBsList.do";
+	}
+	// 미승인 봉사 상세보기
+	@RequestMapping("adBsApprovalDetail.do")
+	public String adBsApprovalDetail(BongsaVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		model.addAttribute("bs",adminService.adBsDetail(vo));
+		return "/admin/adBsApprovalDetail";
+	}
+	// 봉사 수정 페이지 이동
+	@RequestMapping("adBsUpdateInfo.do")
+	public String adBsUpdateInfo(BongsaVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		model.addAttribute("bs",adminService.adBsDetail(vo));
+		return "/admin/adBsUpdateInfo";
+	}
+	// 봉사 수정 
+	@RequestMapping("adBsUpdate.do")
+	public String adBsUpdate(BongsaVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
+		adminService.adBsDetail(vo);
 		return "redirect:/admin/adBsList.do";
 	}
 	// 승인된 봉사 목록
@@ -811,6 +928,16 @@ public class AdminController {
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// 퇴사일이 시스데이트로 업데이트됨
 		adminService.deleteAdmin(vo);
+		return "redirect:/admin/adminList.do";
+	}
+	
+	// 관리자 사용불가 전환하기
+	@RequestMapping("adminInsert.do")
+	public String adminInsert(AdminVO vo,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// form에서 정보를 받아와서 전달, 퇴사일 빼고는 필수작성임
+		adminService.insertAdmin(vo);
 		return "redirect:/admin/adminList.do";
 	}
 	

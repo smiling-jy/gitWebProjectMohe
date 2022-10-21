@@ -109,8 +109,8 @@
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">입사일</div>
-																			<input type="date" id="adm_hiredate"
-																				name="adm_hiredate" value="${fn:substring(admin.adm_hiredate,0,10)}" required>
+																			<input type="date" id="adm_hiredate" 
+																				name="adm_hiredate" value="${fn:substring(admin.adm_hiredate,0,10)}" readonly>
 																		</div>
 																		<div class="form-group col-lg-6 col-md-6 col-sm-6">
 																			<div class="field-label">퇴사일</div>
@@ -189,6 +189,10 @@
 	<script>
 		var dept = $('#adm_dept').val();
 		$("select[name=adm_dept]").val(dept).prop("selected", true);
+		// 기본 날자값을 오늘로 정하기
+		document.getElementById('adm_hiredate').value = new Date().toISOString().slice(0,10);
+		// 최소 날자값을 오늘로 정하기
+		document.getElementById('adm_enddate').min = new Date().toISOString().slice(0,10);
 	</script>
 </body>
 </html>

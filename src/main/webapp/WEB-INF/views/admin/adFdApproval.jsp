@@ -53,7 +53,7 @@
 					<!-- 변경 div 시작 -->
 					<!-- 서치 부분 시작 -->
 					<div>
-						<div class="text_size_title">신청 펀딩 목록</div>
+						<div class="text_size_title">신청펀딩 관리</div>
 						<div id="search">
 							<form name="search" action="adFdApproval.do" method="post">
 								<select name="select">
@@ -103,7 +103,7 @@
 															<c:forEach items="${fdApproval}" var="fd">
 																<tr>
 																	<td style="word-break: break-all">${fd.fd_no}</td>
-																	<td style="width: 200px"><a href="../fundingSingle.do?fd_no=${fd.fd_no}">${fd.fd_title}</a></td>
+																	<td style="width: 200px"><a href="adFdApprovalDetail.do?fd_no=${fd.fd_no}">${fd.fd_title}</a></td>
 																	<td style="word-break: break-all">${fd.fd_hostname}</td>
 																	<td style="font-size: 13px">${fd.fd_startdate}</td>
 																	<td style="font-size: 13px">${fd.fd_enddate}</td>
