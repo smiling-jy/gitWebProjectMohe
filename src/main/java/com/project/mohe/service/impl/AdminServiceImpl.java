@@ -62,8 +62,7 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
+		adminDao.insertAdmin(vo);
 	}
 
 	@Override
@@ -391,6 +390,24 @@ public class AdminServiceImpl implements AdminService {
 		bongsaDao.deleteBongsa(vo);
 	}
 
+	// 펀딩 상세보기
+	@Override
+	public Funding_pjVO getFdDetail(Funding_pjVO vo) {
+		return adminDao.getFdDetail(vo);
+	}
+	
+	// 펀딩 수정하기
+	@Override
+	public void adFdUpdate(Funding_pjVO vo) {
+		adminDao.adFdUpdate(vo);
+	}
+
+	@Override
+	public BongsaVO adBsDetail(BongsaVO vo) {
+		return adminDao.adBsDetail(vo);
+	}
+	
+	
 
 
 }

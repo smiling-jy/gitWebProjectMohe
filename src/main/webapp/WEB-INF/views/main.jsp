@@ -333,7 +333,7 @@
 						<div class="row clearfix">
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="0ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -346,7 +346,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="300ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -359,7 +359,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-5 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="600ms"
 									data-wow-duration="1500ms">
 									<div class="content">

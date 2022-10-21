@@ -55,4 +55,14 @@
   		ORDER BY A.BS_NO DESC
    </select>
    
+   <select id="countAccountByEmail" resultType="int">
+   		select count(1) from userinfo where user_email = #{user_email}
+   </select>
+   
+   <update id="resetPassword">
+      UPDATE userinfo
+      SET user_password = #{user_password}
+      WHERE user_email = #{user_email}
+   </update>
+   
  </mapper>

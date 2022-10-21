@@ -67,11 +67,11 @@
 								<form name="signin" class="form">
 									<div class="input-control">
 										<label for="email" class="input-label" hidden>이메일</label> <input
-											type="email" name="email" id="email" class="input-field"
+											type="email" name="user_email" id="email" class="input-field"
 											placeholder="이메일">
 									</div>
 									<div class="donate-link">
-										<a href="donate.html"
+										<a href="javascript:void(0)"
 											class="theme-btn btn-style-one btn-block"> <span
 											class="btn-title text-center">이메일 찾기</span>
 										</a>
@@ -90,11 +90,11 @@
 								<form name="signin" class="form">
 									<div class="input-control">
 										<label for="email" class="input-label" hidden>이메일</label> <input
-											type="email" name="email" id="email" class="input-field"
+											type="email" name="user_email" id="email" class="input-field"
 											placeholder="이메일">
 									</div>
 									<div class="donate-link">
-										<a href="donate.html"
+										<a href="javascript:void(0)"
 											class="theme-btn btn-style-one btn-block"> <span
 											class="btn-title text-center">비밀번호 찾기</span>
 										</a>
@@ -131,6 +131,48 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
+	
+	<script>
+		$("main.mix-1 div.donate-link a").on("click", function(){
+			$.ajax({
+				type : 'post',
+				url : 'countAccountByEmail.do',
+				data : $("form[name='signin']").first().serialize(),
+				async : true,
+				contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+				success : function(result) {
+					if (result > 0) {
+						alert("가입된 이메일 입니다.");
+					} else {
+						alert('가입되지 않은 이메일 입니다.');
+					}
+				},
+				error : function() {
+					alert('error');
+				}
+			});
+		});
+		
+		$("main.mix-2 div.donate-link a").on("click", function(){
+			$.ajax({
+				type : 'post',
+				url : 'resetPasswordAndSendEmail.do',
+				data : $("form[name='signin']").last().serialize(),
+				async : true,
+				contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+				success : function(result) {
+					if (result > 0) {
+						alert("임시비밀 번호가 이메일로 발송 되었습니다.");
+					} else {
+						alert('임시비밀 번호 발급이 실패하였습니다.');
+					}
+				},
+				error : function() {
+					alert('error');
+				}
+			});
+		});
+	</script>
 
 </body>
 </html>
