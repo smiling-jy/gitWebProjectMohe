@@ -48,4 +48,19 @@ public class Volunteer_cartController {
 		System.out.println(result);
 		return result;		
 	}
+	
+
+	//찜목록 삭제
+	
+	@RequestMapping("deleteBsCart.do")
+	public String deleteBsCart(Volunteer_cartVO vo, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		vo.setUser_no((Integer) session.getAttribute("user_no"));
+		
+		volunteer_cartService.deleteVolunteer_cart(vo);
+		
+		return "redirect:/shoppingBasket.do";
+	}
+	
 }
