@@ -109,14 +109,36 @@
 										<span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></span><br>
 							</div>
 							<!-- 펀딩 찜하기 공유 영역 -->
-							<div>
-								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span
-									class="btn-title cs-btn">참여하기</span></a> 
-									<button class="theme-btn btn-style-one" id="bsJjim"><span class="btn-title cs-btn">♥</span></button>
-									<input type="hidden" name="bs_no" value="${bongsa.bs_no}">
-									<button class="theme-btn btn-style-one" id="bsGongu" >
-									<span class="btn-title cs-btn" >공유</span></button> 
-							</div>
+<!-- 							<div> -->
+<%-- 								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span --%>
+<!-- 									class="btn-title cs-btn">참여하기</span></a>  -->
+<!-- 									<button class="theme-btn btn-style-one" id="bsJjim"><span class="btn-title cs-btn">♥</span></button> -->
+<%-- 									<input type="hidden" name="bs_no" value="${bongsa.bs_no}"> --%>
+<!-- 									<button class="theme-btn btn-style-one" id="bsGongu" > -->
+<!-- 									<span class="btn-title cs-btn" >공유</span></button>  -->
+<!-- 							</div> -->
+								<!-- 참여하기, 찜, 공유 영역 -->
+								<div class="new-font" id="bongsa-div">
+								<c:choose>
+									<c:when test="${bongsa.bs_recruit_end < sysdate}">					
+										<span class="btn-title new-font new-btn-title">모집종료된 봉사입니다.</span>
+									</c:when>
+									<c:otherwise>
+										<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}"
+											class="theme-btn btn-style-one link-box">
+										<span class="btn-title new-font new-btn-title">참여하기</span></a>
+										<button class="bongsa-btn" id="bsJjim">♥</button>
+										<input type="hidden" name="bs_no" value="${bongsa.bs_no}">
+										<button class="bongsa-btn" id="bsGongu">
+											<span class="flaticon-share"></span>
+										</button>
+									</c:otherwise>
+								</c:choose>	
+								</div>
+
+
+
+							
 						</aside>
 					</div>
 

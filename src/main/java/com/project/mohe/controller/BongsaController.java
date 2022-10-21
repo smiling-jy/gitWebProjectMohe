@@ -125,26 +125,18 @@ public class BongsaController {
 		System.out.println(vo.getBs_work_start());
 		System.out.println(vo.getBs_work_end());
 		
+		//파일의 갯수를 불러와서 read_cnt에 저장
+		vo.setBs_img_cnt(vo.getFile().length);
+		
 		bongsaService.insertBongsa(vo);
-		
-		
-		
 		// 프로젝트 번호를 폴더명으로 받아옴
 		String folder_name = vo.getBs_no()+"_이미지";
-		
-		System.out.println("폴더  이름 : " + folder_name);
-
+	
 		// 타이틀 이미지 있는지 확인하는 조건문
 		if (!vo.getTitle_img().isEmpty()) {
 
-			// 2. 폴더 생성
-
-
-			// 절대경로 받아오는 메소드
-	        String resources = servletContext.getRealPath("/resources/files/bongsa");
-	         // 절대경로 + 지정한 폴더이름으로 폴더 생성
-	        
-			Path directoryPath = Paths.get("C:/Users/82109/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name);
+			// 2. 폴더 생성			
+			Path directoryPath = Paths.get("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name);
 
 			try {
 				// 폴더 생성 메소드
@@ -154,21 +146,21 @@ public class BongsaController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-//
-//			// 타이틀 이미지 저장
+
+			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			System.out.println("getOriginalFilename() : " + fname); //첨부파일의 이름 
-			String fileExtension = fname.substring(fname.lastIndexOf(".")); //첨부파일의 확장자
-			File f = new File(resources + "/" + folder_name + "/" + "title_img" + fileExtension);
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();
+			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/"+folder_name + "/" + "title" + fileExtension);
+
 			try {
-//				// 파일저장 메소드
+				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println("타이틀 이미지 파일이 저장되었습니다");
-//
+				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
+
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-//
+
 				e.printStackTrace();
 			}
 
@@ -179,10 +171,10 @@ public class BongsaController {
 				for (int i = 0; i < vo.getFile().length; i++) {
 
 					fname = vo.getFile()[i].getOriginalFilename();
-					fileExtension = fname.substring(fname.lastIndexOf("."));
+					fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();
 
-					f = new File(resources + "/" + folder_name);
-//					f = new File(resources + "/" + folder_name + "/" + i + fileExtension);
+					f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/bongsa/" + folder_name + "/" + i + fileExtension);
+
 					try {
 						// 파일저장
 						vo.getFile()[i].transferTo(f);
@@ -191,21 +183,11 @@ public class BongsaController {
 					} catch (IllegalStateException e) {
 						e.printStackTrace();
 					} catch (IOException e) {
-
 						e.printStackTrace();
 					}
-					//bs_img_cnt 증가시키기
-					vo.setBs_img_cnt(i);
-					System.out.println(vo.getBs_img_cnt());
 				} // for_end
 			} // if_end
 		} // if_end
-		
-		bongsaService.increBsImgCnt(vo);
-		
-		
-		
-		
 	return "redirect:/bongsaMain.do";
 	}
 	
@@ -214,11 +196,8 @@ public class BongsaController {
 	public String bongsaRecruiterMypage(Model model, HttpServletRequest request) {
 		
 		// 유저번호 세션에서 받아오기
-		HttpSession session = request.getSession();
-					
+		HttpSession session =  request.getSession();
 		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
-		session.setAttribute("user_no",6);
-		
 		HashMap map = new HashMap();
 		map.put("user_no", (Integer) session.getAttribute("user_no"));
 		
@@ -227,6 +206,7 @@ public class BongsaController {
 		
 		return "bongsaRecruiterMypage";
 	}
+	
 	
 	//모집완료된 봉사활동 참가자 리스트 출력
 	@RequestMapping("bongsaParticipateList.do")

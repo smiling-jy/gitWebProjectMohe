@@ -1,10 +1,9 @@
 package com.project.mohe.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.Funding_payVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.PagingVO;
 
 public interface Funding_payService {
 	// CRUD 기능 구현
@@ -27,5 +26,9 @@ public interface Funding_payService {
 	// 글 목록 조회
 	List<Funding_payVO> getFunding_payList(Funding_payVO vo);
 	
-	List<Funding_payVO> adGetFunding_payList(UserInfoVO vo);
+	// 마이페이지에서 참여목록 보기
+	List<Funding_payVO> adGetFunding_payList(PagingVO vo);
+	
+	// 페이징
+	PagingVO getAllcnt(PagingVO vo);
 }

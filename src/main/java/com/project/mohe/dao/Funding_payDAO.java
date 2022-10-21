@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.UserInfoVO;
 
 public interface Funding_payDAO {
@@ -27,5 +28,8 @@ public interface Funding_payDAO {
 		// 글 목록 조회
 		List<Funding_payVO> getFunding_payList(Funding_payVO vo);
 		// 관리자 유저 펀딩 조회
-		List<Funding_payVO> adGetFunding_payList(UserInfoVO vo);
+		List<Funding_payVO> adGetFunding_payList(PagingVO vo);
+		
+		// 페이징
+		PagingVO getAllcnt(PagingVO vo);
 }

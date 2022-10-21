@@ -102,6 +102,9 @@ public interface AdminService {
 	// 봉사 디테일
 	BongsaVO adBsDetail(BongsaVO vo);
 	
+	// 봉사 수정
+	void adBsUpdate(BongsaVO vo);
+	
 	// 신청 봉사 리스트
 	List<BongsaVO> getAdBsApprovalList(PagingVO vo);
 	

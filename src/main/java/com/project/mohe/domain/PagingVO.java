@@ -25,6 +25,7 @@ public class PagingVO {
 	private String select;				// 컬럼명
 	private String stext;				// 검색어
 	
+	
 	public PagingVO() {
 		this.countPerPage = 5;
 		this.countPerGroup = 3;

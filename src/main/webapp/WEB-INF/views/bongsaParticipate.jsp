@@ -40,7 +40,7 @@
 		<jsp:include page="headerRed.jsp" />
 		
 		
-		
+		<!-- 테스트 -->
 		<!--Donate Section-->
 		<section class="donate-section">
 			<div class="donate-form">
@@ -101,7 +101,7 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	<script src="resources/js/bongsa.js"></script>
+	<script src="resources/js/bongsaParticipate.js"></script>
 	
 
 </body>
