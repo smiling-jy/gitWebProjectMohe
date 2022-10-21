@@ -38,4 +38,7 @@ public interface ReviewDAO {
 	
 	//페이징 리스트
 	List<ReviewVO> getAdReviewList(PagingVO vo);
+	
+	//내가 작성한 후기 목록
+	List<ReviewVO> getMyReview(HashMap map);
 }

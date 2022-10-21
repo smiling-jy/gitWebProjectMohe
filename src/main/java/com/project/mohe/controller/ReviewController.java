@@ -35,6 +35,17 @@ public class ReviewController {
 		}
 		
 		
+		//마이페이지 나의후기목록
+		@RequestMapping("myReviewList.do")
+		public String getMyReviewList(Model model,HttpSession session) {
+			HashMap map = new HashMap();
+			map.put("user_no",(Integer)session.getAttribute("user_no"));
+			List<ReviewVO> myRList=reviewService.getReviewList(map);
+			model.addAttribute("myReviewList", myRList);
+			return "myReviewList";
+		}
+		
+		
 		//리뷰 작성
 		@RequestMapping("reviewInsert.do")
 		public String reviewInsert(UserInfoVO user_vo,ReviewVO vo,MultipartFile file,HttpServletRequest request) {
@@ -130,16 +141,13 @@ public class ReviewController {
 			return "reviewUpdate";
 		}
 			
-			
 		
-		
-		//수정
-		@RequestMapping("updateReview.do")
-		public String updateReview(ReviewVO vo,MultipartFile file,Model model) {
+		//수정 모듈
+		public void updateReviewProcess(ReviewVO vo,MultipartFile file,Model model) {
 			
-		reviewService.updateReview(vo);
+			reviewService.updateReview(vo);
 			
-		//이미지첨부
+			//이미지첨부
 			file=vo.getFile();
 			String fName=vo.getFName();
 			long fsize=vo.getFsize();
@@ -181,13 +189,23 @@ public class ReviewController {
 				} catch (IOException e) {
 				e.printStackTrace();
 				}
-				
 			}
-			
-			return "redirect:/review.do";
-		
 		}
 		
+		
+		//수정
+		@RequestMapping("updateReview.do")
+		public String updateReview(ReviewVO vo,MultipartFile file,Model model) {
+			if(vo.getPage()=="review") {
+				//리뷰모음에서 넘어왔을때
+				updateReviewProcess(vo,file,model);
+				return "redirect:/review.do";
+				
+			}else if(vo.getPage()=="mypage") 
+				//마이페이지에서 넘어왔을때 
+				updateReviewProcess(vo,file,model);
+				return "redirect:/myReviewList.do";
+		}
 		
 		//삭제
 		@RequestMapping("deleteReview.do")
@@ -197,6 +215,15 @@ public class ReviewController {
 			return "redirect:/review.do";
 			
 		}
+		
+		//마이페이지에서 삭제
+		@RequestMapping("myReviewDelete.do")
+		public String myReviewDelete(ReviewVO vo) {
+			reviewService.deleteReview(vo);
+			return "redirect:/myReviewList.do";
+			
+		}
+		
 	
 		
 		
