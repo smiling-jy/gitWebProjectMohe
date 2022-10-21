@@ -57,8 +57,7 @@
 						<div>
 							<h3>파트너쉽 수정하기</h3>
 							<hr style="width:950px">
-							<form name="adPartnerUpdate" action="adPartnerUpdate.do"
-								method="post">
+							<form name="adPartnerUpdate" action="adPartnerUpdate.do" method="post"enctype="multipart/form-data">
 								<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
@@ -66,8 +65,7 @@
 										<div class="donate-form">
 											<div style="height: 50px;"></div>
 											<h2>NO. ${partner.partner_no}</h2>
-											<input type="hidden" value="${partner.partner_no}"
-												name="partner_no" />
+											<input type="hidden" value="${partner.partner_no}" name="partner_no" />
 											<hr style="width: 450px; color: white;">
 											<div class="row clearfix">
 												<div class="donate-form">
@@ -75,8 +73,8 @@
 													<div class="user_pf_div">
 														<div class="form-group col-lg-12 col-md-12 col-sm-12">
 															<div class="field-label">대표 이미지</div>
-															<img id="title_image" src="../resources/files/${partner.partner_no}/titleIMG.png" /> 
-															<input type="file" id="partner_title_image" name="title_img" class="add-file" value="타이틀 이미지 첨부하기">
+															<img id="title_image" src="../resources/files/partner/${partner.partner_no}/logoIMG.png" /> 
+															<input type="file" id="partner_title_image" name="logo_img_file" class="add-file" value="타이틀 이미지 첨부하기">
 														</div>
 													</div>
 													<div class="row clearfix">

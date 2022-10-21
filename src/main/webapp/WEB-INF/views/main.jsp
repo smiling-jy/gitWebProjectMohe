@@ -173,7 +173,7 @@ banner-section img {
 					<c:forEach items="${partner}" var="partner">
 						<a href="${partner.partner_url}"><img class="lazy-image"
 							src="resources/files/partner/${partner.partner_no}/logoIMG.png"
-							data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
+							data-src="resources/files/partner/${partner.partner_no}/logoIMG.png"
 							style="height: 360px;" alt=""></a>
 					</c:forEach>
 				</div>
