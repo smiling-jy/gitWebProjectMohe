@@ -42,4 +42,6 @@ public interface UserInfoDAO {
 		// 회원 정보수정
 		void updateUser(UserInfoVO vo);
 		
+		void updateUserinfoUserOutdate(UserInfoVO vo);
+		
 }
