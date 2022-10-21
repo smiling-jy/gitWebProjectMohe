@@ -68,8 +68,8 @@
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로필사진</div>
-													<img id="title_image" src="../resources/files/user/${userDetail.user_no}/userIMG.PNG" /> 
-												<input id="user_title_img" accept=".PNG" type="file" name="user_img_file">
+													<img id="title_image" src="../resources/files/user/${userDetail.user_no}/userIMG.png" /> 
+												<input id="user_title_img" accept=".png" type="file" name="user_img_file">
 											</div>
 											</div>
 											<div class="row clearfix">

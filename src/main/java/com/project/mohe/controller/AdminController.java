@@ -191,7 +191,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getUser_img_file().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/user/"+folder_name + "/" + "userIMG" + fileExtension);
 
 			try {
@@ -276,7 +276,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
 
 			try {
@@ -307,7 +307,7 @@ public class AdminController {
 			
 			// 타이틀 이미지 저장
 			String fname = vo.getMain_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
 			
 			try {
@@ -351,7 +351,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/title/"+folder_name + "/" + "eventTitleIMG" + fileExtension);
 
 			try {
@@ -382,7 +382,7 @@ public class AdminController {
 			
 			// 타이틀 이미지 저장
 			String fname = vo.getMain_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/event/main/"+folder_name + "/" + "eventMainIMG" + fileExtension);
 			
 			try {
@@ -475,7 +475,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = pj.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/funding/"+folder_name + "/" + "title" + fileExtension);
 
 			try {
@@ -859,7 +859,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
 
 			try {
@@ -904,7 +904,7 @@ public class AdminController {
 
 			// 타이틀 이미지 저장
 			String fname = vo.getTitle_img().getOriginalFilename();
-			String fileExtension = fname.substring(fname.lastIndexOf("."));
+			String fileExtension = fname.substring(fname.lastIndexOf(".")).toLowerCase();;
 			File f = new File("C:/Users/human/git/gitWebProjectMohe/src/main/webapp/resources/files/popup/"+folder_name + "/" + "popupIMG" + fileExtension);
 
 			try {
