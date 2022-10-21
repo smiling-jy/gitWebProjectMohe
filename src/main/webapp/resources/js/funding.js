@@ -10,11 +10,10 @@ $(window).scroll(function() {
   }
   });
 
-// 모달창 클릭시 닫음
-$("#close").click(function() {
+$('.checkbox').change(function() {
 	if($("#checkbox1").is(":checked") == true && $("#checkbox2").is(":checked") == true){
 		$(".background").removeClass("show")		
-	}
+	}	
 })
 
 // 펀딩결제 페이지 수량증가에 따라 총액 변화
@@ -83,14 +82,14 @@ $(document).on('click', '.answer-btn' , function(){
             }else{
                 $(data).each(function(){
                     $("#qna-in").append('<li class="accordion block active-block f-size"><div class="acc-btn answer">'
-										+'<table><tr><td class="margin">'+this.qna_no+'</td><td class="qna-con">'+this.qna_question+'</td>'
+										+'<table><tr><td class="margin">'+this.qna_no+'</td><td class="qna-con"> Q. '+this.qna_question+'</td>'
                                         +'<td class="margin">'+(this.qna_answer == null ? '':'답변완료')+'</td></tr></table>'
                                         +'</div><div class="acc-content"><div class="donate-form answer">'
                                         +(this.qna_answer == null ? '<textarea name="qna_answer" placeholder="여기에 답변하세요"></textarea>'
                                         +'<button class="new-btn answer-btn">답변하기</button>'
                                         +'<input type="hidden" name="fd_no" value="'+this.fd_no+'">'
                                         +'<input type="hidden" name="qna_no" value="'+this.qna_no+'">'
-                                        :'<span>'+this.qna_answer+'</span>')+ '</div></div></li>')
+                                        :'<span> A. '+this.qna_answer+'</span>')+ '</div></div></li>')
                 })
             }
         },

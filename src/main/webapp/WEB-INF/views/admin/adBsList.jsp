@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,11 +91,11 @@
 														<thead class="cart-header">
 															<tr>
 																<th>NO</th>
-																<th width="400px">제목</th>
-																<th>주최자</th>
+																<th width="200px">제목</th>
+																<th width="300px">주최자</th>
 																<th>지역</th>
-																<th>모집종료일</th>
-																<th width="300px">수정 / 삭제</th>
+																<th width="220px">모집일</th>
+																<th width="200px">수정 / 삭제</th>
 															</tr>
 														</thead>
 
@@ -102,11 +103,11 @@
 															<c:forEach items="${bsList}" var="bs">
 																<tr>
 																	<td style="word-break: break-all">${bs.bs_no}</td>
-																	<td style="word-break: break-all"><a href="adBsDetail.do?bs_no=${bs.bs_no}">${bs.bs_title}</a></td>
-																	<td style="font-size: 13px">${bs.bs_email}</td>
-																	<td style="font-size: 13px">${bs.bs_region}</td>
-																	<td style="word-break: break-all">${bs.bs_recruit_end}</td>
-																	<td><a href="adBsUpdate.do?bs_no=${bs.bs_no}" class="remove-btn"> 
+																	<td style="word-break: break-all"><a href="../bongsaDetail.do?bs_no=${bs.bs_no}" target="_blank">${fn:substring(bs.bs_title,0,7)}</a></td>
+																	<td style="word-break: break-all">${bs.bs_email}</td>
+																	<td style="word-break: break-all">${bs.bs_region}</td>
+																	<td style="word-break: break-all">${fn:substring(bs.bs_recruit_start,0,10)} ~<br> ${fn:substring(bs.bs_recruit_end,0,10)}</td>
+																	<td><a href="adBsUpdateInfo.do?bs_no=${bs.bs_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>
 																		</a>&nbsp;&nbsp;&nbsp; 
 																		<a href="#" onclick="remove(${bs.bs_no})" class="remove-btn">

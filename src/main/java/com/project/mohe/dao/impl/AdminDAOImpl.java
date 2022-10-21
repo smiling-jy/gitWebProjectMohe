@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.project.mohe.dao.AdminDAO;
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
@@ -24,8 +26,7 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.insert("AdminDAO.insertAdmin",vo);
 	}
 
 	@Override
@@ -107,6 +108,26 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public PartnerVO adGetPartner(PartnerVO vo) {
 		return mybatis.selectOne("AdminDAO.adGetPartner",vo);
+	}
+	// 펀딩상세
+	@Override
+	public Funding_pjVO getFdDetail(Funding_pjVO vo) {
+		return mybatis.selectOne("AdminDAO.getFdDetail",vo);
+	}
+	// 펀딩수정
+	@Override
+	public void adFdUpdate(Funding_pjVO vo) {
+		mybatis.update("AdminDAO.adFdUpdate",vo);
+	}
+	// 봉사상세
+	@Override
+	public BongsaVO adBsDetail(BongsaVO vo) {
+		return mybatis.selectOne("AdminDAO.adBsDetail",vo);
+	}
+	// 봉사수정
+	@Override
+	public void adBsUpdate(BongsaVO vo) {
+		mybatis.update("AdminDAO.adBsUpdate",vo);
 	}
 	
 

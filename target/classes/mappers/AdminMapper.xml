@@ -50,8 +50,7 @@
 	<!-- 관리자 정보 수정 -->
 	<update id="updateAdmin" parameterType="admin">
 		update admin
-		set adm_name
-		= #{adm_name},
+		set 
 		adm_dept = #{adm_dept},
 		adm_phone = #{adm_phone},
 		adm_adress = #{adm_adress}
@@ -63,6 +62,12 @@
 		from admin
 		where adm_id = #{adm_id} and adm_pass = #{adm_pass}
 	</select>
+	<!-- 관리자 추가하기 -->
+	<insert id="insertAdmin" parameterType="admin">
+		insert into admin(adm_no,adm_id,adm_pass,adm_name,adm_dept,adm_phone,adm_adress,adm_hiredate)
+		values(ADMIN_ADM_NO_SEQ.nextval,#{adm_id},#{adm_pass},#{adm_name},
+			#{adm_dept},#{adm_phone},#{adm_adress},sysdate)
+	</insert>
 	<!--  *********************************************************************옮겨줘야하는 페이지   -->
 	<!--  펀딩 상세페이지  -->
 	<select id="getAdFdDetail" parameterType="userInfo" resultType="funding_pay">
@@ -117,4 +122,51 @@
 		from partner
 		where partner_no = #{partner_no}
 	</select>
+	<!-- 펀딩 상세보기 -->
+	<select id="getFdDetail" parameterType="funding_pj" resultType="funding_pj">
+		select *
+		from funding_pj
+		where fd_no = #{fd_no}
+	</select>
+	<!-- 펀딩 수정하기 -->
+	<update id="adFdUpdate" parameterType="funding_pj">
+		update funding_pj
+		set fd_category = #{fd_category},
+			fd_title = #{fd_title},
+			fd_content = #{fd_content},
+			fd_receiver = #{fd_receiver},
+			fd_price = #{fd_price},
+			fd_goals = #{fd_goals},
+			fd_startdate = #{fd_startdate},
+			fd_enddate = #{fd_enddate},
+			fd_hostname = #{fd_hostname},
+			fd_host_phone = #{fd_host_phone},
+			fd_host_email = #{fd_host_email},
+			fd_read_cnt = #{fd_read_cnt}
+		where fd_no = #{fd_no}
+	</update>
+	<!-- 봉사 상세보기 -->
+	<select id="adBsDetail" parameterType="bongsa" resultType="bongsa">
+		select *
+		from bongsa
+		where bs_no = #{bs_no}
+	</select>
+	<!-- 봉사 수정하기 -->
+	<update id="adBsUpdate" parameterType="bongsa">
+		update bongsa
+		set bs_title = #{bs_title},
+			bs_content = #{bs_content},
+			bs_region = #{bs_region},
+			bs_place = #{bs_place},
+			bs_goal_cnt = #{bs_goal_cnt},
+			bs_recruit_start = #{bs_recruit_start},
+			bs_recruit_end = #{bs_recruit_end},
+			bs_work_start = to_date(#{bs_work_start},'yyyy-mm-dd hh24:mi'),
+			bs_work_end = to_date(#{bs_work_end},'yyyy-mm-dd hh24:mi'),
+			bs_name = #{bs_name},
+			bs_phone = #{bs_phone},
+			bs_email = #{bs_email},
+			bs_img_cnt = #{bs_img_cnt}
+		where bs_no = ${bs_no}
+	</update>
 </mapper>

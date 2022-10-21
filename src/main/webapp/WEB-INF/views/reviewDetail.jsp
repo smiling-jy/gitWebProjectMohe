@@ -72,11 +72,11 @@
                     <div class="blog-post-detail" >
                         <div class="inner">
             				<input name="review_no" type=hidden value="${review.review_no}"/>
-                            <h2>${review.review_title} </h2>
+                            <div id="review_title"><h2>${review.review_title} </h2></div>
                             <div class="post-meta" >
                                 <ul class="clearfix">
                                     <li><span class="icon fa fa-user"></span>${review.user_name}</li>
-                                    <li>작성날짜: <fmt:formatDate value="${review.review_date}" pattern="yyyy. MM. dd / hh:mm"></fmt:formatDate></li>
+                                    <li>작성날짜: <fmt:formatDate value="${review.review_date}" pattern="yyyy년 MM월 dd일  HH시 mm분"></fmt:formatDate></li>
                                		<li>조회수 : ${review.review_read_cnt}</li>
                                 </ul>
                         
@@ -84,22 +84,24 @@
                             <hr style="border: solid 1px lightgrey">
                             <br>
                             <div class="content">
-                            	<img src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
-                            	   onerror="this.src='resources/images/mohe_logo/logo_mint.png'">
-                                ${review.review_text}
-                            </div>
+                           		<div class="event-content" style="text-align:center;">
+	                            	<img src="resources/files/review/${review.review_no}/reviewIMG.png"
+	                            	   onerror="this.src='resources/images/mohe_logo/logo_mint.png'">
+	                            </div>
+	                                <pre style="font-family:'Malgun Gothic';"><c:out value="${review.review_text}"></c:out></pre>
+                         	</div>
                         </div>
                         
                         <div class="post-share-options clearfix"> 
                             <div class="social-links pull-right">
-                                <p>Share:</p>
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-vimeo-v"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                            </div>
+                               <input type="hidden" name="review_no" value="${review.review_no}">
+                                	<button id="Gongu-btn">
+                                		<img class="share-icon" src="resources/images/icons/kakaoicon.png">
+                                	</button>
+                                	<button id="Gongu-btn">
+                                		<img class="share-icon" src="resources/images/icons/share_icon.png">
+                                	</button>
+                             </div>
                         </div>
                          <!-- 작성자 본인 확인 -->
                          <input type="hidden" value="${sessionScope.user_no}">
@@ -179,6 +181,9 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+	<script src="resources/js/review.js"></script>
+	
 </body>
 </html>

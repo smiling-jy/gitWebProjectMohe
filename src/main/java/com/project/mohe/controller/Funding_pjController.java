@@ -48,6 +48,9 @@ public class Funding_pjController {
 	@RequestMapping("fundingSingle.do")
 	public String fundingSingle(Funding_pjVO pj, Model model) {
 		model.addAttribute("pj", funding_pjService.getFunding_pj(pj));
+		if(funding_pjService.getFunding_pj(pj) == null) {
+			return "wrongApproach";			
+		}
 		return "fundingSingle";
 	}
 
@@ -71,7 +74,8 @@ public class Funding_pjController {
 		pj.setUser_no((Integer) session.getAttribute("user_no"));
 
 		// DB저장
-		pj.setFd_read_cnt(pj.getFile().length);
+		System.out.println("첨부파일 길이 : "+pj.getFile().length);
+		pj.setFd_img_cnt(pj.getFile().length);
 		funding_pjService.insertFunding_pj(pj);
 		// 프로젝트 번호를 폴더명으로 받아옴
 		String folder_name = pj.getFd_no() + "";

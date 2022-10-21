@@ -80,10 +80,11 @@
 												<form action="paySave.do" method="post" id="pay-save">
 													<span>받는 사람</span><br />
 													<div>
-														<span>이름</span><br /> <input type="text" name="pay_pn_name" required>
+														<span>이름</span><br /> <input type="text" name="pay_pn_name" value="${sessionScope.user.user_name}" required>
 													</div>
 													<div>
-														<span>연락처</span><br /> <input type="text" name="pay_pn_phone" required>
+														<span>연락처</span><br /> <input type="text" name="pay_pn_phone" value="${sessionScope.user.user_phone}"  id="pay_pn_phone" required>
+														<span id="phone_message"></span>
 													</div>
 													<span>배송지</span><br />
 													<div>
@@ -98,7 +99,7 @@
 													<input type="hidden" name="fd_hostname" value="${pj.fd_hostname}">
 													<input type="hidden" name="fd_price" value="${pj.fd_price}">
 													<input type="hidden" name="pay_count" value="1">
-													<input type="hidden" value="${sessionscope.user_email}" id="user_email">
+													<input type="hidden" value="${sessionScope.user_email}" id="user_email">
 											</form>
 											</div>
 										 	<button class="theme-btn btn-style-one cart-btn pay-btn" >
@@ -138,14 +139,37 @@
 	<!-- 주소 API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="resources/js/funding.js"></script>
+	<script src="resources/js/validation.js"></script>
 	<!-- iamport.payment.js -->
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<script type="text/javascript">
+		// 결제페이지
+		var hp_reslt = false;
+		var message = "";
+		$('#pay_pn_phone').blur(
+			function() {
+				// 전화번호 검사
+				var regNumber = /^[0-9]*$/;
+				var temp = $('#pay_pn_phone').val();
+	
+				if (!regNumber.test(temp) || temp.length != 11) {
+					message = "정상적인 전화번호가 아닙니다."
+					$('#phone_message').css("color", "red");
+				}else {
+					message = ""
+					hp_reslt = true;
+				}
+				$('#phone_message').text(message);
+				return hp_reslt;
+			}
+		)	
+		
 		IMP.init('imp28267552'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 		var msg;
 		
 		function requestPay() {
-			 // 카카오 페이 결제
+			if(hp_reslt == true){
+			 	// 카카오 페이 결제
 				IMP.request_pay({
 					pg : "kakaopay",
 					pay_method : 'card',
@@ -167,7 +191,10 @@
 						alert(msg);
 					}
 				}); // request_pay 종료
-		
+			}else {
+				alert("잘못된 입력이 있습니다. 수정 후 다시 등록해주세요.");
+			} // if문 종료
+			
 		}; // payment() 함수 종료
 	</script>
 

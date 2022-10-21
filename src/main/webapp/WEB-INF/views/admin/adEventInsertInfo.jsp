@@ -62,12 +62,12 @@
 									<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px;">
 										<div class="field-label">타이틀 이미지</div>
 										<img id="title_image" src="../resources/images/imsi_img1.png" /> 
-										<input id="event_title_img" accept=".PNG" type="file" name="title_img" required>
+										<input id="event_title_img" accept=".png" type="file" name="title_img" required>
 									</div>
 									<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px">
 										<div class="field-label">메인 이미지</div>
 										<img id="main_image" src="../resources/images/imsi_img1.png" /> 
-										<input id="event_main_img" accept=".PNG" type="file" name="main_img" required>
+										<input id="event_main_img" accept=".png" type="file" name="main_img" required>
 									</div>
 								</div>
 								<!--Form Column-->

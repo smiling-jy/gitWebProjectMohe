@@ -54,7 +54,7 @@
 					<hr>
 					<div class="content_table_div">
 						<div>
-							<form name="userDetail" action="adUserUpdate.do" method="post">
+							<form name="userDetail" action="adUserUpdate.do" method="post" enctype="multipart/form-data">
 								<!--Form Column-->
 								<div class="form-column col-lg-6 col-md-12 col-sm-12"
 									style="margin-left: 250px">
@@ -63,14 +63,14 @@
 											<h3 style="margin-left:110px;">회원 정보 수정</h3>
 											<div style="height: 50px;"></div>
 											<h2>NO. ${userDetail.user_no}</h2>
-											<input type="hidden" value="${userDetail.user_no}" name="adm_no" />
+											<input type="hidden" value="${userDetail.user_no}" name="user_no" />
 											<hr style="width: 430px; color: white;">
 											<div class="user_pf_div">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">프로필사진</div>
-													<img src="../resources/images/imsi_img1.png" /> 
-													<input type="file">
-												</div>
+													<img id="title_image" src="../resources/files/user/${userDetail.user_no}/userIMG.png" /> 
+												<input id="user_title_img" accept=".png" type="file" name="user_img_file">
+											</div>
 											</div>
 											<div class="row clearfix">
 
@@ -86,12 +86,10 @@
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">등급</div>
-													<select id="user_rating" name="user_rating">
+													<select id="user_rating" name="user_rating" required>
 														<option value="시민">시민</option>
-														<option value="중수">중수</option>
 														<option value="고수">고수</option>
 														<option value="영웅">영웅</option>
-														<option value="수호신">수호신</option>
 													</select>
 													<input type="hidden" id="rating" value="${userDetail.user_rating}">
 												</div>
@@ -100,13 +98,13 @@
 													<div class="field-label">연락처</div>
 
 													<input type="text" name="user_phone"
-														value="${userDetail.user_phone}">
+														value="${userDetail.user_phone}"required>
 												</div>
 												<div
 													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 													<div class="field-label">주소</div>
 													<input type="text" name="user_addr"
-														value="${userDetail.user_addr}">
+														value="${userDetail.user_addr}"required>
 												</div>
 												<div>
 													<button type="submit" class="theme-btn btn-style-one"
@@ -173,6 +171,18 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+		
+		// 회원 프로필 프리뷰 기능
+		$('#user_title_img').change(function(){
+	        // 파일리더 생성 
+	        var preview = new FileReader();
+	        preview.onload = function (e) {
+	        	// img id 값 
+	        	document.getElementById("title_image").src = e.target.result;
+		    };
+		    // input id 값 
+		    preview.readAsDataURL(document.getElementById("user_title_img").files[0]);
+		});
 	</script>
 </body>
 </html>

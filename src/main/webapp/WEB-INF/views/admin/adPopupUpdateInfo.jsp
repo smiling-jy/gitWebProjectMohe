@@ -70,8 +70,8 @@
 													<div class="user_pf_div">
 														<div class="form-group col-lg-12 col-md-12 col-sm-12">
 															<div class="field-label">팝업 이미지</div>
-															<img id="user_image" src="../resources/files/popup/${pop.pop_no}/popupIMG.PNG" /> 
-															<input type="file" name="title_img" id="user_profile_img" accept=".PNG" required>
+															<img id="user_image" src="../resources/files/popup/${pop.pop_no}/popupIMG.png" /> 
+															<input type="file" name="title_img" id="user_profile_img" accept=".png">
 															<input type="hidden" name="pop_no" value="${pop.pop_no}">
 														</div>
 													</div>

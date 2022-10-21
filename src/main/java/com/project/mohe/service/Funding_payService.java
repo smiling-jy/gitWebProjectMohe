@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.UserInfoVO;
 
 public interface Funding_payService {
 	// CRUD 기능 구현
@@ -25,4 +26,6 @@ public interface Funding_payService {
 			
 	// 글 목록 조회
 	List<Funding_payVO> getFunding_payList(Funding_payVO vo);
+	
+	List<Funding_payVO> adGetFunding_payList(UserInfoVO vo);
 }

@@ -19,6 +19,7 @@ public class ReviewVO {
 	private int user_no;
 	private String user_name;
 	private int review_read_cnt;
+	private String user_rating;
 	
 	//이전글 다음글을 위한 추가 변수
 	private int next;

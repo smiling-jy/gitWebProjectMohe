@@ -3,7 +3,9 @@ package com.project.mohe.dao;
 import java.util.List;
 
 import com.project.mohe.domain.AdminVO;
+import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.PartnerVO;
@@ -35,10 +37,10 @@ public interface AdminDAO {
 		
 		// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 		
-		// 봉사 상세페이지
+		// 봉사참여자 상세페이지
 		List<VolunteerVO> getAdBsDetail(UserInfoVO vo);
 
-		// 펀딩 상세페이지
+		// 펀딩참여자 상세페이지
 		List<Funding_payVO> getAdFdDetail(UserInfoVO vo);
 		
 		// 회원 수정기능
@@ -58,4 +60,16 @@ public interface AdminDAO {
 		
 		// 파트너 상세 보기
 		PartnerVO adGetPartner(PartnerVO vo);
+		
+		// 펀딩 상세 페이지
+		Funding_pjVO getFdDetail(Funding_pjVO vo);
+		
+		// 펀딩 수정 페이지
+		void adFdUpdate(Funding_pjVO vo);
+		
+		// 봉사 상세 페이지
+		BongsaVO adBsDetail(BongsaVO vo);
+		
+		// 봉사 수정 페이지
+		void adBsUpdate(BongsaVO vo);
 }

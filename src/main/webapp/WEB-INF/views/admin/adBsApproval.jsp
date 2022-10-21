@@ -101,7 +101,7 @@
 															<c:forEach items="${bsApproval}" var="bs">
 																<tr>
 																	<td style="word-break: break-all">${bs.bs_no}</td>
-																	<td style="word-break: break-all"><a href="adUserDetail.do">${bs.bs_title}</a></td>
+																	<td style="word-break: break-all"><a href="adBsApprovalDetail.do?bs_no=${bs.bs_no}">${bs.bs_title}</a></td>
 																	<td style="font-size: 13px">${bs.bs_email}</td>
 																	<td style="font-size: 13px">${bs.bs_recruit_end}</td>
 																	<td>

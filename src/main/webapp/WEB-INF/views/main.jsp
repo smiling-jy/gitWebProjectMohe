@@ -95,7 +95,7 @@
 .rating{
 	position:absolute;
 	z-index:5;
- 	top:10px; 
+ 	top:0px; 
  	left:20px; 
 	width:100px;
 }
@@ -103,6 +103,9 @@
 	background-color:rgb(112,191,187,0.5);
 	color:white;
 	border-radius: 10px;
+}
+banner-section img { 
+    filter: brightness(50%); 
 }
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
@@ -141,7 +144,7 @@
 					<div class="slide-item slid_fix">
 <!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.PNG')"></div>
+							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
@@ -169,7 +172,7 @@
 					<!-- a태그 안의 img , 파트너 로고 -->
 					<c:forEach items="${partner}" var="partner">
 						<a href="${partner.partner_url}"><img class="lazy-image"
-							src="resources/images/resource/image-spacer-for-validation.png"
+							src="resources/files/partner/${partner.partner_no}/logoIMG.png"
 							data-src="resources/images/mohe_logo/partnerLogo/${partner.partner_logo}.png"
 							style="height: 360px;" alt=""></a>
 					</c:forEach>
@@ -251,7 +254,7 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="bongsaDetail.do?bs_no=${ddBs.bs_no}"><img
-											src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+											src="resources/files/bongsa/${ddBs.bs_img_name}/title.png" alt=""></a>
 									</figure>
 									<div class="lower-box">
 										<div class="content">
@@ -333,7 +336,7 @@
 						<div class="row clearfix">
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="0ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -346,7 +349,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="300ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -359,7 +362,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-5 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="600ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -391,8 +394,7 @@
 			</div>
 		</section>
 		<!-- End Funfacts Section -->
-
-
+		
 		<!-- 리뷰 섹션1 -->
 		<!--Team Carousel Section-->
 		<section class="team-carousel-section "
@@ -417,10 +419,20 @@
 								<div class="inner-box">
 									<figure class="image-box">
 										<a href="getReview.do?review_no=${bestRv.review_no}">
-										<img src="resources/reviewUploadFile/ReviewIMG_${bestRv.review_no}.png"  style="width:370px;height:300px"alt=""></a>
+										<img src="resources/files/review/${bestRv.review_no}/reviewIMG.png"  style="width:370px;height:300px"alt=""></a>
 									</figure>
 									<div class="rating">
-										<img src="resources/images/user_rating/imsi_rating_img.png" style="width:80px;height:80px">
+										<c:choose>
+											<c:when test="${bestRv.user_rating eq '시민'}">
+												<img src="resources/images/user_rating/rating_1_100.png" style="width:80px;height:80px">
+											</c:when>
+											<c:when test="${bestRv.user_rating eq '고수'}">
+												<img src="resources/images/user_rating/rating_2_100.png" style="width:80px;height:80px">
+											</c:when>
+											<c:otherwise>
+												<img src="resources/images/user_rating/rating_3_100.png" style="width:80px;height:80px">
+											</c:otherwise>
+										</c:choose>
 									</div>
 									<div class="lower-box">
 										<div class="content">
@@ -446,6 +458,9 @@
 				<!--End Team Carousel-->
 			</div>
 		</section>
+	
+
+
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
 	</div>
@@ -460,7 +475,7 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.PNG" />
+				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" />
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">

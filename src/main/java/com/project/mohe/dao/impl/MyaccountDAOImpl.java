@@ -28,6 +28,11 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 	public List<Funding_payVO> getFunding_pjList(UserInfoVO vo) {
 		return mybatis.selectList("MyaccountDAO.getAdFunding_pjList", vo);
 	}
+	
+	@Override
+	public List<BongsaVO> getBongsa_pjList(UserInfoVO vo) {
+		return mybatis.selectList("MyaccountDAO.getBongs_pjList", vo);
+	}
 
 	@Override
 	public int insertFunding_cart(Funding_cartVO vo) {
@@ -43,5 +48,15 @@ public class MyaccountDAOImpl implements MyaccountDAO {
 	public List<BongsaVO> getBonsa_cartList(UserInfoVO vo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public int countAccountByEmail(UserInfoVO vo) {
+		return mybatis.selectOne("MyaccountDAO.countAccountByEmail", vo);
+	}
+	
+	@Override
+	public int resetPassword(UserInfoVO vo) {
+		return mybatis.update("MyaccountDAO.resetPassword", vo);
 	}
 }

@@ -14,10 +14,16 @@ public interface MyaccountDAO {
 	void updateInfo(UserInfoVO vo);
 
 	List<Funding_payVO> getFunding_pjList(UserInfoVO vo);
+	
+	List<BongsaVO> getBongsa_pjList(UserInfoVO vo);
 
 	int insertFunding_cart(Funding_cartVO vo);
 
 	List<Funding_pjVO> getFunding_cartList(UserInfoVO vo);
 	
 	List<BongsaVO> getBonsa_cartList(UserInfoVO vo);
+
+	int countAccountByEmail(UserInfoVO vo);
+
+	int resetPassword(UserInfoVO vo);
 }

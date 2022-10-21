@@ -62,8 +62,7 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	public void insertAdmin(AdminVO vo) {
-		// TODO Auto-generated method stub
-		
+		adminDao.insertAdmin(vo);
 	}
 
 	@Override
@@ -236,14 +235,14 @@ public class AdminServiceImpl implements AdminService {
 	public void adDeleteReview(ReviewVO vo) {
 		reviewDao.deleteReview(vo);
 	}
-	
-	// 나중에 수정해야하는 애들 
-	
 	// 회원정보 수정기능
 	@Override
 	public void adUserUpdateInfo(UserInfoVO vo) {
-		adminDao.adUserUpdateInfo(vo);
+		userInfoDao.updateUser(vo);
 	}
+	
+	// 나중에 수정해야하는 애들 
+	
 
 	// 공지사항 수정
 	@Override
@@ -378,9 +377,42 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void adEventUpdate(EventVO vo) {
 		eventDao.updateEvent(vo);
-		
 	}
 
+	// 펀딩삭제
+	@Override
+	public void deleteFd(Funding_pjVO vo) {
+		funding_pjDao.deleteFunding_pj(vo);
+	}
+
+	@Override
+	public void deleteBs(BongsaVO vo) {
+		bongsaDao.deleteBongsa(vo);
+	}
+
+	// 펀딩 상세보기
+	@Override
+	public Funding_pjVO getFdDetail(Funding_pjVO vo) {
+		return adminDao.getFdDetail(vo);
+	}
+	
+	// 펀딩 수정하기
+	@Override
+	public void adFdUpdate(Funding_pjVO vo) {
+		adminDao.adFdUpdate(vo);
+	}
+	// 봉사 상세보기
+	@Override
+	public BongsaVO adBsDetail(BongsaVO vo) {
+		return adminDao.adBsDetail(vo);
+	}
+	// 봉사 수정하기
+	@Override
+	public void adBsUpdate(BongsaVO vo) {
+		adminDao.adBsUpdate(vo);
+	}
+	
+	
 
 
 }

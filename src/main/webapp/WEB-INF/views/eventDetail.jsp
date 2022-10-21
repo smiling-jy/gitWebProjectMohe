@@ -72,8 +72,8 @@
                     <div class="blog-post-detail" >
                         <div class="inner">
             				<input name="event_no" type=hidden value="${event.event_no}"/>
-            				<div class="event-title">◆ 진행중인 이벤트 ◆</div>
-                            <h2 style="text-align:center;">${event.event_title} </h2>
+            				<div class="event-ing">◆ 진행중인 이벤트 ◆</div>
+                            <div id="event-title"><h2 style="text-align:center;">${event.event_title} </h2></div>
                             <div class="post-meta" >
                                 <ul class="clearfix" style="text-align:center;">
                                   <!-- <li><span class="icon fa fa-user"></span>안떠..${event.adm_id}</li>-->
@@ -90,22 +90,29 @@
                             <hr style="border: solid 1px lightgrey">
                             <br>
                             <div class="content">
-                            	<div style="text-align:center;"><img id="event-title-logo" src="resources/images/mohe_logo/main_color_logo.png"></div>
-                            	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.PNG"><br>
-                            	 ${event.event_text}
+                            	<div class="event-content" style="text-align:center;">
+                            		<img id="event-title-logo" src="resources/images/mohe_logo/main_color_logo.png">
+	                            	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.PNG"><br>
+	                            	<pre style="font-family:'Malgun Gothic'; font-weight:bold;"><c:out value="${event.event_text}"/></pre>
+                            		<!-- 카톡으로 공유하기 -->
+                            		
+                            		<div id="eventKakao">카카오톡으로 이벤트 공유하기</div>
+	                            		<input type="hidden" name="event_no" value="${event.event_no}">
+	                                	<button id="Gongu-btn">
+	                                		<img class="share-event" src="resources/images/icons/kakaoicon.png">
+	                                	</button>
+                            	
+                            	</div>
                             </div>
                         </div>
                         
-                        <div class="post-share-options clearfix"> 
+                      <div class="post-share-options clearfix"> 
                             <div class="social-links pull-right">
-                                <p>Share:</p>
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-vimeo-v"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                            </div>
+                               
+                                	<button id="Gongu-btn">
+                                		<img class="share-icon" src="resources/images/icons/share_icon.png">
+                                	</button>
+                             </div>
                         </div>
                         
                         
@@ -177,6 +184,8 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+	<script src="resources/js/event.js"></script>
 </body>
 </html>

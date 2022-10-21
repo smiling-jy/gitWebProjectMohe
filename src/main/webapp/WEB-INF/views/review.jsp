@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -65,7 +66,7 @@
 					<a href="reviewInsertForm.do" class="theme-btn btn-style-one link-box">
 						<span class="btn-title new-btn-title">후기 작성</span></a>
 					<!-- 검색창 -->
-			<div class="search-box">
+			<div class="search-box" style="margin-bottom:50px;">
 					<form action="review.do" method="post">
 						<select name="select">
 							<option value="review_title">제목</option>
@@ -88,13 +89,13 @@
 								<figure class="image">
 									<a href="getReview.do?review_no=${review.review_no}"><img class="lazy-image img-size"
 										src="resources/images/resource/image-spacer-for-validation.png"
-										data-src="resources/reviewUploadFile/ReviewIMG_${review.review_no}.png"
+										data-src="resources/files/review/${review.review_no}/reviewIMG.png"
 										onerror="this.src='resources/images/mohe_logo/logo_mint_big.png'"
 										alt="review IMG"></a>
 								</figure>
 								<div class="date">
 									<fmt:formatDate value="${review.review_date}" pattern="dd"></fmt:formatDate>
-									<span class="month">${review.review_date}</span>
+									<span class="month" style="font-size:20px;">${fn:substring(review.review_date,4,7)}</span>
 								</div>
 							</div>
 							<div class="lower-content">
@@ -107,10 +108,7 @@
 										<fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></li>
 									<li> 조회수 : ${review.review_read_cnt}</li>
 								</ul>
-								<div class="link-box">
-									<a href="getReview.do?review_no=${review.review_no}" class="theme-btn btn-style-two"><span
-										class="btn-title">더보기</span></a>
-								</div>
+							
 							 </div>
 						 </div>
 					  </div>

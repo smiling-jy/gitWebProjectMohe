@@ -200,7 +200,7 @@
 									<ul class="cart-ul">
 										<li>펀딩
 											<ul>
-												<li><a href="details.do">펀딩참여목록</a></li>
+												<li><a href="myFundingList.do">펀딩참여목록</a></li>
 												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
 											</ul>
 										</li>

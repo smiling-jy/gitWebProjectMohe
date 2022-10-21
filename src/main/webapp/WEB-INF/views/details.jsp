@@ -46,10 +46,11 @@
 			<div class="auto-container">
 				<!--MixitUp Galery-->
 				<div class="mixitup-gallery">
+					<input type="hidden" id="activeTab" value="${activeTab}" />
 					<!--Filter-->
 					<div class="filters clearfix text-start">
 						<ul class="filter-tabs filter-btns clearfix">
-							<li class="filter active" data-role="button" data-filter=".mix-1">펀딩</li>
+							<li class="filter" data-role="button" data-filter=".mix-1">펀딩</li>
 							<li class="filter" data-role="button" data-filter=".mix-2">봉사</li>
 						</ul>
 					</div>
@@ -57,70 +58,7 @@
 					<div class="filter-list">
 
 						<main class="gallery-item-two mix mix-1 main">
-							<section class="wrapper">
-								<div class="row clearfix">
-									<div class="cart-outer m-auto">
-										<div class="table-column">
-											<div class="inner-column">
-
-												<div class="table-outer">
-													<div class="table-box">
-														<table class="cart-table">
-															<thead class="cart-header">
-																<tr>
-																	<th class="prod-column">프로젝트명</th>
-																	<th>&nbsp;</th>
-																	<th class="price">목표금액</th>
-																	<th>수량</th>
-																	<th>총액</th>
-																	<th>진행 상태</th>
-																	<th>리뷰작성</th>
-																	<th>&nbsp;</th>
-																</tr>
-															</thead>
-
-															<tbody>
-
-															<c:forEach items="${pj_list}" var="pj">
-																<tr>
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="fundingSingle.do?fd_no=${pj.fd_no}"><img class="lazy-image loaded"
-																					src="resources/files/funding/${pj.fd_img_name}/title.png"
-																					data-src="resources/files/funding/${pj.fd_img_name}/title.png"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">${pj.fd_title}</h4>
-																		</div>
-																	</td>
-																	<td class="price">${pj.fd_goals}</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">${pj.fd_price}</td>
-
-																	<td class="sub-total">${pj.fd_status}</td>
-																	<td class="sub-total">
-<%-- 																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
-																		<a href="reviewWriting.do" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
-																	</td>
-																</tr>
-																</c:forEach>
-															</tbody>
-														</table>
-													</div>
-
-
-												</div>
-											</div>
-										</div>
-
-
-									</div>
-
-
-
-								</div>
-							</section>
+							
 						</main>
 
 						<main class="gallery-item-two mix mix-2 main">
@@ -139,7 +77,7 @@
 																	<th>&nbsp;</th>
 																	<th class="price">주최</th>
 																	<th>장소</th>
-																	<th>활동일자</th>
+																	<th>일시</th>
 																	<th>진행 상태</th>
 																	<th>리뷰작성</th>
 																	<th>&nbsp;</th>
@@ -147,62 +85,31 @@
 															</thead>
 
 															<tbody>
-																<tr>
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-1.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-1.jpg"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
-																		</div>
-																	</td>
-																	<td class="price">0000</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
-																	<td class="sub-total">거절</td>
-																	<td class="sub-total">
-<%-- 																		<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
-																		<a href="reviewWriting.do" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a>
-																	</td>
-																</tr>
-																<tr>
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-2.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-2.jpg"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
-																		</div>
-																	</td>
-																	<td class="price">0000</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
-																	<td class="remove"><a href="#" class="remove-btn"><span
-																			class="flaticon-delete-1"></span></a></td>
-																</tr>
-
-																<tr>
-																	<td colspan="2" class="prod-column">
-																		<div class="column-box">
-																			<figure class="prod-thumb">
-																				<a href="#"><img class="lazy-image loaded"
-																					src="resources/images/resource/products/prod-thumb-3.jpg"
-																					data-src="resources/images/resource/products/prod-thumb-3.jpg"
-																					alt="" data-was-processed="true"></a>
-																			</figure>
-																			<h4 class="prod-title">프로젝트 이름</h4>
-																		</div>
-																	</td>
-																	<td class="price">0000</td>
-																	<td class="qty">1</td>
-																	<td class="sub-total">0000</td>
-																</tr>
+																<c:forEach items="${bs_list}" var="bongsa">
+																	<tr>
+																		<td colspan="2" class="prod-column">
+																			<div class="column-box">
+																				<figure class="prod-thumb">
+																					<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img
+																						class="lazy-image loaded"
+																						src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+																						alt="" data-was-processed="true"></a>
+																				</figure>
+																				<h4 class="prod-title">${bongsa.bs_title}</h4>
+																			</div>
+																		</td>
+																		<td class="price">${bongsa.bs_name}</td>
+																		<td class="qty">${bongsa.bs_place}</td>
+																		<td class="sub-total">${bongsa.re_bs_work_start}</td>
+																		<td class="sub-total">${bongsa.bs_ing}</td>
+																		<td class="sub-total">
+																			<%--<a href="javascript:void(0)" onclick="insertFunding_cart('${pj.fd_no}');"><i class="fa fa-regular fa-comment"></i></a> --%>
+																			<a href="reviewWriting.do"
+																			onclick="insertBongsa_cart('${bongsa.bs_no}');"><i
+																				class="fa fa-regular fa-comment"></i></a>
+																		</td>
+																	</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>
@@ -273,20 +180,44 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	
+
 	<script>
+		if ($("#activeTab").val() == "2") {
+			$('.filter-tabs li').last().trigger("click");
+		}
+	
 		function insertFunding_cart(fd_no) {
 			$.ajax({
-				type:'get',
-		        url:'insertFunding_cart.do',
-		        data: {'fd_no' : fd_no },
-		        async: false,
-		        success: function(data){
-		        	console.log(data);
-		        },
-		        error: function(request, status, error){
-		        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		        }
+				type : 'get',
+				url : 'insertFunding_cart.do',
+				data : {
+					'fd_no' : fd_no
+				},
+				async : false,
+				success : function(data) {
+					console.log(data);
+				},
+				error : function(request, status, error) {
+					alert("code:" + request.status + "\n" + "message:"
+							+ request.responseText + "\n" + "error:" + error);
+				}
+			});
+		}
+		function insertBongsa_cart(bs_no) {
+			$.ajax({
+				type : 'get',
+				url : 'insertFunding_cart.do',
+				data : {
+					'fd_no' : fd_no
+				},
+				async : false,
+				success : function(data) {
+					console.log(data);
+				},
+				error : function(request, status, error) {
+					alert("code:" + request.status + "\n" + "message:"
+							+ request.responseText + "\n" + "error:" + error);
+				}
 			});
 		}
 	</script>

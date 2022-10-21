@@ -33,10 +33,9 @@
 <body>
 
 	<!-- 모달 -->
-	<div class="background show new-font">
+ 	<div class="background show new-font">
 		<div class="window">
-			<div class="popup">
-				<span id="close">x</span>
+			<div class="popup">			
 				<div id="modal-con">
 					<h3>주의사항</h3>
 					<br/>
@@ -45,14 +44,13 @@
 					모금된 금액의 50%를 정해주신 봉사단체 혹은 후원재단에 기부하는 것에<br/>
 					동의하시는 분만 진행해 주세요.
 					<br/><br/>
-					기부에 동의합니다. <input type="checkbox" id="checkbox1">
+					기부에 동의합니다. <input type="checkbox" class="checkbox" id="checkbox1">
 					<br/><br/>
 					제출된 프로젝트는 검수 이후 입력해주신 시작일에 게시됩니다.<br/>
 					프로젝트가 성공한다면 종료일 다음 영업일부터 4영업일 동안 결제가 이루어집니다.<br/>
 					진행된 프로젝트는 마이페이지에서 확인하실 수 있으며 성공한 프로젝트는 후원자 목록을 확인하실 수 있습니다.<br/>
 					확인 후 후원자에게 약속한 제품이나 서비스를 준비해 보내면 됩니다.<br/><br/>
-					확인했습니다. <input type="checkbox" id="checkbox2">
-					
+					확인했습니다. <input type="checkbox" class="checkbox" id="checkbox2">				
 				</div>
 			</div>
 		</div>
@@ -78,7 +76,7 @@
 					<div class="center">
 						<h1>프로젝트 주최하기</h1>
 					</div>
-					<form method="post" action="savefunding.do" enctype="multipart/form-data">
+					<form action="savefunding.do" method="post" enctype="multipart/form-data" id="open-fd-from">
  				 		<span>프로젝트 카테고리</span><br />
 						<select name="fd_category">
 							<option value="디자인문구">디자인문구</option>
@@ -98,45 +96,45 @@
 						<input type="text" name="fd_receiver" required>
 
 						<span>상품 금액</span><br />
-						<input type="text" name="fd_price" required>
+						<input type="text" name="fd_price" id="fd_price" required>
+						<span id="price_message" class="under-span"></span><br />
 
 						<span>목표 금액</span><br />
-						<input type="text" name="fd_goals" required>
+						<input type="text" name="fd_goals" id="fd_goals" required>
+						<span id="goals_message" class="under-span"></span><br />
 
 						<span>프로젝트 시작일</span><br />
-						<input type="date" name="fd_startdate" required><br />
+						<input type="date" name="fd_startdate" id="fd_startdate" required><br />
 
 						<span>프로젝트 종료일</span><br />
-						<input type="date" name="fd_enddate" required><br />
+						<input type="date" name="fd_enddate" id="fd_enddate" required><br />
+						<span id="date_message" class="under-span"></span><br />
 
 						<span>창작자(상호)</span><br />
 						<input type="text" name="fd_hostname" required>
 
 						<span>창작자 연락처</span><br />
-						<input type="text" name="fd_host_phone" required>
-
+						<input type="text" name="fd_host_phone" id="fd_host_phone" title="전화번호를 입력하세요." required>
+						<span id="phone_message" class="under-span"></span><br />
+						
 						<span>창작자 이메일</span><br />
-						<input type="email" name="fd_host_email" required>
+						<input type="email" name="fd_host_email" id="fd_host_email" required>
+						<span id="email_message" class="under-span"></span><br />
  
 						<span>타이틀 이미지</span><br />
 						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기" required><br />
 
 						<span>내용 이미지</span><br />						
 						<input type="file" name="file" multiple="multiple" class="add-file" value="내용 이미지 첨부하기" required><br />
-						
-						<!-- <span>첨부파일 목록</span>
-
-						<div></div>-->
-						<br />
-						<br />
-						<br />
-						<br /> 
+						<br/>
+						<br/>
+						<br/>
+					</form>
 						<div class="form-group">
-							<button type="submit" class="theme-btn btn-style-one">
+							<button type="submit" class="theme-btn btn-style-one" id="open-fd-btn">
 								<span class="btn-title new-btn-title">주최하기</span>
 							</button>
 						</div>
-					</form>
 				</div>
 			</div>	
 		</section>
@@ -162,6 +160,7 @@
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
 	<script src="resources/js/funding.js"></script>
+	<script src="resources/js/validation.js"></script>
 
 </body>
 </html>

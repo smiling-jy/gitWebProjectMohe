@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.Funding_payService;
 
 @Service("Funding_payService")
@@ -49,6 +50,11 @@ public class Funding_payServiceImpl implements Funding_payService {
 	@Override
 	public Funding_payVO getPay_no(Funding_payVO vo) {
 		return funding_payDAO.getPay_no(vo);
+	}
+
+	@Override
+	public List<Funding_payVO> adGetFunding_payList(UserInfoVO vo) {
+		return funding_payDAO.adGetFunding_payList(vo);
 	}
 	
 

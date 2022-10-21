@@ -4,11 +4,13 @@
 /* 펀딩 프로젝트 목록 검색창 + 셀렉트 */
 .funding-search-box{
    position: relative;
+   margin-top: 10px;
+   padding-bottom: 50px;
 }
 .search{
    position: absolute;
    right: 5px;
-   bottom: 5px;
+   bottom: 55px;
 }
 
 /* 카테고리 베너 css 삭제 */
@@ -105,13 +107,33 @@ div.lower-content p strong{
 	color: rgb(112,191,187);
 }
 
+#new-side h5{
+	padding: 5px 0;
+}
+
+#new-side div h2, #new-side div h5{
+	padding-left: 30px;
+}
+
+#new-side{
+	padding: 60px 25px;
+}
+
 /* 펀딩하기, 찜, 공유 */
+
+#funding-div{
+	margin-left: 20px;
+}
+
 #funding-div .btn-title{
     padding: 11px 35px;
 }
 
+#funding-div a.btn-style-one span.new-btn-title:hover{
+	background-color:#4B807D;
+}
+
 .funding-btn{
-    background-color: rgb(112,191,187) ;
     font-size: 25px;
     padding: 10px 14px;
     border-radius: 50px;
@@ -122,30 +144,47 @@ div.lower-content p strong{
     transform: scale(1, 1);
 }
 
-.funding-btn:hover{
-    background-color: #25283a;
-    -webkit-transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    transform: scale(1, 1);
-    -webkit-transform-origin: top left;
-    -ms-transform-origin: top left;
-    transform-origin: top left;
-    color: white;
-}
-
 #jjim{
-    left: 185px;
+    left: 190px;
     bottom: 69px;
     /* height: 50px; */
     font-size: 25px;
     height: 53px;
     width: 53px;
+    background-color: #FF4640;
+    color: white;
 }
+
+
+#jjim:hover{	
+    background-color: #FF908C;
+	color:#FF4640;
+	-webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+}
+
+
 #gongu{
     left: 250px;
     bottom: 69px;
     height: 53px;
     width: 53px;
+	background-color:#6E9FCC;
+	color: white;
+}
+
+#gongu:hover{
+	background-color:#385D80;
+	-webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
 }
 
 /* 펀딩 상세페이지 첨부파일 이미지 크기 */
@@ -158,12 +197,27 @@ div.lower-content p strong{
 
 /* 프로젝트 주체하기 페이지 */
 
+
+
 /* 프로젝트 주최하기 폼 span */
-.open-pj-form form span:not(.btn-title){
+.open-pj-form form span:not(.under-span){
     display: inline-block;
     font-size: 20px;
     margin-top: 30px;
 }
+
+
+.open-fd-from fomr span.under-span{
+	font-size: 14px;
+}
+
+#open-fd-btn{
+	position: absolute;
+	left: 50%;
+	transform:translate(-50%, 0%);
+}
+
+
 /* 첨부파일, 질문하기 버튼 */
 .new-btn{
     background-color: lightgrey;
@@ -172,18 +226,13 @@ div.lower-content p strong{
     margin-left: 10px;
 }
 
-.open-pj-form form span:last-of-type:not(.new-btn-title){
+/* .open-pj-form form span{
     font-size: 25px;
-}
+} */
 /* 폼 가운데 정렬 */
 .open-pj-form{
     position: absolute;
     left: 25%;
-}
-
-/* 오픈펀딩페이지 주최하기버튼 정렬 */
-.open-pj-form form .form-group{
-    margin-left: 250px;
 }
 
 
@@ -204,7 +253,17 @@ div.lower-content p strong{
     width: 680px;
 }
 #question-box~.new-btn{
-    margin-left: 640px;
+    margin-left: 645px;
+    margin-bottom: 50px;
+}
+
+.content{
+	margin: 15px;
+}
+
+
+.content .text{
+	padding-bottom: 15px;
 }
 
 /* 문의글 삭제 버튼 */
@@ -215,12 +274,19 @@ div.lower-content p strong{
     border-radius: 5px;
     padding: 0 7px;
     position: absolute;
-    right: 70px;
+    right: 40px;
+    bottom: 5px;
 
 }
 
+.cause-details .inner-box ul.accordion-box li:before{
+	background: none;
+}
 
 
+h5 a:hover{
+	color: #3cc88f;
+}
 
 
 /* 펀딩 결제 페이지 */
@@ -310,7 +376,7 @@ td.margin:not(.qna-con){
 }
 
 .answer{
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .qna-con+td{
@@ -319,18 +385,18 @@ td.margin:not(.qna-con){
 }
 
 .answer textarea{
-	width: 630px;
-	margin-left: 70px;
-	margin-bottom: 6px;
+	width: 680px;
+	margin-left: 120px;
+	margin-bottom: 10px;
 }
 
 .answer button{
 	position: absolute;
-    right: 5%;
+    right: 70px;
 }
 
 div.answer span{
-	padding-left: 100px;
+	padding-left: 130px;
 }
 
 .a-btn{
@@ -339,6 +405,7 @@ div.answer span{
 	bottom: 5px;
     color: gray;
     font-size: 12px;
+    background: none;
 }
 
 .a-btn:hover{
@@ -410,10 +477,6 @@ ul.bread-crumb li a span {
 .btn-style-one .new-btn-title{
     background-color: rgb(112,191,187);
     color: black;
-}
-
-.btn-style-one .new-btn-title:before{
-    background-color: rgb(254,74,43);
 }
 
 /* 주최자마이페이지세부 상태 버튼*/
