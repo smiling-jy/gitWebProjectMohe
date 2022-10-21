@@ -1,6 +1,5 @@
 package com.project.mohe.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.domain.Funding_payVO;
-import com.project.mohe.domain.UserInfoVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.service.Funding_payService;
 
 @Service("Funding_payService")
@@ -53,8 +52,14 @@ public class Funding_payServiceImpl implements Funding_payService {
 	}
 
 	@Override
-	public List<Funding_payVO> adGetFunding_payList(UserInfoVO vo) {
+	public List<Funding_payVO> adGetFunding_payList(PagingVO vo) {
 		return funding_payDAO.adGetFunding_payList(vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		// TODO Auto-generated method stub
+		return funding_payDAO.getAllcnt(vo);
 	}
 	
 

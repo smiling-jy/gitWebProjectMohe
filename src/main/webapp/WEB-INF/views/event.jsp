@@ -91,7 +91,7 @@
 						</td>
 						<td>
 <%-- 							<img class="event-img-size" src="resources/images/event/${event.event_thumbnail}.png"> --%>
-							<img class="event-img-size" src="resources/files/event/title/${event.event_no}/eventTitleIMG.PNG">
+							<img class="event-img-size" src="resources/files/event/title/${event.event_no}/eventTitleIMG.png">
 						</td>
 						</tr>
 					</table>

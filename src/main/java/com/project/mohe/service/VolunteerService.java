@@ -3,6 +3,8 @@ package com.project.mohe.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.project.mohe.domain.Funding_payVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 
 public interface VolunteerService {
@@ -24,4 +26,10 @@ public interface VolunteerService {
 	
 	//봉사 펀딩 성공인원 증가 
 	void incSuccessCnt(VolunteerVO vo);
+	
+	// 마이페이지에서 참여목록 보기
+	List<VolunteerVO> adGetVolunteerList(PagingVO vo);
+	
+	// 페이징
+	PagingVO getAllcnt(PagingVO vo);
 }

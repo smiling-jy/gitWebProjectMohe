@@ -58,3 +58,63 @@ body{
     font-weight: 500;
     font-style:normal;
 }
+
+td a{
+	color: black;
+}
+
+td a:hover{
+	color: #3cc88f;
+}
+
+#new-cart-table tbody tr td{
+	padding: 20px 15px 20px;
+}
+
+#new-cart-table tbody tr .title-td{
+	text-align: left;
+}
+
+.title-poto img{
+	width: 100px;
+	border-radius: 10px;
+}
+
+.cart-table tr th {
+    font-size: 16px;
+    color: #25283a;
+    line-height: 24px;
+    padding: 10px 15px;
+    min-width: 120px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cart-table tr .no-line{
+	border-bottom: none;
+}
+
+.plus{
+	background: none;
+}
+.plus:hover {
+	color: #3cc88f;
+}
+
+.plus-tr th:not(.plus-tr th:first-of-type){
+	background-color: #BDEAD8;
+}
+.plus-tr td:not(.plus-tr td:first-of-type){
+	background-color: #BDEAD8;
+}
+
+.plus-tr td a:hover{
+	color: #7A4518;
+}
+
+#paging{
+	position: absolute;
+	left: 50%;
+	transform:translate(-50%, -50%); 
+	padding-top: 30px;
+}

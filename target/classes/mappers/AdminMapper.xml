@@ -107,8 +107,11 @@
 	</insert>
 	<!-- 파트너쉽 추가 -->
 	<insert id="adPartnerInsert" parameterType="partner">
-		insert into partner
-		values(PARTNER_PARTNER_NO_SEQ.nextval,#{partner_name},#{partner_logo},#{partner_url},PARTNER_PARTNER_NO_SEQ.currval)
+		<selectKey keyProperty="partner_no" order="AFTER" resultType="int">
+			select PARTNER_PARTNER_NO_SEQ.currval partner_no from dual
+		</selectKey>
+		insert into partner(partner_no,partner_name,partner_url)
+		values(PARTNER_PARTNER_NO_SEQ.nextval,#{partner_name},#{partner_url})
 	</insert>
 	<!-- 파트너쉽 수정 이름,url만 우선 수정-->
 	<update id="adPartnerUpdate" parameterType="partner">

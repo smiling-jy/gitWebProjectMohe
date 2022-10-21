@@ -109,7 +109,7 @@
 																	<td style="word-break:break-all"><input type="checkbox"/></td>
 																	<td style="font-size:13px">${ptn.partner_no}</td>
 																	<td style="word-break:break-all"><a href="adPartnerDetail.do?partner_no=${ptn.partner_no}">${ptn.partner_name}</a></td>
-																	<td style="word-break:break-all"><a href="${ptn.partner_url}">${ptn.partner_url}</a></td>
+																	<td style="word-break:break-all"><a href="${ptn.partner_url}" target="_blank">${ptn.partner_url}</a></td>
 																	<td>
 																		<a href="adPartnerUpdateInfo.do?partner_no=${ptn.partner_no}" class="remove-btn"> 
 																			<span class="flaticon-check"></span>

@@ -22,7 +22,7 @@
 	BS_NO,
 	USER_NO
 	)
-	VALUES (volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
+	VALUES(volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
 	'2022-05-20','2022-06-08','2022-06-08','2022-06-09',
 	1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
   </insert>
@@ -37,9 +37,30 @@
   <select id="getVolunteer" parameterType="volunteer" resultType="volunteer">
   		select * from volunteer where bs_no=#{bs_no} and user_no = #{user_no}
   </select>
-  
-  
-  
+
+
+	<!-- 페이징 -->
+	<select id="getAllcnt" parameterType="page" resultType="page">
+		select
+		count(volun_no) as totalRecCount
+		from volunteer
+		where user_no = ${select}
+	</select>
+	
+	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
+	<select id="adGetVolunteerList" parameterType="page" resultType="volunteer">
+		select v.* , b.bs_img_name
+		 from volunteer v , bongsa b
+		where v.bs_no = b.bs_no
+		  and volun_no in(select volun_no from
+				(select volun_no,rownum AS rnum from
+				(select volun_no from volunteer 
+							  where user_no = ${select}
+						   order by volun_no desc))
+		  where <![CDATA[rnum >= #{firstRow}]]>
+		  and <![CDATA[rnum <= #{endRow})]]>
+		order by v.volun_no desc
+	</select>
   
   
   

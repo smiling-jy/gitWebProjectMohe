@@ -37,7 +37,8 @@
 
 		<!-- header include -->
 		<jsp:include page="headerRed.jsp" />
-		
+
+	
 		<!--End Cart Section-->
 		<section class="cart-section">
 			<div class="auto-container">
@@ -45,8 +46,7 @@
 				<div class="cart-outer">
 					<div class="table-column">
 						<div class="inner-column ">
-							<h2 class="newFont">${bongsa.vt_title}</h2>
-							<br />
+							<br>
 							<div class="table-outer">
 								<div class="table-box">
 									<table class="cart-table newfont centersetting">

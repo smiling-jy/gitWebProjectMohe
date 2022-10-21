@@ -92,7 +92,7 @@
                             <div class="content">
                             	<div class="event-content" style="text-align:center;">
                             		<img id="event-title-logo" src="resources/images/mohe_logo/main_color_logo.png">
-	                            	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.PNG"><br>
+	                            	<br><img src="resources/files/event/main/${event.event_no}/eventMainIMG.png"><br>
 	                            	<pre style="font-family:'Malgun Gothic'; font-weight:bold;"><c:out value="${event.event_text}"/></pre>
                             		<!-- 카톡으로 공유하기 -->
                             		

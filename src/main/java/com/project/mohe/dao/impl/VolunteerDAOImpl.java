@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.project.mohe.dao.VolunteerDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
+import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 
 
@@ -53,6 +54,17 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	@Override
 	public void incSuccessCnt(VolunteerVO vo){
 		mybatis.update("VolunteerDAO.incSuccessCnt",vo);
+	}
+
+	@Override
+	public List<VolunteerVO> adGetVolunteerList(PagingVO vo) {
+		
+		return mybatis.selectList("VolunteerDAO.adGetVolunteerList", vo);
+	}
+
+	@Override
+	public PagingVO getAllcnt(PagingVO vo) {
+		return mybatis.selectOne("VolunteerDAO.getAllcnt",vo);
 	}
 
 }

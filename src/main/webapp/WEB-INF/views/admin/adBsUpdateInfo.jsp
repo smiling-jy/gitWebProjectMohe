@@ -50,7 +50,7 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adFdApproval.do">봉사 관리</a>
+						<a href="adBsList.do">봉사 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="overflow:auto;">
@@ -142,7 +142,7 @@
 													<img src="" id="main_image">
 													<input type="hidden" name="bs_img_cnt" value="${bs.bs_img_cnt}">
 													<c:forEach var="cnt" begin="1" end="${bs.bs_img_cnt}">
-														<img class="forIMG" src="../resources/files/bongsa/${bs.bs_img_name}/${cnt}.png">
+														<img class="forIMG" src="../resources/files/bongsa/${bs.bs_img_name}/${cnt-1}.png">
 													</c:forEach>
 												</div>
 												<div>

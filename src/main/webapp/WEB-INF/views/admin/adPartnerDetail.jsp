@@ -70,7 +70,7 @@
 								<div class="inner">
 									<div class="donate-form">
 										<div style="height: 50px;"></div>
-										<div class="user_pf_div">
+										<div class="user_pf_div" style="height:200px">
 											<div class="form-group col-lg-12 col-md-12 col-sm-12">
 												<div class="field-label">대표 이미지</div>
 												<img src="../resources/files/partner/${partner.partner_no}/logoIMG.png" />
