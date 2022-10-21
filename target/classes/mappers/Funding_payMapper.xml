@@ -28,6 +28,7 @@
 		select * 
 		from funding_pay
 		where user_no = #{user_no}
+		order by pay_no desc
 	</select>
 	
 	<update id="updateFunding_pay" parameterType="funding_pay">
