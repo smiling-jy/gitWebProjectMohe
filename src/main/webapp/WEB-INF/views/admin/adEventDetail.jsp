@@ -69,11 +69,11 @@
 							<div class="user_pf_div" style="width:1200px;margin-left:180px">
 								<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px;">
 									<div class="field-label">타이틀 이미지</div>
-									<img id="title_image" src="../resources/files/event/title/${event.event_no}/eventTitleIMG.PNG"/> 
+									<img id="title_image" src="../resources/files/event/title/${event.event_no}/eventTitleIMG.png"/> 
 								</div>
 								<div class="form-group col-lg-12 col-md-12 col-sm-12" style="width:300px">
 									<div class="field-label">메인 이미지</div>
-									<img id="main_image" src="../resources/files/event/main/${event.event_no}/eventMainIMG.PNG"/> 
+									<img id="main_image" src="../resources/files/event/main/${event.event_no}/eventMainIMG.png"/> 
 								</div>
 							</div>
 							<!--Form Column-->
@@ -91,7 +91,7 @@
 													</div>
 													<div class="form-group col-lg-12 col-md-12 col-sm-12">
 														<div class="field-label">이벤트 내용</div>
-														<textarea name="event_text"readonly>${event.event_text}</textarea>
+														<textarea name="event_text" style="overflow:auto;"readonly>${event.event_text}</textarea>
 													</div>
 													<div class="form-group col-lg-6 col-md-6 col-sm-6">
 														<div class="field-label">이벤트 시작일</div>

@@ -99,8 +99,8 @@
 										${pj.fd_content}
 									</p>
 									<br/>
-									<c:forEach var="cnt" begin="0" end="${pj.fd_img_cnt-1}">
-										<img src="resources/files/funding/${pj.fd_img_name}/${cnt}.png">
+									<c:forEach var="cnt" begin="0" end="${pj.fd_img_cnt}">
+										<img src="resources/files/funding/${pj.fd_img_name}/${cnt-1}.png">
 									</c:forEach>
 								</div>
 							</div>
@@ -114,11 +114,11 @@
 							<!-- Search -->
 							<div class="sidebar-widget new-font">
 								<h5>모인금액</h5>
-								<h1>${pj.total_sum}원</h1>
+								<h2><strong> ${pj.total_sum}</strong>원</h2>
 								<h5>남은시간</h5>
-								<h1>${pj.remain_day}일</h1>
+								<h2><strong>${pj.remain_day}</strong>일</h2>
 								<h5>참여자</h5>
-								<h1>${pj.total_people}명</h1>
+								<h2><strong>${pj.total_people}</strong>명</h2>
 							</div>
 							<!-- 펀딩하기, 찜, 공유 영역 -->
 							<div class="new-font" id="funding-div">

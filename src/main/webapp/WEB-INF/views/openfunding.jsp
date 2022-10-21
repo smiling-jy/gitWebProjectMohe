@@ -33,10 +33,9 @@
 <body>
 
 	<!-- 모달 -->
-<!-- 	<div class="background show new-font">
+ 	<div class="background show new-font">
 		<div class="window">
-			<div class="popup">
-				<span id="close">x</span>
+			<div class="popup">			
 				<div id="modal-con">
 					<h3>주의사항</h3>
 					<br/>
@@ -45,18 +44,17 @@
 					모금된 금액의 50%를 정해주신 봉사단체 혹은 후원재단에 기부하는 것에<br/>
 					동의하시는 분만 진행해 주세요.
 					<br/><br/>
-					기부에 동의합니다. <input type="checkbox" id="checkbox1">
+					기부에 동의합니다. <input type="checkbox" class="checkbox" id="checkbox1">
 					<br/><br/>
 					제출된 프로젝트는 검수 이후 입력해주신 시작일에 게시됩니다.<br/>
 					프로젝트가 성공한다면 종료일 다음 영업일부터 4영업일 동안 결제가 이루어집니다.<br/>
 					진행된 프로젝트는 마이페이지에서 확인하실 수 있으며 성공한 프로젝트는 후원자 목록을 확인하실 수 있습니다.<br/>
 					확인 후 후원자에게 약속한 제품이나 서비스를 준비해 보내면 됩니다.<br/><br/>
-					확인했습니다. <input type="checkbox" id="checkbox2">
-					
+					확인했습니다. <input type="checkbox" class="checkbox" id="checkbox2">				
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<div class="page-wrapper">
 		<!-- header include -->
@@ -116,7 +114,7 @@
 						<input type="text" name="fd_hostname" required>
 
 						<span>창작자 연락처</span><br />
-						<input type="text" pattern=".{10,11}" name="fd_host_phone" id="fd_host_phone" title="전화번호를 입력하세요." required>
+						<input type="text" name="fd_host_phone" id="fd_host_phone" title="전화번호를 입력하세요." required>
 						<span id="phone_message" class="under-span"></span><br />
 						
 						<span>창작자 이메일</span><br />

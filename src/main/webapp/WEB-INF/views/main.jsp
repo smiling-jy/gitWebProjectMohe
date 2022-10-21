@@ -141,7 +141,7 @@
 					<div class="slide-item slid_fix">
 <!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
 						<div class="image-layer lazy-image"
-							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.PNG')"></div>
+							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
