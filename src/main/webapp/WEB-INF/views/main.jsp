@@ -104,9 +104,6 @@
 	color:white;
 	border-radius: 10px;
 }
-banner-section img { 
-    filter: brightness(50%); 
-}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -214,9 +211,11 @@ banner-section img {
 											<div class="designation">${bestFd.fd_hostname}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+													<li>
+														<input type="hidden" class="" value="${bestFd.fd_title}">
+														<input type="hidden" value="${bestFd.fd_no}">
+														<a class="gongu"><span class="fa fa-regular fa-comment"></span></a></li>
+													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -264,8 +263,7 @@ banner-section img {
 											<div class="designation">${ddBs.bs_place}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
 													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
@@ -442,8 +440,7 @@ banner-section img {
 											<div class="designation"><span class="icon fa fa-user"></span> ${bestRv.user_name}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-													<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
 													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
@@ -497,7 +494,8 @@ banner-section img {
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 	<script>
 		setInterval(fnSlide, 2000);
 		function fnSlide() {
@@ -532,6 +530,17 @@ banner-section img {
 			if($('#pop_no').val() == ""){
 				$('#pop_form').css('display','none');
 			}
+		})
+		// 카카오톡 공유하기 api
+		Kakao.init('d979258f63314ea5bad35903ff604cbf');
+		$('.gongu').click(function(){
+			 Kakao.Share.sendDefault({
+			      objectType: 'text',
+			      text:$(this).prev().prev().val(),  
+			      link: {
+			        webUrl: 'http://localhost:8080/basic/fundingSingle.do?fd_no='+$(this).prev().val(),
+			      },
+			    })
 		})
 	</script>
 </body>

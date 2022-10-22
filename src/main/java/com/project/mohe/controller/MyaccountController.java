@@ -65,9 +65,9 @@ public class MyaccountController {
 		try {
 			MultipartFile userImgFile = vo.getUser_img_file();
 			if (userImgFile != null) {
-				String projectDir ="C:/Users/ckalw/git/gitWebProjectMohe";
+				String projectDir = "C:/Users/human/git/gitWebProjectMohe";/*"C:/Users/ckalw/git/gitWebProjectMohe";*/
 				String fname = userImgFile.getOriginalFilename();
-				String dirStr = projectDir + "/src/main/webapp/resources/files/userImgUploadFile/" + user.getUser_no();
+				String dirStr = projectDir + "/src/main/webapp/resources/files/user/" + user.getUser_no();
 				if (!new File(dirStr).exists()) {
 					Files.createDirectories(Paths.get(dirStr));
 				}
@@ -168,23 +168,28 @@ public class MyaccountController {
 
 		return resultCnt;
 	}
+	
+	@RequestMapping("updateUserinfoUserOutdate.do")
+	@ResponseBody
+	public int updateUserinfoUserOutdate(HttpSession session) {
+		int resultCnt = 0;
+		
+		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
+		if (user == null) {
+			return resultCnt;
+		}
+		
+		resultCnt = myaccountService.updateUserinfoUserOutdate(user);
+		
+		session.removeAttribute("user");
+        session.removeAttribute("sessionTime");
+        session.removeAttribute("user_no");
+        session.removeAttribute("user_email");
+        
+        session.invalidate();
+        
+        return resultCnt;
+	}
 
-//	@RequestMapping("insertFunding_cart.do")
-//	@ResponseBody
-//	public int insertFunding_cart(Funding_cartVO vo, HttpSession session) {
-//		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
-//		vo.setUser_no(user.getUser_no());
-//		return myaccountService.insertFunding_cart(vo);
-//	}
-//	
-//	@RequestMapping("shoppingBasket.do")
-//	public String getFunding_cartList(Model model, HttpSession session) {
-//		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
-//		List<Funding_pjVO> pj_list = myaccountService.getFunding_cartList(user);
-//		List<BongsaVO> bs_list = myaccountService.getBonsa_cartList(user);
-//		
-//		model.addAttribute("pj_list", pj_list);
-//		model.addAttribute("bs_list", bs_list);
-//		return "shoppingBasket";
-//	}
+
 }

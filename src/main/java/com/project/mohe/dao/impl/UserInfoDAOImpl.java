@@ -67,5 +67,10 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public void updateUser(UserInfoVO vo) {
 		mybatis.update("UserInfoDAO.updateUser",vo);
 	}
+	
+	@Override
+	public void updateUserinfoUserOutdate(UserInfoVO vo) {
+		mybatis.update("UserInfoDAO.updateUserinfoUserOutdate",vo);
+	}
 
 }
