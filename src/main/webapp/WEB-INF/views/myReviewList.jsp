@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,45 +45,36 @@
 			<div class="auto-container">
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
-					<c:if test="${empty pay_list}"><p>참여 내역이 없습니다.</p></c:if>
-					<c:if test="${not empty pay_list}">
 						<div class="cart-outer m-auto">
 							<div class="table-column">
 								<div class="inner-column">
 									<div class="table-outer">
 										<div class="table-box">
-											<table class="cart-table new-cart-table">
+											<table class="cart-table">
 												<thead class="cart-header">
 													<tr>
-														<th>날짜</th>
-														<th class="prod-column">프로젝트명</th>
+														<th class="prod-column">후기 제목</th>
 														<th>&nbsp;</th>
-														<th>진행 상태</th>
-														<th>&nbsp;</th>
+														<th>작성날짜</th>
+														<th>조회수</th>
+														<th>수정&nbsp;/&nbsp;삭제</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach items="${pay_list}" var="pay">
+													<c:forEach items="${myReviewList}" var="review">
 														<tr>
-															<td>${pay.date_for_list}</td>
+															<td colspan="2" class="prod-column">
+																<a href="getReview.do?review_no=${review.review_no}" style="color:black;">
+																	<h5 class="prod-title">${review.review_title}</h5>
+																</a>
+															</td>
+															<td><fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></td>
+															<td>${review.review_read_cnt}</td>
 															<td>
-																<figure class="prod-thumb title-poto">
-																	<a href="fundingSingle.do.do?fd_no=${pay.fd_no}"><img
-																		class="lazy-image loaded"
-																		src="resources/files/funding/${pay.fd_img_name}/title.png"
-																		alt="" data-was-processed="true"></a>
-																</figure>															
-															</td>
-															<td class="prod-column title-td">
-																<a href="fundingSingle.do?fd_no=${pay.fd_no}"><span>${pay.fd_title}</span></a>
-															</td>
-															<td>${pay.pay_status}</td>
-															<td class="sub-total">
-																<button class="plus">상세보기</button>									 																	
-																<input type="hidden" value="${pay.pay_count}">
-																<input type="hidden" value="${pay.pay_total}">
-																<input type="hidden" value="${pay.pay_pn_addr}">
-																<input type="hidden" value="${pay.fd_no}">															
+																<a href="goUpdate.do?review_no=${review.review_no}" class="remove-btn"> <span
+																			class="flaticon-check"></span>
+																</a>&nbsp;&nbsp;&nbsp; <a href="myReviewDelete.do?review_no=${review.review_no}">
+																<span class="flaticon-delete-1"></span></a>
 															</td>
 														</tr>
 													</c:forEach>
@@ -93,30 +85,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- 페이징 부분 -->
-						<div id="paging">
-							<c:choose>
-								<c:when test="${page.groupNo-1 > 0 }">
-									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
-								</c:when>
-								<c:otherwise>
-									<span> ◀  </span>
-								</c:otherwise>
-							</c:choose>
-							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
-								<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
-							</c:forEach>
-							<c:choose>
-								<c:when test="${page.endPageNo < page.pageTotalCount }">
-									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
-								</c:when>
-								<c:otherwise>
-									<span> ▶ </span>
-								</c:otherwise>
-							</c:choose>
-						</div>
-						<!-- 페이징 끝 -->
-					</c:if>
 					</div>
 					<!--Sidebar Side-->
 					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
@@ -153,20 +121,20 @@
 									<ul class="cart-ul">
 										<li>펀딩
 											<ul>
-												<li class="current"><a href="myFundingList.do">펀딩참여목록</a></li>
+												<li><a href="myFundingList.do">펀딩참여목록</a></li>
 												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
 											</ul>
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="myVolunList.do">봉사참여목록</a></li>
+												<li><a href="details.do">봉사참여목록</a></li>
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
 										<li>후기
 											<ul>
-												<li><a href="myReviewList.do">나의후기목록</a></li>
+												<li class="current"><a href="myReviewList.do">나의후기목록</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -201,16 +169,6 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-	<script type="text/javascript">
-		$(document).on('click', '.plus' , function() {
-			$('.plus-tr').remove()
-			$(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>수량</th><th>총액</th>'
-					+'<th class="prod-column" >배송주소</th><th></th>&nbsp;</tr>'
-					+'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+'</td>'
-					+'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('대기중') == -1 ? '<a href="reviewWriting.do"'
-					+' onclick="insertFunding_cart\(\''+$(this).next().next().next().next().val()+'\'\);">후기쓰기</a></td>' : '')+'</tr>')	
-		})
-	</script>
 
 </body>
 

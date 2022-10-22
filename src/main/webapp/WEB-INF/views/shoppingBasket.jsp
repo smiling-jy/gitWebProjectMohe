@@ -212,6 +212,11 @@
 											</ul>
 										</li>
 										<li class="current"><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+										<li>후기
+											<ul>
+												<li><a href="myReviewList.do">나의후기목록</a></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 							</div>
