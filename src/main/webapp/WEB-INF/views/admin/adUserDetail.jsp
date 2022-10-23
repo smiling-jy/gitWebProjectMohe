@@ -37,6 +37,12 @@
 	type="image/x-icon">
 <link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+<style>
+	.user_join_table_div{
+		height:245px;
+		overflow: auto;
+	}
+</style>
 </head>
 
 <body class="nav-md">
@@ -51,7 +57,7 @@
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title"><a href="adUserList.do">회원 목록</a></div>
 					<hr>
-					<div class="content_table_div">
+					<div class="content_table_div" style="height:1200px;ss">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg right_btn">
 							<a href="userEnd.do?user_no=${userDetail.user_no}" class="theme-btn btn-style-three">
@@ -127,7 +133,7 @@
 										<div class="table-column">
 											<div class="inner-column">
 												<div class="table-outer">
-													<div class="table-box">
+													<div class="user_join_table_div">
 														<table class="cart-table">
 															<thead class="cart-header">
 																<tr>
@@ -170,7 +176,7 @@
 										<div class="table-column">
 											<div class="inner-column">
 												<div class="table-outer">
-													<div class="table-box">
+													<div class="user_join_table_div">
 														<table class="cart-table">
 															<thead class="cart-header">
 																<tr>
@@ -252,5 +258,6 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 </body>
 </html>
