@@ -23,7 +23,8 @@
 	USER_NO
 	)
 	VALUES(volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
-	'2022-05-20','2022-06-08','2022-06-08','2022-06-09',
+	to_date(#{vt_recruit_start}, 'YYYY-MM-DD HH24:MI:SS'), to_date(#{vt_recruit_end}, 'YYYY-MM-DD HH24:MI:SS'),
+	to_date(#{vt_work_start}, 'YYYY-MM-DD HH24:MI:SS'),to_date(#{vt_work_end}, 'YYYY-MM-DD HH24:MI:SS'),
 	1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
   </insert>
   

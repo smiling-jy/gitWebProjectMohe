@@ -17,14 +17,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.BongsaService;
+import com.project.mohe.service.VolunteerService;
 
 @Controller
 public class BongsaController {
 	@Autowired
 	private BongsaService bongsaService;
+	@Autowired
+	private VolunteerService volunteerService; 
 	
 	@Autowired
 	ServletContext servletContext;
@@ -62,8 +67,6 @@ public class BongsaController {
 		
 		// 유저번호 세션에서 받아오기
 		HttpSession session =  request.getSession();
-		System.out.println(session);
-		// 임시 유저번호 로그인 기능 완성되면 ㄹㅇ 세션에서 받아오기
 		vo.setPUser_no((Integer) session.getAttribute("user_no"));
 
 		
@@ -74,6 +77,7 @@ public class BongsaController {
 		
 		return "bongsaParticipate";
 	}
+
 	
 
 	
@@ -113,6 +117,9 @@ public class BongsaController {
 		
 		String strStart = vo.getBs_work_start();
 		String strEnd = vo.getBs_work_end();
+		
+		System.out.println(vo.getBs_work_start());
+		System.out.println(vo.getBs_work_end());
 		
 		char T = 'T';
 		

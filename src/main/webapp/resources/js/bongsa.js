@@ -51,23 +51,23 @@ $('#bsJjim').on("click",function(){
 
 //봉사참여하기 중복확인
 //봉사참여 비동기통신
-$('#paricipate').on("click",function(){
-	
-	 alert($(this).next().val());
-	 $.ajax({
-	        type:'get',
-	        url:'insertVolunteer.do',
-	        data : {'bs_no' : $(this).next().val()},
-	        async: true, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
-	        contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
-	        success : function(data){
-	        	alert(data);
-	        },
-	        error :function(request, status, error){		 //요청 실패시 에러 확인을 위함
-	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	        }
-	    })
-})
+//$('#paricipate').on("click",function(){
+//	
+//	 alert($(this).next.val());
+//	 $.ajax({
+//	        type:'get',
+//	        url:'insertVolunteer.do',
+//	        data : {'bs_no' : $(this).next.val()},
+//	        async: true, // sumbmit이 진행이 안되도록 하는 옵션(비동기 통신)
+//	        contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
+//	        success : function(data){
+//	        	alert(data);
+//	        },
+//	        error :function(request, status, error){		 //요청 실패시 에러 확인을 위함
+//	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+//	        }
+//	    })
+//})
 
 
 
@@ -75,7 +75,6 @@ $('#paricipate').on("click",function(){
 
 //카카오톡 공유하기 api
 Kakao.init('d979258f63314ea5bad35903ff604cbf');
-
 
 $('#bsGongu').on("click",function(){
       Kakao.Share.sendDefault({

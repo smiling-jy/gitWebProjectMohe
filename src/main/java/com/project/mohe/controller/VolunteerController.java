@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.AdminService;
@@ -23,8 +24,7 @@ public class VolunteerController {
 	private PagingService pagingService;
 	
 	//참여하기 버튼 클릭시 VOLUNTEER 테이블에 추가 
-	@RequestMapping(value ="insertVolunteer.do", produces = "application/text; charset=utf8")
-	@ResponseBody
+	@RequestMapping("insertVolunteer.do")
 	public String insertVolunteer(VolunteerVO vo, HttpServletRequest request) {
 		
 		//세션에서 user_no 받아오기 
@@ -33,22 +33,40 @@ public class VolunteerController {
 		
 		System.out.println(vo.getUser_no());
 		System.out.println(vo.getBs_no());
+		System.out.println(vo.getVt_recruit_start());
+		System.out.println(vo.getVt_recruit_end());
+		System.out.println(vo.getVt_work_start());
+		System.out.println(vo.getVt_work_end());
 		System.out.println("insertVolun 컨트롤러 입구");
 		
-		String result;
 		
-		//중복확인 
+		String strVt_recruit_start = vo.getVt_recruit_start();
+		String strVt_recruit_end = vo.getVt_recruit_end();
+		String strVt_work_start = vo.getVt_work_start();
+		String strVt_work_end = vo.getVt_work_end();
+		
+		
+		char remove = '-';
+		
+		strVt_recruit_start = strVt_recruit_start.replace(String.valueOf(remove), "");
+		strVt_recruit_end = strVt_recruit_end.replace(String.valueOf(remove), "");
+		strVt_work_start = strVt_work_start.replace(String.valueOf(remove), "");
+		strVt_work_end = strVt_work_end.replace(String.valueOf(remove), "");
+		
+		vo.setVt_recruit_start(strVt_recruit_start);
+		vo.setVt_recruit_end(strVt_recruit_end);
+		vo.setVt_work_start(strVt_work_start);
+		vo.setVt_work_end(strVt_work_end);
+		
 		if(volunteerService.getVolunteer(vo) != null) { //이전에 참여하기를 누른 적이 있는 경우  
-			result = "신청이력이 존재합니다.";
-			return result;
+			return "redirect:/bongsaMain.do";
 		}else {
 			volunteerService.insertVolunteer(vo); //처음 참여하기를 누른경우
-			result = "봉사활동 참여신청이 완료되었습니다.";
+			
 		}
 		
-		
-		System.out.println("insertVolunteer 출구 : " + result);
-		return result;
+
+		return "redirect:/bongsaMain.do";
 	}
 	
 	// 참여내역
