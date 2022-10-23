@@ -143,6 +143,7 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);

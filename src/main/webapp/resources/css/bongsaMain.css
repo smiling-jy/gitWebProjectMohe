@@ -1,3 +1,4 @@
+
 /* 봉사 메인페이지 */
 
 /* 폰트설정 */
@@ -16,8 +17,6 @@
 .centersetting{
 	text-align: center;
 }
-
-
 
 /* 봉사 메인페이지 썸네일 정보 띄어쓰기 */
 
@@ -138,6 +137,19 @@
 
 
 .bongsa-search-box{
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
+/* 봉사메인리스트 크기고정 */
+
+/* 펀딩리스트 타이틀이미지 크기 */
+
+img.lazy-image.img_size{
+	width: 323.9px;
+	height: 323.9px;
+}
+
+.lower-content{
+	height: 250px;
+}
+  

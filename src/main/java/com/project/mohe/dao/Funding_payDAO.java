@@ -32,4 +32,7 @@ public interface Funding_payDAO {
 		
 		// 페이징
 		PagingVO getAllcnt(PagingVO vo);
+		
+		// 한 유저의 펀딩 참여 카운트
+		UserInfoVO getJoinFd(UserInfoVO vo);
 }

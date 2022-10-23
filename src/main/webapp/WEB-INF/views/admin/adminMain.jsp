@@ -199,6 +199,7 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 	<!-- AOS 코드 링크 -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>

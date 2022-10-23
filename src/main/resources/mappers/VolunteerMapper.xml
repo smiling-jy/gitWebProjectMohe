@@ -62,7 +62,11 @@
 		order by v.volun_no desc
 	</select>
   
-  
-  
+ 	<!-- 한 유저의 봉사 참여 카운트 -->
+  	<select id="getJoinBs" parameterType="userInfo" resultType="userInfo">
+  		select count(volun_no) as bsCnt
+  		from volunteer
+  		where user_no = #{user_no}
+  	</select>
 
   </mapper>

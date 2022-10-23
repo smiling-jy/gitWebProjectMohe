@@ -26,4 +26,6 @@ public interface MyaccountDAO {
 	int countAccountByEmail(UserInfoVO vo);
 
 	int resetPassword(UserInfoVO vo);
+	
+	int updateUserinfoUserOutdate(UserInfoVO vo);
 }

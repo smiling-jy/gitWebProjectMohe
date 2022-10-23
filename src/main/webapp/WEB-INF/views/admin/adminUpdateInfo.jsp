@@ -186,6 +186,7 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 	<script>
 		var dept = $('#adm_dept').val();
 		$("select[name=adm_dept]").val(dept).prop("selected", true);
