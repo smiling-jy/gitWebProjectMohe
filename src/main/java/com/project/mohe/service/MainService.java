@@ -40,5 +40,8 @@ public interface MainService {
 	
 	// 기간이 지난 팝업들을 비활성화
 	void timeOutPop();
+	
+	// 회원 등급 조정
+	void userRating();
 
 }

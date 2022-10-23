@@ -180,4 +180,7 @@
 	margin:0 10px;
 }
 
+textarea{
+	overflow: scroll;
+}
 

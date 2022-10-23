@@ -79,7 +79,7 @@
 										<div class="form-group col-lg-12 col-md-12 col-sm-12">
 											<div class="field-label">프로필사진</div>
 <!-- 											<img src="../resources/images/imsi_img1.png" />  -->
-											<img src="../resources/files/user/${userDetail.user_no}/userIMG.png" /> 
+											<img src="../resources/files/user/${userDetail.user_no}/userIMG.png" onerror="this.style.display='none'"/> 
 										</div>
 									</div>
 									<div class="user_info_div">
