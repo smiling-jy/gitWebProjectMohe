@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
 
 public interface VolunteerDAO {
@@ -34,4 +35,7 @@ public interface VolunteerDAO {
 		
 		// 페이징
 		PagingVO getAllcnt(PagingVO vo);
+		
+		// 한 유저의 봉사 참여 카운트
+		UserInfoVO getJoinBs(UserInfoVO vo);
 }

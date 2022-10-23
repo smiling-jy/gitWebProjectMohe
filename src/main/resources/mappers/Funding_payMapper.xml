@@ -59,5 +59,10 @@
 		 where user_no = ${select}
 	</select>
 	
-	
+	<!-- 한 유저의 펀딩 참여 카운트 -->
+  	<select id="getJoinFd" parameterType="userInfo" resultType="userInfo">
+  		select count(pay_no) as fdCnt
+  		from funding_pay
+  		where user_no = #{user_no}
+  	</select>
   </mapper>

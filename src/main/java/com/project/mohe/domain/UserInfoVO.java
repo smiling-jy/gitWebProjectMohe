@@ -20,4 +20,8 @@ public class UserInfoVO {
 	private String user_rating;
 
 	private MultipartFile user_img_file;
+	
+	private int fdCnt;// 전체 펀딩참여수
+	private int BsCnt;// 전체 펀딩참여수
+	
 }
