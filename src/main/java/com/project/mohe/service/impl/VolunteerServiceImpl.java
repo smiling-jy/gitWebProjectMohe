@@ -60,6 +60,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 	
 	@Override
 	public List<VolunteerVO> adGetVolunteerList(PagingVO vo) {
+		volunteerDao.updateVolunteerIng(vo);
 		return volunteerDao.adGetVolunteerList(vo);
 	}
 
@@ -67,7 +68,11 @@ public class VolunteerServiceImpl implements VolunteerService {
 	public PagingVO getAllcnt(PagingVO vo) {
 		return volunteerDao.getAllcnt(vo);
 	}
+
+	@Override
+	public void updateVolunteerIng(PagingVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
 	
-
-
 }

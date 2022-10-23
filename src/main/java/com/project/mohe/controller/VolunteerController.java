@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.project.mohe.domain.PagingVO;
 import com.project.mohe.domain.VolunteerVO;
-import com.project.mohe.service.AdminService;
 import com.project.mohe.service.PagingService;
 import com.project.mohe.service.VolunteerService;
+
+import jdk.nashorn.api.scripting.ScriptUtils;
 
 @Controller
 public class VolunteerController {
@@ -71,7 +70,7 @@ public class VolunteerController {
 	
 	// 참여내역
 	@RequestMapping("myVolunList.do")
-	public String myFundingList(PagingVO vo , HttpServletRequest request, Model model){
+	public String myFundingList(PagingVO vo, HttpServletRequest request, Model model){
 		HttpSession session = request.getSession();
 		vo.setSelect(String.valueOf(session.getAttribute("user_no")));
 		// 페이징을 위한 테이블 행값 받아오기
@@ -82,6 +81,7 @@ public class VolunteerController {
 		
 		model.addAttribute("page",vo);		
 		model.addAttribute("vl_list", volunteerService.adGetVolunteerList(vo));
+		
 		System.out.println();
 		return "myVolunList";
 	}

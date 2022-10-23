@@ -142,9 +142,7 @@
 
 /* 봉사메인리스트 크기고정 */
 
-/* 펀딩리스트 타이틀이미지 크기 */
-
-img.lazy-image.img_size{
+img.img_size{
 	width: 323.9px;
 	height: 323.9px;
 }

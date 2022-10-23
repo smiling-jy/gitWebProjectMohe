@@ -25,7 +25,7 @@
 	VALUES(volun_PJ_SEQ.nextval,#{vt_bs_name},#{vt_title},#{vt_place},
 	to_date(#{vt_recruit_start}, 'YYYY-MM-DD HH24:MI:SS'), to_date(#{vt_recruit_end}, 'YYYY-MM-DD HH24:MI:SS'),
 	to_date(#{vt_work_start}, 'YYYY-MM-DD HH24:MI:SS'),to_date(#{vt_work_end}, 'YYYY-MM-DD HH24:MI:SS'),
-	1,#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
+	'참여예정',#{vt_name},#{vt_user_phone},#{vt_user_email},#{bs_no},#{user_no})
   </insert>
   
   
@@ -63,7 +63,12 @@
 		order by v.volun_no desc
 	</select>
   
-  
+  	<update id="updateVolunteerIng" parameterType="page">
+  		update volunteer
+		set vt_ing = '참여완료'
+		where <![CDATA[vt_work_end <= sysdate]]>
+  	
+  	</update>
   
 
   </mapper>

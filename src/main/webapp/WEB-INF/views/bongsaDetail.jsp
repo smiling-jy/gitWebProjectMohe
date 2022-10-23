@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>모해 MOHE | 봉사상세페이지 너무 짜증나느....</title>
+<title>모해 MOHE | 봉사상세페이지</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">

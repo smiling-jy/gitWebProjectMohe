@@ -66,5 +66,10 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	public PagingVO getAllcnt(PagingVO vo) {
 		return mybatis.selectOne("VolunteerDAO.getAllcnt",vo);
 	}
-
+	
+	@Override
+	public void updateVolunteerIng(PagingVO vo) {
+		mybatis.update("VolunteerDAO.updateVolunteerIng",vo);
+		
+	}
 }

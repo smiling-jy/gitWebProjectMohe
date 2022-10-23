@@ -242,10 +242,9 @@
 	<!-- 봉사이미지 cnt 증가 -->
 	<update id="increBsImgCnt" parameterType="bongsa" >
 	
-	update bongsa
-	set bs_img_cnt = #{bs_img_cnt}
-	where bs_no = #{bs_no}
-	
+	update volunteer
+	set vt_ing = 0
+	where bs_no = #{bs_no} and <![CDATA[vt_work_end < sysdate]]>
 	</update>
 	
 	

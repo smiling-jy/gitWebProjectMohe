@@ -86,4 +86,11 @@ $('#bsGongu').on("click",function(){
           })
 })
 
+//봉사메인 페이지 전환 없애기
+//document.getElementById("bs-regeion").addEventListener("click",function () {
+//	alert("확인");
+//  window.setTimeout(() => {
+//  document.body.className = '';
+//  })
+//})
 
