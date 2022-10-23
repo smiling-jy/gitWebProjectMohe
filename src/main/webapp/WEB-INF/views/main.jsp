@@ -104,6 +104,9 @@
 	color:white;
 	border-radius: 10px;
 }
+.main_slide_toneDown{
+	filter: brightness(75%)
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -139,8 +142,8 @@
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
 					<div class="slide-item slid_fix">
-<!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
-						<div class="image-layer lazy-image"
+					<div class="image-layer lazy-image"></div>
+						<div class="image-layer lazy-image main_slide_toneDown"
 							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
@@ -263,8 +266,11 @@
 											<div class="designation">${ddBs.bs_place}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+													<li>
+														<input type="hidden" class="" value="${ddBs.bs_title}">
+														<input type="hidden" value="${ddBs.bs_no}">
+														<a class="gongu2"><span class="fa fa-regular fa-comment"></span></a></li>
+													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -440,8 +446,11 @@
 											<div class="designation"><span class="icon fa fa-user"></span> ${bestRv.user_name}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+													<li>
+														<input type="hidden" class="" value="${bestRv.review_title}">
+														<input type="hidden" value="${bestRv.review_no}">
+														<a class="gongu3"><span class="fa fa-regular fa-comment"></span></a></li>
+													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -538,7 +547,25 @@
 			      objectType: 'text',
 			      text:$(this).prev().prev().val(),  
 			      link: {
-			        webUrl: 'http://localhost:8080/basic/fundingSingle.do?fd_no='+$(this).prev().val(),
+			        webUrl: 'http://localhost:8080/mohe/fundingSingle.do?fd_no='+$(this).prev().val(),
+			      },
+			    })
+		})
+		$('.gongu2').click(function(){
+			 Kakao.Share.sendDefault({
+			      objectType: 'text',
+			      text:$(this).prev().prev().val(),  
+			      link: {
+			        webUrl: 'http://localhost:8080/mohe/bongsaDetail.do?bs_no='+$(this).prev().val(),
+			      },
+			    })
+		})
+		$('.gongu3').click(function(){
+			 Kakao.Share.sendDefault({
+			      objectType: 'text',
+			      text:$(this).prev().prev().val(),  
+			      link: {
+			        webUrl: 'http://localhost:8080/mohe/getReview.do?review_no='+$(this).prev().val(),
 			      },
 			    })
 		})

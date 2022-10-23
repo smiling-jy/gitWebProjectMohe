@@ -66,5 +66,9 @@
             </div>
         </div>
     </div>
+    
+	<!-- jQuery -->
+	<script src="../resources/js_ad/jquery.min.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 </body>
 </html>

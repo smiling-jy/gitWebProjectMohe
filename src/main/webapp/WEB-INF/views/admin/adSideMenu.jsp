@@ -90,5 +90,9 @@
 			</div>
 		</div>
 		<!-- /top navigation -->
+		
+	<!-- jQuery -->
+	<script src="../resources/js_ad/jquery.min.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 </body>
 </html>
