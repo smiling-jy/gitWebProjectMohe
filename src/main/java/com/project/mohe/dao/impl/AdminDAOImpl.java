@@ -68,6 +68,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public AdminVO idCheck_Login(AdminVO vo) {
 		return mybatis.selectOne("AdminDAO.idCheck_Login",vo);
 	}
+	
+	// 임시 비밀번호로 업데이트 하기
+	@Override
+	public int resetPassword(AdminVO vo) {
+		return mybatis.update("AdminDAO.resetPassword",vo);
+	}
 	// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 	
 	// 봉사 상세페이지

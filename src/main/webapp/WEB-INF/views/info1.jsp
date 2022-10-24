@@ -68,8 +68,8 @@
 						<div class="team-block">
 							<div class="inner-box">
 								<figure class="image-box">
-									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+									<a href="#">
+									<img src="resources/images/face/Developer_2.png" alt=""></a>
 								</figure>
 								<div class="lower-box">
 									<div class="content">
@@ -79,9 +79,6 @@
 										<div class="designation">Engineer</div>
 										<div class="social-links">
 											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 											</ul>
 										</div>
 									</div>
@@ -95,7 +92,7 @@
 							<div class="inner-box">
 								<figure class="image-box">
 									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										src="resources/images/face/Developer_1.jpg" alt=""></a>
 								</figure>
 								<div class="lower-box">
 									<div class="content">
@@ -104,11 +101,6 @@
 										</h3>
 										<div class="designation">Engineer</div>
 										<div class="social-links">
-											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-											</ul>
 										</div>
 									</div>
 								</div>
@@ -121,7 +113,7 @@
 							<div class="inner-box">
 								<figure class="image-box">
 									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										src="resources/images/face/Developer_3.png" alt=""></a>
 								</figure>
 								<div class="lower-box">
 									<div class="content">
@@ -131,9 +123,6 @@
 										<div class="designation">Engineer</div>
 										<div class="social-links">
 											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 											</ul>
 										</div>
 									</div>
@@ -147,7 +136,7 @@
 							<div class="inner-box">
 								<figure class="image-box">
 									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										src="resources/images/face/Developer_4.png" alt=""></a>
 								</figure>
 								<div class="lower-box">
 									<div class="content">
@@ -157,9 +146,6 @@
 										<div class="designation">Engineer</div>
 										<div class="social-links">
 											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 											</ul>
 										</div>
 									</div>
@@ -173,7 +159,7 @@
 							<div class="inner-box">
 								<figure class="image-box">
 									<a href="#"><img
-										src="resources/images/mohe_logo/logo_mint_big.png" alt=""></a>
+										src="resources/images/face/Developer_5.png" alt=""></a>
 								</figure>
 								<div class="lower-box">
 									<div class="content">
@@ -183,9 +169,6 @@
 										<div class="designation">Engineer</div>
 										<div class="social-links">
 											<ul class="clearfix">
-												<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-												<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-												<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 											</ul>
 										</div>
 									</div>
