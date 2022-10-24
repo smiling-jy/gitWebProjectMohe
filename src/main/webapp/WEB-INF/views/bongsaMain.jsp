@@ -1,24 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- jsp에서 substring 쓸때 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>모해 MOHE | 봉사페이지</title>
+<link rel="shortcut icon"
+	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
+<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
+	type="image/x-icon">
+	
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
-<link href="resources/css/bongsaMain.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 
 <!-- Responsive File -->
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
 <link href="resources/css/color.css" rel="stylesheet">
-<link rel="shortcut icon"
-	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
-<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+
+<link href="resources/css/bongsaMain.css" rel="stylesheet">
+<link href="resources/css/header2.css" rel="stylesheet">
+<link href="resources/css/footer.css" rel="stylesheet">
+<link href="resources/css/mainPage.css" rel="stylesheet">
+
+
+
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,9 +35,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="resources/resources/js/respond.js"></script><![endif]-->
-<link href="resources/css/header2.css" rel="stylesheet">
-<link href="resources/css/footer.css" rel="stylesheet">
-<link href="resources/css/mainPage.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -54,8 +61,8 @@
 					<li><a href="bongsaMain.do?bs_region=강원">강원</a></li>
 					<li><a href="bongsaMain.do?bs_region=대구경북">대구•경북</a></li>
 					<li><a href="bongsaMain.do?bs_region=광주전라">광주•전라</a></li>
-					<li><a href="bongsaMain.do?bs_region=울산부산경남">울산•부산•경남</a></li>
-					<li><a href="bongsaMain.do?bs_region=대전세종충남">대전•세종•충남</a></li>
+					<li><a href="bongsaMain.do?bs_region=울산부산경남" >울산•부산•경남</a></li>
+					<li><a href="bongsaMain.do?bs_region=대전세종충남" >대전•세종•충남</a></li>
 					<li><a href="bongsaMain.do?bs_region=제주도">제주</a></li>
 					<li><a href="bongsaMain.do?bs_region=비대면">비대면</a></li>
 				</ul>
