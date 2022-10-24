@@ -35,7 +35,7 @@
 .rating{
 	position:absolute;
 	z-index:5;
- 	top:0px; 
+ 	top:27px; 
  	left:20px; 
 	width:100px;
 }
