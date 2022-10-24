@@ -103,9 +103,10 @@
 	</select>
 	<!-- 내가 작성한 리뷰목록 -->
 	<select id="getMyReview" parameterType="map" resultType="review">
-		select review.*
+		select review.*,userinfo.*
 		  from review, userinfo
-		 where review.user_no=#{user_no}
-	  order by review_no desc;
+		 where userinfo.user_no=review.user_no
+		   and review.user_no=#{user_no}
+	  order by review_no desc
 	</select>
 </mapper>

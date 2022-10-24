@@ -76,7 +76,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 	//내가 작성한 후기목록
 	@Override
 	public List<ReviewVO> getMyReview(HashMap map) {
-		System.out.println("========나의후기목록 DAO");
 		return mybatis.selectList("ReviewDAO.getMyReview", map);
 	}
 
