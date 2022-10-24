@@ -19,7 +19,7 @@ public class VolunteerVO {
 	private String vt_recruit_end;
 	private String vt_work_start;
 	private String vt_work_end;
-	private int vt_ing;
+	private String vt_ing;
 	private String vt_name;
 	private String vt_user_phone;
 	private String vt_user_email;

@@ -136,3 +136,109 @@ $('#open-fd-btn').click(function() {
 
 
 
+// 봉사 모집 유효성 검사
+
+// 이메일 검사
+$('#bs_host_email').blur(
+		
+	function() {
+		
+		// 이메일 값 변수 저장
+		var email = $("#bs_host_email").val();
+		
+		// 검증에 사용할 정규식 변수 regExp에 저장
+		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		
+		if (email.match(regExp) != null) {
+			// 타입이 맞으면
+			e_message = "정상 이메일 형식 입니다."
+			$('#email_message').css("color", "green");
+			e_reslt = true;
+		} else {
+			e_message = "정상적인 이메일 형식이 아닙니다."
+			$('#email_message').css("color", "red");
+		}
+		$('#email_message').text(e_message);
+		return e_reslt;
+	}
+)
+
+// 전화번호 검사
+$('#bs_host_phone').blur(
+	function() {
+		
+		var regNumber = /^[0-9]*$/;
+		var temp = $('#bs_host_phone').val();
+
+		if (!regNumber.test(temp) || temp.length != 11) {
+			p_message = "정상적인 전화번호가 아닙니다."
+			$('#phone_message').css("color", "red");
+		}else {
+			p_message = ""
+			p_reslt = true;
+		}
+		$('#phone_message').text(p_message);
+		return p_reslt;
+	}
+)
+
+// 화면 실행시 모집 시작일, 종료일에 min 속성을 부여하는 이벤트
+$(document).ready(function() {
+	var now = new Date();
+	var nowPlus7 = dateFormat(new Date(now.setDate(now.getDate() + 7)));
+	$('#bs_recruit_start').attr('min',nowPlus7);
+	$('#bs_recruit_end').attr('min',nowPlus7);	
+	
+})
+
+//모집인원 (숫자확인)
+$('#bs_goal_cnt').blur(
+	function() {
+		var regNumber = /^[0-9]*$/;
+		var temp = $('#bs_goal_cnt').val();
+
+		if (!regNumber.test(temp)) {
+			r_message = "숫자를 입력하세요."
+			$('#bs_goal_cnt_message').css("color", "red");
+		}else {
+			r_message = ""
+			r_reslt = true;
+		}
+		$('#bs_goal_cnt_message').text(r_message);
+		return r_reslt;
+	}
+)
+
+// bs_work_start 제한 / 봉사모집 다음날부터 
+$('#bs_work_start').change(
+	function() {		
+		var start = new Date($('#bs_recruit_end').val());
+		var startPlus1d = new Date(start.setDate(start.getDate()+1))
+		var end = new Date($('#bs_work_start').val());
+		if (startPlus1d < end){
+			$('#date_startMessage').text("");
+			d_reslt = true;
+		}else{
+			$('#date_startMessage').css("color", "red");
+			$('#date_startMessage').text("봉사시작은 모집완료 이후 가능합니다.");			
+		}
+		return d_reslt;
+	}
+)
+
+// bs_work_end 제한 / 봉사시작일시 이후부터
+$('#bs_work_end').change(
+	function() {		
+		var start = new Date($('#bs_work_start').val());
+		var startPlus0d = new Date(start.setDate(start.getDate()))
+		var end = new Date($('#bs_work_end').val());
+		if (startPlus0d < end){
+			$('#date_endMessage').text("");
+			d_reslt = true;
+		}else{
+			$('#date_endMessage').css("color", "red");
+			$('#date_endMessage').text("봉사완료는 봉사시작 이후 가능합니다.");			
+		}
+		return d_reslt;
+	}
+)
