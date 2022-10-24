@@ -49,6 +49,11 @@ public class Funding_cartController {
 	// 찜목록리스트 (펀딩,봉사 둘 다)
 	@RequestMapping("shoppingBasket.do")
 	public String getFunding_cartList(Model model, HttpSession session) {
+		UserInfoVO user = (UserInfoVO) session.getAttribute("user");
+		if (user == null) {
+			return "redirect:/loginCheck.do";
+		}
+		
 		HashMap map = new HashMap();
 		map.put("user_no" ,(Integer)session.getAttribute("user_no"));
 		List<Funding_pjVO> pj_list = funding_cartService.getFunding_cartList(map);

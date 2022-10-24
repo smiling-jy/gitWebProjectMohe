@@ -99,7 +99,6 @@
 													<input type="hidden" name="fd_hostname" value="${pj.fd_hostname}">
 													<input type="hidden" name="fd_price" value="${pj.fd_price}">
 													<input type="hidden" name="pay_count" value="1">
-													<input type="hidden" name="pay_date">
 													<input type="hidden" value="${sessionScope.user_email}" id="user_email">
 											</form>
 											</div>
