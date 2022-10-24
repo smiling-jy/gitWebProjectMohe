@@ -35,6 +35,9 @@ public interface AdminDAO {
 		// 관리자 로그인 확인
 		AdminVO adminLogin(AdminVO vo);
 		
+		// 관리자 아이디 중복 확인
+		AdminVO idCheck_Login(AdminVO vo);
+		
 		// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 		
 		// 봉사참여자 상세페이지

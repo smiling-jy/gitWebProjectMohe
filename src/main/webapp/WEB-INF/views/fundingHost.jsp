@@ -31,6 +31,15 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="resources/js/respond.js"></script><![endif]-->
+<style>
+.rating{
+	position:absolute;
+	z-index:5;
+ 	top:27px; 
+ 	left:20px; 
+	width:100px;
+}
+</style>
 </head>
 
 <body>
@@ -55,8 +64,9 @@
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${success_list}" var="pj">
 									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">
-				
+										<div class="inner-box wow fadeInUp new-inner-box"
+											data-wow-delay="0ms">
+
 											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
@@ -69,7 +79,9 @@
 													<span class="goal">달성금액:<strong>${pj.total_sum}원</strong></span>
 												</div>
 												<h5>
-													<a href="patronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}" class="new-font black-font">${pj.fd_title}</a>
+													<a
+														href="patronList.do?fd_no=${pj.fd_no}&fd_title=${pj.fd_title}"
+														class="new-font black-font">${pj.fd_title}</a>
 												</h5>
 											</div>
 										</div>
@@ -78,7 +90,7 @@
 								<!-- 펀딩 블럭 끝 -->
 							</div>
 							<c:if test="${not empty success_list}">
-								<hr/>
+								<hr />
 							</c:if>
 							<div>
 							<c:if test="${not empty ongoing_list}">	
@@ -87,35 +99,37 @@
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${ongoing_list}" var="pj">
 									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+										<div class="inner-box wow fadeInUp new-inner-box"
+											data-wow-delay="0ms">
 											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
-													<c:choose>
-														<c:when test="${pj.rate > 100}">
-															<div class="bar-inner count-bar" data-percent="100%">
-																<div class="count-text">${pj.rate}%</div>
-															</div>
-														</c:when>
-														<c:otherwise>
-															<div class="bar-inner count-bar" data-percent="${pj.rate}%">													
-																<div class="count-text">${pj.rate}%</div>
-															</div>
-														</c:otherwise>
-													</c:choose>
+														<c:choose>
+															<c:when test="${pj.rate > 100}">
+																<div class="bar-inner count-bar" data-percent="100%">
+																	<div class="count-text">${pj.rate}%</div>
+																</div>
+															</c:when>
+															<c:otherwise>
+																<div class="bar-inner count-bar"
+																	data-percent="${pj.rate}%">
+																	<div class="count-text">${pj.rate}%</div>
+																</div>
+															</c:otherwise>
+														</c:choose>
 													</div>
 												</div>
 												<div class="donation-count clearfix">
 													<span class="goal">현재금액:<strong>
-															${pj.total_sum}원</strong></span><br />
-													<span><strong>${pj.remain_day}</strong>일남음</span>
+															${pj.total_sum}원</strong></span><br /> <span><strong>${pj.remain_day}</strong>일남음</span>
 												</div>
 												<h5>
-													<a href="fundingSingle.do?fd_no=${pj.fd_no}" class="new-font black-font fd_title_qna">${pj.fd_title}</a>
+													<a href="fundingSingle.do?fd_no=${pj.fd_no}"
+														class="new-font black-font fd_title_qna">${pj.fd_title}</a>
 												</h5>
 											</div>
-												<input type="button" class="a-btn" value="Q&A">
-												<input type="hidden" value="${pj.fd_no}" class="fd_no">
+											<input type="button" class="a-btn" value="Q&A"> <input
+												type="hidden" value="${pj.fd_no}" class="fd_no">
 										</div>
 									</div>
 								</c:forEach>
@@ -131,15 +145,30 @@
 					</div>
 
 					<!--Sidebar Side-->
-					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+					<div
+						class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">
 							<div class="sidebar-widget price-filters rangeslider-widget">
 								<div class="input-control d-block">
 									<label for="userName" class="input-label"></label>
 									<div class="profile-user-img margin-auto">
 										<img class="margin-auto profile-user-img-img"
-											src="resources/images/mohe_logo/img_no_profile.png"
+											src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+											onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
 											alt="profile-user-img" style="max-width: 130px">
+										<div class="rating">
+											<c:choose>
+												<c:when test="${sessionScope.user.user_rating eq '시민'}">
+													<img src="resources/images/user_rating/rating_1_30.png">
+												</c:when>
+												<c:when test="${sessionScope.user.user_rating eq '고수'}">
+													<img src="resources/images/user_rating/rating_2_30.png">
+												</c:when>
+												<c:otherwise>
+													<img src="resources/images/user_rating/rating_3_30.png">
+												</c:otherwise>
+											</c:choose>
+										</div>
 									</div>
 								</div>
 								<h3 class="sidebar-title">
@@ -166,13 +195,13 @@
 										<li>펀딩
 											<ul>
 												<li><a href="myFundingList.do">펀딩참여목록</a></li>
-												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>
 											</ul>
 										</li>
 										<li>봉사
 											<ul>
 												<li><a href="myVolunList.do">봉사참여목록</a></li>
-												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>

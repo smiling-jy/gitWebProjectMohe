@@ -43,9 +43,9 @@
 		<jsp:include page="header.jsp" />
 
 		<!-- Gallery Page Section -->
-		<main class="main gallery-page-section" style="padding: 0">
+		<main class="main gallery-page-section" style="padding: 0;height: 800px;">
 			<div class="container">
-				<section class="wrapper">
+				<section class="wrapper"style="position: relative;top: -80px;">
 					<div class="heading">
 					
 						<p class="text text-normal">
@@ -86,8 +86,8 @@
 							</a>
 						</div> -->
 						<div class="method-control">
-							<a href="javascript:void(0)" class="method-action" id="kakaoLogin"> <i
-								class="ion ion-logo-facebook" ></i> <span>카카오로 로그인</span>
+							<a href="javascript:void(0)" class="method-action" id="kakaoLogin">
+								<img alt="" src="resources/images/mohe_logo/kakao.png"><span>&nbsp;카카오 로그인</span>
 							</a>
 						</div>
 				<!-- 		<div class="method-control">

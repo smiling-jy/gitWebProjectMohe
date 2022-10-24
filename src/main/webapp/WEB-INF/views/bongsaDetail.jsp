@@ -87,15 +87,13 @@
 									<c:forEach var="cnt" begin="0" end="${bongsa.bs_img_cnt}">
 										<img src="resources/files/bongsa/${bongsa.bs_img_name}/${cnt}.png">
 									</c:forEach>
-								
-								
-								
 								</div>
 							</div>
 						</div>
 
 					</div>
 					<!--Sidebar Side-->
+					<!-- fhfj -->
 					<div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar" id="new-side">
 							<!-- Category Widget -->
@@ -126,10 +124,6 @@
 									</c:otherwise>
 								</c:choose>	
 								</div>
-
-
-
-							
 						</aside>
 					</div>
 

@@ -57,7 +57,6 @@ public class Volunteer_cartController {
 		
 		HttpSession session = request.getSession();
 		vo.setUser_no((Integer) session.getAttribute("user_no"));
-		
 		volunteer_cartService.deleteVolunteer_cart(vo);
 		
 		return "redirect:/shoppingBasket.do";

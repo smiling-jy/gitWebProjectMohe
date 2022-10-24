@@ -136,9 +136,6 @@
 										<span class="raised"><strong>주최 :</span><span
 											class="bs-name">${bongsa.bs_name}</span></strong>
 									</div>
-									<div class="bs-content-box">
-										<span class="bs-content">${bongsa.bs_content}</span>
-									</div>
 									<br>
 								</div>
 							</div>

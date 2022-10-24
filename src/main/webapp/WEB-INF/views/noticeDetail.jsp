@@ -76,7 +76,7 @@
                             <h2>${notice.notice_title} </h2>
                             <div class="post-meta" >
                                 <ul class="clearfix">
-                                    <li><span class="icon fa fa-user"></span>왜안뜨니${notice.adm_id}</li>
+                                    <li><span class="icon fa fa-user"></span>${notice.adm_id}</li>
                                     <li>  <fmt:formatDate value="${notice.notice_date}" pattern="yyyy년 MM월 dd일  HH시mm분"></fmt:formatDate></li>
                                 </ul>
                         
@@ -90,13 +90,7 @@
                         
                         <div class="post-share-options clearfix">
                             <div class="social-links pull-right">
-                                <p>Share:</p>
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-vimeo-v"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
+                               
                             </div>
                         </div>
                         <div class="post-meta" style="text-align:right;">

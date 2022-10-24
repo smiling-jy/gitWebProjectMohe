@@ -62,6 +62,9 @@ public class VolunteerController {
 		}else {
 			volunteerService.insertVolunteer(vo); //처음 참여하기를 누른경우
 			
+			
+			
+			
 		}
 		
 

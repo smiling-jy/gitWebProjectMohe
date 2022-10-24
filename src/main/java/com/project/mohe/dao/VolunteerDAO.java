@@ -17,6 +17,9 @@ public interface VolunteerDAO {
 			
 		// 글 삭제
 		void deleteVolunteer(VolunteerVO vo);
+		
+		//봉사 참여 상태 업데이트
+		void updateVolunteerIng(PagingVO vo); 
 			
 		// 글 상세 조회
 		VolunteerVO getVolunteer(VolunteerVO vo);
@@ -36,6 +39,9 @@ public interface VolunteerDAO {
 		// 페이징
 		PagingVO getAllcnt(PagingVO vo);
 		
-		// 한 유저의 봉사 참여 카운트
-		UserInfoVO getJoinBs(UserInfoVO vo);
+	      
+	    // 한 유저의 봉사 참여 카운트
+	    UserInfoVO getJoinBs(UserInfoVO vo);
+		
+
 }

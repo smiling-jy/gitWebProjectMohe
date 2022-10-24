@@ -39,12 +39,12 @@
 							<nav class="main-menu navbar-expand-md navbar-light">
 								<div class="collapse navbar-collapse show clearfix"
 									id="navbarSupportedContent">
-									<ul class="navigation clearfix" style="margin-right: 60px">
+									<ul class="navigation clearfix" style="margin-right: 60px" >
 										<li><a href="info1.do"><h4>소개</h4></a></li>
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
 										<li class="dropdown dropdown_show"><a href="#"><h4>더보기</h4></a>
-											<ul>
+											<ul style="top: 72px;">
 												<li><a href="event.do">이벤트</a></li>
 												<li><a href="review.do">후기 모아보기</a></li>
 												<li><a href="notice.do">공지사항</a></li>

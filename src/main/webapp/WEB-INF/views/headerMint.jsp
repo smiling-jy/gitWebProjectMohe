@@ -42,7 +42,7 @@
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
 										<li class="dropdown dropdown_show"><a href="#"><h4>더보기</h4></a>
-											<ul>
+											<ul style="top: 72px;">
 												<li><a href="event.do">이벤트</a></li>
 												<li><a href="review.do">후기 모아보기</a></li>
 												<li><a href="notice.do">공지사항</a></li>

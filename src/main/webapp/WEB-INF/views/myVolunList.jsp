@@ -17,14 +17,14 @@
 <link href="resources/css/color.css" rel="stylesheet">
 
 <link rel="shortcut icon"
-	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
+   href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+   type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 <link href="resources/css/header1.css" rel="stylesheet">
@@ -32,180 +32,179 @@
 <link href="resources/css/maingPage.css" rel="stylesheet">
 <link href="resources/css/cart.css" rel="stylesheet">
 </head>
-
 <body>
 
-	<div class="page-wrapper new-font">
-		<!-- header include -->
-		<jsp:include page="header.jsp" />
-		<!--Content Side / Blog Sidebar-->
-		<!--Sidebar Page Container-->
-		<div class="sidebar-page-container shop-page">
-			<div class="auto-container">
-				<div class="row clearfix">
-					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
-					<c:if test="${empty vl_list}"><p>참여 내역이 없습니다.</p></c:if>
-					<c:if test="${not empty vl_list}">
-						<div class="cart-outer m-auto">
-							<div class="table-column">
-								<div class="inner-column">
-									<div class="table-outer new-outer">
-										<div class="table-box">
-											<table class="cart-table " id="new-cart-table">
-												<thead class="cart-header">
-													<tr>
-														<th class="prod-column">활동명</th>
-														<th>&nbsp;</th>
-														<th>주최</th>
-														<th>진행 상태</th>
-														<th>&nbsp;</th>
-													</tr>
-												</thead>
-												<tbody>
-													<c:forEach items="${vl_list}" var="vl">
-														<tr>
-															<td>
-																<figure class="prod-thumb title-poto">
-																	<a href="bongsaDetail.do?bs_no=${vl.bs_no}"><img
-																		class="lazy-image loaded"
-																		src="resources/files/bongsa/${vl.bs_img_name}/title.png"
-																		alt="" data-was-processed="true"></a>
-																</figure>															
-															</td>
-															<td class="prod-column title-td">
-																<a href="fundingSingle.do?fd_no=${vl.bs_no}"><span>${vl.vt_title}</span></a>
-															</td>
-															<td>${vl.vt_bs_name}</td>
-															<td>${vl.vt_ing}</td>
-															<td class="sub-total">
-																<button class="plus">상세보기</button>									 																	
-																<input type="hidden" value="${vl.vt_place}">
-																<input type="hidden" value="${vl.vt_work_start}">
-																<input type="hidden" value="${vl.vt_work_end}">
-																<input type="hidden" value="${vl.bs_no}">															
-															</td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 페이징 부분 -->
-						<div id="paging">
-							<c:choose>
-								<c:when test="${page.groupNo-1 > 0 }">
-									<a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
-								</c:when>
-								<c:otherwise>
-									<span> ◀  </span>
-								</c:otherwise>
-							</c:choose>
-							<c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
-								<a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
-							</c:forEach>
-							<c:choose>
-								<c:when test="${page.endPageNo < page.pageTotalCount }">
-									<a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
-								</c:when>
-								<c:otherwise>
-									<span> ▶ </span>
-								</c:otherwise>
-							</c:choose>
-						</div>
-						<!-- 페이징 끝 -->
-					</c:if>
-					</div>
-					<!--Sidebar Side-->
-					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
-						<aside class="sidebar shop-sidebar">
-							<div class="sidebar-widget price-filters rangeslider-widget">
-								<div class="input-control d-block">
-									<label for="userName" class="input-label"></label>
-									<div class="profile-user-img margin-auto">
-										<img class="margin-auto profile-user-img-img"
-											src="resources/images/mohe_logo/img_no_profile.png"
-											alt="profile-user-img" style="max-width: 130px">
-									</div>
-								</div>
-								<h3 class="sidebar-title new-font">
-									<c:out value="${sessionScope.user.user_name}" />
-									님(
-									<c:out value="${sessionScope.user.user_rating}" />
-									)
-								</h3>
-								<div class="range-slider-one clearfix">
-									<div class="clearfix">
-										<div class="text-center">
-											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
-												class="btn-title">회원 수정</span></a><br /> <a href="#"
-												class="theme-btn btn-style-one"><span
-												class="btn-title bg-red">회원 탈퇴</span></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Category Widget -->
-							<div class="sidebar-widget categories">
-								<div class="widget-content">
-									<ul class="cart-ul">
-										<li>펀딩
-											<ul>
-												<li><a href="myFundingList.do">펀딩참여목록</a></li>
-												<li><a href="fundingHost.do">펀딩주최목록</a></li>											
-											</ul>
-										</li>
-										<li>봉사
-											<ul>
-												<li class="current"><a href="myVolunList.do">봉사참여목록</a></li>
-												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
-											</ul>
-										</li>
-										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
-									</ul>
-								</div>
-							</div>
-						</aside>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- footer include -->
-		<jsp:include page="footer.jsp" />
-	</div>
-	<!--End pagewrapper-->
+   <div class="page-wrapper new-font">
+      <!-- header include -->
+      <jsp:include page="header.jsp" />
+      <!--Content Side / Blog Sidebar-->
+      <!--Sidebar Page Container-->
+      <div class="sidebar-page-container shop-page">
+         <div class="auto-container">
+            <div class="row clearfix">
+               <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+               <c:if test="${empty vl_list}"><p>참여 내역이 없습니다.</p></c:if>
+               <c:if test="${not empty vl_list}">
+                  <div class="cart-outer m-auto">
+                     <div class="table-column">
+                        <div class="inner-column">
+                           <div class="table-outer new-outer">
+                              <div class="table-box">
+                                 <table class="cart-table " id="new-cart-table">
+                                    <thead class="cart-header">
+                                       <tr>
+                                          <th class="prod-column">활동명</th>
+                                          <th>&nbsp;</th>
+                                          <th>주최</th>
+                                          <th>진행 상태</th>
+                                          <th>&nbsp;</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <c:forEach items="${vl_list}" var="vl">
+                                          <tr>
+                                             <td>
+                                                <figure class="prod-thumb title-poto">
+                                                   <a href="bongsaDetail.do?bs_no=${vl.bs_no}"><img
+                                                      class="lazy-image loaded"
+                                                      src="resources/files/bongsa/${vl.bs_img_name}/title.png"
+                                                      alt="" data-was-processed="true"></a>
+                                                </figure>                                             
+                                             </td>
+                                             <td class="prod-column title-td">
+                                                <a href="bongsaDetail.do?bs_no=${vl.bs_no}"><span>${vl.vt_title}</span></a>
+                                             </td>
+                                             <td>${vl.vt_bs_name}</td>
+                                             <td>${vl.vt_ing}</td>
+                                             <td class="sub-total">
+                                                <button class="plus">상세보기</button>                                                                               
+                                                <input type="hidden" value="${vl.vt_place}">
+                                                <input type="hidden" value="${vl.vt_work_start}">
+                                                <input type="hidden" value="${vl.vt_work_end}">
+                                                <input type="hidden" value="${vl.bs_no}">                                             
+                                             </td>
+                                          </tr>
+                                       </c:forEach>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- 페이징 부분 -->
+                  <div id="paging">
+                     <c:choose>
+                        <c:when test="${page.groupNo-1 > 0 }">
+                           <a href="?pageNum=${page.firstPageNo-1}&&groupNo=${page.groupNo-1}"> ◀ </a>
+                        </c:when>
+                        <c:otherwise>
+                           <span> ◀  </span>
+                        </c:otherwise>
+                     </c:choose>
+                     <c:forEach var="i" begin="${page.firstPageNo}" end="${page.endPageNo}">
+                        <a href="?pageNum=${i}&&groupNo=${page.groupNo}">${i}</a>
+                     </c:forEach>
+                     <c:choose>
+                        <c:when test="${page.endPageNo < page.pageTotalCount }">
+                           <a href="?pageNum=${page.endPageNo+1}&&groupNo=${page.groupNo+1}"> ▶ </a>
+                        </c:when>
+                        <c:otherwise>
+                           <span> ▶ </span>
+                        </c:otherwise>
+                     </c:choose>
+                  </div>
+                  <!-- 페이징 끝 -->
+               </c:if>
+               </div>
+               <!--Sidebar Side-->
+               <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+                  <aside class="sidebar shop-sidebar">
+                     <div class="sidebar-widget price-filters rangeslider-widget">
+                        <div class="input-control d-block">
+                           <label for="userName" class="input-label"></label>
+                           <div class="profile-user-img margin-auto">
+                              <img class="margin-auto profile-user-img-img"
+                                 src="resources/images/mohe_logo/img_no_profile.png"
+                                 alt="profile-user-img" style="max-width: 130px">
+                           </div>
+                        </div>
+                        <h3 class="sidebar-title new-font">
+                           <c:out value="${sessionScope.user.user_name}" />
+                           님(
+                           <c:out value="${sessionScope.user.user_rating}" />
+                           )
+                        </h3>
+                        <div class="range-slider-one clearfix">
+                           <div class="clearfix">
+                              <div class="text-center">
+                                 <a href="modifyInfo.do" class="theme-btn btn-style-one"><span
+                                    class="btn-title">회원 수정</span></a><br /> <a href="#"
+                                    class="theme-btn btn-style-one"><span
+                                    class="btn-title bg-red">회원 탈퇴</span></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Category Widget -->
+                     <div class="sidebar-widget categories">
+                        <div class="widget-content">
+                           <ul class="cart-ul">
+                              <li>펀딩
+                                 <ul>
+                                    <li><a href="myFundingList.do">펀딩참여목록</a></li>
+                                    <li><a href="fundingHost.do">펀딩주최목록</a></li>                                 
+                                 </ul>
+                              </li>
+                              <li>봉사
+                                 <ul>
+                                    <li class="current"><a href="myVolunList.do">봉사참여목록</a></li>
+                                    <li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>                        
+                                 </ul>
+                              </li>
+                              <li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </aside>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      <!-- footer include -->
+      <jsp:include page="footer.jsp" />
+   </div>
+   <!--End pagewrapper-->
 
-	<!--Scroll to top-->
-	<div class="scroll-to-top scroll-to-target" data-target="html">
-		<span class="flaticon-up-arrow"></span>
-	</div>
+   <!--Scroll to top-->
+   <div class="scroll-to-top scroll-to-target" data-target="html">
+      <span class="flaticon-up-arrow"></span>
+   </div>
 
-	<script src="resources/js/jquery.js"></script>
-	<script src="resources/js/mixitup.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery-ui.js"></script>
-	<script src="resources/js/jquery.bootstrap-touchspin.js"></script>
-	<script src="resources/js/jquery.fancybox.js"></script>
-	<script src="resources/js/owl.js"></script>
-	<script src="resources/js/appear.js"></script>
-	<script src="resources/js/wow.js"></script>
-	<script src="resources/js/lazyload.js"></script>
-	<script src="resources/js/scrollbar.js"></script>
-	<script src="resources/js/script.js"></script>
-	<script type="text/javascript">
-		$(document).on('click', '.plus' , function() {
-			$('.plus-tr').remove()
-			$(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>장소</th>'
-					+'<th>일시</th><th>&nbsp;</th><th>&nbsp;</th></tr>'
-					+'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+' ~ </td>'
-					+'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('진행') == -1 ? '<a href="reviewWriting.do"'
-					+' onclick="insertFunding_cart\(\''+$(this).next().next().next().next().val()+'\'\);">후기쓰기</a></td>' : '')+'</tr>')	
-		})
-	</script>
+   <script src="resources/js/jquery.js"></script>
+   <script src="resources/js/mixitup.js"></script>
+   <script src="resources/js/popper.min.js"></script>
+   <script src="resources/js/bootstrap.min.js"></script>
+   <script src="resources/js/jquery-ui.js"></script>
+   <script src="resources/js/jquery.bootstrap-touchspin.js"></script>
+   <script src="resources/js/jquery.fancybox.js"></script>
+   <script src="resources/js/owl.js"></script>
+   <script src="resources/js/appear.js"></script>
+   <script src="resources/js/wow.js"></script>
+   <script src="resources/js/lazyload.js"></script>
+   <script src="resources/js/scrollbar.js"></script>
+   <script src="resources/js/script.js"></script>
+   <script type="text/javascript">
+      $(document).on('click', '.plus' , function() {
+         $('.plus-tr').remove()
+         $(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>장소</th>'
+               +'<th>일시</th><th>&nbsp;</th><th>&nbsp;</th></tr>'
+               +'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+' ~ </td>'
+               +'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('진행') == -1 ? '<a href="reviewWriting.do"'
+               +' onclick="insertFunding_cart\(\''+$(this).next().next().next().next().val()+'\'\);">후기쓰기</a></td>' : '')+'</tr>')   
+      })
+   </script>
 
 </body>
 
