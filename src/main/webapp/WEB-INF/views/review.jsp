@@ -61,10 +61,7 @@
 		<section class="events-section">
 				
 			<div class="auto-container">
-			<!-- 후기 작성 임시 링크 !! 나중에 마이페이지에서 제대로 이어주기 (10.04 영민) -->
-					
-					<a href="reviewInsertForm.do" class="theme-btn btn-style-one link-box">
-						<span class="btn-title new-btn-title">후기 작성</span></a>
+				
 					<!-- 검색창 -->
 			<div class="search-box" style="margin-bottom:50px;">
 					<form action="review.do" method="post">
