@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
 
 public interface Funding_payService {
 	// CRUD 기능 구현
 	// 글 등록
-	void insertFunding_pay(Funding_payVO vo);
+	void insertFunding_pay(Funding_payVO vo , UserInfoVO us);
 				
 	// 글 수정
 	void updateFunding_pay(Funding_payVO vo);

@@ -86,8 +86,8 @@
 							</a>
 						</div> -->
 						<div class="method-control">
-							<a href="javascript:void(0)" class="method-action" id="kakaoLogin"> <i
-								class="ion ion-logo-facebook" ></i> <span>카카오로 로그인</span>
+							<a href="javascript:void(0)" class="method-action" id="kakaoLogin">
+								<img alt="" src="resources/images/mohe_logo/kakao.png"><span>&nbsp;카카오 로그인</span>
 							</a>
 						</div>
 				<!-- 		<div class="method-control">

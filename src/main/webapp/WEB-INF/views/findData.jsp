@@ -47,20 +47,29 @@
 			<div class="auto-container">
 				<!--MixitUp Galery-->
 				
-				<div class="mixitup-gallery">
-					<div class="filters clearfix">
-						<ul class="filter-tabs filter-btns clearfix">
-							<li class="filter active" data-role="button" data-filter=".mix-1">이메일
-								찾기</li>
-							<li class="filter" data-role="button" data-filter=".mix-2">비밀번호
-								찾기</li>
-						</ul>
-					</div>
+				<div class="">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					  <li class="nav-item">
+					    <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab">이메일</button>
+					  </li>
+					  <li class="nav-item">
+					    <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab">비밀번호</button>
+					  </li>
+					</ul>
+<!-- 					<div class="filters clearfix"> -->
+<!-- 						<ul class="filter-tabs filter-btns clearfix"> -->
+<!-- 							<li class="filter active" data-role="button" data-filter=".mix-1">이메일 -->
+<!-- 								찾기</li> -->
+<!-- 							<li class="filter" data-role="button" data-filter=".mix-2">비밀번호 -->
+<!-- 								찾기</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
 
-					<div class="filter-list">
-
-						<main class="gallery-item-two mix mix-1 main">
-							<section class="wrapper">
+<!-- 					<div class="filter-list"> -->
+					<div class="main tab-content">
+						<div class="wrapper tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<!-- 						<main class="gallery-item-two mix mix-1 main"> -->
+<!-- 							<section class="wrapper"> -->
 								<div class="heading">
 									<span class="text text-normal">모해는 이메일을 아이디로 사용합니다. 소유하고
 										계신 계정을 입력해보세요. 가입여부를 확인해드립니다. </span>
@@ -78,31 +87,35 @@
 										</a>
 									</div>
 								</form>
-							</section>
-						</main>
-
-						<main class="gallery-item-two mix mix-2 main">
-							<section class="wrapper">
-								<div class="heading">
-									<span class="text text-normal">가입하셨던 이메일 계정을 입력하시면,
-										비밀번호를 새로 만들 수 있는 링크를 이메일로 발송해드립니다. </span>
+<!-- 							</section> -->
+<!-- 						</main> -->
+						</div>
+						
+						<div class="wrapper tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<!-- 						<main class="gallery-item-two mix mix-2 main"> -->
+<!-- 							<section class="wrapper"> -->
+							<div class="heading">
+								<span class="text text-normal">모해에 가입하셨던 이메일 계정을 입력하시면,
+									비밀번호를 새로 만들 수 있는 링크를 이메일로 발송해드립니다. </span><br>
+							</div>
+							<form name="signin" class="form">
+								<div class="input-control">
+									<label for="email" class="input-label" hidden>이메일</label> <input
+										type="email" name="user_email" id="email" class="input-field"
+										placeholder="이메일">
 								</div>
-								<form name="signin" class="form">
-									<div class="input-control">
-										<label for="email" class="input-label" hidden>이메일</label> <input
-											type="email" name="user_email" id="email" class="input-field"
-											placeholder="이메일">
-									</div>
-									<div class="donate-link">
-										<a href="javascript:void(0)"
-											class="theme-btn btn-style-one btn-block"> <span
-											class="btn-title text-center">비밀번호 찾기</span>
-										</a>
-									</div>
-								</form>
-							</section>
-						</main>
+								<div class="donate-link">
+									<a href="javascript:void(0)"
+										class="theme-btn btn-style-one btn-block"> <span
+										class="btn-title text-center">비밀번호 찾기</span>
+									</a>
+								</div>
+							</form>
+						</div>
+<!-- 							</section> -->
+<!-- 						</main> -->
 					</div>
+<!-- 					</div> -->
 				</div>
 			</div>
 		</section>

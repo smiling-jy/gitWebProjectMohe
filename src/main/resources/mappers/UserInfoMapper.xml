@@ -10,11 +10,11 @@
 	</select>
 
 	<insert id="insertUserInfo" parameterType="userInfo">
-		INSERT INTO USERINFO(USER_NO, USER_NAME, USER_PHONE, USER_EMAIL,
-		USER_PASSWORD, USER_INTYPE, USER_INDATE)
-		VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone},
-		#{user_email}, #{user_password}, #{user_intype}, SYSDATE)
-	</insert>
+      INSERT INTO USERINFO(USER_NO, USER_NAME, USER_PHONE, USER_EMAIL,
+      USER_PASSWORD, USER_INTYPE, USER_INDATE,USER_RATING)
+      VALUES (USERINFO_USER_NO_SEQ.nextval, #{user_name}, #{user_phone},
+      #{user_email}, #{user_password}, #{user_intype}, SYSDATE,'시민')
+    </insert>
 	
 	<select id="emailLogin" parameterType="userInfo"
 		resultType="userInfo">
