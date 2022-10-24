@@ -80,7 +80,7 @@
 															<td><fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></td>
 															<td>${review.review_read_cnt}</td>
 															<td>
-																<a href="goUpdate.do?review_no=${review.review_no}" class="remove-btn"> <span
+																<a href="goUpdateFromMy.do?review_no=${review.review_no}" class="remove-btn"> <span
 																			class="flaticon-check"></span>
 																</a>&nbsp;&nbsp;&nbsp; <a href="myReviewDelete.do?review_no=${review.review_no}">
 																<span class="flaticon-delete-1"></span></a>

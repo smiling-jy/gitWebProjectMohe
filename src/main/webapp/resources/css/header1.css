@@ -7,4 +7,10 @@
     background:#ffffff;
 }
 
-/* 배경색 수정 끝 */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}

@@ -5,15 +5,6 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-</style>
 </head>
 
 <body>
@@ -29,7 +20,7 @@
 			<!-- Header Upper -->
 			<div class="header-upper">
 				<div class="auto-container">
-					<div class="inner-container clearfix" style="width: 1235px;">
+					<div class="inner-container clearfix" style="width: 1160px;">
 						<!--Logo-->
 						<div class="logo-box">
 							<div class="logo">
@@ -76,7 +67,7 @@
 										</a>
 										<%} else { %>
 										<a href="shoppingBasket.do" class="theme-btn btn-style-five" style="display: inline-block; width: 100px;height: 55px;">
-											<span class="btn-title"style="padding: 13px 20px;">MyPage</span>
+											<span class="btn-title" id="myPg_btn_text" style="padding: 13px 15px;">MyPage</span>
 										</a>
 										<a href="#"class="theme-btn btn-style-three" style="display: inline-block; width:55px" onclick="btnLogOut()">
 											<span class="btn-title material-symbols-outlined" style="padding: 15px 20px;">Logout</span>
