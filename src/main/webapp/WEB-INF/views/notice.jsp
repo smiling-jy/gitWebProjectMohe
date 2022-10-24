@@ -89,13 +89,16 @@
 											${notice.notice_title}</a></h4>
 										</td>
 										<td>
-										&nbsp;&nbsp;&nbsp;
+										&nbsp;&nbsp;
 										</td>
 										<td>
 											<div style="color:grey; font-size:13px; text-align:center;">
 												<span class="icon fa fa-user"></span>&nbsp;&nbsp;${notice.adm_id}
 												<fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate>
 											</div>
+										</td>
+										<td>
+										&nbsp;&nbsp;
 										</td>
 										<td><div style="color:grey; font-size:13px;">${notice.notice_readcnt}</div></td>
 									</tr>

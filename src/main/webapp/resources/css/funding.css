@@ -476,12 +476,22 @@ ul.bread-crumb li a span {
 /* 버튼 컬러 바꿈 */
 .btn-style-one .new-btn-title{
     background-color: rgb(112,191,187);
-    color: black;
+    color: white;
 }
 
 /* 주최자마이페이지세부 상태 버튼*/
 td .new-btn{
     width: 90px;
+}
+
+
+#no-list{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	font-family: 'GmarketSansMedium';
+	font-size: 24px;
 }
 
 .bg-red {

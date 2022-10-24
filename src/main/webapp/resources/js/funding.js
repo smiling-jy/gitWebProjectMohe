@@ -37,8 +37,7 @@ $(".a-btn").on("click",function(){
         type:'post',
         url:'qnalist.do',
         data : {'fd_no' : $(this).next().val()},
-        async: false, // sumbit이 진행이 안되도록 하는 옵션(비동기 통신)
-//        contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 인코딩에 문제가 발생할까봐 추가하는 코드
+        async: false,
         success : function(data){
         	$('h3.fd_title_qna').text("Q&A 답변하기");
         	
@@ -162,10 +161,6 @@ $('#jjim').on("click",function(){
 $('#addr').on("click",function(){
 	new daum.Postcode({
         oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = ''; // 주소 변수
             var extraAddr = ''; // 참고항목 변수
 
@@ -192,12 +187,10 @@ $('#addr').on("click",function(){
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                $('#addr').val(extraAddr);
-            
+                $('#addr').val(extraAddr);    
             } else {
             	$('#addr').val("");
             }
-
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             $('#addr').val(data.zonecode);
             $('#addr').val(addr);

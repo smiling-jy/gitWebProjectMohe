@@ -83,7 +83,7 @@ public class MyaccountController {
 
 		session.setAttribute("user", user);
 
-		return "redirect:/modifyInfo.do";
+		return "redirect:/shoppingBasket.do";
 	}
 
 	// 헤더의 펀딩 클릭시 펀딩 리스트 페이지로 이동

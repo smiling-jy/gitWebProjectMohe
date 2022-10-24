@@ -54,7 +54,7 @@
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 						<c:if test="${empty pay_list}">
-							<p>참여 내역이 없습니다.</p>
+							<p id="no-list">참여 내역이 없습니다.</p>
 						</c:if>
 						<c:if test="${not empty pay_list}">
 							<div class="cart-outer m-auto">
