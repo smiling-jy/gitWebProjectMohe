@@ -21,12 +21,13 @@ function dateFormat(date) {
 // 화면 실행시 시작일, 종료일에 min 속성을 부여하는 이벤트
 $(document).ready(function() {
 	var now = new Date();
+	// 검수 기간을 위한 시작일 제한 / 오늘로부터 7일 후
 	var nowPlus7 = dateFormat(new Date(now.setDate(now.getDate() + 7)));
 	$('#fd_startdate').attr('min',nowPlus7);
 	$('#fd_enddate').attr('min',nowPlus7);	
 })
 
-// enddate 제한 / 최소 시작일+일주일
+// 최소 펀딩 기간(일주일)을 위한 종료일 제한
 $('#fd_enddate').change(
 	function() {		
 		var start = new Date($('#fd_startdate').val());
