@@ -95,7 +95,6 @@
 													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
-																<th>Check</th>
 																<th>NO</th>
 																<th>회사명</th>
 																<th>URL</th>
@@ -106,7 +105,6 @@
 														<tbody>
 															<c:forEach items="${partner}" var="ptn">
 																<tr>
-																	<td style="word-break:break-all"><input type="checkbox"/></td>
 																	<td style="font-size:13px">${ptn.partner_no}</td>
 																	<td style="word-break:break-all"><a href="adPartnerDetail.do?partner_no=${ptn.partner_no}">${ptn.partner_name}</a></td>
 																	<td style="word-break:break-all"><a href="${ptn.partner_url}" target="_blank">${ptn.partner_url}</a></td>

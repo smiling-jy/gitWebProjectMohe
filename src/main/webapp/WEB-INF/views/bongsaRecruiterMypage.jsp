@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- jsp에서 substring 쓸때 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- jsp에서 substring 쓸때 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,15 @@
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/mainPage.css" rel="stylesheet">
+<style>
+.rating {
+	position: absolute;
+	z-index: 5;
+	top: 27px;
+	left: 20px;
+	width: 100px;
+}
+</style>
 </head>
 
 <body>
@@ -50,29 +60,32 @@
 						<div class="our-shop">
 							<c:if test="${not empty success_list}">
 								<div class="shop-upper-box clearfix">
-									<span class="items-label newFont" id="recruiting-list">모집완료한 봉사활동</span>
+									<span class="items-label newFont" id="recruiting-list">모집완료한
+										봉사활동</span>
 								</div>
 							</c:if>
 							<div class="row clearfix">
 								<c:forEach items="${success_list}" var="bongsa">
 									<!--Shop Item-->
-								<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+										<div class="inner-box wow fadeInUp new-inner-box"
+											data-wow-delay="0ms">
 											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
-													<c:choose>
-														<c:when test="${bongsa.bs_rate > 100}">
-															<div class="bar-inner count-bar" data-percent="100%">
-																<div class="count-text">${bongsa.bs_rate}%</div>
-															</div>
-														</c:when>
-														<c:otherwise>
-															<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
-																<div class="count-text">${bongsa.bs_rate}%</div>
-															</div>
-														</c:otherwise>
-													</c:choose>
+														<c:choose>
+															<c:when test="${bongsa.bs_rate > 100}">
+																<div class="bar-inner count-bar" data-percent="100%">
+																	<div class="count-text">${bongsa.bs_rate}%</div>
+																</div>
+															</c:when>
+															<c:otherwise>
+																<div class="bar-inner count-bar"
+																	data-percent="${bongsa.bs_rate}%">
+																	<div class="count-text">${bongsa.bs_rate}%</div>
+																</div>
+															</c:otherwise>
+														</c:choose>
 													</div>
 												</div>
 												<div class="donation-count clearfix">
@@ -81,12 +94,14 @@
 													<span> ${fn:substring(bongsa.bs_work_end,0,16)}</span><br>
 												</div>
 												<h5>
-													<a href="bongsaParticipateList.do?bs_no=${bongsa.bs_no}" class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
+													<a href="bongsaParticipateList.do?bs_no=${bongsa.bs_no}"
+														class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
 												</h5>
 											</div>
 										</div>
-									</div><!-- shop아이템 종료 -->
-								</c:forEach>	
+									</div>
+									<!-- shop아이템 종료 -->
+								</c:forEach>
 							</div>
 
 
@@ -97,24 +112,26 @@
 
 							<div class="row clearfix">
 								<c:forEach items="${ongoing_list}" var="bongsa">
-								<!--Shop Item-->
-								<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
-										<div class="inner-box wow fadeInUp new-inner-box" data-wow-delay="0ms">			
+									<!--Shop Item-->
+									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+										<div class="inner-box wow fadeInUp new-inner-box"
+											data-wow-delay="0ms">
 											<div class="lower-content new-font new-con-box">
 												<div class="progress-box">
 													<div class="bar">
-													<c:choose>
-														<c:when test="${bongsa.bs_rate > 100}">
-															<div class="bar-inner count-bar" data-percent="100%">
-																<div class="count-text">${bongsa.bs_rate}%</div>
-															</div>
-														</c:when>
-														<c:otherwise>
-															<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
-																<div class="count-text">${bongsa.bs_rate}%</div>
-															</div>
-														</c:otherwise>
-													</c:choose>
+														<c:choose>
+															<c:when test="${bongsa.bs_rate > 100}">
+																<div class="bar-inner count-bar" data-percent="100%">
+																	<div class="count-text">${bongsa.bs_rate}%</div>
+																</div>
+															</c:when>
+															<c:otherwise>
+																<div class="bar-inner count-bar"
+																	data-percent="${bongsa.bs_rate}%">
+																	<div class="count-text">${bongsa.bs_rate}%</div>
+																</div>
+															</c:otherwise>
+														</c:choose>
 													</div>
 												</div>
 												<div class="donation-count clearfix">
@@ -124,11 +141,13 @@
 													<span> ${fn:substring(bongsa.bs_work_end,0,16)}</span><br>
 												</div>
 												<h5>
-													<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}" class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
+													<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"
+														class="new-font black-font fd_title_qna newFont">${bongsa.bs_title}</a>
 												</h5>
 											</div>
 										</div>
-									</div><!-- shop아이템 종료 -->
+									</div>
+									<!-- shop아이템 종료 -->
 								</c:forEach>
 							</div>
 
@@ -137,15 +156,30 @@
 					</div>
 
 					<!--Sidebar Side-->
-					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+					<div
+						class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">
 							<div class="sidebar-widget price-filters rangeslider-widget">
 								<div class="input-control d-block">
 									<label for="userName" class="input-label"></label>
 									<div class="profile-user-img margin-auto">
 										<img class="margin-auto profile-user-img-img"
-											src="resources/images/mohe_logo/img_no_profile.png"
+											src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+											onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
 											alt="profile-user-img" style="max-width: 130px">
+										<div class="rating">
+											<c:choose>
+												<c:when test="${sessionScope.user.user_rating eq '시민'}">
+													<img src="resources/images/user_rating/rating_1_30.png">
+												</c:when>
+												<c:when test="${sessionScope.user.user_rating eq '고수'}">
+													<img src="resources/images/user_rating/rating_2_30.png">
+												</c:when>
+												<c:otherwise>
+													<img src="resources/images/user_rating/rating_3_30.png">
+												</c:otherwise>
+											</c:choose>
+										</div>
 									</div>
 								</div>
 								<h3 class="sidebar-title">
@@ -171,27 +205,32 @@
 									<ul class="cart-ul">
 										<li>펀딩
 											<ul>
-												<li><a href="details.do">펀딩참여목록</a></li>
-												<li class="current"><a href="fundingHost.do">펀딩주최목록</a></li>											
+												<li class="current"><a href="myFundingList.do">펀딩참여목록</a></li>
+												<li><a href="fundingHost.do">펀딩주최목록</a></li>
 											</ul>
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="details.do">봉사참여목록</a></li>
-												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
+												<li><a href="myVolunList.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+										<li>후기
+											<ul>
+												<li><a href="myReviewList.do">나의후기목록</a></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 							</div>
 						</aside>
 					</div>
 
-				</aside>
+					</aside>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- End Sidebar Page Container -->
 

@@ -4,9 +4,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-
 	<div class="page-wrapper" style="overflow:visible;">
 		<!-- Preloader -->
 		<div class="preloader">
@@ -18,7 +18,7 @@
 			<!-- Header Upper -->
 			<div class="header-upper">
 				<div class="auto-container">
-					<div class="inner-container clearfix">
+					<div class="inner-container clearfix" style="width: 1160px;">
 						<!--Logo-->
 						<div class="logo-box">
 							<div class="logo">
@@ -39,12 +39,12 @@
 							<nav class="main-menu navbar-expand-md navbar-light">
 								<div class="collapse navbar-collapse show clearfix"
 									id="navbarSupportedContent">
-									<ul class="navigation clearfix" style="margin-right: 60px">
+									<ul class="navigation clearfix" style="margin-right: 60px" >
 										<li><a href="info1.do"><h4>소개</h4></a></li>
 										<li><a href="funding.do"><h4>펀딩</h4></a></li>
 										<li><a href="bongsaMain.do"><h4>봉사</h4></a></li>
 										<li class="dropdown dropdown_show"><a href="#"><h4>더보기</h4></a>
-											<ul>
+											<ul style="top: 72px;">
 												<li><a href="event.do">이벤트</a></li>
 												<li><a href="review.do">후기 모아보기</a></li>
 												<li><a href="notice.do">공지사항</a></li>
@@ -60,16 +60,16 @@
 							<div class="link-box clearfix">
 								<div class="donate-link">
 									<%if(request.getSession().getAttribute("user") == null) {%>
-									<a href="loginCheck.do" class="theme-btn btn-style-one"><span
-										class="btn-title">Login</span></a>
-										<%} else { %>
-										<a href="shoppingBasket.do" class="theme-btn btn-style-one" style="display: inline-block;">
-											<span class="btn-title">MyPage</span>
+										<a href="loginCheck.do" class="theme-btn btn-style-two">
+											<span class="btn-title">Login</span>
 										</a>
-										<a href="#" class="theme-btn btn-style-one" style="display: inline-block;" onclick="btnLogOut()">
-										<span class="btn-title">LogOut
-										</span>
-									</a>
+										<%} else { %>
+										<a href="shoppingBasket.do" class="theme-btn btn-style-five" style="display: inline-block; width: 100px;height: 55px;">
+											<span class="btn-title" id="myPg_btn_text" style="padding: 13px 15px;">MyPage</span>
+										</a>
+										<a href="#"class="theme-btn btn-style-three" style="display: inline-block; width:55px" onclick="btnLogOut()">
+											<span class="btn-title material-symbols-outlined" style="padding: 15px 20px;">Logout</span>
+										</a>
 									<%} %>
 								</div>
 							</div>

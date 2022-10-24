@@ -31,6 +31,12 @@
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
+<style type="text/css">
+	.emali-con{
+		width: 
+	}
+
+</style>
 </head>
 
 <body>
@@ -50,12 +56,12 @@
 					<span class="text text-normal">모해에 가입해 봉사와 펀딩을 이용해 보세요 </span>
 				</div>
 				<form id="form_eamil_signUp" action="email/signUp.do" method="post" class="form">
-					<div class="input-control">
+					<div class="input-control emali-con">
 							<label for="user_email" class="input-label" hidden>이메일</label> 
 							<input
 								type="user_email" name="user_email" id="user_email" class="input-field"
 								onkeyup="onkeyupEmail()"
-								placeholder="이메일">
+								placeholder="이메일"><br />
 							<div class="input-group-append">
 								<button id="btn-email-check" class="btn btn-outline-secondary" type="button" onclick="btnEmailCheck()">중복확인</button>
 							</div>
@@ -84,14 +90,14 @@
 						<div class="custom-control custom-checkbox mb-3">
 							<input type="checkbox" class="custom-control-input"
 								id="agree_terms" name="agree_terms"> <label
-								class="custom-control-label" for="agree_terms"><a
-								href="/service/terms" target="_blank">이용약관</a> 동의 </label>
+								class="custom-control-label" for="agree_terms">
+								<span style="color:rgb(60,200,143)">이용약관</span> 동의 </label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input"
 								id="privacy_terms" name="privacy_terms"> <label
-								class="custom-control-label" for="privacy_terms"><a
-								href="/privacy/policy" target="_blank">개인정보 취급방침</a> 동의 </label>
+								class="custom-control-label" for="privacy_terms">
+								<span style="color:rgb(60,200,143)">개인정보 취급방침</span> 동의 </label>
 						</div>
 					</div>
 					<div class="donate-link">
@@ -130,18 +136,21 @@
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
 	
-	<script type="text/javascript">
+	<script type="text/javascript">	
 		let emailCheck = false;
 	
 		function btnEmailCheck() {
 			var user_email = $('#user_email');
-// 			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+ 			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			
 			if (user_email.val() === "") {
 				alert("이메일을 입력해 주세요.");
 				user_email.focus();
 				return;
 			}
+			
+ 			if (user_email.val().match(regExp) != null) {
+				// 타입이 맞으면
 			var data = {'user_email' : user_email.val()}
 			
 			$.ajax({
@@ -164,6 +173,11 @@
 		            alert('error');
 				}
 			})
+				return;
+			} else {
+				alert("정상적인 이메일 형식이 아닙니다.");
+			}
+			
 		}
 		
 		function onkeyupEmail() {
@@ -218,12 +232,13 @@
 			}
 			
 			var user_phone = $('#user_phone');
-// 			var regNumber = /^[0-9]*$/;
-			if (user_phone.val() === "") {
-				alert("핸드폰 번호를 입력해 주세요.");
+ 			var regNumber = /^[0-9]*$/;
+			if (!regNumber.test(user_phone.val())|| user_phone.val().length != 11) {
+				alert("정상적인 전화번호가 아닙니다.");
 				user_phone.focus();
 				return;
 			}
+			if (user_phone.val())
 			
 			var agree_terms = $('#agree_terms');
 			if (!agree_terms.prop('checked')) {
@@ -239,12 +254,9 @@
 				return;
 			}
 			
-			document.getElementById('form_eamil_signUp').submit();
+			document.getElementById('form_eamil_signUp').submit();				
 		}
-		
-		
-	
-	
+
 	</script>
 
 

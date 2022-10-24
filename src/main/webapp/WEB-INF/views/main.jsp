@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -120,7 +120,7 @@
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
-				<li><a href="myAccount.do">My페이지</a></li>
+				<li><a href="myFundingList.do">My페이지</a></li>
 				<li><a href="shoppingBasket.do">찜목록</a></li>
 				<li><a href="donate.do">기부하기</a></li>
 				<li><a href="review.do">리뷰보기</a></li>
@@ -218,8 +218,12 @@
 													<li>
 														<input type="hidden" class="" value="${bestFd.fd_title}">
 														<input type="hidden" value="${bestFd.fd_no}">
-														<a class="gongu"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
+														<a class="gongu"><span class="fa fa-regular fa-comment"></span></a>
+													</li>
+		                                            <li>
+		                                            	<a class="shareFacebook1"><span class="fab fa-facebook-f"></span></a>
+		                                            </li>
+		                                            <li><a class="shareTwitter1"><span class="fab fa-twitter"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -270,8 +274,12 @@
 													<li>
 														<input type="hidden" class="" value="${ddBs.bs_title}">
 														<input type="hidden" value="${ddBs.bs_no}">
-														<a class="gongu2"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
+														<a class="gongu2"><span class="fa fa-regular fa-comment"></span></a>
+													</li>
+		                                            <li>
+		                                            	<a class="shareFacebook2"><span class="fab fa-facebook-f"></span></a>
+		                                            </li>
+		                                            <li><a class="shareTwitter2"><span class="fab fa-twitter"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -450,8 +458,12 @@
 													<li>
 														<input type="hidden" class="" value="${bestRv.review_title}">
 														<input type="hidden" value="${bestRv.review_no}">
-														<a class="gongu3"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
+														<a class="gongu3"><span class="fa fa-regular fa-comment"></span></a>
+													</li>
+		                                            <li>
+		                                            	<a class="shareFacebook3"><span class="fab fa-facebook-f"></span></a>
+		                                            </li>
+		                                            <li><a class="shareTwitter3"><span class="fab fa-twitter"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -547,8 +559,9 @@
 					$('#navIMG').attr("src","resources/images/icons/nav_closeIcon2.png");
 				}
 			});
+			
 		})
-		// 카카오톡 공유하기 api
+		// 카카오톡 공유하기 api 펀딩
 		Kakao.init('d979258f63314ea5bad35903ff604cbf');
 		$('.gongu').click(function(){
 			 Kakao.Share.sendDefault({
@@ -557,8 +570,9 @@
 			      link: {
 			        webUrl: 'http://localhost:8080/mohe/fundingSingle.do?fd_no='+$(this).prev().val(),
 			      },
-			    })
-		})
+			    });
+		});
+		// 카카오톡 공유하기 api 봉사
 		$('.gongu2').click(function(){
 			 Kakao.Share.sendDefault({
 			      objectType: 'text',
@@ -566,8 +580,9 @@
 			      link: {
 			        webUrl: 'http://localhost:8080/mohe/bongsaDetail.do?bs_no='+$(this).prev().val(),
 			      },
-			    })
-		})
+			    });
+		});
+		// 카카오톡 공유하기 api 리뷰
 		$('.gongu3').click(function(){
 			 Kakao.Share.sendDefault({
 			      objectType: 'text',
@@ -575,8 +590,46 @@
 			      link: {
 			        webUrl: 'http://localhost:8080/mohe/getReview.do?review_no='+$(this).prev().val(),
 			      },
-			    })
+			    });
 
+		});
+		
+		$('document').ready(function(){
+			// 페이스북 공유하기 펀딩
+			$('.shareFacebook1').click(function(){
+				var url = $(this).parent().prev().children('input:nth-child(2)').val();
+	 		  	window.open("http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/mohe/fundingSingle.do?fd_no=" + url);
+			});
+			// 페이스북 공유하기 봉사
+			$('.shareFacebook2').click(function(){
+				var url = $(this).parent().prev().children('input:nth-child(2)').val();
+	 		  	window.open("http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/mohe/bongsaDetail.do?bs_no=" + url);
+			});
+			// 페이스북 공유하기 리뷰
+			$('.shareFacebook3').click(function(){
+				var url = $(this).parent().prev().children('input:nth-child(2)').val();
+	 		  	window.open("http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/mohe/getReview.do?review_no=" + url);
+			});
+			
+			// 트위터 공유하기 펀딩
+			$('.shareTwitter1').click(function(){
+				var url = $(this).parent().prev().prev().children('input:nth-child(2)').val();
+				var text = $(this).parent().prev().prev().children('input:nth-child(1)').val();
+	 		  	window.open("https://twitter.com/intent/tweet?text=" + text + "&url=http://localhost:8080/mohe/fundingSingle.do?fd_no=" +  url);
+			});
+			// 트위터 공유하기 봉사
+			$('.shareTwitter2').click(function(){
+				var url = $(this).parent().prev().prev().children('input:nth-child(2)').val();
+				var text = $(this).parent().prev().prev().children('input:nth-child(1)').val();
+	 		  	window.open("https://twitter.com/intent/tweet?text=" + text + "&url=http://localhost:8080/mohe/bongsaDetail.do?bs_no=" +  url);
+			});
+			// 트위터 공유하기 리뷰
+			$('.shareTwitter3').click(function(){
+				var url = $(this).parent().prev().prev().children('input:nth-child(2)').val();
+				var text = $(this).parent().prev().prev().children('input:nth-child(1)').val();
+	 		  	window.open("https://twitter.com/intent/tweet?text=" + text + "&url=http://localhost:8080/mohe/getReview.do?review_no=" +  url);
+			});
+			
 		})
 	</script>
 </body>

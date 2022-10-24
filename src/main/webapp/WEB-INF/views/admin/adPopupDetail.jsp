@@ -84,6 +84,10 @@
 															<input type="text" name="pop_title"
 																value="${pop.pop_title}"  readonly>
 														</div>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">연관 이벤트</div>
+															<a href="adEventDetail.do?event_no=${pop.pop_url_no}">NO.${pop.pop_url_no}</a>
+														</div>
 														<div class="form-group col-lg-6 col-md-6 col-sm-6">
 															<div class="field-label">팝업 시작일</div>
 															<input type="text" name="pop_start_date"

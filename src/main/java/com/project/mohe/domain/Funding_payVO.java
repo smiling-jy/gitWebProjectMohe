@@ -1,6 +1,6 @@
 package com.project.mohe.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -31,5 +31,6 @@ public class Funding_payVO {
 	
 	// 날짜 출력을 위한 변수
 	private String date_for_list;
+
 
 }

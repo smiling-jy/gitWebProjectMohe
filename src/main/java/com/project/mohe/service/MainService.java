@@ -42,6 +42,6 @@ public interface MainService {
 	void timeOutPop();
 	
 	// 회원 등급 조정
-	void userRating();
+//	void userRating();
 
 }
