@@ -12,6 +12,7 @@ import com.project.mohe.dao.VolunteerDAO;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.domain.VolunteerVO;
 
 
@@ -66,10 +67,10 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	public PagingVO getAllcnt(PagingVO vo) {
 		return mybatis.selectOne("VolunteerDAO.getAllcnt",vo);
 	}
-	
+
 	@Override
-	public void updateVolunteerIng(PagingVO vo) {
-		mybatis.update("VolunteerDAO.updateVolunteerIng",vo);
-		
+	public UserInfoVO getJoinBs(UserInfoVO vo) {
+		return mybatis.selectOne("VolunteerDAO.getJoinBs",vo);
 	}
+
 }

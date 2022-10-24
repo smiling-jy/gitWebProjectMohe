@@ -129,7 +129,7 @@
   	VALUES(BONGSA_PJ_SEQ.nextval, #{bs_title}, #{bs_content}, #{bs_region},#{bs_place},
   	#{bs_recruit_start},#{bs_recruit_end},to_date(#{bs_work_start},'yyyy/mm/dd hh24:mi'),
   	to_date(#{bs_work_end},'yyyy/mm/dd hh24:mi'),
-  	#{bs_goal_cnt},0,'진행중',#{bs_name},
+  	#{bs_goal_cnt},0,'대기중',#{bs_name},
   	#{bs_phone},#{bs_email},#{bs_img_cnt},BONGSA_PJ_SEQ.nextval||'_이미지',1,#{user_no}
   	)
 
