@@ -40,7 +40,7 @@ public class ReviewController {
 		public String getMyReviewList(Model model,HttpSession session) {
 			HashMap map = new HashMap();
 			map.put("user_no",(Integer)session.getAttribute("user_no"));
-			List<ReviewVO> myRList=reviewService.getReviewList(map);
+			List<ReviewVO> myRList=reviewService.getMyReviewList(map);
 			model.addAttribute("myReviewList", myRList);
 			return "myReviewList";
 		}
@@ -133,12 +133,20 @@ public class ReviewController {
 		}
 		
 		
-		//수정페이지로 이동
+		//리뷰모음에서 수정으로 이동
 		@RequestMapping("goUpdate.do")
 		public String goUpdate(ReviewVO vo,Model model,HttpSession session) {
 			model.addAttribute("review", reviewService.getReview(vo));
 			
 			return "reviewUpdate";
+		}
+		
+		//마이페이지에서 수정으로 이동
+		@RequestMapping("goUpdateFromMy.do")
+		public String goUpdateFromMy(ReviewVO vo,Model model,HttpSession session) {
+			model.addAttribute("review", reviewService.getReview(vo));
+			
+			return "reviewUpdateMypage";
 		}
 			
 		
@@ -191,20 +199,26 @@ public class ReviewController {
 				}
 			}
 		}
-		
+	
 		
 		//수정
 		@RequestMapping("updateReview.do")
 		public String updateReview(ReviewVO vo,MultipartFile file,Model model) {
-			if(vo.getPage()=="review") {
+			
+			String returnPage=vo.getPage();
+			
+			if(returnPage.equals("review")) {
 				//리뷰모음에서 넘어왔을때
 				updateReviewProcess(vo,file,model);
-				return "redirect:/review.do";
+				returnPage= "redirect:/review.do";
 				
-			}else if(vo.getPage()=="mypage") 
+			}else if(returnPage.equals("mypage")) {
 				//마이페이지에서 넘어왔을때 
 				updateReviewProcess(vo,file,model);
-				return "redirect:/myReviewList.do";
+				returnPage= "redirect:/myReviewList.do";}
+			
+			return returnPage;
+			
 		}
 		
 		//삭제
