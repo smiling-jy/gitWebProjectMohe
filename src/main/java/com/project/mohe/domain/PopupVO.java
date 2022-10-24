@@ -13,6 +13,7 @@ public class PopupVO {
 	private String pop_start_date;
 	private String pop_end_date;
 	private String pop_use;
+	private int pop_url_no;
 	
 	// 첨부 파일
 	MultipartFile title_img;

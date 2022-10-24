@@ -24,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -76,6 +77,16 @@ public class AdminController {
 	private ReviewService reviewService;
 	@Autowired
 	ServletContext servletContext;
+	
+	// 관리자 가입 이메일 중복
+	@RequestMapping(value = "idCheck.do", produces = "application/text; charset=utf8")
+	@ResponseBody // 화면이 전화되지않고 비동기동신이 가능하도록 하는 어노테이션
+	public String idCheck(AdminVO vo) {
+		System.out.println(vo.getAdm_id());
+		AdminVO resultVO = adminService.idCheck_Login(vo);
+		
+		return resultVO == null ? "사용 가능한 이메일입니다." : "중복된 이메일입니다.";
+	}
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -982,7 +993,8 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// pop_no로 상세 조회하기
-		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		vo = adminService.adPopupDetail(vo);
+		model.addAttribute("pop",vo);
 		return "/admin/adPopupDetail";
 	}
 	//팝업 수정하기 페이지 이동
@@ -990,6 +1002,8 @@ public class AdminController {
 	public String adPopupUpdateInfo(PopupVO vo,HttpSession session,Model model) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 이벤트 리스트를 불러온다
+		model.addAttribute("eventList",adminService.getEventList());
 		// pop_no로 상세 조회하기
 		model.addAttribute("pop",adminService.adPopupDetail(vo));
 		return "/admin/adPopupUpdateInfo";
@@ -1037,6 +1051,15 @@ public class AdminController {
 			}
 		} // if_end
 		return "redirect:/admin/adPopList.do";
+	}
+	// 팝업 추가 페이지
+	@RequestMapping("adPopupInsertInfo.do")
+	public String adPopupInsertInfo(PopupVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 이벤트 리스트를 불러온다
+		model.addAttribute("eventList",adminService.getEventList());
+		return "/admin/adPopupInsertInfo";
 	}
 	// 팝업 추가
 	@RequestMapping("adPopupInsert.do")

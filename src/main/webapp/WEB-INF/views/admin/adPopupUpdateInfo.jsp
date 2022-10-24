@@ -81,6 +81,15 @@
 															<input type="text" name="pop_title"
 																value="${pop.pop_title}"  required>
 														</div>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">연관 이벤트</div>
+															<select type="text" name="pop_url_no" id="joinEvent_select">
+																<c:forEach items="${eventList}" var="event">
+																	<option value="${event.event_no}">NO.${event.event_no}_${event.event_title}</option>
+																</c:forEach>
+															</select>
+															<input type="hidden" id="joinEvent" value="${pop.pop_url_no}">
+														</div>
 														<div class="form-group col-lg-6 col-md-6 col-sm-6">
 															<div class="field-label">팝업 시작일</div>
 															<input type="date" name="pop_start_date"
@@ -168,6 +177,9 @@
 	<script>
 		var rating = $('#rating').val();
 		$("#user_rating").val(rating).prop("selected", true);
+		
+		var joinEvent = $('#joinEvent').val();
+		$("#joinEvent_select").val(joinEvent).prop("selected", true);
 		
 		// 첨부파일 미리보기 
 		$('#user_profile_img').change(function(){
