@@ -48,6 +48,9 @@ public interface AdminService {
 	// 관리자 아이디 중복 체크
 	AdminVO idCheck_Login(AdminVO vo);
 	
+	// 관리자 비밀번호를 임시번호로 업뎃
+	int resetPassword(AdminVO vo);	
+	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(PagingVO vo);
 	

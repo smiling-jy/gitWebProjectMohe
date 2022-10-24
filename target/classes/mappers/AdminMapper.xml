@@ -70,10 +70,16 @@
 	</insert>
 	<!-- 관리자 아이디 중복확인하기 -->
 	<select id="idCheck_Login" parameterType="admin" resultType="admin">
-		select adm_id
+		select *
 		from admin
 		where adm_id = #{adm_id}
 	</select>
+	<!-- 임시 비밀번호로 업데이트 하기 -->
+	<update id="resetPassword" parameterType="admin">
+		update admin
+		set adm_pass = #{adm_pass}
+		where adm_no = #{adm_no}
+	</update>
 	<!--  *********************************************************************옮겨줘야하는 페이지   -->
 	<!--  펀딩 상세페이지  -->
 	<select id="getAdFdDetail" parameterType="userInfo" resultType="funding_pay">
