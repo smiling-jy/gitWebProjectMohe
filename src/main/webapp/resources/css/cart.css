@@ -118,3 +118,11 @@ td a:hover{
 	transform:translate(-50%, -50%); 
 	padding-top: 30px;
 }
+
+#no-list{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	font-size: 24px;
+}

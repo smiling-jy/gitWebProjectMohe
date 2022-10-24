@@ -46,6 +46,7 @@
 
 					<!--Content Side / Blog Sidebar-->
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+					<c:if test="${empty pay_list}"><p id="no-list">주최한 프로젝트가 없습니다.</p></c:if>
 						<div class="our-shop new-font">
 							<div>
 								<c:if test="${not empty success_list}">
@@ -80,7 +81,9 @@
 								<hr/>
 							</c:if>
 							<div>
+							<c:if test="${not empty ongoing_list}">	
 								<h3>진행중인 프로젝트</h3>
+							</c:if>
 								<!-- 펀딩 블럭 -->
 								<c:forEach items="${ongoing_list}" var="pj">
 									<div class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">

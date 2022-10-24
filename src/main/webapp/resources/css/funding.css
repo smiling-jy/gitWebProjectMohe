@@ -484,6 +484,16 @@ td .new-btn{
     width: 90px;
 }
 
+
+#no-list{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	font-family: 'GmarketSansMedium';
+	font-size: 24px;
+}
+
 .bg-red {
 	background-color: red !important;
  }

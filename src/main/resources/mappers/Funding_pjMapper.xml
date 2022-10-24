@@ -6,7 +6,6 @@
   <mapper namespace="Funding_pjDAO">
   
 	<!-- 펀딩 주최하기 -->
-	<!-- 일단 임시로 데이터 입출력 확인때문에 상태는 진행중으로 놓았습니다. 최종적으로는 '미승인'이어야 한다 -->
 	<insert id="insertFunding_pj" parameterType="funding_pj">
 		<selectKey keyProperty="fd_no" order="AFTER" resultType="int">
 			select FD_PJ_SEQ.currval fd_no from dual
@@ -128,7 +127,8 @@
   			   , pay.total_people , pj.fd_img_name , pj.fd_img_cnt , pj.fd_receiver , pj.fd_content
        		   , to_date(pj.fd_enddate,'yy-mm-dd') - to_date(sysdate, 'yy-mm-dd') remain_day
       		   , nvl(trunc(pay.total_sum / pj.fd_goals,2)*100,0) rate
-		  from funding_pj pj , (select fd_no , nvl(sum(pay_total),0) total_sum, count(user_no) total_people
+		  from funding_pj pj , (select fd_no , nvl(sum(pay_total),0) total_sum
+		  							   , count(user_no) total_people
                         		  from funding_pay
                     		  group by fd_no) pay
   		 where pj.fd_no = pay.fd_no(+)
