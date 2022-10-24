@@ -41,7 +41,7 @@
 				<h1>자주 묻는 질문</h1>
 				<ul class="bread-crumb clearfix">
 					<li><a href="notice.do"><h5>공지사항</h5></a></li>
-					<li class="active"><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li class="active"><h5>자주 묻는 질문</h5></li>
 					<li><a href="event.do"><h5>이벤트</h5></a></li>
 					<li><a href="partner.do"><h5>파트너</h5></a></li>
 					<li><a href="review.do"><h5>후기 모음</h5></a></li>
@@ -87,7 +87,7 @@
 											</ul>
 										</div>
 									</div>
-								<div class="tabs-content">
+								<div class="tabs-content" style="width:85%;">
 									<!--Tab-->
 									<div class="tab active-tab" id="tab-1">
 										<ul class="accordion-box clearfix">

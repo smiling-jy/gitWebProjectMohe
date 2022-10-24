@@ -50,7 +50,7 @@
 					<li><a href="faq.do"><h5>자주 묻는 질문</h5></a>
 					<li><a href="event.do"><h5>이벤트</h5></a></li>
 					<li><a href="partner.do"><h5>파트너</h5></a></li>
-					<li class="active"><a href="review.do"><h5>후기 모음</h5></a></li>
+					<li class="active"><h5>후기 모음</h5></a></li>
 				</ul>
 			</div>
 
@@ -98,12 +98,27 @@
 									<span class="month" style="font-size:20px;">${fn:substring(review.review_date,4,7)}</span>
 								</div>
 							</div>
-							<div class="lower-content">
+							<div class="lower-content" style="font-family: 'GmarketSansMedium'; font-size:30px;">
 								<h3>
 									<a href="getReview.do?review_no=${review.review_no}"> ${review.review_title} </a>
 								</h3>
 								<ul class="info clearfix">
-									<li><span class="icon fa fa-user"></span>${review.user_name}</li>
+									<li>
+									<div class="user-rating" style="display:inline-block;">	
+										<c:choose>
+											<c:when test="${review.user_rating eq '시민' }">											
+												<img src="resources/images/user_rating/rating_1_30.png" style="width:25px;height:25px">
+											</c:when>
+											<c:when test="${review.user_rating eq '고수' }">											
+												<img src="resources/images/user_rating/rating_2_30.png" style="width:25px;height:25px">
+											</c:when>
+											<c:otherwise>
+												<img src="resources/images/user_rating/rating_3_30.png" style="width:25px;height:25px">
+											</c:otherwise>
+										</c:choose>
+									</div>
+									
+										${review.user_name}</li>
 									<li><span class="icon far fa-clock"></span>
 										<fmt:formatDate value="${review.review_date}" dateStyle="short"></fmt:formatDate></li>
 									<li> 조회수 : ${review.review_read_cnt}</li>
