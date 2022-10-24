@@ -99,6 +99,7 @@
 													<input type="hidden" name="fd_hostname" value="${pj.fd_hostname}">
 													<input type="hidden" name="fd_price" value="${pj.fd_price}">
 													<input type="hidden" name="pay_count" value="1">
+													<input type="hidden" name="pay_date">
 													<input type="hidden" value="${sessionScope.user_email}" id="user_email">
 											</form>
 											</div>
@@ -183,6 +184,7 @@
 				}, function(rsp) {
 					if (rsp.success) {
 						//성공시 이동할 페이지
+						$('input[name=pay_count]').val($('#cnt-pay').val())	
 						alert("결제에 성공하셨습니다.");
 						$('#pay-save').submit();
 					} else {

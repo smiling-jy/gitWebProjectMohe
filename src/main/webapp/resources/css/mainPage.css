@@ -223,4 +223,8 @@ h1 {
 	 visibility: hidden;
 }
 
+#myPg_btn_text{
+	font-family: 'GmarketSansMedium';
+	font-weight: normal;
+}
 

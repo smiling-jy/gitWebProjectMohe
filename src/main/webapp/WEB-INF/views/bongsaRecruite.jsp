@@ -129,29 +129,36 @@
 	                     <input type="text" name="bs_place" required><br/>
 	
 	                     <span>모집인원</span>
-	                     <input type="text" name="bs_goal_cnt" required><br/>
+	                     <input type="text" name="bs_goal_cnt" id="bs_goal_cnt" required>
+	                     <span id="bs_goal_cnt_message" class="under-span"></span><br/>
 	                     <hr>
 	
 						 <span>모집시작일</span>
-	                     <input type="date" name="bs_recruit_start" required><br/>
+	                     <input type="date" name="bs_recruit_start" id="bs_recruit_start" required><br/>
 	                     <hr>
 	                     <span>모집종료일</span>
-	                     <input type="date" name="bs_recruit_end" required><br/>
+	                     <input type="date" name="bs_recruit_end" id="bs_recruit_end" required><br/>
 	                     <hr>
 	                     <span>봉사시작 일시</span>
-	                     <input type="datetime-local" name="bs_work_start" required><br/>
+	                     <input type="datetime-local" name="bs_work_start" id="bs_work_start" required><br/>
+	                     <span id="date_startMessage" class="under-span"></span>
 	                     <hr>
 	                     <span>봉사종료 일시</span>
-	                     <input type="datetime-local" name="bs_work_end" required><br/>
+	                     <input type="datetime-local" name="bs_work_end" id="bs_work_end" required><br/>
+	                     <span id="date_endMessage" class="under-span"></span>
 	                     <hr>
 	                     <span>모집자(단체)</span><br/>
 	                     <input type="text" name="bs_name" required><br/>
 	                     
 	                     <span>모집자 연락처</span>
-	                     <input type="text" name="bs_phone" required><br/>
+	                     <input type="text" name="bs_phone" id="bs_host_phone" title="전화번호를 입력하세요."required>
+	                     <span id="phone_message" class="under-span"></span><br />
+	                     
 	                     
 	                     <span>모집자 이메일</span>
-	                     <input type="text" name="bs_email" required><br/>
+	                     <input type="email" name="bs_email" id="bs_host_email" required>
+	                     <span id="email_message" class="under-span"></span><br/>
+	                     
 	                     
 						<span>타이틀 이미지</span><br />
 						<input type="file" name="title_img" class="add-file" value="타이틀 이미지 첨부하기"><br/><br/>
@@ -188,6 +195,7 @@
 <script src="resources/js/lazyload.js"></script>
 <script src="resources/js/scrollbar.js"></script>
 <script src="resources/js/script.js"></script>
+<script src="resources/js/validation.js"></script>
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>모해 MOHE | 봉사상세페이지 너무 짜증나느....</title>
+<title>모해 MOHE | 봉사상세페이지</title>
 <!-- Stylesheets -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -108,15 +108,6 @@
 										<span>문의번호 :<span class="bs-phone">${bongsa.bs_phone}</span></span><br>
 										<span>이메일 :<span class="bs-email">${bongsa.bs_email}</span></span><br>
 							</div>
-							<!-- 펀딩 찜하기 공유 영역 -->
-<!-- 							<div> -->
-<%-- 								<a href="bongsaParticipate.do?bs_no=${bongsa.bs_no}" class="theme-btn btn-style-one"><span --%>
-<!-- 									class="btn-title cs-btn">참여하기</span></a>  -->
-<!-- 									<button class="theme-btn btn-style-one" id="bsJjim"><span class="btn-title cs-btn">♥</span></button> -->
-<%-- 									<input type="hidden" name="bs_no" value="${bongsa.bs_no}"> --%>
-<!-- 									<button class="theme-btn btn-style-one" id="bsGongu" > -->
-<!-- 									<span class="btn-title cs-btn" >공유</span></button>  -->
-<!-- 							</div> -->
 								<!-- 참여하기, 찜, 공유 영역 -->
 								<div class="new-font" id="bongsa-div">
 								<c:choose>
