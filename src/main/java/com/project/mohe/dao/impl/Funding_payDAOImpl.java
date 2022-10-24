@@ -10,6 +10,7 @@ import com.project.mohe.dao.Funding_payDAO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
 
 
 @Repository("funding_payDAO")
@@ -60,6 +61,11 @@ public class Funding_payDAOImpl implements Funding_payDAO {
 	@Override
 	public PagingVO getAllcnt(PagingVO vo) {
 		return mybatis.selectOne("Funding_payDAO.getAllcnt",vo);
+	}
+
+	@Override
+	public UserInfoVO getJoinFd(UserInfoVO vo) {
+		return mybatis.selectOne("Funding_payDAO.getJoinFd",vo);
 	}
 
 

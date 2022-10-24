@@ -52,8 +52,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public List<UserInfoVO> getUserInfoList(HashMap map) {
-		return userInfoDao.getUserInfoList(map);
+	public List<UserInfoVO> getUserInfoList() {
+		return userInfoDao.getUserInfoList();
 	}
 
 	@Override

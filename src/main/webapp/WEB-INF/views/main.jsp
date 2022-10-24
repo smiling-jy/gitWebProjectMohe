@@ -47,6 +47,7 @@
 .btn_div {
 	width: 50px;
 	height: 50px;
+	margin-top:8px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -104,6 +105,9 @@
 	color:white;
 	border-radius: 10px;
 }
+.main_slide_toneDown{
+	filter: brightness(75%)
+}
 </style>
 <link href="resources/css/popup.css" rel="stylesheet">
 </head>
@@ -112,7 +116,7 @@
 <body>
 	<!-- 우측 간편 메뉴 시작 -->
 	<div class="right_nav">
-		<div class="btn_div"><img class="image wow fadeInDown" src="resources/images/mohe_logo/logo_hart.png"></div>
+		<div class="btn_div"><img class="image wow fadeInDown" id="navIMG" src="resources/images/icons/nav_openIcon1.png"></div>
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
@@ -139,8 +143,8 @@
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
 					<div class="slide-item slid_fix">
-<!-- 					<div class="image-layer lazy-image main_slide_toneDown"></div> -->
-						<div class="image-layer lazy-image"
+					<div class="image-layer lazy-image"></div>
+						<div class="image-layer lazy-image main_slide_toneDown"
 							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
@@ -263,8 +267,11 @@
 											<div class="designation">${ddBs.bs_place}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+													<li>
+														<input type="hidden" class="" value="${ddBs.bs_title}">
+														<input type="hidden" value="${ddBs.bs_no}">
+														<a class="gongu2"><span class="fa fa-regular fa-comment"></span></a></li>
+													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -440,8 +447,11 @@
 											<div class="designation"><span class="icon fa fa-user"></span> ${bestRv.user_name}</div>
 											<div class="social-links">
 												<ul class="clearfix">
-													<li><a href="#"><span class="fa fa-regular fa-comment"></span></a></li>
-													<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+													<li>
+														<input type="hidden" class="" value="${bestRv.review_title}">
+														<input type="hidden" value="${bestRv.review_no}">
+														<a class="gongu3"><span class="fa fa-regular fa-comment"></span></a></li>
+													<li><a ><span class="fab fa-linkedin-in"></span></a></li>
 												</ul>
 											</div>
 										</div>
@@ -530,6 +540,13 @@
 			if($('#pop_no').val() == ""){
 				$('#pop_form').css('display','none');
 			}
+			$('#navIMG').click(function(){
+				if($('#navIMG').attr("src") == "resources/images/icons/nav_closeIcon2.png"){
+					$('#navIMG').attr("src","resources/images/icons/nav_openIcon1.png");
+				}else{
+					$('#navIMG').attr("src","resources/images/icons/nav_closeIcon2.png");
+				}
+			});
 		})
 		// 카카오톡 공유하기 api
 		Kakao.init('d979258f63314ea5bad35903ff604cbf');
@@ -538,9 +555,28 @@
 			      objectType: 'text',
 			      text:$(this).prev().prev().val(),  
 			      link: {
-			        webUrl: 'http://localhost:8080/basic/fundingSingle.do?fd_no='+$(this).prev().val(),
+			        webUrl: 'http://localhost:8080/mohe/fundingSingle.do?fd_no='+$(this).prev().val(),
 			      },
 			    })
+		})
+		$('.gongu2').click(function(){
+			 Kakao.Share.sendDefault({
+			      objectType: 'text',
+			      text:$(this).prev().prev().val(),  
+			      link: {
+			        webUrl: 'http://localhost:8080/mohe/bongsaDetail.do?bs_no='+$(this).prev().val(),
+			      },
+			    })
+		})
+		$('.gongu3').click(function(){
+			 Kakao.Share.sendDefault({
+			      objectType: 'text',
+			      text:$(this).prev().prev().val(),  
+			      link: {
+			        webUrl: 'http://localhost:8080/mohe/getReview.do?review_no='+$(this).prev().val(),
+			      },
+			    })
+
 		})
 	</script>
 </body>

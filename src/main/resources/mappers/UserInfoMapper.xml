@@ -41,10 +41,7 @@
 				from userinfo 
 				<where>
 		  			<if test="stext != null">
-		  				${select} like '%${stext}%' and user_outdate is null 
-		  			</if>
-		  			<if test="stext == null">
-		  				user_outdate is null 
+		  				${select} like '%${stext}%'
 		  			</if>
   				</where>
 				order by user_no desc))
@@ -70,6 +67,12 @@
 		from userinfo
 		where user_no = #{user_no} AND USER_OUTDATE IS NULL
 	</select>
+	<!-- 모든회원의 상세정보 조회 -->
+	<select id="getAdUserInfo" parameterType="userInfo" resultType="userInfo">
+		select *
+		from userinfo
+		where user_no = #{user_no}
+	</select>
 	<!-- 회원 탈퇴, 사용정지시 outdate 업데이트 -->
 	<update id="updateOutDate" parameterType="userInfo">
 		update userinfo
@@ -80,6 +83,18 @@
 	<update id="updateUser" parameterType="userInfo">
 		update userinfo
 		set	user_phone = #{user_phone},user_addr=#{user_addr},user_rating=#{user_rating}
+		where user_no = #{user_no}
+	</update>
+	<!-- 탈퇴하지 않은 회원들의 no,rating 검색 -->
+	<select id="getUserNo" resultType="userInfo">
+		select user_no,user_rating
+		from userinfo
+		where user_outdate is null
+	</select>
+	<!-- 유저 등급 조정 -->
+	<update id="changeRating" parameterType="userInfo">
+		update userinfo
+		set user_rating = #{user_rating}
 		where user_no = #{user_no}
 	</update>
 </mapper>

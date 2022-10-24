@@ -27,7 +27,7 @@ public interface UserInfoDAO {
 		UserInfoVO getUserInfo(UserInfoVO vo);
 			
 		// 글 목록 조회
-		List<UserInfoVO> getUserInfoList(HashMap map);
+		List<UserInfoVO> getUserInfoList();
 		
 		// 유저 페이징 리스트
 		List<UserInfoVO> getAdUserInfoList(PagingVO vo);
@@ -43,5 +43,14 @@ public interface UserInfoDAO {
 		void updateUser(UserInfoVO vo);
 		
 		void updateUserinfoUserOutdate(UserInfoVO vo);
+		
+		// 회원 no,rating 전체 조회
+		List<UserInfoVO> getUserNo();
+		
+		// 회원 등급 조정
+		void changeRating(UserInfoVO vo);
+		
+		// 모든회원 상세 조회
+		UserInfoVO getAdUserInfo(UserInfoVO vo);
 		
 }
