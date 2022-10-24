@@ -32,6 +32,15 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
 <link href="resources/css/cart.css" rel="stylesheet">
+<style>
+.rating {
+	position: absolute;
+	z-index: 5;
+	top: 0px;
+	left: 20px;
+	width: 100px;
+}
+</style>
 </head>
 
 <body>
@@ -94,8 +103,22 @@
 									<label for="userName" class="input-label"></label>
 									<div class="profile-user-img margin-auto">
 										<img class="margin-auto profile-user-img-img"
-											src="resources/images/mohe_logo/img_no_profile.png"
+											src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+											onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
 											alt="profile-user-img" style="max-width: 130px">
+										<div class="rating">
+											<c:choose>
+												<c:when test="${sessionScope.user.user_rating eq '시민'}">
+													<img src="resources/images/user_rating/rating_1_30.png">
+												</c:when>
+												<c:when test="${sessionScope.user.user_rating eq '고수'}">
+													<img src="resources/images/user_rating/rating_2_30.png">
+												</c:when>
+												<c:otherwise>
+													<img src="resources/images/user_rating/rating_3_30.png">
+												</c:otherwise>
+											</c:choose>
+										</div>
 									</div>
 								</div>
 								<h3 class="sidebar-title new-font">
@@ -127,7 +150,7 @@
 										</li>
 										<li>봉사
 											<ul>
-												<li><a href="details.do">봉사참여목록</a></li>
+												<li><a href="myVolunList.do">봉사참여목록</a></li>
 												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>								
 											</ul>
 										</li>

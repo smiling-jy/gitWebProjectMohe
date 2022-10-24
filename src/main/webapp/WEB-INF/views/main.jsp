@@ -120,7 +120,7 @@
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
-				<li><a href="myAccount.do">My페이지</a></li>
+				<li><a href="shoppingBasket.do">My페이지</a></li>
 				<li><a href="shoppingBasket.do">찜목록</a></li>
 				<li><a href="donate.do">기부하기</a></li>
 				<li><a href="review.do">리뷰보기</a></li>
