@@ -155,9 +155,8 @@
 						</div>
 					</div>
 
-					<!--Sidebar Side-->
-					<div
-						class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+				<!--Sidebar Side-->
+					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">
 							<div class="sidebar-widget price-filters rangeslider-widget">
 								<div class="input-control d-block">
@@ -182,7 +181,7 @@
 										</div>
 									</div>
 								</div>
-								<h3 class="sidebar-title">
+								<h3 class="sidebar-title new-font">
 									<c:out value="${sessionScope.user.user_name}" />
 									님(
 									<c:out value="${sessionScope.user.user_rating}" />
@@ -212,7 +211,7 @@
 										<li>봉사
 											<ul>
 												<li><a href="myVolunList.do">봉사참여목록</a></li>
-												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>
+												<li class="current"><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
@@ -226,8 +225,6 @@
 							</div>
 						</aside>
 					</div>
-
-					</aside>
 				</div>
 			</div>
 		</div>
@@ -260,7 +257,7 @@
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
 	<script src="resources/js/bongsa.js"></script>
-
+	
 
 </body>
 </html>

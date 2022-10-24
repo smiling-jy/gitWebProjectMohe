@@ -70,3 +70,20 @@
 .new-inner-box{
 	height: 300px;
 }
+
+.widget-content ul.cart-ul li{
+	list-style: none;
+	list-style-position: initial;
+	font-weight: 600;
+	font-family: 'GmarketSansMedium';
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	margin-left: 15px;
+}
+
+.cart-ul:last-child a.jjimlist{
+	font-size: 20px;
+}
+
+
