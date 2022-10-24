@@ -1,6 +1,5 @@
 package com.project.mohe.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.mohe.domain.Funding_payVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.PagingVO;
+import com.project.mohe.domain.UserInfoVO;
 import com.project.mohe.service.Funding_payService;
 import com.project.mohe.service.Funding_pjService;
 import com.project.mohe.service.PagingService;
@@ -43,7 +43,7 @@ public class Funding_payController {
 	}
 	
 	@RequestMapping("paySave.do")
-	public String paySave(Funding_payVO pay, HttpServletRequest re) {
+	public String paySave(Funding_payVO pay, HttpServletRequest re , UserInfoVO us) {
 		// 유저번호 세션에서 받아오기
 		HttpSession session = re.getSession();
 		pay.setUser_no((Integer) session.getAttribute("user_no"));
@@ -51,11 +51,13 @@ public class Funding_payController {
 		pay.setPay_total(pay.getFd_price() * pay.getPay_count());
 		// 주소
 		pay.setPay_pn_addr(pay.getAddr1()+"/"+pay.getAddr2());
-		funding_payService.insertFunding_pay(pay);
 		
-		// 마이페이지 완성되면 마이페이지로 이동되게 수정
-		return "redirect:/fundingSingle.do?fd_no="+pay.getFd_no();
+		// > 파라미터로 user_no가 들어있는 UserInfoVO vo 객체를 받아옴
+		us.setUser_no(pay.getUser_no());
 		
+		funding_payService.insertFunding_pay(pay,us);
+		return "redirect:/myFundingList.do";
+			
 	}
 	
 	@RequestMapping("patronList.do")
