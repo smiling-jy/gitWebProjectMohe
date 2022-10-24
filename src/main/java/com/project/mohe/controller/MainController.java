@@ -35,6 +35,8 @@ public class MainController {
 		try {
 			// 기간이 지난 활성화 팝업 비활성화로 전환하기 
 			mainService.timeOutPop();
+			// 회원 등급 조정
+			mainService.userRating();
 			
 			model.addAttribute("donation",mainService.getDonationList());
 			model.addAttribute("partner",mainService.getPartnerList());

@@ -5,7 +5,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
 import com.project.mohe.domain.DonationVO;
+import com.project.mohe.domain.EmailVO;
 import com.project.mohe.domain.EventVO;
 import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.NoticeVO;
@@ -1112,5 +1123,46 @@ public class AdminController {
 		return "redirect:/admin/adminDetail.do?adm_no="+vo.getAdm_no();
 	}
 	
+	// 이메일 전송하기 
+	@RequestMapping("sendMail.do")
+	public String sendMail(EmailVO vo) {
+		String result = "true";
+		// SMTP 서버 정보를 설정한다.
+        Properties prop = new Properties();
+		prop.put("mail.smtp.auth", true);
+		prop.put("mail.smtp.host", "mw-002.cafe24.com");
+
+		Session session = Session.getDefaultInstance(prop, new Authenticator(){
+			protected PasswordAuthentication getPasswordAuthentication(){
+				return new PasswordAuthentication("test@shym.kr", "testtest1"); 
+			}
+		});
+
+		try{
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("test@shym.kr"));
+			
+			List<UserInfoVO> users = userInfoService.getUserInfoList();
+			// 발송할 유저 이메일 정보들을 넣는다 
+			InternetAddress[] addArray = new InternetAddress[users.size()];
+			int cnt=0;
+			for(UserInfoVO user : users) {
+				addArray[cnt] = new InternetAddress(user.getUser_email());
+				System.out.println(user.getUser_email());
+				cnt++;
+			}
+			message.setRecipients(Message.RecipientType.TO,addArray);
+			
+			message.setSubject(vo.getETitle());
+			message.setContent(vo.getEText(),"text/html;charset=utf-8");
+			
+			Transport.send(message);
+			System.out.println("Success Message Send");
+		}catch(MessagingException e){
+			e.printStackTrace();
+			result = "false";
+		}
+		return"redirect:/admin/adSendEmail.do?result="+result;
+	}
 	
 }

@@ -110,7 +110,7 @@
                             <ul class="clearfix" style="text-align:right;">
 								<c:if test="${sessionScope.user_no eq review.user_no}">
 			                     <li><a href="goUpdate.do?review_no=${review.review_no}"> 수정 </a></li>
-			                     <li><a href="deleteReview.do?review_no=${review.review_no}"> 삭제 </a></li>
+			                     <li><a href="myReviewDelete.do?review_no=${review.review_no}"> 삭제 </a></li>
 			                    </c:if>
 	                      	</ul>
 	                  	<hr style="border: solid 1px lightgrey">

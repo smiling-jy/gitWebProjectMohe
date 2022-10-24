@@ -19,6 +19,8 @@
 	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+	
+<link href="resources/css/cart.css" rel="stylesheet">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +48,6 @@
 				<section class="wrapper">
 					<div class="heading">
 					
-						<h1 class="text text-large">로그인</h1>
 						<p class="text text-normal">
 							처음 오셨나요? <span><label class="" for="agree-terms"><a
 									href="signUp.do" target="_blank">가입하기</a></label></span>
@@ -165,7 +166,7 @@
 						contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 						success : function(result) {
 							if (result === 'true') {
-								location.href = "main.do";
+								location.href = "/mohe/main.do";
 							} else {
 								alert('이메일 또는 패스워드가 틀립니다.');
 							}

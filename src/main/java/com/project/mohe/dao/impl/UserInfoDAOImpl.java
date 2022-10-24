@@ -44,7 +44,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
-	public List<UserInfoVO> getUserInfoList(HashMap map) {
+	public List<UserInfoVO> getUserInfoList() {
 		return mybatis.selectList("UserInfoDAO.getUserList");
 	}
 
@@ -67,5 +67,26 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public void updateUser(UserInfoVO vo) {
 		mybatis.update("UserInfoDAO.updateUser",vo);
 	}
+	
+	@Override
+	public void updateUserinfoUserOutdate(UserInfoVO vo) {
+		mybatis.update("UserInfoDAO.updateUserinfoUserOutdate",vo);
+	}
+
+	@Override
+	public List<UserInfoVO> getUserNo() {
+		return mybatis.selectList("UserInfoDAO.getUserNo");
+	}
+
+	@Override
+	public void changeRating(UserInfoVO vo) {
+		mybatis.update("UserInfoDAO.changeRating",vo);
+	}
+
+	@Override
+	public UserInfoVO getAdUserInfo(UserInfoVO vo) {
+		return mybatis.selectOne("UserInfoDAO.getAdUserInfo",vo);
+	}
+
 
 }

@@ -159,7 +159,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public UserInfoVO adUserDetail(UserInfoVO vo,Model model) {
 		// 유저 정보 가져오기
-		vo = userInfoDao.getUserInfo(vo);
+		vo = userInfoDao.getAdUserInfo(vo);
 		
 		// 유저의 참여 봉사리스트 가져와서 model에 저장하기 : 나중에 봉사로 연결
 		model.addAttribute("userBsList",adminDao.getAdBsDetail(vo));
@@ -172,7 +172,7 @@ public class AdminServiceImpl implements AdminService {
 	// 회원 수정페이지에서 회원 정보만 불러오는기능
 	@Override
 	public UserInfoVO getUserInfo(UserInfoVO vo) {
-		return userInfoDao.getUserInfo(vo);
+		return userInfoDao.getAdUserInfo(vo);
 	};
 
 	// 펀딩 신청 수락,거부

@@ -19,6 +19,7 @@
 	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
 <link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
+<link href="resources/css/cart.css" rel="stylesheet">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +41,6 @@
 		<div class="container">
 			<section class="wrapper">
 				<div class="heading">
-					<h4 class="text text-large">회원정보 변경</h4>
 				</div>
 				<form name="signin" action="modifyInfoUpdate.do" method="post"
 					enctype="multipart/form-data" class="form">

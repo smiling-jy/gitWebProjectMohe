@@ -92,7 +92,7 @@
 													<table class="cart-table table2excel" id="export_table">
 														<thead class="cart-header">
 															<tr>
-																<th>Check</th>
+																<th>No</th>
 																<th>제목</th>
 																<th>기간</th>
 																<th>상태</th>
@@ -102,7 +102,7 @@
 														<tbody>
 															<c:forEach items="${popup}" var="pop">
 																<tr>
-																	<td><input type="checkbox" /></td>
+																	<td>${pop.pop_no}</td>
 																	<td style="word-break:break-all"><a href="adPopupDetail.do?pop_no=${pop.pop_no}">${pop.pop_title}</a></td>
 																	<td style="font-size:13px">
 																		<span>${fn:substring(pop.pop_start_date,0,10)}</span> ~ <br>
@@ -228,6 +228,7 @@
 	<script src="../resources/js/lazyload.js"></script>
 	<script src="../resources/js/scrollbar.js"></script>
 	<script src="../resources/js/script.js"></script>
+	<script src="../resources/js_ad/adminScript.js"></script>
 	<!-- 엑셀 내보내기 플러그인 -->
 	<script src='../resources/js_ad/jquery.table2excel.js'></script>
 	<script src='../resources/js_ad/excelTables.js'></script>

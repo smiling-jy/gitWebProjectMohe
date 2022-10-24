@@ -29,4 +29,7 @@ public interface ReviewService {
 	
 	// 페이징 조회
 	PagingVO getAllcnt(PagingVO vo);
+	
+	//내가쓴후기 조회
+	List<ReviewVO> getMyReviewList(HashMap map);
 }
