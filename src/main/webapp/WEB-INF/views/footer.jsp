@@ -12,7 +12,7 @@
 		<footer id="footer_new_all">
 			<div id="footer_new_all_text">
 				<img src="resources/images/mohe_logo/text_logo.png" />
-				<h4>공지사항</h4>
+				<h4><a href="notice.do">공지사항</a></h4>
 				&nbsp;&nbsp; |
 				<h4>모해 서비스 이용약관 개정에 대한 안내</h4>
 				<br>

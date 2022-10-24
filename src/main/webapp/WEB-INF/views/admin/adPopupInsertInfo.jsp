@@ -79,6 +79,15 @@
 															<input type="text" name="pop_title"
 																value=""  required>
 														</div>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12">
+															<div class="field-label">연관 이벤트</div>
+															<select type="text" name="pop_url_no">
+																<c:forEach items="${eventList}" var="event">
+																	<option value="${event.event_no}">NO.${event.event_no}_${event.event_title}</option>
+																</c:forEach>
+															</select>
+															<input type="hidden" id="pop_url_no" value="${pop.pop_url_no}">
+														</div>
 														<div class="form-group col-lg-6 col-md-6 col-sm-6">
 															<div class="field-label">팝업 시작일</div>
 															<input type="date" name="pop_start_date"

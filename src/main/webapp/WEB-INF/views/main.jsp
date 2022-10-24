@@ -120,7 +120,7 @@
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
-				<li><a href="shoppingBasket.do">My페이지</a></li>
+				<li><a href="myFundingList.do">My페이지</a></li>
 				<li><a href="shoppingBasket.do">찜목록</a></li>
 				<li><a href="donate.do">기부하기</a></li>
 				<li><a href="review.do">리뷰보기</a></li>
@@ -629,6 +629,7 @@
 				var text = $(this).parent().prev().prev().children('input:nth-child(1)').val();
 	 		  	window.open("https://twitter.com/intent/tweet?text=" + text + "&url=http://localhost:8080/mohe/getReview.do?review_no=" +  url);
 			});
+			
 		})
 	</script>
 </body>

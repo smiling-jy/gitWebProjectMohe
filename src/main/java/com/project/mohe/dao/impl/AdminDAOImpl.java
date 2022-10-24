@@ -63,6 +63,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return mybatis.selectOne("AdminDAO.adminLogin",vo);
 	}
 	
+	// 관리자 아이디 중복 체크
+	@Override
+	public AdminVO idCheck_Login(AdminVO vo) {
+		return mybatis.selectOne("AdminDAO.idCheck_Login",vo);
+	}
 	// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 	
 	// 봉사 상세페이지
@@ -129,6 +134,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public void adBsUpdate(BongsaVO vo) {
 		mybatis.update("AdminDAO.adBsUpdate",vo);
 	}
+
 	
 
 }

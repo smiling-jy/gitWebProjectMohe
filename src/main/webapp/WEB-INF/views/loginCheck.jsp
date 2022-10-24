@@ -43,9 +43,9 @@
 		<jsp:include page="header.jsp" />
 
 		<!-- Gallery Page Section -->
-		<main class="main gallery-page-section" style="padding: 0">
+		<main class="main gallery-page-section" style="padding: 0;height: 800px;">
 			<div class="container">
-				<section class="wrapper">
+				<section class="wrapper"style="position: relative;top: -80px;">
 					<div class="heading">
 					
 						<p class="text text-normal">
