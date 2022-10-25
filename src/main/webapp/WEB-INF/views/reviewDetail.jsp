@@ -113,9 +113,7 @@
                                 	<button id="Gongu-btn">
                                 		<img class="share-icon" src="resources/images/icons/kakaoicon.png">
                                 	</button>
-                                	<button id="Gongu-btn">
-                                		<img class="share-icon" src="resources/images/icons/share_icon.png">
-                                	</button>
+                                	
                              </div>
                         </div>
                          <!-- 작성자 본인 확인 -->
