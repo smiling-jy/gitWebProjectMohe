@@ -55,7 +55,7 @@
 
 					<!--Content Side / Blog Sidebar-->
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
-					<c:if test="${empty pay_list}"><p id="no-list">주최한 프로젝트가 없습니다.</p></c:if>
+					<c:if test="${empty success_list && empty ongoing_list}"><p id="no-list">주최한 프로젝트가 없습니다.</p></c:if>
 						<div class="our-shop new-font">
 							<div>
 								<c:if test="${not empty success_list}">
@@ -205,6 +205,11 @@
 											</ul>
 										</li>
 										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+										<li>후기
+											<ul>
+												<li><a href="myReviewList.do">나의후기목록</a></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 							</div>

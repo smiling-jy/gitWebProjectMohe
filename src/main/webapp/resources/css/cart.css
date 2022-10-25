@@ -126,3 +126,7 @@ td a:hover{
 	transform:translate(-50%, -50%);
 	font-size: 24px;
 }
+
+#review-btn{
+	font-size: 15px;
+}
