@@ -106,14 +106,7 @@
                             </div>
                         </div>
                         
-                      <div class="post-share-options clearfix"> 
-                            <div class="social-links pull-right">
-                               
-                                	<button id="Gongu-btn">
-                                		<img class="share-icon" src="resources/images/icons/share_icon.png">
-                                	</button>
-                             </div>
-                        </div>
+                     
                         
                         
                          <hr style="border: solid 1px lightgrey">
