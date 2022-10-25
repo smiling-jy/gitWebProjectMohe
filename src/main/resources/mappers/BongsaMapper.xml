@@ -7,7 +7,8 @@
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
 		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
-           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end,u.user_email, BS_IMG_NAME
+           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate, 
+           	 b.bs_recruit_end,u.user_email, BS_IMG_NAME
     	FROM BONGSA b,userinfo u
 		<where>
 			bs_ing = '진행중' <![CDATA[and BS_RECRUIT_END >= sysdate]]>
@@ -70,7 +71,7 @@
   		BS_PHONE,  BS_SUCCESS_CNT, 
   		to_date(TO_char(BS_WORK_START, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_START,
   		to_date(TO_char(BS_WORK_END, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_END, BS_EMAIL, BS_IMG_NAME, 
-  		BS_GOAL_CNT, USER_NO, BS_READ_CNT, 
+  		BS_GOAL_CNT, USER_NO 
   		USER_NO,
   		round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate
   		from BONGSA 
@@ -130,7 +131,7 @@
   	#{bs_recruit_start},#{bs_recruit_end},to_date(#{bs_work_start},'yyyy/mm/dd hh24:mi'),
   	to_date(#{bs_work_end},'yyyy/mm/dd hh24:mi'),
   	#{bs_goal_cnt},0,'대기중',#{bs_name},
-  	#{bs_phone},#{bs_email},#{bs_img_cnt},BONGSA_PJ_SEQ.nextval||'_이미지',1,#{user_no}
+  	#{bs_phone},#{bs_email},#{bs_img_cnt},BONGSA_PJ_SEQ.nextval||'_이미지',#{user_no}
   	)
 
   	</insert>
