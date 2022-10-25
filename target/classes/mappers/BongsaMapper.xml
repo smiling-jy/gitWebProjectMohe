@@ -129,7 +129,7 @@
   	VALUES(BONGSA_PJ_SEQ.nextval, #{bs_title}, #{bs_content}, #{bs_region},#{bs_place},
   	#{bs_recruit_start},#{bs_recruit_end},to_date(#{bs_work_start},'yyyy/mm/dd hh24:mi'),
   	to_date(#{bs_work_end},'yyyy/mm/dd hh24:mi'),
-  	#{bs_goal_cnt},0,'진행중',#{bs_name},
+  	#{bs_goal_cnt},0,'대기중',#{bs_name},
   	#{bs_phone},#{bs_email},#{bs_img_cnt},BONGSA_PJ_SEQ.nextval||'_이미지',1,#{user_no}
   	)
 
@@ -242,10 +242,9 @@
 	<!-- 봉사이미지 cnt 증가 -->
 	<update id="increBsImgCnt" parameterType="bongsa" >
 	
-	update bongsa
-	set bs_img_cnt = #{bs_img_cnt}
-	where bs_no = #{bs_no}
-	
+	update volunteer
+	set vt_ing = 0
+	where bs_no = #{bs_no} and <![CDATA[vt_work_end < sysdate]]>
 	</update>
 	
 	

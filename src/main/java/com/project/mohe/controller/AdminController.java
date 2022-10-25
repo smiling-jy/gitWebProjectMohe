@@ -5,17 +5,21 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +28,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.AdminVO;
 import com.project.mohe.domain.BongsaVO;
@@ -76,6 +81,78 @@ public class AdminController {
 	private ReviewService reviewService;
 	@Autowired
 	ServletContext servletContext;
+	
+	// 관리자 가입 이메일 중복체크
+	@RequestMapping(value = "idCheck.do", produces = "application/text; charset=utf8")
+	@ResponseBody // 화면이 전화되지않고 비동기동신이 가능하도록 하는 어노테이션
+	public String idCheck(AdminVO vo) {
+		System.out.println(vo.getAdm_id());
+		AdminVO resultVO = adminService.idCheck_Login(vo);
+		
+		return resultVO == null ? "사용 가능한 이메일입니다." : "중복된 이메일입니다.";
+	}
+	
+	// 관리자 아이디로 비밀번호 찾기
+	@RequestMapping("adminFindPass.do")
+	@ResponseBody
+	public int adminFindPass(AdminVO vo) {
+		int resultCnt = 0;
+
+		// 입력받은 이메일(아이디)로 관리자 아이디조회
+		AdminVO admin = adminService.idCheck_Login(vo);
+		// 결과값이 널이 아니면 해당메일로 랜덤 비밀번호 전송
+		if (admin != null) {
+			// 랜덤 문자열 생성
+			int len = 6;
+			final String AB = "123456789ABCDEFGHJKMNPQRSTUVWXYZ";
+			SecureRandom rnd = new SecureRandom();
+			StringBuilder sb = new StringBuilder(len);
+			for (int i = 0; i < len; i++)
+				sb.append(AB.charAt(rnd.nextInt(AB.length())));
+			String generatedString = sb.toString();
+
+			try {
+				// 이메일 발송
+				Properties prop = new Properties();
+				prop.put("mail.smtp.auth", true);
+				prop.put("mail.smtp.host", "mw-002.cafe24.com");
+
+				Session session = Session.getInstance(prop, new Authenticator() {
+					@Override
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication("test@shym.kr", "testtest1"); 
+					}
+				});
+				
+				Message message = new MimeMessage(session);
+				message.setFrom(new InternetAddress("shym@shym.kr"));
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(admin.getAdm_id()));
+				message.setSubject("[모해] 임시비밀번호 발급 안내");
+
+				String msg = admin.getAdm_name() + "님 임시 비밀번호를 발급해 드립니다. 임시 비밀번호 : <b>" + generatedString + "</b>";
+
+				MimeBodyPart mimeBodyPart = new MimeBodyPart();
+				mimeBodyPart.setContent(msg, "text/html; charset=utf-8");
+
+				Multipart multipart = new MimeMultipart();
+				multipart.addBodyPart(mimeBodyPart);
+
+				message.setContent(multipart);
+
+				Transport.send(message);
+				System.out.println("임시 비밀번호 발급:"+generatedString);
+				System.out.println("admin_no:"+admin.getAdm_no());
+				// 임시 비밀번호 admin객체에 저장
+				admin.setAdm_pass(generatedString);
+				// db에 업데이트
+				resultCnt = adminService.resetPassword(admin);
+			} catch (MessagingException mex) {
+				mex.printStackTrace();
+			}
+		}
+
+		return resultCnt;
+	}
 	
 	// 관리자 화면 자동이동을 위한 메소드
 	@RequestMapping("{step}.do")
@@ -982,7 +1059,8 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		// pop_no로 상세 조회하기
-		model.addAttribute("pop",adminService.adPopupDetail(vo));
+		vo = adminService.adPopupDetail(vo);
+		model.addAttribute("pop",vo);
 		return "/admin/adPopupDetail";
 	}
 	//팝업 수정하기 페이지 이동
@@ -990,6 +1068,8 @@ public class AdminController {
 	public String adPopupUpdateInfo(PopupVO vo,HttpSession session,Model model) {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 이벤트 리스트를 불러온다
+		model.addAttribute("eventList",adminService.getEventList());
 		// pop_no로 상세 조회하기
 		model.addAttribute("pop",adminService.adPopupDetail(vo));
 		return "/admin/adPopupUpdateInfo";
@@ -1037,6 +1117,15 @@ public class AdminController {
 			}
 		} // if_end
 		return "redirect:/admin/adPopList.do";
+	}
+	// 팝업 추가 페이지
+	@RequestMapping("adPopupInsertInfo.do")
+	public String adPopupInsertInfo(PopupVO vo,Model model,HttpSession session) {
+		// 로그인 하지않은 사람이 접근할 수 없도록
+		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
+		// 이벤트 리스트를 불러온다
+		model.addAttribute("eventList",adminService.getEventList());
+		return "/admin/adPopupInsertInfo";
 	}
 	// 팝업 추가
 	@RequestMapping("adPopupInsert.do")

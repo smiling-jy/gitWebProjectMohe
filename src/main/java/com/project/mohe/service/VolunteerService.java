@@ -20,6 +20,9 @@ public interface VolunteerService {
 			 
 	// 글 상세 조회
 	VolunteerVO getVolunteer(VolunteerVO vo);
+	
+	//참여봉사 상태 변경
+	void updateVolunteerIng(PagingVO vo);	
 			
 	// 글 목록 조회
 	List<VolunteerVO> getVolunteerList(HashMap map);
@@ -32,4 +35,7 @@ public interface VolunteerService {
 	
 	// 페이징
 	PagingVO getAllcnt(PagingVO vo);
+	
+
 }
+

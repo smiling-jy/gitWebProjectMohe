@@ -45,6 +45,12 @@ public interface AdminService {
 	// 관리자 로그인 확인
 	AdminVO adminLogin(AdminVO vo);
 	
+	// 관리자 아이디 중복 체크
+	AdminVO idCheck_Login(AdminVO vo);
+	
+	// 관리자 비밀번호를 임시번호로 업뎃
+	int resetPassword(AdminVO vo);	
+	
 	// 회원 목록 리스트
 	List<UserInfoVO> adGetUserList(PagingVO vo);
 	
@@ -62,6 +68,9 @@ public interface AdminService {
 	
 	// 이벤트 리스트
 	List<EventVO> adGetEventList(PagingVO vo);
+	
+	// 팝업에서 출력할 이벤트 리스트
+	List<EventVO> getEventList();
 	
 	// 이벤트 삭제
 	void adDeleteEvent(EventVO vo);

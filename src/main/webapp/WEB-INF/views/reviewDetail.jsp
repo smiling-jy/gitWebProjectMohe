@@ -69,13 +69,28 @@
                 <!--Content Side / Blog Sidebar-->
                 <div class="content-side col-lg-13 col-md-12 col-sm-12">
                     <!--Blog Posts-->
-                    <div class="blog-post-detail" >
+                    <div class="blog-post-detail">
                         <div class="inner">
             				<input name="review_no" type=hidden value="${review.review_no}"/>
                             <div id="review_title"><h2>${review.review_title} </h2></div>
                             <div class="post-meta" >
                                 <ul class="clearfix">
-                                    <li><span class="icon fa fa-user"></span>${review.user_name}</li>
+                                    <li>
+                                    <div class="user-rating" style="display:inline-block;">	
+										<c:choose>
+											<c:when test="${review.user_rating eq '시민' }">											
+												<img src="resources/images/user_rating/rating_1_30.png" style="width:25px;height:25px">
+											</c:when>
+											<c:when test="${review.user_rating eq '고수' }">											
+												<img src="resources/images/user_rating/rating_2_30.png" style="width:25px;height:25px">
+											</c:when>
+											<c:otherwise>
+												<img src="resources/images/user_rating/rating_3_30.png" style="width:25px;height:25px">
+											</c:otherwise>
+										</c:choose>
+									</div>
+                                    
+                                    ${review.user_name}</li>
                                     <li>작성날짜: <fmt:formatDate value="${review.review_date}" pattern="yyyy년 MM월 dd일  HH시 mm분"></fmt:formatDate></li>
                                		<li>조회수 : ${review.review_read_cnt}</li>
                                 </ul>

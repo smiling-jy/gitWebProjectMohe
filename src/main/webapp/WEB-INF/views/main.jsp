@@ -120,7 +120,7 @@
 		<div class="click_right_menu">
 			<!-- 네비 카테고리 시작 -->
 			<ul>
-				<li><a href="shoppingBasket.do">My페이지</a></li>
+				<li><a href="myFundingList.do">My페이지</a></li>
 				<li><a href="shoppingBasket.do">찜목록</a></li>
 				<li><a href="donate.do">기부하기</a></li>
 				<li><a href="review.do">리뷰보기</a></li>
@@ -142,14 +142,14 @@
 				<!-- 슬라이드 내용 반복 시작 -->
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
-					<div class="slide-item slid_fix">
+					<div class="slide-item slid_fix" onclick="location.href='getEvent.do?event_no=${event.event_no}';" style="cursor:pointer;">
 					<div class="image-layer lazy-image"></div>
-						<div class="image-layer lazy-image main_slide_toneDown"
+						<div class="image-layer lazy-image main_slide_toneDown" 
 							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
-								<h2>${event.event_title}</h2>
+								<h2 style="text-shadow: 4px 4px 10px black;">${event.event_title}</h2>
 							</div>
 						</div>
 					</div>
@@ -494,7 +494,7 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" />
+				<a href="getEvent.do?event_no=${popup.pop_url_no}"><img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" /></a>
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">
@@ -629,6 +629,7 @@
 				var text = $(this).parent().prev().prev().children('input:nth-child(1)').val();
 	 		  	window.open("https://twitter.com/intent/tweet?text=" + text + "&url=http://localhost:8080/mohe/getReview.do?review_no=" +  url);
 			});
+			
 		})
 	</script>
 </body>

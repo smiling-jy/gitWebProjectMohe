@@ -143,3 +143,7 @@ li> span{
     -ms-transform-origin: top left;
     transform-origin: top left;
 }
+
+.cause-details .inner-box .lower-content{
+	padding-top: 20px;
+}

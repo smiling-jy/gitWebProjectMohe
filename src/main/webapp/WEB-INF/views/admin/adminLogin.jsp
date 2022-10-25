@@ -36,7 +36,7 @@
                     <input type="password" name="adm_pass" placeholder="Enter Passworld" required> 
                 </div>
                 <div class="form-item-other">
-                    <a href="adminLoss.do">비밀번호를 잊으셨나요 ?</a>
+                    <a href="adminPassCheck.do">비밀번호를 잊으셨나요 ?</a>
                 </div>
                 <button type="submit">Sign in</button>
             </form>
@@ -46,5 +46,6 @@
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
 	<script src="../resources/js_ad/adminScript.js"></script>
+	
 </body>
 </html>

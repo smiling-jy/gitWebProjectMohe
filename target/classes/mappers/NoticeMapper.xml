@@ -6,14 +6,14 @@
   <mapper namespace="NoticeDAO">
   	<!-- 공지 리스트  -->
 	<select id="getNoticeList" resultType="notice">
-		select notice.*, admin.adm_id
+		select notice.*, adm_id
 		from notice,admin
         where notice.adm_no = admin.adm_no
 		order by notice_no desc
 	</select>
 	<!-- 페이징 공지 리스트 조회 -->
 	<select id="getAdNoticeList" parameterType="page" resultType="notice">
-		select notice.*, admin.adm_id
+		select notice.*, substr(admin.adm_id,1,instr(admin.adm_id,'@')-1)as adm_id
 		from notice,admin
 		where notice_no in(select notice_no from
 			(select notice_no,rownum AS rnum from
@@ -49,9 +49,10 @@
 	</delete>
 	<!-- 공지 읽기 -->
 	<select id="getNotice" parameterType="notice" resultType="notice">
-		select *
-		  from NOTICE
-		 WHERE notice_no=#{notice_no}
+		select notice.*, substr(admin.adm_id,1,instr(admin.adm_id,'@')-1)as adm_id
+		  from notice, admin
+		 where notice.adm_no=admin.adm_no
+		   and notice_no=#{notice_no}
 	</select>
 	<!-- 조회수증가 -->
 	<update id="getReadCnt" parameterType="notice">

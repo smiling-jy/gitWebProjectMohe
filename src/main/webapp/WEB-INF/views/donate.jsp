@@ -223,32 +223,29 @@
 			});
 
 			// 이메일 검증 함수
-			$('#dnt_email')
-					.blur(
-							function() {
-								// 이메일 값 변수 저장
-								var email = $("#dnt_email").val();
-								var message = "";
+			$('#dnt_email').blur(function() {
+				// 이메일 값 변수 저장
+				var email = $("#dnt_email").val();
+				var message = "";
 
-								// 검증에 사용할 정규식 변수 regExp에 저장
-								var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+				// 검증에 사용할 정규식 변수 regExp에 저장
+				var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
-								if (email.match(regExp) != null) {
-									// 타입이 맞으면
-									message = "정상 이메일 형식 입니다"
-									$('#email_message').css("color", "green");
-									result = true;
-								} else {
-									message = "정상적인 이메일 형식이 아닙니다"
-									$('#email_message').css("color", "red");
-								}
-								$('#email_message').text(message);
-								return result;
-							});
+				if (email.match(regExp) != null) {
+					// 타입이 맞으면
+					message = "정상 이메일 형식 입니다"
+					$('#email_message').css("color", "green");
+					result = true;
+				} else {
+					message = "정상적인 이메일 형식이 아닙니다"
+					$('#email_message').css("color", "red");
+				}
+				$('#email_message').text(message);
+				return result;
+			});
 
 			// 전화번호 검증 함수
-			$('#dnt_phone').bind(
-					"keyup",
+			$('#dnt_phone').bind("keyup",
 					function(event) {
 						var regNumber = /^[0-9]*$/;
 						var temp = $('#dnt_phone').val();

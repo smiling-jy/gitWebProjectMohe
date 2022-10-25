@@ -90,14 +90,14 @@
 						<div class="custom-control custom-checkbox mb-3">
 							<input type="checkbox" class="custom-control-input"
 								id="agree_terms" name="agree_terms"> <label
-								class="custom-control-label" for="agree_terms"><a
-								href="/service/terms" target="_blank">이용약관</a> 동의 </label>
+								class="custom-control-label" for="agree_terms">
+								<span style="color:rgb(60,200,143)">이용약관</span> 동의 </label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input"
 								id="privacy_terms" name="privacy_terms"> <label
-								class="custom-control-label" for="privacy_terms"><a
-								href="/privacy/policy" target="_blank">개인정보 취급방침</a> 동의 </label>
+								class="custom-control-label" for="privacy_terms">
+								<span style="color:rgb(60,200,143)">개인정보 취급방침</span> 동의 </label>
 						</div>
 					</div>
 					<div class="donate-link">

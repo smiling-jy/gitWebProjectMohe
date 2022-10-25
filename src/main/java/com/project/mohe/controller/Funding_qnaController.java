@@ -25,6 +25,7 @@ public class Funding_qnaController {
 	@Autowired
 	private Funding_pjService fd_pjService;
 	
+	// 프로젝트 별 질문 목록
 	@RequestMapping("fundingQna.do")
 	public String fundingQna(Funding_qnaVO qna ,Model model ,Funding_pjVO pj) {
 		model.addAttribute("qna_list",funding_qnaService.getFunding_qnaList(qna));
@@ -32,6 +33,7 @@ public class Funding_qnaController {
 		return "fundingQna";
 	}
 	
+	// 질문하기
 	@RequestMapping("questionSave.do")
 	public String questionSave(Funding_qnaVO qna, HttpServletRequest request) {
 		

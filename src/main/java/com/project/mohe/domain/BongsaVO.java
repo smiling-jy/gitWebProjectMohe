@@ -63,6 +63,9 @@ public class BongsaVO {
 	private MultipartFile[] file;
 	
 	
+	private String sysdate = getSysdate();
+	
+	
 	
 	
 }

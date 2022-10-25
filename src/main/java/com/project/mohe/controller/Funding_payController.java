@@ -57,7 +57,6 @@ public class Funding_payController {
 		
 		funding_payService.insertFunding_pay(pay,us);
 		return "redirect:/myFundingList.do";
-			
 	}
 	
 	@RequestMapping("patronList.do")

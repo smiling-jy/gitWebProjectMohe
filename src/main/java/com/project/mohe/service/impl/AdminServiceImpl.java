@@ -411,6 +411,21 @@ public class AdminServiceImpl implements AdminService {
 	public void adBsUpdate(BongsaVO vo) {
 		adminDao.adBsUpdate(vo);
 	}
+
+	@Override
+	public List<EventVO> getEventList() {
+		return eventDao.getEventList(null);
+	}
+
+	@Override
+	public AdminVO idCheck_Login(AdminVO vo) {
+		return adminDao.idCheck_Login(vo);
+	}
+
+	@Override
+	public int resetPassword(AdminVO vo) {
+		return adminDao.resetPassword(vo);
+	}
 	
 	
 

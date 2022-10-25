@@ -85,14 +85,20 @@
 									<tr>
 										
 										<td class="more-td1">
-											<h3><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
-											${notice.notice_title}</a></h3>
+											<h4><a href="getNotice.do?notice_no=${notice.notice_no}" style="color:black;">
+											${notice.notice_title}</a></h4>
 										</td>
 										<td>
-											<div style="color:grey; font-size:13px;">
-											<span class="icon fa fa-user"></span>
-											administrator | <fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate>
+										&nbsp;&nbsp;
+										</td>
+										<td>
+											<div style="color:grey; font-size:13px; text-align:center;">
+												<span class="icon fa fa-user"></span>&nbsp;&nbsp;${notice.adm_id}
+												<fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"></fmt:formatDate>
 											</div>
+										</td>
+										<td>
+										&nbsp;&nbsp;
 										</td>
 										<td><div style="color:grey; font-size:13px;">${notice.notice_readcnt}</div></td>
 									</tr>

@@ -148,6 +148,18 @@ img.img_size{
 }
 
 .lower-content{
-	height: 250px;
+	height: 180px;
 }
-  
+
+.cause-block .inner-box .donate-info {
+	background: none;
+	height: 0px;
+}
+
+.cause-block .inner-box .donate-info:after{
+	background: none;
+	
+}
+.donate-info{
+	padding-top: 50px;
+}

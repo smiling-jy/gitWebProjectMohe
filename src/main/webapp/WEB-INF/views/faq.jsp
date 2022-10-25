@@ -41,7 +41,7 @@
 				<h1>자주 묻는 질문</h1>
 				<ul class="bread-crumb clearfix">
 					<li><a href="notice.do"><h5>공지사항</h5></a></li>
-					<li class="active"><a href="faq.do"><h5>자주 묻는 질문</h5></a></li>
+					<li class="active"><h5>자주 묻는 질문</h5></li>
 					<li><a href="event.do"><h5>이벤트</h5></a></li>
 					<li><a href="partner.do"><h5>파트너</h5></a></li>
 					<li><a href="review.do"><h5>후기 모음</h5></a></li>
@@ -65,7 +65,7 @@
               						 <h4 style="text-align: center; color: white; display: inline;">
               								 무엇이든 문의하세요</h4>
               			 			<img src="resources/images/mohe_logo/main_logo.png">
-              						<h4 style="text-align: center; color: white; display: inline;">mohe@naver.com</h4>
+              						<h4 style="text-align: center; color: white; display: inline;">admin@mohe.com</h4>
               					<div class="text-box">
               						<input type="text" id="search-text" placeholder="질문을 검색하세요">
 									<button type="button" id="qna-search-btn"><img id="btn-img" src="resources/images/icons/search-btn.png"></button>
@@ -87,7 +87,7 @@
 											</ul>
 										</div>
 									</div>
-								<div class="tabs-content">
+								<div class="tabs-content" style="width:85%;">
 									<!--Tab-->
 									<div class="tab active-tab" id="tab-1">
 										<ul class="accordion-box clearfix">
@@ -180,13 +180,10 @@
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. What is the main cause in your
-													list?</div>
+												<div class="acc-btn">Q. 봉사활동을 주최하고 싶은데 심사까지 며칠이나 걸리나요?</div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">Lorem ipsum dolor amet consectetur
-															adipisicing sed do eiusmod tempor incididunt ut labore
-															magna aliqua enim minim veniam quis nostrud.</div>
+														<div class="text">프로젝트 심사는 짧게는 이틀, 길게는 일주일 소요됩니다.</div>
 													</div>
 												</div>
 											</li>
@@ -271,10 +268,10 @@
 
 											<!--Block-->
 											<li class="accordion block">
-												<div class="acc-btn">Q. SNS이벤트 참여를 했는데 상품을 받지 못했어요.</div>
+												<div class="acc-btn">Q. 후기 작성은 어디에서 할 수 있나요? </div>
 												<div class="acc-content">
 													<div class="content">
-														<div class="text">QnA화면 하단의 메일주소로 보내주시면 빠르게 답변 드리겠습니다.</div>
+														<div class="text">마이페이지 > 펀딩 or 봉사참여 목록에서 하실 수 있습니다.</div>
 													</div>
 												</div>
 											</li>
