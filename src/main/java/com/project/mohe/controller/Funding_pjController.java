@@ -48,6 +48,8 @@ public class Funding_pjController {
 	@RequestMapping("fundingSingle.do")
 	public String fundingSingle(Funding_pjVO pj, Model model) {
 		model.addAttribute("pj", funding_pjService.getFunding_pj(pj));
+		
+		// 유효하지 않은 파라미터(fd_no)입력시 오류화면 대신 잘못된 경로 알림 화면이동
 		if(funding_pjService.getFunding_pj(pj) == null) {
 			return "wrongApproach";			
 		}

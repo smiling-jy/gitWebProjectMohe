@@ -65,7 +65,6 @@
 							</div>
 
 							<div class="filter-list">
-
 								<main class="gallery-item-two mix mix-1 main">
 									<section class="wrapper">
 										<div class="row clearfix">
@@ -121,51 +120,71 @@
 															</div>
 														</div>
 													</c:forEach>
-
 												</div>
 											</div>
-
 										</div>
 									</section>
 								</main>
-
 								<main class="gallery-item-two mix mix-2 main">
 									<section class="wrapper">
-										<div class="our-shop">
-											<div class="row clearfix">
-												<c:forEach items="${bs_list}" var="bongsa">
-													<div class="cause-block col-lg-4 col-md-6 col-sm-12">
-														<div class="inner-box wow fadeInUp" data-wow-delay="0ms">
-															<div class="image-box">
-																<figure class="image">
-																	<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img class="lazy-image"
-																		src="resources/images/resource/image-spacer-for-validation.png"
-																		data-src="resources/images/resource/cause-image-4.jpg" alt=""></a>
-																</figure>
-															</div>
-															<div class="donate-info">
-																<div class="progress-box">
-																	<div class="bar">
-																		<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">
-																			<div class="count-text">${bongsa.bs_rate}%</div>
+										<div class="row clearfix">
+											<div class="our-shop">
+												<div class="row clearfix">
+													<c:forEach items="${bs_list}" var="bongsa">
+														<div
+															class="cause-block col-lg-4 col-md-6 col-sm-12 new-box">
+															<div class="inner-box wow fadeInUp new-inner-box"
+																data-wow-delay="0ms">
+																<div class="image-box">
+																	<figure class="image">
+																		<a href="fundingSingle.do?fd_no=${bongsa.bs_no}"><img
+																			class="lazy-image img-size"
+																			src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+																			data-src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
+																			alt="타이틀 이미지"></a>
+																	</figure>
+																</div>
+																<div class="lower-content new-font new-con-box">
+																	<div class="progress-box">
+																		<div class="bar">
+																		<c:choose>
+																			<c:when test="${bongsa.bs_rate > 100}">
+																				<div class="bar-inner count-bar" data-percent="100%">
+																					<div class="count-text">${bongsa.bs_rate}%</div>
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
+																					<div class="count-text">${bongsa.bs_rate}%</div>
+																				</div>
+																			</c:otherwise>
+																		</c:choose>
 																		</div>
 																	</div>
+																	<div class="donation-count clearfix">
+																	<c:choose>
+																			<c:when test="${bongsa.bs_recruit_end < sysdate}">
+																				<span class="d-day">종료되었습니다.</span>
+																			</c:when>
+																			<c:otherwise>
+	
+																				<span class="d-day">
+																				<strong>모집인원 : </strong><span class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><br>
+																				<span class="d-day">
+																				<strong>현재 신청인원 : </strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
+																			</c:otherwise>
+																		</c:choose>
+																	</div>
+																	<h5>
+																		<a href="bongsaDetail.do?fd_no=${bongsa.bs_no}"
+																			class="new-font black-font fd_title">${bongsa.bs_title}</a>
+																	</h5>
 																</div>
-																<div class="donation-count clearfix">
-																	<span class="raised"><strong>모집인원:</strong><span
-																		class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><span class="goal"><strong>현재
-																			신청인원:</strong><span class="bs-success-cnt">${bongsa.bs_success_cnt}</span>명</span>
-																</div>
-															</div>
-															<div class="lower-content ">
-																<h3>
-																	<a href="bongsaDetail.do" class="bs-title new-font">${bongsa.bs_title}</a>
-																</h3>																									
-															</div>
 															<a href="deleteBsCart.do?bs_no=${bongsa.bs_no}" class="del-btn">삭제</a>
+															</div>
 														</div>
-													</div> 
-												</c:forEach>
+													</c:forEach>
+												</div>
 											</div>
 										</div>
 									</section>

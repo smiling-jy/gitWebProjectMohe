@@ -23,5 +23,6 @@ public class VolunteerVO {
 	private String vt_name;
 	private String vt_user_phone;
 	private String vt_user_email;
+	
 
 }
