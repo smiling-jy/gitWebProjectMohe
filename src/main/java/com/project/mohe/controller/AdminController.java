@@ -91,7 +91,11 @@ public class AdminController {
 		
 		return resultVO == null ? "사용 가능한 이메일입니다." : "중복된 이메일입니다.";
 	}
-	
+	// 비밀번호 찾기 페이지로 이동
+	@RequestMapping("adminPassCheck.do")
+	public String adminPassCheck() {
+		return "/admin/adminPassCheck";
+	}
 	// 관리자 아이디로 비밀번호 찾기
 	@RequestMapping("adminFindPass.do")
 	@ResponseBody
