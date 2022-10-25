@@ -13,11 +13,9 @@
 <!-- Color File -->
 <link href="resources/css/color.css" rel="stylesheet">
 
-<link rel="shortcut icon"
-	href="resources/resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon"
-	href="resources/resources/images/mohe_logo/favicon_mohe.png"
+<link href="resources/shortcut icon"
+	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
+<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
 	type="image/x-icon">
 
 <!-- Responsive -->
@@ -342,8 +340,7 @@
 					}); // request_pay 종료
 				} // if-else 종료
 			}; // payment() 함수 종료
-
 		});// $(function(){}) 종료
 	</script>
-</body>
+</body>S
 </html>
