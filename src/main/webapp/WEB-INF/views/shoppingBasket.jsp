@@ -137,7 +137,7 @@
 																data-wow-delay="0ms">
 																<div class="image-box">
 																	<figure class="image">
-																		<a href="fundingSingle.do?fd_no=${bongsa.bs_no}"><img
+																		<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"><img
 																			class="lazy-image img-size"
 																			src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
 																			data-src="resources/files/bongsa/${bongsa.bs_img_name}/title.png"
@@ -156,6 +156,7 @@
 																			<c:otherwise>
 																				<div class="bar-inner count-bar" data-percent="${bongsa.bs_rate}%">													
 																					<div class="count-text">${bongsa.bs_rate}%</div>
+																
 																				</div>
 																			</c:otherwise>
 																		</c:choose>
@@ -167,7 +168,6 @@
 																				<span class="d-day">종료되었습니다.</span>
 																			</c:when>
 																			<c:otherwise>
-	
 																				<span class="d-day">
 																				<strong>모집인원 : </strong><span class="bs-goal-cnt">${bongsa.bs_goal_cnt}</span>명</span><br>
 																				<span class="d-day">
