@@ -30,9 +30,7 @@
 </head>
 
 <body>
-
 	<div class="page-wrapper">
-
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
 		<!-- Page Banner Section -->
@@ -47,7 +45,7 @@
 				<div style="left: 0px; width: 370px; margin-top: 50px;">
 					<a href="mainPage.html" class="theme-btn btn-style-one"
 						style="margin-right: 50px"> <span class="btn-title">메인으로</span>
-					</a> <a href="myAccount.do" class="theme-btn btn-style-one"> <span
+					</a> <a href="shoppingBasket.do" class="theme-btn btn-style-one"> <span
 						class="btn-title">My페이지</span>
 					</a>
 				</div>
@@ -65,7 +63,7 @@
 						<div class="row clearfix">
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="0ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -78,7 +76,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-2 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="300ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -91,7 +89,7 @@
 							</div>
 
 							<!--Column-->
-							<div class="column counter-column col-lg-5 col-md-6 col-sm-12">
+							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="600ms"
 									data-wow-duration="1500ms">
 									<div class="content">
@@ -217,7 +215,6 @@
 		</section>
 		<!-- footer include -->
 		<jsp:include page="footer.jsp" />
-
 	</div>
 	<!--End pagewrapper-->
 

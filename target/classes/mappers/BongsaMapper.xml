@@ -110,7 +110,7 @@
 	<!-- 메인에 노출할 마감임박 봉사 리스트 -->
 	<select id="getDeadlineBs" resultType="bongsa">
 		select *
-		from ( select * from bongsa order by bs_recruit_end desc)
+		from ( select * from bongsa where bs_ing = '진행중' order by bs_recruit_end desc)
 		where <![CDATA[rownum <= 10]]>
 	</select>
 	
