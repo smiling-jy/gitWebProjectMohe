@@ -46,6 +46,8 @@
 			<div class="donate-form">
 				<div class="participate-header"><h1 class="newFont centersetting">봉사활동 참여하기</h1></div>
 				<!--Form Column-->
+				
+				
 				<div class="participate-Main">
 						<form method="post" action="insertVolunteer.do">
 							<input type="hidden" name="bs_no" required value="${bongsa.bs_no}">							

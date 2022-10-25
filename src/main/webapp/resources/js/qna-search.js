@@ -3,7 +3,6 @@
  */
 
 $(document).ready(function(){
-	
 	$("button[type=button]").click(function(){
 		//alert("js연결");
 		let txt=$("input[type=text]").val();
@@ -16,9 +15,7 @@ $(document).ready(function(){
 			}else{
 				$("li.accordion>div").show();
 			}
-		
 	})
-	
 })
 		
 		
