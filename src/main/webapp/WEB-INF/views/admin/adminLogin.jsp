@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../resources/css_ad/loginCss.css">
     <link rel="stylesheet" href="../resources/css_ad/reset.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+	<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+	<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
 <script>
 	<%if(request.getParameter("result") != null){%>
@@ -28,7 +29,7 @@
             </div>
             <form class="login-card-form" action="getAdminLogin.do" method="post">
                 <div class="form-item">
-                    <span class="form-item-icon material-symbols-rounded">mail</span>
+                    <span class="form-item-icon material-symbols-rounded"></span>
                     <input type="text" name="adm_id" placeholder="Enter Email" required autofocus>
                 </div>
                 <div class="form-item">

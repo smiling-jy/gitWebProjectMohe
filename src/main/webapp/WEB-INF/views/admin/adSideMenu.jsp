@@ -65,9 +65,7 @@
 								<li><a href="adDonationList.do"><i class="fa fa-no"></i>
 										기부관리 <span class="fa fa-chevron-down"></span></a></li>
 								<li><a href="adNotice.do"><i class="fa fa-no"></i> 공지사항
-										<span class="fa fa-chevron-down"></span></a></li>
-								<li><a href="adStats.do"><i class="fa fa-no"></i> 통계 <span
-										class="fa fa-chevron-down"></span></a></li>
+										<span class="fa fa-chevron-down"></span></a></li>								
 							</ul>
 						</div>
 					</div>
