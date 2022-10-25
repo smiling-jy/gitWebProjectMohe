@@ -421,6 +421,11 @@ public class AdminServiceImpl implements AdminService {
 	public AdminVO idCheck_Login(AdminVO vo) {
 		return adminDao.idCheck_Login(vo);
 	}
+
+	@Override
+	public int resetPassword(AdminVO vo) {
+		return adminDao.resetPassword(vo);
+	}
 	
 	
 

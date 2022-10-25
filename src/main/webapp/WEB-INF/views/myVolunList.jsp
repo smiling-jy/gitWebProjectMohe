@@ -31,6 +31,15 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
 <link href="resources/css/cart.css" rel="stylesheet">
+<style>
+.rating{
+	position:absolute;
+	z-index:5;
+ 	top:27px; 
+ 	left:20px; 
+	width:100px;
+}
+</style>
 </head>
 <body>
 
@@ -117,57 +126,77 @@
                   <!-- 페이징 끝 -->
                </c:if>
                </div>
-               <!--Sidebar Side-->
-               <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
-                  <aside class="sidebar shop-sidebar">
-                     <div class="sidebar-widget price-filters rangeslider-widget">
-                        <div class="input-control d-block">
-                           <label for="userName" class="input-label"></label>
-                           <div class="profile-user-img margin-auto">
-                              <img class="margin-auto profile-user-img-img"
-                                 src="resources/images/mohe_logo/img_no_profile.png"
-                                 alt="profile-user-img" style="max-width: 130px">
-                           </div>
-                        </div>
-                        <h3 class="sidebar-title new-font">
-                           <c:out value="${sessionScope.user.user_name}" />
-                           님(
-                           <c:out value="${sessionScope.user.user_rating}" />
-                           )
-                        </h3>
-                        <div class="range-slider-one clearfix">
-                           <div class="clearfix">
-                              <div class="text-center">
-                                 <a href="modifyInfo.do" class="theme-btn btn-style-one"><span
-                                    class="btn-title">회원 수정</span></a><br /> <a href="#"
-                                    class="theme-btn btn-style-one"><span
-                                    class="btn-title bg-red">회원 탈퇴</span></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- Category Widget -->
-                     <div class="sidebar-widget categories">
-                        <div class="widget-content">
-                           <ul class="cart-ul">
-                              <li>펀딩
-                                 <ul>
-                                    <li><a href="myFundingList.do">펀딩참여목록</a></li>
-                                    <li><a href="fundingHost.do">펀딩주최목록</a></li>                                 
-                                 </ul>
-                              </li>
-                              <li>봉사
-                                 <ul>
-                                    <li class="current"><a href="myVolunList.do">봉사참여목록</a></li>
-                                    <li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>                        
-                                 </ul>
-                              </li>
-                              <li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </aside>
-               </div>
+				<!--Sidebar Side-->
+					<div
+						class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
+						<aside class="sidebar shop-sidebar">
+							<div class="sidebar-widget price-filters rangeslider-widget">
+								<div class="input-control d-block">
+									<label for="userName" class="input-label"></label>
+									<div class="profile-user-img margin-auto">
+										<img class="margin-auto profile-user-img-img"
+											src="resources/userImgUploadFile/${user.user_no}/${user.user_img}"
+											onerror="this.onerror=null;this.src='resources/images/mohe_logo/img_no_profile.png'"
+											alt="profile-user-img" style="max-width: 130px">
+										<div class="rating">
+											<c:choose>
+												<c:when test="${sessionScope.user.user_rating eq '시민'}">
+													<img src="resources/images/user_rating/rating_1_30.png">
+												</c:when>
+												<c:when test="${sessionScope.user.user_rating eq '고수'}">
+													<img src="resources/images/user_rating/rating_2_30.png">
+												</c:when>
+												<c:otherwise>
+													<img src="resources/images/user_rating/rating_3_30.png">
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
+								</div>
+								<h3 class="sidebar-title new-font">
+									<c:out value="${sessionScope.user.user_name}" />
+									님(
+									<c:out value="${sessionScope.user.user_rating}" />
+									)
+								</h3>
+								<div class="range-slider-one clearfix">
+									<div class="clearfix">
+										<div class="text-center">
+											<a href="modifyInfo.do" class="theme-btn btn-style-one"><span
+												class="btn-title">회원 수정</span></a><br /> <a href="#"
+												class="theme-btn btn-style-one"><span
+												class="btn-title bg-red">회원 탈퇴</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Category Widget -->
+							<div class="sidebar-widget categories">
+								<div class="widget-content">
+									<ul class="cart-ul">
+										<li>펀딩
+											<ul>
+												<li><a href="myFundingList.do">펀딩참여목록</a></li>
+												<li><a href="fundingHost.do">펀딩주최목록</a></li>
+											</ul>
+										</li>
+										<li>봉사
+											<ul>
+												<li class="current"><a href="myVolunList.do">봉사참여목록</a></li>
+												<li><a href="bongsaRecruiterMypage.do">봉사주최목록</a></li>
+											</ul>
+										</li>
+										<li><a href="shoppingBasket.do" class="jjimlist">찜목록</a></li>
+										<li>후기
+											<ul>
+												<li><a href="myReviewList.do">나의후기목록</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</aside>
+					</div>
             </div>
          </div>
       </div>

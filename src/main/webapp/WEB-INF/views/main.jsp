@@ -142,14 +142,14 @@
 				<!-- 슬라이드 내용 반복 시작 -->
 				<c:forEach items="${eventList}" var="event">
 					<!-- Slide Item -->
-					<div class="slide-item slid_fix">
+					<div class="slide-item slid_fix" onclick="location.href='getEvent.do?event_no=${event.event_no}';" style="cursor:pointer;">
 					<div class="image-layer lazy-image"></div>
-						<div class="image-layer lazy-image main_slide_toneDown"
+						<div class="image-layer lazy-image main_slide_toneDown" 
 							data-bg="url('resources/files/event/title/${event.event_no}/eventTitleIMG.png')"></div>
 							<!-- 임시 슬라이더이미지:'resources/images/main-slider/imsi-slider2.png' -->
 						<div class="auto-container">
 							<div class="content-box" style="top: -160px">
-								<h2>${event.event_title}</h2>
+								<h2 style="text-shadow: 4px 4px 10px black;">${event.event_title}</h2>
 							</div>
 						</div>
 					</div>
@@ -494,7 +494,7 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" />
+				<a href="getEvent.do?event_no=${popup.pop_url_no}"><img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" /></a>
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">

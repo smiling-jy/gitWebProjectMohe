@@ -101,7 +101,6 @@ public class BongsaController {
 	
 	
 	//모집하기 페이지 봉사활동 모집 insert
-	
 	@RequestMapping("insertBongsa.do")
 	public String insertBongsa(BongsaVO vo, HttpServletRequest request) {
 		
