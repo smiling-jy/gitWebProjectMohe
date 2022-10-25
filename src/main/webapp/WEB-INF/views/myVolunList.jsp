@@ -31,6 +31,15 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
 <link href="resources/css/cart.css" rel="stylesheet">
+<style>
+.rating{
+	position:absolute;
+	z-index:5;
+ 	top:27px; 
+ 	left:20px; 
+	width:100px;
+}
+</style>
 </head>
 <body>
 
@@ -221,7 +230,7 @@
          $(this).parent().parent().after('<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>장소</th>'
                +'<th>일시</th><th>&nbsp;</th><th>&nbsp;</th></tr>'
                +'<tr class="plus-tr" ><td></td><td>'+$(this).next().val()+'</td><td>'+$(this).next().next().val()+' ~ </td>'
-               +'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('진행') == -1 ? '<a href="reviewWriting.do"'
+               +'<td>'+$(this).next().next().next().val()+'</td><td>'+($(this).parent().prev().text().search('참여예정') == -1 ? '<a href="reviewWriting.do"'
                +' onclick="insertFunding_cart\(\''+$(this).next().next().next().next().val()+'\'\);">후기쓰기</a></td>' : '')+'</tr>')   
       })
    </script>

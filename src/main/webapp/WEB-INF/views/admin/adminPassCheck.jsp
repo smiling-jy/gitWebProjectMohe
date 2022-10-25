@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../resources/css_ad/loginCss.css">
     <link rel="stylesheet" href="../resources/css_ad/reset.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+	<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+	<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
 <body>
     <div class="login-card-container">
@@ -26,7 +27,7 @@
                     <input type="text" id="adm_id" name="adm_id" placeholder="Enter Email" required autofocus>
                 </div>
                 <button type="button" id="CheckMail">비밀번호 찾기</button>
-                <button type="button" onclick="location.href='adminLogin.do'">로그인하러 가기</button>
+                <button type="button" id="GoLogin" onclick="location.href='adminLogin.do'">로그인하러 가기</button>
             </form>
         </div>
     </div>
