@@ -102,7 +102,7 @@
 															<c:forEach items="${review}" var="review">
 																<tr>
 																	<td style="font-size:13px">${review.review_no}</td>
-																	<td style="font-size:13px"><a href="adReviewDetail.do?review_no=${review.review_no}">${review.review_title}</a></td>
+																	<td style="font-size:13px"><a href="adReviewDetail.do?review_no=${review.review_no}">${fn:substring(review.review_title,0,8)}</a></td>
 																	<td style="word-break:break-all">${fn:substring(review.review_text,0,5)}</td>
 																	<td style="word-break:break-all">${review.user_name}</td>
 																	<td style="word-break:break-all">${fn:substring(review.review_date,0,10)}</td>

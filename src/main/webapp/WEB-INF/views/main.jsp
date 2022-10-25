@@ -494,7 +494,8 @@
 	<form id="pop_form" name="notice_form">
 		<div id="divpop1" class="divpop">
 			<div class="popImgDiv">
-				<a href="getEvent.do?event_no=${popup.pop_url_no}"><img class="popImg" src="resources/files/popup/${popup.pop_no}/popupIMG.png" /></a>
+				<a href="getEvent.do?event_no=${popup.pop_url_no}"><img class="popImg" 
+							  src="resources/files/popup/${popup.pop_no}/popupIMG.png" /></a>
 				<input type="hidden" id="pop_no" value="${popup.pop_no}">
 			</div>
 			<div class="checkDiv">
@@ -552,6 +553,8 @@
 			if($('#pop_no').val() == ""){
 				$('#pop_form').css('display','none');
 			}
+			
+			// 우측 네비 아이콘 표시
 			$('#navIMG').click(function(){
 				if($('#navIMG').attr("src") == "resources/images/icons/nav_closeIcon2.png"){
 					$('#navIMG').attr("src","resources/images/icons/nav_openIcon1.png");

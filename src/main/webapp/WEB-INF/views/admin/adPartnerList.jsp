@@ -74,10 +74,7 @@
 							<a href="adPartnerInsertInfo.do" class="theme-btn btn-style-ten">
 								<span class="btn-title"><h2>추가하기</h2></span>
 							</a>
-							<div class="emptyDiv"></div>
-							<a href="cause-single.do" class="theme-btn btn-style-three">
-								<span class="btn-title"><h2>사용불가 전환</h2></span>
-							</a> <a href="#" class="theme-btn btn-style-one" id="excel_export">
+							<a href="#" class="theme-btn btn-style-one" id="excel_export">
 								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
 							</a>
 						</div>
