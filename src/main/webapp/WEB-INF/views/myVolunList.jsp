@@ -31,6 +31,15 @@
 <link href="resources/css/footer.css" rel="stylesheet">
 <link href="resources/css/maingPage.css" rel="stylesheet">
 <link href="resources/css/cart.css" rel="stylesheet">
+<style>
+.rating{
+	position:absolute;
+	z-index:5;
+ 	top:27px; 
+ 	left:20px; 
+	width:100px;
+}
+</style>
 </head>
 <body>
 
