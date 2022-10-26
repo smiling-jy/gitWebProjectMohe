@@ -60,8 +60,6 @@ public class BongsaController {
 			return "wrongApproach";
 		}
 		return "bongsaDetail";
-		
-		
 	}
 	 
 	
