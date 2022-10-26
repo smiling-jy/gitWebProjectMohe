@@ -48,6 +48,8 @@
 		where user_no = ${select}
 	</select>
 	
+	
+	
 	<!-- 유저 no를 받아서 해당 유저가 참여한 펀딩 목록을 조회하는 select -->
 	<select id="adGetVolunteerList" parameterType="page" resultType="volunteer">
 		select v.* , b.bs_img_name
@@ -62,6 +64,13 @@
 		  and <![CDATA[rnum <= #{endRow})]]>
 		order by v.volun_no desc
 	</select>
+	
+	
+	<update id="updateVolunteerIng" parameterType="page">
+  		update volunteer
+		set vt_ing = '참여완료'
+		where <![CDATA[vt_work_end <= sysdate]]>
+  	</update>
   
  	<!-- 한 유저의 봉사 참여 카운트 -->
   	<select id="getJoinBs" parameterType="userInfo" resultType="userInfo">
@@ -70,11 +79,7 @@
   		where user_no = #{user_no}
   	</select>
   	  	
-  	<update id="updateVolunteerIng" parameterType="page">
-  		update volunteer
-		set vt_ing = '참여완료'
-		where <![CDATA[vt_work_end <= sysdate]]>
-  	</update>
+
   	
   	
 

@@ -67,8 +67,7 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	
 	@Override
 	public void updateVolunteerIng(PagingVO vo) {
-		mybatis.update("VolunteerDAO.updateVolunteerIng",vo);
-		
+		mybatis.update("VolunteerDAO.updateVolunteerIng",vo);	
 	}
 	
    @Override

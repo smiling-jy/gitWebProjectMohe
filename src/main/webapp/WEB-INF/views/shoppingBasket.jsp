@@ -164,7 +164,7 @@
 																	</div>
 																	<div class="donation-count clearfix">
 																	<c:choose>
-																			<c:when test="${bongsa.bs_recruit_end < sysdate}">
+																			<c:when test="${bongsa.remain_day < 0}">
 																				<span class="d-day">종료되었습니다.</span>
 																			</c:when>
 																			<c:otherwise>
@@ -176,7 +176,7 @@
 																		</c:choose>
 																	</div>
 																	<h5>
-																		<a href="bongsaDetail.do?fd_no=${bongsa.bs_no}"
+																		<a href="bongsaDetail.do?bs_no=${bongsa.bs_no}"
 																			class="new-font black-font fd_title">${bongsa.bs_title}</a>
 																	</h5>
 																</div>

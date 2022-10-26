@@ -79,7 +79,7 @@
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">봉사 활동 소개</div>
-													<textarea name="bs_content"readonly>${bs.bs_content}</textarea>
+													<textarea name="bs_content" style="overflow:auto;"readonly>${bs.bs_content}</textarea>
 												</div>
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
 													<div class="field-label">봉사 지역</div>

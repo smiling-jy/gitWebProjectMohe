@@ -92,7 +92,7 @@
 															<tr>
 																<th>NO</th>
 																<th width="200px">제목</th>
-																<th width="300px">주최자</th>
+																<th width="350px">주최자</th>
 																<th>지역</th>
 																<th width="220px">모집일</th>
 																<th width="200px">수정 / 삭제</th>
