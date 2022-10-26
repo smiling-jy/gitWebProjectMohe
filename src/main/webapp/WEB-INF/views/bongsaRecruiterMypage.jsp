@@ -58,6 +58,7 @@
 					<!--Content Side / Blog Sidebar-->
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 						<div class="our-shop">
+						<c:if test="${empty success_list && empty ongoing_list}"><p id="no-list">주최한 봉사활동이 없습니다.</p></c:if>
 							<c:if test="${not empty success_list}">
 								<div class="shop-upper-box clearfix">
 									<span class="items-label newFont" id="recruiting-list">모집완료한
