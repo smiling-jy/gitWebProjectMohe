@@ -52,7 +52,7 @@
          <div class="auto-container">
             <div class="row clearfix">
                <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
-               <c:if test="${empty vl_list}"><p>참여 내역이 없습니다.</p></c:if>
+               <c:if test="${empty vl_list}"><p id="no-list">참여 내역이 없습니다.</p></c:if>
                <c:if test="${not empty vl_list}">
                   <div class="cart-outer m-auto">
                      <div class="table-column">
