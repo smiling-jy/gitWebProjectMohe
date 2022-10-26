@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.BongsaVO;
+import com.project.mohe.domain.Funding_pjVO;
 import com.project.mohe.domain.VolunteerVO;
 import com.project.mohe.service.BongsaService;
 import com.project.mohe.service.VolunteerService;
@@ -54,6 +55,10 @@ public class BongsaController {
 	public String bongsaDetail(BongsaVO vo, Model model) {
 		model.addAttribute("bongsa", bongsaService.getBongsa(vo));
 		System.out.println("봉사 디테일에서의 bs_no:" + vo.getBs_no());
+		
+		if(bongsaService.getBongsa(vo) == null) {
+			return "wrongApproach";
+		}
 		return "bongsaDetail";
 	}
 	 
@@ -228,7 +233,7 @@ public class BongsaController {
 		return "bongsaParticipateList";
 	}
 	
-	
+
 	
 	
 	

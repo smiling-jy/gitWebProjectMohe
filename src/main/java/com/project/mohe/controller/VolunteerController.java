@@ -32,18 +32,12 @@ public class VolunteerController {
 		
 		System.out.println(vo.getUser_no());
 		System.out.println(vo.getBs_no());
-		System.out.println(vo.getVt_recruit_start());
-		System.out.println(vo.getVt_recruit_end());
-		System.out.println(vo.getVt_work_start());
-		System.out.println(vo.getVt_work_end());
 		System.out.println("insertVolun 컨트롤러 입구");
-		
 		
 		String strVt_recruit_start = vo.getVt_recruit_start();
 		String strVt_recruit_end = vo.getVt_recruit_end();
 		String strVt_work_start = vo.getVt_work_start();
 		String strVt_work_end = vo.getVt_work_end();
-		
 		
 		char remove = '-';
 		
@@ -61,13 +55,7 @@ public class VolunteerController {
 			return "redirect:/bongsaMain.do";
 		}else {
 			volunteerService.insertVolunteer(vo); //처음 참여하기를 누른경우
-			
-			
-			
-			
 		}
-		
-
 		return "redirect:/bongsaMain.do";
 	}
 	

@@ -1,3 +1,6 @@
+
+
+
 //봉사디테일에서 무빙사이드바 
 $(window).scroll(function() {
     var position = $(window).scrollTop();

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- jsp에서 substring 쓸때 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +103,7 @@
 
 					</div>
 					<!--Sidebar Side-->
-					<!-- fhfj -->
+				
 					<div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
 						<aside class="sidebar" id="new-side">
 							<!-- Category Widget -->
