@@ -49,7 +49,7 @@
 				<div class="page-title">
 					<!-- 변경 div 시작 -->
 					<div class="text_size_title">
-						<a href="adPopList.do">이벤트 관리</a>
+						<a href="adEventList.do">이벤트 관리</a>
 					</div>
 					<hr>
 					<div class="content_table_div" style="height: 1100px">

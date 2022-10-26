@@ -40,6 +40,12 @@
  	left:20px; 
 	width:100px;
 }
+
+p.noList{
+	padding-top:400px;
+	padding-left:250px;
+
+}
 </style>
 </head>
 
@@ -54,6 +60,10 @@
 			<div class="auto-container">
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+					  <c:if test="${empty myReviewList}">
+					  		<p class="noList">작성한 후기가 없습니다.</p>
+					  </c:if>
+					  <c:if test="${not empty myReviewList}">
 						<div class="cart-outer m-auto">
 							<div class="table-column">
 								<div class="inner-column">
@@ -94,7 +104,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</c:if>
+				</div>
+					
 					<!--Sidebar Side-->
 					<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center">
 						<aside class="sidebar shop-sidebar">

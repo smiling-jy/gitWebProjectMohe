@@ -74,7 +74,7 @@
 							<h1>${status.bsNewCnt}개</h1>
 							<br>
 							<div class="link-box">
-								<a href="adVtApproval.do" class="theme-btn btn-style-three">
+								<a href="adBsApproval.do" class="theme-btn btn-style-three">
 									<span class="btn-title"><h2>봉사관리 이동</h2></span>
 								</a>
 							</div>
@@ -147,17 +147,11 @@
 						</div>
 					</div>
 					<!-- status 항목 끝 -->
-					<!-- 그래프 시작 -->
-					<div class="content wow fadeInDown">
-						<h1>날짜별 그래프</h1>
-						<canvas id="chart"></canvas>
-					</div>
-					<!-- 그래프 끝 -->
-
 				</div>
 			</div>
 		</div>
 		<!-- /page content -->
+	</div>
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
 	<!-- Bootstrap -->
@@ -204,31 +198,6 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
 		AOS.init();
-	</script>
-	<script>
-		const ctx = document.getElementById("chart").getContext('2d');
-		const myChart = new Chart(ctx, {
-			type : 'bar',
-			data : {
-				labels : [ "rice", "yam", "tomato", "potato", "beans", "maize",
-						"oil" ],
-				datasets : [ {
-					label : 'food Items',
-					backgroundColor : 'rgba(161, 198, 247, 1)',
-					borderColor : 'rgb(47, 128, 237)',
-					data : [ 300, 400, 200, 500, 800, 900, 200 ],
-				} ]
-			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : true,
-						}
-					} ]
-				}
-			},
-		});
 	</script>
 </body>
 </html>

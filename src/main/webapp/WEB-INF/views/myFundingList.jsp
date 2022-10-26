@@ -54,7 +54,7 @@
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 						<c:if test="${empty pay_list}">
-							<p>참여 내역이 없습니다.</p>
+							<p id="no-list">참여 내역이 없습니다.</p>
 						</c:if>
 						<c:if test="${not empty pay_list}">
 							<div class="cart-outer m-auto">
@@ -246,26 +246,13 @@
 											'<tr class="plus-tr" ><th class="no-line" >&nbsp;</th><th>수량</th><th>총액</th>'
 													+ '<th class="prod-column" >배송주소</th><th></th>&nbsp;</tr>'
 													+ '<tr class="plus-tr" ><td></td><td>'
-													+ $(this).next().val()
-													+ '</td><td>'
-													+ $(this).next().next()
-															.val()
-													+ '</td>'
-													+ '<td>'
-													+ $(this).next().next()
-															.next().val()
-													+ '</td><td>'
-													+ ($(this).parent().prev()
-															.text().search(
-																	'대기중') == -1 ? '<a href="reviewWriting.do"'
-															+ ' onclick="insertFunding_cart\(\''
-															+ $(this).next()
-																	.next()
-																	.next()
-																	.next()
-																	.val()
-															+ '\'\);">후기쓰기</a></td>'
-															: '') + '</tr>')
+													+ $(this).next().val()+ '</td><td>'
+													+ $(this).next().next().val()+ '</td><td>'
+													+ $(this).next().next().next().val()+'</td><td id="review-btn">'
+													+ ($(this).parent().prev().text().search('대기중') == -1
+													? '<a href="reviewWriting.do" onclick="insertFunding_cart\(\''
+													+ $(this).next().next().next().next().val()
+													+ '\'\);">후기쓰기</a></td>' : '') + '</tr>')
 						})
 	</script>
 

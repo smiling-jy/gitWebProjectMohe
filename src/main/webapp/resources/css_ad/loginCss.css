@@ -131,18 +131,37 @@ body{
 }
 
 .login-card-form button{
-    background:black;
+    background:rgb(30,36,54);
     color: white;
     padding: 1rem;
     border-radius: 100px;
+    border:none;
     text-transform:uppercase;
     letter-spacing: 2px;
-    transition:background .5s;
+    transition:.5s;
 }
 
 .login-card-form button:hover{
-    background: rgba(0,0,0,.85);
+    background: rgb(254,74,43,.8);
     cursor:pointer;
+}
+.login-card-form #GoLogin{
+    background:rgb(112,191,187);
+    color:rgb(30,36,54);
+    font-weight:bold;
+    padding: 1rem;
+    border-radius: 100px;
+    border:none;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    transition: .5s;
+}
+
+.login-card-form #GoLogin:hover{
+    background: rgb(30,36,54,.8);
+    cursor:pointer;
+    font-weight:bold;
+    color: white;
 }
 
 .login-card-social{
