@@ -74,7 +74,7 @@
 							<h1>${status.bsNewCnt}개</h1>
 							<br>
 							<div class="link-box">
-								<a href="adVtApproval.do" class="theme-btn btn-style-three">
+								<a href="adBsApproval.do" class="theme-btn btn-style-three">
 									<span class="btn-title"><h2>봉사관리 이동</h2></span>
 								</a>
 							</div>

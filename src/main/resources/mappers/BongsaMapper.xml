@@ -7,8 +7,7 @@
 	<!-- 목록보기 -->
 	<select id="getBongsaList" parameterType="HashMap" resultType="bongsa">
 		SELECT b.BS_NO, b.BS_TITLE, b.BS_CONTENT ,b.BS_GOAL_CNT,b.BS_SUCCESS_CNT,
-           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate, 
-           	 b.bs_recruit_end,u.user_email, BS_IMG_NAME
+           	 b.BS_NAME, round(((b.BS_SUCCESS_CNT / b.BS_GOAL_CNT)*100),0) bs_rate,b.bs_recruit_end,u.user_email, BS_IMG_NAME
     	FROM BONGSA b,userinfo u
 		<where>
 			bs_ing = '진행중' <![CDATA[and BS_RECRUIT_END >= sysdate]]>
@@ -71,7 +70,7 @@
   		BS_PHONE,  BS_SUCCESS_CNT, 
   		to_date(TO_char(BS_WORK_START, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_START,
   		to_date(TO_char(BS_WORK_END, 'YYYYMMDDHH24MI'),'yyyy-mm-dd hh24:mi') RE_BS_WORK_END, BS_EMAIL, BS_IMG_NAME, 
-  		BS_GOAL_CNT, USER_NO 
+  		BS_GOAL_CNT, USER_NO,
   		USER_NO,
   		round(((BS_SUCCESS_CNT / BS_GOAL_CNT)*100),0) bs_rate
   		from BONGSA 
@@ -111,7 +110,7 @@
 	<!-- 메인에 노출할 마감임박 봉사 리스트 -->
 	<select id="getDeadlineBs" resultType="bongsa">
 		select *
-		from ( select * from bongsa order by bs_recruit_end desc)
+		from ( select * from bongsa where bs_ing = '진행중' order by bs_recruit_end desc)
 		where <![CDATA[rownum <= 10]]>
 	</select>
 	
@@ -125,7 +124,7 @@
   	BS_NO, BS_TITLE, BS_CONTENT, BS_REGION, BS_PLACE, 
   	BS_RECRUIT_START, BS_RECRUIT_END, BS_WORK_START, BS_WORK_END, 
   	BS_GOAL_CNT, BS_SUCCESS_CNT, BS_ING, BS_NAME, 
-  	BS_PHONE, BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, BS_READ_CNT, USER_NO)
+  	BS_PHONE, BS_EMAIL, BS_IMG_CNT, BS_IMG_NAME, USER_NO)
   	
   	VALUES(BONGSA_PJ_SEQ.nextval, #{bs_title}, #{bs_content}, #{bs_region},#{bs_place},
   	#{bs_recruit_start},#{bs_recruit_end},to_date(#{bs_work_start},'yyyy/mm/dd hh24:mi'),

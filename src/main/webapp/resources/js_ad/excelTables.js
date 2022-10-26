@@ -1,8 +1,6 @@
-/**
- * 엑셀 내보내기 기능 js
- */
 
-// 관리자 기부하기 목록
+
+// 엑셀 내보내기 
 $(function() {
 	$('#excel_export').click(function() {
 		var exlName = $('#exportExcel_name').text();
@@ -17,3 +15,5 @@ $(function() {
 		});
 	});
 });
+
+
