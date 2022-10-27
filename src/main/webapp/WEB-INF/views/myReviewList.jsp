@@ -61,7 +61,7 @@ p.noList{
 				<div class="row clearfix">
 					<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
 					  <c:if test="${empty myReviewList}">
-					  		<p class="noList">작성한 후기가 없습니다.</p>
+					  		<p id="no-list">작성한 후기가 없습니다.</p>
 					  </c:if>
 					  <c:if test="${not empty myReviewList}">
 						<div class="cart-outer m-auto">

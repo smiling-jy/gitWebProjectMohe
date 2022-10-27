@@ -30,7 +30,7 @@ public class BongsaVO {
 	
 	//db에 없는 변수들
 	
-
+	private String remain_day; //봉사 종료일
 	private int bs_rate; //인원 모집 달성률
 	// 관리자 페이지에서 user_no로 조인할 주최자 아이디 변수
 	private String user_email;
