@@ -9,8 +9,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
-
 <title>Admin Mohe</title>
 <!-- AOS CSS파일 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,7 +20,6 @@
 <!-- Custom Theme Style -->
 <link href="../resources/css_ad/custom.min.css" rel="stylesheet">
 <link href="../resources/css_ad/newStyle.css" rel="stylesheet">
-
 <!--Loveus Stylesheets -->
 <link href="../resources/css_ad/style.css" rel="stylesheet">
 <link href="../resources/css_ad/style-2.css" rel="stylesheet">
@@ -31,12 +28,9 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
 </head>
 <body class="nav-md">
 	<div class="container body">
@@ -70,7 +64,7 @@
 													<div class="field-label">타이틀 사진</div>
 													<img id="title_image" src="../resources/files/funding/${fd.fd_img_name}/title.png" />
 													<input type="file" id="fd_title_image" name="title_img" class="add-file" value="타이틀 이미지 첨부하기" > 
-											</div>
+												</div>
 											</div>
 											<div class="row clearfix">
 												<div class="form-group col-lg-6 col-md-6 col-sm-6">
@@ -146,8 +140,7 @@
 								</div>
 							</form>
 						</div>
-						<!-- form2 끝-->
-
+						<!-- form끝-->
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>

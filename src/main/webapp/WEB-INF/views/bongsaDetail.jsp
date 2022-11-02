@@ -49,7 +49,6 @@
 		<div class="sidebar-page-container">
 			<div class="auto-container">
 				<div class="row clearfix">
-
 					<!--Content Side / Blog Sidebar-->
 					<div class="content-side col-lg-8 col-md-12 col-sm-12">
 						<!--Cause Details-->
@@ -84,12 +83,7 @@
 									</div>
 								</div>
 								<div class="lower-content">
-<!-- 									<div class="text-content"> -->
-<%-- 										<h6 class="newFont">${bongsa.bs_content}</h6> --%>
-<!-- 										<br> -->
-<!-- 									</div> -->
-																	<br/>
-									<br/>
+									<br/><br/>
 									<h6 class="newFont">
 										${bongsa.bs_content}
 									</h6>
@@ -136,8 +130,6 @@
 								</div>
 						</aside>
 					</div>
-
-
 				</div>
 			</div>
 		</div>

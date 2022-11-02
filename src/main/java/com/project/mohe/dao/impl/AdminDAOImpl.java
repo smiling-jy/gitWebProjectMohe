@@ -24,17 +24,20 @@ public class AdminDAOImpl implements AdminDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	// 관리자 정보 등록
 	@Override
 	public void insertAdmin(AdminVO vo) {
 		mybatis.insert("AdminDAO.insertAdmin",vo);
 	}
 
+	// 관리자 정보 수정
 	@Override
 	public void updateAdmin(AdminVO vo) {
 		mybatis.update("AdminDAO.updateAdmin",vo);
 		
 	}
 
+	// 관리자 정보 삭제 > 퇴사일 업데이트
 	@Override
 	public void deleteAdmin(AdminVO vo) {
 		// db 삭제 하지않고 퇴사일을 업데이트한다 
@@ -42,11 +45,13 @@ public class AdminDAOImpl implements AdminDAO {
 		
 	}
 	
+	// 관리자 리스트 불러오기
 	@Override
 	public List<AdminVO> getAdminList(PagingVO vo) {
 		return mybatis.selectList("AdminDAO.getAdminList",vo);
 	}
 
+	// 관리자 상세정보 불러오기
 	@Override
 	public AdminVO getAdminDetail(AdminVO vo) {
 		return mybatis.selectOne("AdminDAO.getAdminDetail",vo);
@@ -74,7 +79,6 @@ public class AdminDAOImpl implements AdminDAO {
 	public int resetPassword(AdminVO vo) {
 		return mybatis.update("AdminDAO.resetPassword",vo);
 	}
-	// 나중에 옮겨줘야하는 메소드 목록들 --------------------------------------------*******************
 	
 	// 봉사 상세페이지
 	@Override

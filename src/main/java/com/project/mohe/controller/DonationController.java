@@ -1,12 +1,9 @@
 package com.project.mohe.controller;
 
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.mohe.domain.DonationVO;
 import com.project.mohe.service.DonationService;
@@ -19,8 +16,6 @@ public class DonationController {
 	
 	// 기부 데이터 등록 
 	@RequestMapping("donation.do")
-//	@ResponseBody
-// ,@RequestParam Map<String, Object> param
 	public String insertDonation(DonationVO vo) {
 		boolean result = true;
 		// 결제가 완료되면 데이터를 저장하러 들어옴

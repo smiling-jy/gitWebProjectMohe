@@ -10,8 +10,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
-
 <title>Admin Mohe</title>
 <!-- AOS CSS파일 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -23,7 +21,6 @@
 <!-- Custom Theme Style -->
 <link href="../resources/css_ad/custom.min.css" rel="stylesheet">
 <link href="../resources/css_ad/newStyle.css" rel="stylesheet">
-
 <!--Loveus Stylesheets -->
 <link href="../resources/css_ad/style.css" rel="stylesheet">
 <link href="../resources/css_ad/style-2.css" rel="stylesheet">
@@ -32,13 +29,10 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
+
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -61,58 +55,49 @@
 					</div>
 					<!-- 버튼끝 -->
 					<div class="content_table_div" style="height: 1100px">
-
 						<div>
 							<h3>팝업 상세보기</h3>
 							<hr style="width:950px">
-								<div class="form-column col-lg-6 col-md-12 col-sm-12"
-									style="margin-left: 250px">
-									<div class="inner">
-										<div class="donate-form">
-											<div class="row clearfix">
-												<div class="donate-form">
-													<div style="height: 50px;"></div>
-													<div class="user_pf_div">
-														<div class="form-group col-lg-12 col-md-12 col-sm-12">
-															<div class="field-label">팝업 이미지</div>
-															<img src="../resources/files/popup/${pop.pop_no}/popupIMG.png" /> 
-														</div>
+							<div class="form-column col-lg-6 col-md-12 col-sm-12"style="margin-left: 250px">
+								<div class="inner">
+									<div class="donate-form">
+										<div class="row clearfix">
+											<div class="donate-form">
+												<div style="height: 50px;"></div>
+												<div class="user_pf_div">
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">팝업 이미지</div>
+														<img src="../resources/files/popup/${pop.pop_no}/popupIMG.png" /> 
 													</div>
-													<div class="row clearfix">
-														<div class="form-group col-lg-12 col-md-12 col-sm-12">
-															<div class="field-label">팝업 제목</div>
-															<input type="text" name="pop_title"
-																value="${pop.pop_title}"  readonly>
-														</div>
-														<div class="form-group col-lg-12 col-md-12 col-sm-12">
-															<div class="field-label">연관 이벤트</div>
-															<a href="adEventDetail.do?event_no=${pop.pop_url_no}">NO.${pop.pop_url_no}</a>
-														</div>
-														<div class="form-group col-lg-6 col-md-6 col-sm-6">
-															<div class="field-label">팝업 시작일</div>
-															<input type="text" name="pop_start_date"
-																value="${fn:substring(pop.pop_start_date,0,10)}"  readonly>
-														</div>
-														<div class="form-group col-lg-6 col-md-6 col-sm-6">
-															<div class="field-label">팝업 종료일</div>
-															<input type="text" name="pop_end_date"
-																value="${fn:substring(pop.pop_end_date,0,10)}"  readonly>
-														</div>
-														<div class="form-group col-lg-12 col-md-12 col-sm-12">
-															<div class="field-label">팝업 개시</div>
-															<input type="text" name="pop_use"
-																value="${pop.pop_use}"  readonly>
-														</div>
+												</div>
+												<div class="row clearfix">
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">팝업 제목</div>
+														<input type="text" name="pop_title"value="${pop.pop_title}"  readonly>
+													</div>
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">연관 이벤트</div>
+														<a href="adEventDetail.do?event_no=${pop.pop_url_no}">NO.${pop.pop_url_no}</a>
+													</div>
+													<div class="form-group col-lg-6 col-md-6 col-sm-6">
+														<div class="field-label">팝업 시작일</div>
+														<input type="text" name="pop_start_date"value="${fn:substring(pop.pop_start_date,0,10)}"  readonly>
+													</div>
+													<div class="form-group col-lg-6 col-md-6 col-sm-6">
+														<div class="field-label">팝업 종료일</div>
+														<input type="text" name="pop_end_date"value="${fn:substring(pop.pop_end_date,0,10)}"  readonly>
+													</div>
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<div class="field-label">팝업 개시</div>
+														<input type="text" name="pop_use"value="${pop.pop_use}"  readonly>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 						</div>
-
-						<!-- form2 끝-->
-
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>
@@ -120,6 +105,7 @@
 		</div>
 		<!-- /page content -->
 	</div>
+	
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
 	<!-- Bootstrap -->
