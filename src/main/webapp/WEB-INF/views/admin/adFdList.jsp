@@ -10,8 +10,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
-
 <title>Admin Mohe</title>
 <!-- AOS CSS파일 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -23,7 +21,6 @@
 <!-- Custom Theme Style -->
 <link href="../resources/css_ad/custom.min.css" rel="stylesheet">
 <link href="../resources/css_ad/newStyle.css" rel="stylesheet">
-
 <!--Loveus Stylesheets -->
 <link href="../resources/css_ad/style.css" rel="stylesheet">
 <link href="../resources/css_ad/style-2.css" rel="stylesheet">
@@ -32,12 +29,8 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 <link href="../resources/css_ad/newStyle2.css" rel="stylesheet">
 </head>
 
@@ -72,9 +65,9 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
-								class="btn-title"><h2>EXCEL 내보내기</h2></span>
-							</a>
+							<h2><a href="#" class="theme-btn btn-style-one" id="excel_export"> <span
+								class="btn-title">EXCEL 내보내기</span>
+							</a></h2>
 						</div>
 						<!-- 버튼끝 -->
 						<!-- 테이블 시작 -->
@@ -179,8 +172,6 @@
 			</div>
 		</div>
 		<!-- /page content -->
-
-
 	</div>
 
 	<!-- jQuery -->
@@ -235,16 +226,4 @@
 		}
    	</script>
 </body>
-   	<script>
-	//금액 콤마표시하기
-// 		$(document).ready(function(){
-// 			for(var i=0;i<5;i++){
-// 		        var totalString = $('.totalPrice').eq(i).text();
-// 		        var regex = /[^0-9]/g; 
-// 		        var result = totalString.replace(regex,"");
-// 		        $('.totalPrice').text(Number(result))
-// 		        $('.totalPrice').text((Number(document.getElementById("totalPrice").innerHTML)).toLocaleString('ko-KR'));
-// 			}
-// 		});
-   	</script>
 </html>

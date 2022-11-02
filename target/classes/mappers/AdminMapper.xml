@@ -80,7 +80,6 @@
 		set adm_pass = #{adm_pass}
 		where adm_no = #{adm_no}
 	</update>
-	<!--  *********************************************************************옮겨줘야하는 페이지   -->
 	<!--  펀딩 상세페이지  -->
 	<select id="getAdFdDetail" parameterType="userInfo" resultType="funding_pay">
 		select *

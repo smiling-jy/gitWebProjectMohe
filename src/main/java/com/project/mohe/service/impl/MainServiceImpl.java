@@ -118,41 +118,4 @@ public class MainServiceImpl implements MainService{
 		}
 	}
 
-//	// 회원 등급조정
-//	@Override
-//	public void userRating() {
-//		// 전체 유저의 no,등급값을 받아옴
-//		List<UserInfoVO> userList = userInfoDao.getUserNo();
-//		// 포문으로 각각의 봉사,펀딩 참여 총갯수를 구한다
-//		if(userList != null) {
-//			for(UserInfoVO user : userList) {
-//				if(funding_payDao.getJoinFd(user).getFdCnt() != 0 ) {
-//					user.setFdCnt(funding_payDao.getJoinFd(user).getFdCnt());
-//				}
-//				if(volunteerDao.getJoinBs(user).getBsCnt() != 0) {
-//					user.setBsCnt(volunteerDao.getJoinBs(user).getBsCnt());
-//				}
-//				if(user.getFdCnt() != 0 || user.getBsCnt() != 0) {
-//					int allCnt = user.getFdCnt()+user.getBsCnt();
-//					// 포문을 돌려서 등급을 조정한다 
-//					if(allCnt >= 30 && !user.getUser_rating().equals("영웅")) {
-//						// 총합이 30 이상이고 등급이 영웅이 아니면 영웅으로 변경
-//						user.setUser_rating("영웅");
-//						userInfoDao.changeRating(user);
-//					}else if(allCnt >= 10 && !user.getUser_rating().equals("고수")) {
-//						// 총합이 10 이상 30미만이고 등급이 고수가 아니면 고수로 변경 
-//						user.setUser_rating("고수");
-//						userInfoDao.changeRating(user);
-//					}else if(allCnt < 10  && !user.getUser_rating().equals("시민")){
-//						// 총합이 10 미만이고 시민이 아니면 시민으로 변경
-//						user.setUser_rating("시민");
-//						userInfoDao.changeRating(user);
-//					}
-//				}
-//				
-//			}
-//		}
-//		System.out.println("등급조정 완료");
-//	}
-
 }

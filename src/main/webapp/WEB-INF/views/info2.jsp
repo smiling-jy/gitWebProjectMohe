@@ -12,18 +12,11 @@
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
 <link href="resources/css/color.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
-<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-
+<link rel="shortcut icon"href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
+<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="resources/js/respond.js"></script><![endif]-->
+<meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link href="resources/css/mainPage.css" rel="stylesheet">
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
@@ -35,18 +28,17 @@
 		<jsp:include page="header.jsp" />
 		<!-- Page Banner Section -->
 		<section class="page-banner" style="height: 550px">
-			<div class="image-layer lazy-image"
-				data-bg="url('resources/images/mohe_logo/info/info_main_img.jpg')"></div>
-
+			<div class="image-layer lazy-image"data-bg="url('resources/images/mohe_logo/info/info_main_img.jpg')"></div>
 			<div class="auto-container">
 				<h1 style="text-align: left;">
 					모두가 함께하는<br>모두의 봉사<br>모해
 				</h1>
 				<div style="left: 0px; width: 370px; margin-top: 50px;">
-					<a href="mainPage.html" class="theme-btn btn-style-one"
-						style="margin-right: 50px"> <span class="btn-title">메인으로</span>
-					</a> <a href="shoppingBasket.do" class="theme-btn btn-style-one"> <span
-						class="btn-title">My페이지</span>
+					<a href="mainPage.html" class="theme-btn btn-style-one"style="margin-right: 50px"> 
+						<span class="btn-title">메인으로</span>
+					</a> 
+					<a href="shoppingBasket.do" class="theme-btn btn-style-one"> 
+						<span class="btn-title">My페이지</span>
 					</a>
 				</div>
 			</div>
@@ -57,11 +49,9 @@
 		<section class="facts-section">
 			<div class="auto-container">
 				<div class="inner-container">
-
 					<!-- Fact Counter -->
 					<div class="fact-counter">
 						<div class="row clearfix">
-
 							<!--Column-->
 							<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
 								<div class="inner wow fadeInLeft" data-wow-delay="0ms"
@@ -131,8 +121,7 @@
 					<li><a href="mainPage.html">모해에서는 이런 기능을 제공합니다</a></li>
 				</ul>
 				<hr>
-				<br>
-				<br>
+				<br><br>
 			</div>
 			<div class="auto-container">
 				<div class="row clearfix">
@@ -147,8 +136,8 @@
 							<div class="text">재능기부와 기부모금을 동시에 할 수 있는 펀딩 시스템을 제공합니다</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="funding.do" class="theme-btn btn-style-one"
-									style="margin-right: 50px"> <span class="btn-title">펀딩</span>
+								<a href="funding.do" class="theme-btn btn-style-one"style="margin-right: 50px"> 
+									<span class="btn-title">펀딩</span>
 								</a>
 							</div>
 						</div>
@@ -167,8 +156,8 @@
 							</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="bongsaMain.do" class="theme-btn btn-style-three"
-									style="margin-right: 50px"> <span class="btn-title">봉사</span>
+								<a href="bongsaMain.do" class="theme-btn btn-style-three"style="margin-right: 50px"> 
+									<span class="btn-title">봉사</span>
 								</a>
 							</div>
 						</div>
@@ -186,8 +175,8 @@
 							<div class="text">모해와 함께하는 기업에게 제공하는 다양한 해택 알아보기</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="partner.do" class="theme-btn btn-style-one"
-									style="margin-right: 50px"> <span class="btn-title">파트너쉽</span>
+								<a href="partner.do" class="theme-btn btn-style-one"style="margin-right: 50px"> 
+									<span class="btn-title">파트너쉽</span>
 								</a>
 							</div>
 						</div>
@@ -204,8 +193,8 @@
 							<div class="text">SNS연동으로 다양해진 펀딩과 봉사 후기를 확인하고 싶다면</div>
 							<div
 								style="left: 0px; width: 370px; margin-top: 50px; margin-left: 45px;">
-								<a href="review.do" class="theme-btn btn-style-three"
-									style="margin-right: 50px"> <span class="btn-title">리뷰</span>
+								<a href="review.do" class="theme-btn btn-style-three"style="margin-right: 50px"> 
+									<span class="btn-title">리뷰</span>
 								</a>
 							</div>
 						</div>
@@ -217,12 +206,10 @@
 		<jsp:include page="footer.jsp" />
 	</div>
 	<!--End pagewrapper-->
-
 	<!--Scroll to top-->
 	<div class="scroll-to-top scroll-to-target" data-target="html">
 		<span class="flaticon-up-arrow"></span>
 	</div>
-
 	<script src="resources/js/jquery.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -234,6 +221,5 @@
 	<script src="resources/js/lazyload.js"></script>
 	<script src="resources/js/scrollbar.js"></script>
 	<script src="resources/js/script.js"></script>
-
 </body>
 </html>

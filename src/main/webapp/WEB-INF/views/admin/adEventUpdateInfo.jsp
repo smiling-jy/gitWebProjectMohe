@@ -10,20 +10,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
-
 <title>Admin Mohe</title>
 <!-- AOS CSS파일 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link href="../resources/css_ad/bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->
-<link href="../resources/css_ad/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet">
+<link href="../resources/css_ad/font-awesome/css/font-awesome.min.css"rel="stylesheet">
 <!-- Custom Theme Style -->
 <link href="../resources/css_ad/custom.min.css" rel="stylesheet">
 <link href="../resources/css_ad/newStyle.css" rel="stylesheet">
-
 <!--Loveus Stylesheets -->
 <link href="../resources/css_ad/style.css" rel="stylesheet">
 <link href="../resources/css_ad/style-2.css" rel="stylesheet">
@@ -32,13 +28,10 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
+
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -54,7 +47,6 @@
 					</div>
 					<hr>
 					<div class="content_table_div" style="height: 1100px">
-
 						<div>
 							<h3>이벤트 수정하기</h3>
 							<hr style="width:950px">
@@ -112,9 +104,7 @@
 								</div>
 							</form>
 						</div>
-
-						<!-- form2 끝-->
-
+						<!-- form 끝-->
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>

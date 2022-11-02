@@ -31,13 +31,10 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
+
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -62,23 +59,19 @@
 											<h3>공지사항 수정</h3>
 											<div style="height: 50px;"></div>
 											<h2>NO. ${notice.notice_no}</h2>
-											<input type="hidden" value="${notice.notice_no}"
-												name="notice_no" />
+											<input type="hidden" value="${notice.notice_no}"name="notice_no" />
 											<hr style="width: 950px; color: white;">
 											<div class="row clearfix">
-
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">제목</div>
-													<input type="text" name="notice_title"
-														value="${notice.notice_title}">
+													<input type="text" name="notice_title"value="${notice.notice_title}">
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">본문</div>
 													<textarea style="height:500px;" name="notice_text">${notice.notice_text}</textarea>
 												</div>
 												<div>
-													<button type="submit" class="theme-btn btn-style-one"
-														id="update_btn" style="width:950px">
+													<button type="submit" class="theme-btn btn-style-one"id="update_btn" style="width:950px">
 														<span class="btn-title btn_fix">수정 완료하기</span>
 													</button>
 												</div>
@@ -88,8 +81,7 @@
 								</div>
 							</form>
 						</div>
-						<!-- form2 끝-->
-
+						<!-- form 끝-->
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>
