@@ -86,7 +86,7 @@ public class AdminController {
 	@RequestMapping(value = "idCheck.do", produces = "application/text; charset=utf8")
 	@ResponseBody // 화면이 전화되지않고 비동기동신이 가능하도록 하는 어노테이션
 	public String idCheck(AdminVO vo) {
-		System.out.println(vo.getAdm_id());
+		
 		AdminVO resultVO = adminService.idCheck_Login(vo);
 		
 		return resultVO == null ? "사용 가능한 이메일입니다." : "중복된 이메일입니다.";
@@ -144,8 +144,6 @@ public class AdminController {
 				message.setContent(multipart);
 
 				Transport.send(message);
-				System.out.println("임시 비밀번호 발급:"+generatedString);
-				System.out.println("admin_no:"+admin.getAdm_no());
 				// 임시 비밀번호 admin객체에 저장
 				admin.setAdm_pass(generatedString);
 				// db에 업데이트
@@ -278,7 +276,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -292,7 +289,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getUser_img_file().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -363,7 +359,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -377,7 +372,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -394,7 +388,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -408,7 +401,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getMain_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -438,7 +430,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -452,7 +443,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -469,7 +459,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -483,7 +472,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getMain_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -565,7 +553,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -579,7 +566,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				pj.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -602,7 +588,6 @@ public class AdminController {
 					try {
 						// 파일저장
 						pj.getFile()[i].transferTo(f);
-						System.out.println(i + " 번 파일이 저장되었습니다");
 
 					} catch (IllegalStateException e) {
 						e.printStackTrace();
@@ -676,7 +661,6 @@ public class AdminController {
 		// 로그인 하지않은 사람이 접근할 수 없도록
 		if(session.getAttribute("adm_no") == null) return "/admin/adminLogin";
 		//bs_judg 변수를 이용해 승인인지, 비승인인지 service에서 판단후 업데이트 
-		System.out.println(vo);
 		String strStart = vo.getBs_work_start();
 		String strEnd = vo.getBs_work_end();
 		
@@ -710,7 +694,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -724,7 +707,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -747,7 +729,6 @@ public class AdminController {
 					try {
 						// 파일저장
 						vo.getFile()[i].transferTo(f);
-						System.out.println(i + " 번 파일이 저장되었습니다");
 
 					} catch (IllegalStateException e) {
 						e.printStackTrace();
@@ -825,8 +806,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -839,8 +818,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getLogo_img_file().transferTo(f);
-				System.out.println(" 로고 이미지 파일이 저장되었습니다");
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -883,8 +860,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -897,8 +872,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getLogo_img_file().transferTo(f);
-				System.out.println(" 로고 이미지 파일이 저장되었습니다");
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -1098,8 +1071,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -1112,8 +1083,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -1152,8 +1121,6 @@ public class AdminController {
 			try {
 				// 폴더 생성 메소드
 				Files.createDirectories(directoryPath);
-				System.out.println(directoryPath + " 디렉토리가 생성되었습니다.");
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -1166,8 +1133,6 @@ public class AdminController {
 			try {
 				// 파일저장 메소드
 				vo.getTitle_img().transferTo(f);
-				System.out.println(" 타이틀 이미지 파일이 저장되었습니다");
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -1241,7 +1206,6 @@ public class AdminController {
 			int cnt=0;
 			for(UserInfoVO user : users) {
 				addArray[cnt] = new InternetAddress(user.getUser_email());
-				System.out.println(user.getUser_email());
 				cnt++;
 			}
 			message.setRecipients(Message.RecipientType.TO,addArray);
@@ -1250,7 +1214,6 @@ public class AdminController {
 			message.setContent(vo.getEText(),"text/html;charset=utf-8");
 			
 			Transport.send(message);
-			System.out.println("Success Message Send");
 		}catch(MessagingException e){
 			e.printStackTrace();
 			result = "false";

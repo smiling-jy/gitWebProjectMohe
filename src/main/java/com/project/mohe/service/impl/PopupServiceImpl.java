@@ -1,6 +1,5 @@
 package com.project.mohe.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,35 +16,13 @@ public class PopupServiceImpl implements PopupService {
 	@Autowired
 	private PopupDAO popupDao;
 
-	@Override
-	public void insertPopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updatePopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deletePopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public PopupVO getPopup(PopupVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	// 팝업목록조회
 	@Override
 	public List<PopupVO> getPopupList(PagingVO vo) {
 		return popupDao.getPopupList(vo);
 	}
 
+	// 페이징을 위한 메소드
 	@Override
 	public PagingVO getAllcnt(PagingVO vo) {
 		return popupDao.getAllcnt(vo);

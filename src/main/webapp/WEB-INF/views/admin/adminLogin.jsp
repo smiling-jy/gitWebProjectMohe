@@ -17,6 +17,7 @@
 		alert("로그인에 실패하셨습니다");
 	<%}%>
 </script>
+
 <body>
     <div class="login-card-container">
         <div class="login-card">
@@ -43,10 +44,8 @@
             </form>
         </div>
     </div>
-    
 	<!-- jQuery -->
 	<script src="../resources/js_ad/jquery.min.js"></script>
 	<script src="../resources/js_ad/adminScript.js"></script>
-	
 </body>
 </html>

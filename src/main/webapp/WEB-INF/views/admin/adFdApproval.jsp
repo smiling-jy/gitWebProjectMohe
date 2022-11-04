@@ -41,7 +41,6 @@
 <link href="../resources/css_ad/newStyle2.css" rel="stylesheet">
 </head>
 
-
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -73,9 +72,9 @@
 					<div class="content_table_div">
 						<!-- 버튼시작 -->
 						<div class="link-box btn_tb_mg">
-							<a href="#" class="theme-btn btn-style-one" id="excel_export">
-								<span class="btn-title"><h2>EXCEL 내보내기</h2></span>
-							</a>
+							<h2><a href="#" class="theme-btn btn-style-one" id="excel_export">
+								<span class="btn-title">EXCEL 내보내기</span>
+							</a></h2>
 						</div>
 						<!-- 버튼끝 -->
 						<!-- 테이블 시작 -->

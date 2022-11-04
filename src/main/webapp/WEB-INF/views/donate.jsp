@@ -12,41 +12,27 @@
 <link href="resources/css/responsive.css" rel="stylesheet">
 <!-- Color File -->
 <link href="resources/css/color.css" rel="stylesheet">
-
-<link href="resources/shortcut icon"
-	href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
-<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-
+<link href="resources/shortcut icon"href="resources/images/mohe_logo/favicon_mohe.png" type="image/x-icon">
+<link rel="icon" href="resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="resources/js/respond.js"></script><![endif]-->
+<meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link href="resources/css/mainPage.css" rel="stylesheet">
 <link href="resources/css/header1.css" rel="stylesheet">
 <link href="resources/css/footer.css" rel="stylesheet">
-
 <!-- jQuery -->
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <!-- iamport.payment.js -->
-<script type="text/javascript"
-	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script type="text/javascript"src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 
 <body>
-
-
 	<div class="page-wrapper">
 		<!-- header include -->
 		<jsp:include page="header.jsp" />
 
 		<!-- Page Banner Section -->
 		<section class="donate_benner_section image wow fadeInUp">
-			<!-- <div class="image-layer lazy-image" data-bg="url('resources/resources/images/background/bg-banner-1.jpg')"></div> -->
-
 			<div class="auto-container benner_text">
 				<img class="donation_img_fix"
 					src="resources/images/mohe_logo/hand_donate.png">
@@ -71,7 +57,6 @@
 								<div class="donate-form">
 									<form name="inputDnt" method="post" action="donation.do">
 										<h2>당신의 기부</h2>
-
 										<div class="form-group">
 											<div class="field-label">
 												<hr>
@@ -105,14 +90,16 @@
 											<div class="form-group">
 												<div class="clearfix">
 													<div class="radio-block" style="position:relative;top:-5px;">
-														<input type="radio" id="radio-1" name="dnt_pay_type"
-															value="tosspay"><label for="radio-1"><img
-															src="resources/images/payment/toss_pay_logo.jpg" ></label>
+														<input type="radio" id="radio-1" name="dnt_pay_type"value="tosspay">
+														<label for="radio-1">
+															<img src="resources/images/payment/toss_pay_logo.jpg" >
+														</label>
 													</div>
 													<div class="radio-block">
-														<input type="radio" id="radio-2" name="dnt_pay_type"
-															value="kakaopay" checked><label for="radio-2"><img
-															src="resources/images/payment/kakao_pay_logo.PNG"></label>
+														<input type="radio" id="radio-2" name="dnt_pay_type"value="kakaopay" checked>
+														<label for="radio-2">
+															<img src="resources/images/payment/kakao_pay_logo.PNG">
+														</label>
 													</div>
 												</div>
 											</div>
@@ -124,45 +111,36 @@
 											<div class="row clearfix">
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">성함</div>
-													<input type="text" id="dnt_name" name="dnt_name" value=""
-														placeholder="Name" required>
+													<input type="text" id="dnt_name" name="dnt_name" value=""placeholder="Name" required>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
 													<div class="field-label">연락처</div>
-													<input type="text" maxlength="13" id="dnt_phone"
-														name="dnt_phone" value="" placeholder="Phone Number"
-														required>
+													<input type="text" maxlength="13" id="dnt_phone"name="dnt_phone" value="" placeholder="Phone Number"required>
 												</div>
 												<div
 													class="form-group col-lg-12 col-md-12 col-sm-12 form_phone">
 													<div class="field-label">Email</div>
-													<input type="email" id="dnt_email" name="dnt_email"
-														value="" placeholder="Email address" required>
-													<div class="field-label" id="email_message"
-														style="text-align: right;"></div>
+													<input type="email" id="dnt_email" name="dnt_email"value="" placeholder="Email address" required>
+													<div class="field-label" id="email_message"style="text-align: right;"></div>
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12"
 													style="text-align: right;">
 													<div class="donation-total" id="total">
-														Donation Total: <strong>50000원</strong> <input
-															type="hidden" id="dnt_amount" name="dnt_amount"
-															value="50000" />
+														Donation Total: <strong>50000원</strong> 
+														<input type="hidden" id="dnt_amount" name="dnt_amount"value="50000" />
 													</div>
 												</div>
 											</div>
 										</div>
 									</form>
 									<div style="text-align: center;">
-										<button type="button" class="theme-btn btn-style-one"
-											id="dnt_btn">
+										<button type="button" class="theme-btn btn-style-one"id="dnt_btn">
 											<span class="btn-title btn_fix">기부 완료하기</span>
 										</button>
 									</div>
 								</div>
-
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -342,5 +320,5 @@
 			}; // payment() 함수 종료
 		});// $(function(){}) 종료
 	</script>
-</body>S
+</body>
 </html>

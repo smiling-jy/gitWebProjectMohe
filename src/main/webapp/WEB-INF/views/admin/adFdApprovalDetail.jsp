@@ -9,8 +9,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
-
 <title>Admin Mohe</title>
 <!-- AOS CSS파일 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,7 +20,6 @@
 <!-- Custom Theme Style -->
 <link href="../resources/css_ad/custom.min.css" rel="stylesheet">
 <link href="../resources/css_ad/newStyle.css" rel="stylesheet">
-
 <!--Loveus Stylesheets -->
 <link href="../resources/css_ad/style.css" rel="stylesheet">
 <link href="../resources/css_ad/style-2.css" rel="stylesheet">
@@ -31,13 +28,10 @@
 <!-- Color File -->
 <link href="../resources/css_ad/color.css" rel="stylesheet">
 <link href="../resources/css_ad/flaticon.css" rel="stylesheet">
-
-<link rel="shortcut icon"
-	href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
-<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"
-	type="image/x-icon">
+<link rel="shortcut icon"href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
+<link rel="icon" href="../resources/images/mohe_logo/favicon_mohe.png"type="image/x-icon">
 </head>
+
 <body class="nav-md">
 	<div class="container body">
 		<!-- side include -->
@@ -54,87 +48,85 @@
 					<hr>
 					<div class="content_table_div" style="overflow:auto;">
 						<div>
-							<!-- 여기 폼시작 -->
 							<!--Form Column-->
-								<div class="form-column col-lg-6 col-md-12 col-sm-12"
-									style="margin-left: 250px">
-									<div class="inner">
-										<div class="donate-form">
-											<h3 style="margin-left:110px;">신청 펀딩 상세정보</h3>
-											<div style="height: 50px;"></div>
-											<h2>NO. ${apFd.fd_no}</h2>
-											<hr style="width: 430px; color: white;">
-											<div class="user_pf_div">
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">타이틀 사진</div>
-													<img id="title_image" src="../resources/files/funding/${apFd.fd_img_name}/title.png" /> 
+							<div class="form-column col-lg-6 col-md-12 col-sm-12"
+								style="margin-left: 250px">
+								<div class="inner">
+									<div class="donate-form">
+										<h3 style="margin-left:110px;">신청 펀딩 상세정보</h3>
+										<div style="height: 50px;"></div>
+										<h2>NO. ${apFd.fd_no}</h2>
+										<hr style="width: 430px; color: white;">
+										<div class="user_pf_div">
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">타이틀 사진</div>
+												<img id="title_image" src="../resources/files/funding/${apFd.fd_img_name}/title.png" /> 
 											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="form-group col-lg-6 col-md-6 col-sm-6">
+												<div class="field-label">프로젝트 카테고리</div>
+												<select name="fd_category">
+													<option value="디자인문구">디자인문구</option>
+													<option value="식품">식품</option>
+													<option value="패션잡화">패션잡화</option>
+													<option value="홈리빙">홈 리빙</option>
+													<option value="반려동물">반려동물</option>
+												</select>
+												<input type="hidden" id="fd_category" value="${apFd.fd_category}">
 											</div>
-											<div class="row clearfix">
-												<div class="form-group col-lg-6 col-md-6 col-sm-6">
-													<div class="field-label">프로젝트 카테고리</div>
-													<select name="fd_category">
-														<option value="디자인문구">디자인문구</option>
-														<option value="식품">식품</option>
-														<option value="패션잡화">패션잡화</option>
-														<option value="홈리빙">홈 리빙</option>
-														<option value="반려동물">반려동물</option>
-													</select>
-													<input type="hidden" id="fd_category" value="${apFd.fd_category}">
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로젝트제목</div>
-													<input type="text" value='${apFd.fd_title}'  name="fd_title" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로젝트 소개</div>
-													<textarea name="fd_content"readonly>${apFd.fd_content}</textarea>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">후원 대상</div>
-													<input type="text" name="fd_receiver" value="${apFd.fd_receiver}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">상품 금액</div>
-													<input type="text" name="fd_price" value="${apFd.fd_price}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">목표 금액</div>
-													<input type="text" name="fd_goals" value="${apFd.fd_goals}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로젝트 시작일</div>
-													<input type="date" name="fd_startdate"  value="${apFd.fd_startdate}"readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">프로젝트 종료일</div>
-													<input type="date" name="fd_enddate"  value="${apFd.fd_enddate}"readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">창작자(상호)</div>
-													<input type="text" name="fd_hostname"  value="${apFd.fd_hostname}"readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">창작자 연락처</div>
-													<input type="text" name="fd_host_phone" value="${apFd.fd_host_phone}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">창작자 이메일</div>
-													<input type="email" name="fd_host_email" value="${apFd.fd_host_email}" readonly>
-												</div>
-												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<div class="field-label">내용 이미지</div>
-													<c:forEach var="cnt" begin="1" end="${apFd.fd_img_cnt}">
-														<img src="../resources/files/funding/${apFd.fd_img_name}/${cnt}.png">
-													</c:forEach>
-												</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">프로젝트제목</div>
+												<input type="text" value='${apFd.fd_title}'  name="fd_title" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">프로젝트 소개</div>
+												<textarea name="fd_content"readonly>${apFd.fd_content}</textarea>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">후원 대상</div>
+												<input type="text" name="fd_receiver" value="${apFd.fd_receiver}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">상품 금액</div>
+												<input type="text" name="fd_price" value="${apFd.fd_price}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">목표 금액</div>
+												<input type="text" name="fd_goals" value="${apFd.fd_goals}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">프로젝트 시작일</div>
+												<input type="date" name="fd_startdate"  value="${apFd.fd_startdate}"readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">프로젝트 종료일</div>
+												<input type="date" name="fd_enddate"  value="${apFd.fd_enddate}"readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">창작자(상호)</div>
+												<input type="text" name="fd_hostname"  value="${apFd.fd_hostname}"readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">창작자 연락처</div>
+												<input type="text" name="fd_host_phone" value="${apFd.fd_host_phone}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">창작자 이메일</div>
+												<input type="email" name="fd_host_email" value="${apFd.fd_host_email}" readonly>
+											</div>
+											<div class="form-group col-lg-12 col-md-12 col-sm-12">
+												<div class="field-label">내용 이미지</div>
+												<c:forEach var="cnt" begin="1" end="${apFd.fd_img_cnt}">
+													<img src="../resources/files/funding/${apFd.fd_img_name}/${cnt}.png">
+												</c:forEach>
 											</div>
 										</div>
 									</div>
-								</div><!-- 원래이다음 form있음 -->
+								</div>
+							</div>
 						</div>
 						<!-- form2 끝-->
-
 					</div>
 					<!-- 변경 div 끝 / -->
 				</div>
